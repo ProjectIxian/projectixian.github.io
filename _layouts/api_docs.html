@@ -4,7 +4,7 @@ layout: default
 <nav class="leftNavigation">
     <div class="navTitle">API Documentation</div>
     <div class="sectionTitle">Ixian Core Generic API Commands </div>
-    {% assign core_api_docs = site.api_docs | where: 'type', '' %}
+    {% assign core_api_docs = site.api_docs | where: 'type', 'core' %}
     {% for api_doc in core_api_docs %}
         <a href="{{ api_doc.url }}" {% if page.url == api_doc.url %}class="selected"{% endif %}>{{ api_doc.title }}</a>
     {% endfor %}
