@@ -8,9 +8,24 @@ collections:
 defaults:
   - scope:
       path: ""
+      type: "tech_docs"
+    values:
+      layout: "tech_doc"
+  - scope:
+      path: ""
       type: "api_docs"
     values:
       layout: "api_doc"
+  - scope:
+      path: ""
+      type: "api_demos"
+    values:
+      layout: "api_demo"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
   - scope:
       path: ""
     values:
