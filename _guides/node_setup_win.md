@@ -1,4 +1,4 @@
 ---
 title: Node setup on Windows
 ---
-Node setup on Windows guide
+Node setup on Windows guide coming soon

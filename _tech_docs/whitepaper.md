@@ -1,4 +1,4 @@
 ---
 title: Ixian Whitepaper
 ---
-Ixian whitepaper
+Ixian whitepaper coming soon

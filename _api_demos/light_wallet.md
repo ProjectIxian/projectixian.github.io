@@ -1,4 +1,4 @@
 ---
 title: Light Wallet
 ---
-Light wallet demo/example
+Light wallet demo/example coming soon
