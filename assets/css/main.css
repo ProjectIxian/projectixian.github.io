@@ -25,11 +25,6 @@ h1
     margin-bottom: 5px;
 }
 
-.mk-tables table, .mk-tables td, .mk-tables th
-{
-    border: 1px solid black;
-}
-
 header
 {
     background: #dedede;
@@ -122,4 +117,58 @@ header nav > a:first-child
     padding: 10px 2%;
     width: 80%;
     vertical-align: top;
+}
+
+.content code
+{
+    background-color: #d3e7d0;
+    padding: .2em .4em;
+    border-radius: 3px;
+}
+
+.content table
+{
+    padding: 0;
+}
+
+.content table tr
+{
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.content table tr:nth-child(2n)
+{
+    background-color: #f8f8f8;
+}
+
+.content table tr th
+{
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+.content table tr td
+{
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+.content table tr th :first-child,
+.content table tr td :first-child
+{
+    margin-top: 0;
+}
+
+.content table tr th :last-child,
+.content table tr td :last-child
+{
+    margin-bottom: 0;
 }
