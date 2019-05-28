@@ -95,6 +95,18 @@ header nav > a:first-child
     vertical-align: top;
 }
 
+.leftNavigation .navTitle
+{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.leftNavigation .sectionTitle
+{
+    font-size: 18px;
+    font-weight: 700;
+}
+
 .leftNavigation a
 {
     font-size: 18px;

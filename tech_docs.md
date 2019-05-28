@@ -3,6 +3,7 @@ layout: default
 title: Technical Documents
 ---
 <nav class="leftNavigation">
+    <div class="navTitle">{{ page.title }}</div>
     {% for tech_doc in site.tech_docs %}
         <a href="{{ tech_doc.url }}">{{ tech_doc.title }}</a>
     {% endfor %}
