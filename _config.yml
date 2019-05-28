@@ -2,7 +2,13 @@ name: Ixian Documentation Pages
 markdown: kramdown
 
 collections:
+    tech_docs:
+        output: true
     api_docs:
+        output: true
+    api_demos:
+        output: true
+    guides:
         output: true
 
 defaults:

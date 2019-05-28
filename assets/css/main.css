@@ -80,3 +80,15 @@ header nav > a:first-child
 {
     padding-left: 0px;
 }
+
+.leftNavigation
+{
+    background: #f2f2f2;
+}
+
+.leftNavigation a
+{
+    font-size: 18px;
+    color: black;
+    line-height: 30px;
+}
