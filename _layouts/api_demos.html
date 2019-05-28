@@ -7,5 +7,5 @@ title: API Demos
     {% for api_demo in site.api_demos %}
         <a href="{{ api_demo.url }}" {% if page.url == api_demo.url %}class="selected"{% endif %}>{{ api_demo.title }}</a>
     {% endfor %}
-</nav><div class="content">
+</nav><div class="content">{{ content }}
 </div>
