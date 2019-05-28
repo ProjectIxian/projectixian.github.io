@@ -73,7 +73,8 @@ header nav > a
 
 header nav > a:hover,
 header nav > a:focus,
-header nav > a:active
+header nav > a:active,
+header nav > a.selected
 {
     border-bottom: 5px solid white;
 }
