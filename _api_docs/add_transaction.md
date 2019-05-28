@@ -1,5 +1,6 @@
 ---
 title: Add Transaction
+type: 
 ---
 ## Add Transaction
 Generates a new IXI transaction to transfer funds between wallets. Multiple 'from' wallets with different amounts may be specified, as well as multiple target wallets and amounts.
