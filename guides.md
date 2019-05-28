@@ -6,6 +6,5 @@ title: Guides
     {% for guide in site.guides %}
         <a href="{{ guide.url }}">{{ guide.title }}</a>
     {% endfor %}
-</nav>
-<div class="content">
+</nav><div class="content">
 </div>

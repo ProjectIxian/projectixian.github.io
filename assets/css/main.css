@@ -85,7 +85,8 @@ header nav > a:first-child
 {
     background: #f2f2f2;
     display: inline-block;
-    float: left;
+    width: 20%;
+    padding: 10px 2%;
     height: 100%;
 }
 
@@ -99,4 +100,6 @@ header nav > a:first-child
 .content
 {
     display: inline-block;
+    padding: 10px 2%;
+    width: 80%;
 }

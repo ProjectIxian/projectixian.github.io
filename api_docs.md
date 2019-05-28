@@ -6,6 +6,5 @@ title: API Documentation
     {% for api_doc in site.api_docs %}
         <a href="{{ api_doc.url }}">{{ api_doc.title }}</a>
     {% endfor %}
-</nav>
-<div class="content">
+</nav><div class="content">
 </div>
