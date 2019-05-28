@@ -119,6 +119,11 @@ header nav > a:first-child
     vertical-align: top;
 }
 
+.content pre
+{
+    background-color: #d3e7d0;
+}
+
 .content code
 {
     background-color: #d3e7d0;
