@@ -25,6 +25,11 @@ h1
     margin-bottom: 5px;
 }
 
+.mk-tables table, .mk-tables td, .mk-tables th
+{
+    border: 1px solid black;
+}
+
 header
 {
     background: #dedede;
