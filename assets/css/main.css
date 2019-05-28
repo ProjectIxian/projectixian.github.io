@@ -1,0 +1,82 @@
+*
+{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+html, body
+{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+h1
+{
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+header
+{
+    background: #dedede;
+}
+
+header .subTitle
+{
+    font-size: 18px;
+}
+
+
+header .logoWrapper
+{
+    float: left;
+    vertical-align: middle;
+    padding-right: 20px;
+    margin: 20px 20px 0px 20px;
+    border-right: 1px solid #3c972e;
+    height: 90px;
+}
+
+header .logoWrapper img
+{
+    margin-top: 15px;
+}
+
+header .welcomeText
+{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+header nav
+{
+    background: #3c972e;
+    padding-left: 20px;
+}
+
+header nav > a
+{
+    color: white;
+    padding: 10px 30px;
+    display: inline-block;
+}
+
+header nav > a:hover,
+header nav > a:focus,
+header nav > a:active
+{
+    border-bottom: 5px solid white;
+}
+
+header nav > a:first-child
+{
+    padding-left: 0px;
+}

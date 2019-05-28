@@ -1,0 +1,17 @@
+name: Ixian Documentation Pages
+markdown: kramdown
+
+collections:
+    api_docs:
+        output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "api_docs"
+    values:
+      layout: "api_doc"
+  - scope:
+      path: ""
+    values:
+      layout: "default"

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page.title }}</title>
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    </head>
+    <body>
+        <header>
+            <div class="logoWrapper">
+                <img src="gfx/ixianFullLogo.png" alt="Ixian Full Logo" class="ixianFullLogo"/>
+            </div>
+            <div class="welcomeText">
+                <h1>{{ page.header }}</h1>
+                <span class="subTitle">{{ page.subtitle }}</span>
+            </div>
+            {% include navigation.html %}
+        </header>
+        {{ content }}
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"/>
+    </body>
+</html>
