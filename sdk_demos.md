@@ -1,4 +1,4 @@
 ---
-layout: api_demos
+layout: sdk_demos
 ---
 Coming soon

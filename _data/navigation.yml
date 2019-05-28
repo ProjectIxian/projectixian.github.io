@@ -1,8 +1,10 @@
 - name: Technical Documents
   link: /tech_docs.html
-- name: API Documents
+- name: API Documentation
   link: /api_docs.html
-- name: API Demos
-  link: /api_demos.html
+- name: SDK Documentation
+  link: /sdk_docs.html
+- name: SDK Demos
+  link: /sdk_demos.html
 - name: Guides
   link: /guides.html
