@@ -8,12 +8,12 @@ layout: default
     {% for api_doc in core_api_docs %}
         <a href="{{ api_doc.url }}" {% if page.url == api_doc.url %}class="selected"{% endif %}>{{ api_doc.title }}</a>
     {% endfor %}
-    <div class="sectionTitle">Ixian DLT API Commands </div>
+    <div class="sectionTitle">Ixian DLT Specific API Commands </div>
     {% assign dlt_api_docs = site.api_docs | where: 'type', 'dlt' %}
     {% for api_doc in dlt_api_docs %}
         <a href="{{ api_doc.url }}" {% if page.url == api_doc.url %}class="selected"{% endif %}>{{ api_doc.title }}</a>
     {% endfor %}
-    <div class="sectionTitle">Ixian S2 API Commands </div>
+    <div class="sectionTitle">Ixian S2 Specific API Commands </div>
     {% assign s2_api_docs = site.api_docs | where: 'type', 's2' %}
     {% for api_doc in s2_api_docs %}
         <a href="{{ api_doc.url }}" {% if page.url == api_doc.url %}class="selected"{% endif %}>{{ api_doc.title }}</a>
