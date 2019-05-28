@@ -1,12 +1,12 @@
 ---
 layout: default
-title: API Documentation
-header: 
-subtitle: 
+title: Technical Documents
 ---
 <nav class="leftNavigation">
-    {% for api_doc in site.api_docs %}
-        <a href="{{ api_doc.url }}">{{ api_doc.title }}</a>
+    {% for tech_doc in site.tech_docs %}
+        <a href="{{ tech_doc.url }}">{{ tech_doc.title }}</a>
     {% endfor %}
 </nav>
+<div class="content">
 {{ content }}
+</div>

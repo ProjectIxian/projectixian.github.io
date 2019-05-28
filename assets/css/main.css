@@ -84,6 +84,9 @@ header nav > a:first-child
 .leftNavigation
 {
     background: #f2f2f2;
+    display: inline-block;
+    float: left;
+    height: 100%;
 }
 
 .leftNavigation a
@@ -91,4 +94,9 @@ header nav > a:first-child
     font-size: 18px;
     color: black;
     line-height: 30px;
+}
+
+.content
+{
+    display: inline-block;
 }
