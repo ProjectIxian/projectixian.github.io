@@ -85,6 +85,13 @@ header nav > a:first-child
     padding-left: 0px;
 }
 
+.contentWrapper
+{
+    display: table;
+    width: 100%;
+    min-height: 100%;
+}
+
 .leftNavigation
 {
     background: #f2f2f2;
