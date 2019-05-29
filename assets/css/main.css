@@ -96,7 +96,7 @@ header nav > a:first-child
 {
     background: #f2f2f2;
     display: table-cell;
-    width: 20%;
+    width: 290px;
     padding: 10px 2%;
     height: 100%;
     vertical-align: top;
@@ -135,7 +135,7 @@ header nav > a:first-child
 {
     display: table-cell;
     padding: 10px 2%;
-    width: 80%;
+    width: auto;
     vertical-align: top;
 }
 
