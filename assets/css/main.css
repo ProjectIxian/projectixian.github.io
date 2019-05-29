@@ -96,7 +96,7 @@ header nav > a:first-child
 {
     background: #f2f2f2;
     display: table-cell;
-    width: 355px;
+    width: 300px;
     padding: 10px 2%;
     height: 100%;
     vertical-align: top;
@@ -110,9 +110,10 @@ header nav > a:first-child
 
 .leftNavigation .sectionTitle
 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     margin-left: 10px;
+    line-height: 25px;
 }
 
 .leftNavigation a
