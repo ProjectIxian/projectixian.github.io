@@ -112,6 +112,7 @@ header nav > a:first-child
     font-size: 18px;
     color: black;
     line-height: 30px;
+    display: block;
 }
 
 .leftNavigation a:hover,
