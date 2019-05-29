@@ -1,0 +1,88 @@
+var hierarchy =
+[
+    [ "IXICore.Utils._ByteArrayComparer", "class_i_x_i_core_1_1_utils_1_1___byte_array_comparer.html", null ],
+    [ "DLT.Meta.Activity", "class_d_l_t_1_1_meta_1_1_activity.html", null ],
+    [ "DLT.Meta.ActivityStorage", "class_d_l_t_1_1_meta_1_1_activity_storage.html", null ],
+    [ "DLT.Address", "class_d_l_t_1_1_address.html", null ],
+    [ "DLT.AddressClient", "class_d_l_t_1_1_address_client.html", null ],
+    [ "DLT.AddressData", "class_d_l_t_1_1_address_data.html", null ],
+    [ "DLT.AddressMatcher", "class_d_l_t_1_1_address_matcher.html", null ],
+    [ "IXICore.CryptoKey.AsnKeyParser", "class_i_x_i_core_1_1_crypto_key_1_1_asn_key_parser.html", null ],
+    [ "IXICore.CryptoKey.AsnParser", "class_i_x_i_core_1_1_crypto_key_1_1_asn_parser.html", null ],
+    [ "IXICore.CryptoKey.BigInteger", "class_i_x_i_core_1_1_crypto_key_1_1_big_integer.html", null ],
+    [ "DLT.BitReader", "class_d_l_t_1_1_bit_reader.html", null ],
+    [ "DLT.BitWriter", "class_d_l_t_1_1_bit_writer.html", null ],
+    [ "DLT.Block", "class_d_l_t_1_1_block.html", null ],
+    [ "DLT.Clock", "class_d_l_t_1_1_clock.html", null ],
+    [ "IXICore.Utils.ConsoleHelpers", "class_i_x_i_core_1_1_utils_1_1_console_helpers.html", null ],
+    [ "IXICore.Core", "class_i_x_i_core_1_1_core.html", null ],
+    [ "IXICore.CoreConfig", "class_i_x_i_core_1_1_core_config.html", null ],
+    [ "DLT.Network.CoreNetworkUtils", "class_d_l_t_1_1_network_1_1_core_network_utils.html", null ],
+    [ "IXICore.CoreProtocolMessage", "class_i_x_i_core_1_1_core_protocol_message.html", null ],
+    [ "DLT.Crypto", "class_d_l_t_1_1_crypto.html", null ],
+    [ "DLT.CryptoLib", "class_d_l_t_1_1_crypto_lib.html", null ],
+    [ "DLT.CryptoManager", "class_d_l_t_1_1_crypto_manager.html", null ],
+    [ "IXICore.GenericAPIServer", "class_i_x_i_core_1_1_generic_a_p_i_server.html", null ],
+    [ "IComparer", null, [
+      [ "IXICore.Utils.ByteArrayComparer", "class_i_x_i_core_1_1_utils_1_1_byte_array_comparer.html", null ]
+    ] ],
+    [ "DLT.ICryptoLib", "interface_d_l_t_1_1_i_crypto_lib.html", [
+      [ "CryptoLibs.BouncyCastle", "class_crypto_libs_1_1_bouncy_castle.html", null ]
+    ] ],
+    [ "IEqualityComparer", null, [
+      [ "IXICore.Utils.ByteArrayComparer", "class_i_x_i_core_1_1_utils_1_1_byte_array_comparer.html", null ]
+    ] ],
+    [ "DLT.Network.IPAndMask", "struct_d_l_t_1_1_network_1_1_i_p_and_mask.html", null ],
+    [ "DLT.Network.IPv4Subnet", "class_d_l_t_1_1_network_1_1_i_pv4_subnet.html", null ],
+    [ "DLT.IRandom", "interface_d_l_t_1_1_i_random.html", [
+      [ "DLT.RNGCryptoServiceProviderRandom", "class_d_l_t_1_1_r_n_g_crypto_service_provider_random.html", null ]
+    ] ],
+    [ "DLT.IWordlistSource", "interface_d_l_t_1_1_i_wordlist_source.html", [
+      [ "DLT.HardcodedWordlistSource", "class_d_l_t_1_1_hardcoded_wordlist_source.html", null ]
+    ] ],
+    [ "DLT.IxianKeyPair", "class_d_l_t_1_1_ixian_key_pair.html", null ],
+    [ "DLT.IxiNumber", "class_d_l_t_1_1_ixi_number.html", null ],
+    [ "IXICore.Utils.IxiUtils", "class_i_x_i_core_1_1_utils_1_1_ixi_utils.html", null ],
+    [ "IXICore.JsonError", "class_i_x_i_core_1_1_json_error.html", null ],
+    [ "IXICore.JsonResponse", "class_i_x_i_core_1_1_json_response.html", null ],
+    [ "DLT.KDTable", "class_d_l_t_1_1_k_d_table.html", null ],
+    [ "IXICore.CryptoKey.KeyDerivation", "class_i_x_i_core_1_1_crypto_key_1_1_key_derivation.html", null ],
+    [ "DLT.Legacy", "class_d_l_t_1_1_legacy.html", null ],
+    [ "DLT.Meta.Logging", "class_d_l_t_1_1_meta_1_1_logging.html", null ],
+    [ "DLT.Mnemonic", "class_d_l_t_1_1_mnemonic.html", null ],
+    [ "DLT.Transaction.MultisigAddrAdd", "struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html", null ],
+    [ "DLT.Transaction.MultisigAddrDel", "struct_d_l_t_1_1_transaction_1_1_multisig_addr_del.html", null ],
+    [ "DLT.Transaction.MultisigChSig", "struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html", null ],
+    [ "DLT.Transaction.MultisigTxData", "struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html", null ],
+    [ "DLT.NetDump", "class_d_l_t_1_1_net_dump.html", null ],
+    [ "DLT.Network.NetOpsData", "struct_d_l_t_1_1_network_1_1_net_ops_data.html", null ],
+    [ "DLT.NetOutQueueItem", "struct_d_l_t_1_1_net_out_queue_item.html", null ],
+    [ "DLT.NetworkClientManager", "class_d_l_t_1_1_network_client_manager.html", null ],
+    [ "DLT.NetworkEvents", "class_d_l_t_1_1_network_events.html", null ],
+    [ "DLT.Network.NetworkQueue", "class_d_l_t_1_1_network_1_1_network_queue.html", null ],
+    [ "DLT.Network.NetworkServer", "class_d_l_t_1_1_network_1_1_network_server.html", null ],
+    [ "DLT.Network.NetworkUtils", "class_d_l_t_1_1_network_1_1_network_utils.html", null ],
+    [ "DLT.Peer", "class_d_l_t_1_1_peer.html", null ],
+    [ "DLT.PeerStorage", "class_d_l_t_1_1_peer_storage.html", null ],
+    [ "IXICore.PendingTransactions", "class_i_x_i_core_1_1_pending_transactions.html", null ],
+    [ "IXICore.Platform", "class_i_x_i_core_1_1_platform.html", null ],
+    [ "DLT.Presence", "class_d_l_t_1_1_presence.html", null ],
+    [ "DLT.PresenceAddress", "class_d_l_t_1_1_presence_address.html", null ],
+    [ "DLT.PresenceList", "class_d_l_t_1_1_presence_list.html", null ],
+    [ "DLT.Network.QueueMessage", "struct_d_l_t_1_1_network_1_1_queue_message.html", null ],
+    [ "DLT.Network.QueueMessageRaw", "struct_d_l_t_1_1_network_1_1_queue_message_raw.html", null ],
+    [ "DLT.RandomUtils", "class_d_l_t_1_1_random_utils.html", null ],
+    [ "DLT.RemoteEndpoint", "class_d_l_t_1_1_remote_endpoint.html", [
+      [ "DLT.NetworkClient", "class_d_l_t_1_1_network_client.html", null ]
+    ] ],
+    [ "DLT.SuperBlockSegment", "class_d_l_t_1_1_super_block_segment.html", null ],
+    [ "DLT.Meta.ThreadLiveCheck", "class_d_l_t_1_1_meta_1_1_thread_live_check.html", null ],
+    [ "DLT.TimeSyncData", "class_d_l_t_1_1_time_sync_data.html", null ],
+    [ "DLT.Transaction", "class_d_l_t_1_1_transaction.html", null ],
+    [ "DLT.UPnP", "class_d_l_t_1_1_u_pn_p.html", null ],
+    [ "DLT.Wallet", "class_d_l_t_1_1_wallet.html", null ],
+    [ "DLT.WalletState", "class_d_l_t_1_1_wallet_state.html", null ],
+    [ "DLT.WalletStorage", "class_d_l_t_1_1_wallet_storage.html", null ],
+    [ "DLT.Wordlist", "class_d_l_t_1_1_wordlist.html", null ],
+    [ "DLT.WsChunk", "class_d_l_t_1_1_ws_chunk.html", null ]
+];

@@ -6,8 +6,6 @@ collections:
         output: true
     api_docs:
         output: true
-    sdk_docs:
-        output: true
     sdk_demos:
         output: true
     guides:
@@ -24,11 +22,6 @@ defaults:
       type: "api_docs"
     values:
       layout: "api_doc"
-  - scope:
-      path: ""
-      type: "sdk_docs"
-    values:
-      layout: "sdk_doc"
   - scope:
       path: ""
       type: "sdk_demos"

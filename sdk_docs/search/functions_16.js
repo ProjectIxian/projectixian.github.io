@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['wallet',['Wallet',['../class_d_l_t_1_1_wallet.html#a05c4e0b1c15b3dd73b8c622461d94142',1,'DLT.Wallet.Wallet()'],['../class_d_l_t_1_1_wallet.html#a744ef14d4d69237b85a7e7f543fb323a',1,'DLT.Wallet.Wallet(byte[] w_id, IxiNumber w_balance)'],['../class_d_l_t_1_1_wallet.html#ab7b74cefaf660f39909bc935f834998d',1,'DLT.Wallet.Wallet(Wallet wallet)'],['../class_d_l_t_1_1_wallet.html#a1941b5efbcf916ed3080420603513d35',1,'DLT.Wallet.Wallet(byte[] bytes)']]],
+  ['walletexists',['walletExists',['../class_d_l_t_1_1_wallet_storage.html#a4088386e2af1c28f45f4939912b5d34a',1,'DLT::WalletStorage']]],
+  ['walletstate',['WalletState',['../class_d_l_t_1_1_wallet_state.html#a748082b68544b8dbf99ee03e90794e6d',1,'DLT.WalletState.WalletState()'],['../class_d_l_t_1_1_wallet_state.html#a28a8fb3248f972072382ddb1f8b26bcc',1,'DLT.WalletState.WalletState(IEnumerable&lt; Wallet &gt; genesisState)'],['../class_d_l_t_1_1_wallet_state.html#a4ff97137417cbfdf80f2f8816d7a67c7',1,'DLT.WalletState.WalletState(WalletState oldWS)']]],
+  ['walletstorage',['WalletStorage',['../class_d_l_t_1_1_wallet_storage.html#a5a23eca0b7770151dff5ba33e0dd1e91',1,'DLT::WalletStorage']]],
+  ['warn',['warn',['../class_d_l_t_1_1_meta_1_1_logging.html#ae37c4617ed5abe263ab930891bf87874',1,'DLT.Meta.Logging.warn(string message)'],['../class_d_l_t_1_1_meta_1_1_logging.html#aa6d09d197cfc0f9038bd652eca5f0a00',1,'DLT.Meta.Logging.warn(string format, params object[] arguments)']]],
+  ['wordexists',['WordExists',['../class_d_l_t_1_1_wordlist.html#a2dad38664109085fee3116e8064a56d0',1,'DLT::Wordlist']]],
+  ['wordlist',['Wordlist',['../class_d_l_t_1_1_wordlist.html#abbe88cb8de0dff9e23af177327c23678',1,'DLT::Wordlist']]],
+  ['write',['Write',['../class_d_l_t_1_1_bit_writer.html#a34b93c27527456dc7dcf08c16b3adfdf',1,'DLT.BitWriter.Write(bool value)'],['../class_d_l_t_1_1_bit_writer.html#a4ab6ae56109864b352cf8d25f3dd5080',1,'DLT.BitWriter.Write(byte[] bytes, int bitCount)'],['../class_d_l_t_1_1_bit_writer.html#a783ae672574883e93268319f4de6327d',1,'DLT.BitWriter.Write(uint value, int bitCount)'],['../class_d_l_t_1_1_bit_writer.html#ae1ea06035dc7eec2157a555bcabf3c10',1,'DLT.BitWriter.Write(BitArray bitArray)'],['../class_d_l_t_1_1_bit_writer.html#a2d218f24250d9add832028aca704a72d',1,'DLT.BitWriter.Write(BitArray bitArray, int bitCount)'],['../class_d_l_t_1_1_bit_writer.html#ac5ee39eacd9904b7b634ed063bd22836',1,'DLT.BitWriter.Write(BitReader reader)']]],
+  ['writewallet',['writeWallet',['../class_d_l_t_1_1_wallet_storage.html#a6231d4f0bac2931dc6c54d8741b8efd5',1,'DLT::WalletStorage']]],
+  ['writewallet_5fv1',['writeWallet_v1',['../class_d_l_t_1_1_wallet_storage.html#a72a916fb1f6d6937cafe1e0ed8f42312',1,'DLT::WalletStorage']]],
+  ['writewallet_5fv3',['writeWallet_v3',['../class_d_l_t_1_1_wallet_storage.html#aa9df709d9661c5f67918ce64df43ab7f',1,'DLT::WalletStorage']]]
+];

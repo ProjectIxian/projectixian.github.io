@@ -1,10 +1,5 @@
 ---
 layout: default
 ---
-<nav class="leftNavigation">
-    <div class="navTitle">SDK Documentation</div>
-    {% for sdk_doc in site.sdk_docs %}
-        <a href="{{ sdk_doc.url }}" {% if page.url == sdk_doc.url %}class="selected"{% endif %}>{{ sdk_doc.title }}</a>
-    {% endfor %}
-</nav><div class="content">{{ content }}
+<div class="content">{{ content }}
 </div>

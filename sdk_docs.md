@@ -1,4 +1,4 @@
 ---
 layout: sdk_docs
 ---
-Coming soon
+<iframe src="/sdk_docs/index.html"></iframe>
