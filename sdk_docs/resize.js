@@ -74,7 +74,7 @@ function initResizable()
   {
     var headerHeight = header.outerHeight();
     var footerHeight = footer.outerHeight();
-    var windowHeight = $(window).height() - headerHeight - footerHeight;
+    var windowHeight = $(window).height() - headerHeight - footerHeight - 178;
     content.css({height:windowHeight + "px"});
     navtree.css({height:windowHeight + "px"});
     sidenav.css({height:windowHeight + "px"});
