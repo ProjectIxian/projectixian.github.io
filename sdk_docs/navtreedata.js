@@ -23,30 +23,18 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "Ixian-Core", "index.html", [
-    [ "Ixian-Core", "md__r_e_a_d_m_e.html", null ],
-    [ "Packages", "namespaces.html", [
-      [ "Packages", "namespaces.html", "namespaces_dup" ],
-      [ "Package Functions", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
-      ] ]
+  [ "Ixian SDK", "index.html", [
+    [ "Class List", "annotated.html", "annotated" ],
+    [ "Class Index", "classes.html", null ],
+    [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+    [ "Class Members", "functions.html", [
+      [ "All", "functions.html", "functions_dup" ],
+      [ "Functions", "functions_func.html", "functions_func" ],
+      [ "Variables", "functions_vars.html", "functions_vars" ],
+      [ "Enumerations", "functions_enum.html", null ],
+      [ "Properties", "functions_prop.html", null ]
     ] ],
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Properties", "functions_prop.html", null ]
-      ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
-    ] ]
+    [ "File List", "files.html", "files" ]
   ] ]
 ];
 
