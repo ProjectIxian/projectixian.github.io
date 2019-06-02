@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -108,16 +109,23 @@ $(document).ready(function(){initNavTree('class_d_l_t_1_1_transaction.html','');
 <div class="title">DLT.Transaction Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a single transaction on the Ixian blockchain.  
+ <a href="class_d_l_t_1_1_transaction.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html">MultisigAddrAdd</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Another allowed signer is being added to a <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a>. If the target wallet is not yet a 'Multi-Signature' wallet, it will be converted into one and the number of required signatures will be set to 1.  <a href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_del.html">MultisigAddrDel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An allowed signer is being removed from a <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a>. If the target wallet is not a 'Multi-Signature' wallet, such a transaction is considered invalid. The original <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a>'s owner cannot be removed.  <a href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_del.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html">MultisigChSig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the number of required signatures for a 'Multi-Signature' wallet.  <a href="struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html">MultisigTxData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional signature for an existing <code>MultisigTX</code> transaction that is waiting in the pool.  <a href="struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -133,110 +141,164 @@ Public Types</h2></td></tr>
 <a class="el" href="class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083aea1dd06b706bcf8962382d66cc931e5387">Type.MultisigAddTxSignature</a> = 6
 <br />
  }</td></tr>
+<tr class="memdesc:a473851324cd6f8116e24ea61380083ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the transaction.  <a href="class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083ae">More...</a><br /></td></tr>
 <tr class="separator:a473851324cd6f8116e24ea61380083ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab15d768b9d748f280dbf0405ed47ad8c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#ab15d768b9d748f280dbf0405ed47ad8c">MultisigWalletChangeType</a> : byte { <a class="el" href="class_d_l_t_1_1_transaction.html#ab15d768b9d748f280dbf0405ed47ad8ca057d9237970f33e6d71db89f9da19311">MultisigWalletChangeType.AddSigner</a> = 1, 
 <a class="el" href="class_d_l_t_1_1_transaction.html#ab15d768b9d748f280dbf0405ed47ad8ca56ac14c015df3228e1c78485eba8a10d">MultisigWalletChangeType.DelSigner</a> = 2, 
 <a class="el" href="class_d_l_t_1_1_transaction.html#ab15d768b9d748f280dbf0405ed47ad8ca13c6bb078f4e6a4d1c4d2c64d66ee1b4">MultisigWalletChangeType.ChangeReqSigs</a> = 3
  }</td></tr>
+<tr class="memdesc:ab15d768b9d748f280dbf0405ed47ad8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of change being performed on a 'Multi-Signature' wallet.  <a href="class_d_l_t_1_1_transaction.html#ab15d768b9d748f280dbf0405ed47ad8c">More...</a><br /></td></tr>
 <tr class="separator:ab15d768b9d748f280dbf0405ed47ad8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2914207515b29a27c184a0f068154903"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a2914207515b29a27c184a0f068154903">Transaction</a> (int tx_type)</td></tr>
+<tr class="memdesc:a2914207515b29a27c184a0f068154903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty transaction of the specified type.  <a href="#a2914207515b29a27c184a0f068154903">More...</a><br /></td></tr>
 <tr class="separator:a2914207515b29a27c184a0f068154903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d9e6fddd5135ba55c470ac6f715642d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a4d9e6fddd5135ba55c470ac6f715642d">Transaction</a> (int tx_type, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_amount, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_feePerKb, byte[] tx_to, byte[] tx_from, byte[] tx_data, byte[] tx_pubKey, ulong tx_blockHeight, int tx_nonce=-1, long tx_timestamp=0)</td></tr>
+<tr class="memdesc:a4d9e6fddd5135ba55c470ac6f715642d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new transaction from the provided data. This variant widthdraws from and deposits to a single address.  <a href="#a4d9e6fddd5135ba55c470ac6f715642d">More...</a><br /></td></tr>
 <tr class="separator:a4d9e6fddd5135ba55c470ac6f715642d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8394d0a5bac60f734037cb6be72eab2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a8394d0a5bac60f734037cb6be72eab2b">Transaction</a> (int tx_type, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_feePerKb, SortedDictionary&lt; byte[], <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> &gt; tx_toList, byte[] tx_from, byte[] tx_data, byte[] tx_pubKey, ulong tx_blockHeight, int tx_nonce=-1, long tx_timestamp=0)</td></tr>
+<tr class="memdesc:a8394d0a5bac60f734037cb6be72eab2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new transaction from the provided data. This variant can deposit to a multiple addresses.  <a href="#a8394d0a5bac60f734037cb6be72eab2b">More...</a><br /></td></tr>
 <tr class="separator:a8394d0a5bac60f734037cb6be72eab2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aa1f1b7dce5396693dcf9709474cccc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a6aa1f1b7dce5396693dcf9709474cccc">Transaction</a> (int tx_type, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_feePerKb, SortedDictionary&lt; byte[], <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> &gt; tx_toList, SortedDictionary&lt; byte[], <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> &gt; tx_fromList, byte[] tx_data, byte[] tx_pubKey, ulong tx_blockHeight, int tx_nonce=-1, bool sign_transaction=true)</td></tr>
+<tr class="memdesc:a6aa1f1b7dce5396693dcf9709474cccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new transaction from the provided data. This variant can withdraw from and deposit to a multiple addresses.  <a href="#a6aa1f1b7dce5396693dcf9709474cccc">More...</a><br /></td></tr>
 <tr class="separator:a6aa1f1b7dce5396693dcf9709474cccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec7f91ca4b2aa45203acc1760828e26a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#aec7f91ca4b2aa45203acc1760828e26a">Transaction</a> (<a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a> tx_transaction)</td></tr>
+<tr class="memdesc:aec7f91ca4b2aa45203acc1760828e26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#aec7f91ca4b2aa45203acc1760828e26a">More...</a><br /></td></tr>
 <tr class="separator:aec7f91ca4b2aa45203acc1760828e26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a063bcbc4d5dc32c7aabc84df333bef18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a063bcbc4d5dc32c7aabc84df333bef18">Transaction</a> (byte[] bytes)</td></tr>
+<tr class="memdesc:a063bcbc4d5dc32c7aabc84df333bef18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a transaction object from the serialized transaction data. See also <code><a class="el" href="class_d_l_t_1_1_transaction.html#ab62b1cabd61da7febe029e6ecca9ecd9" title="Serializes the transaction object for transmission and returns a byte-field. See also the constructor...">getBytes()</a></code>.  <a href="#a063bcbc4d5dc32c7aabc84df333bef18">More...</a><br /></td></tr>
 <tr class="separator:a063bcbc4d5dc32c7aabc84df333bef18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab62b1cabd61da7febe029e6ecca9ecd9"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#ab62b1cabd61da7febe029e6ecca9ecd9">getBytes</a> ()</td></tr>
+<tr class="memdesc:ab62b1cabd61da7febe029e6ecca9ecd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the transaction object for transmission and returns a byte-field. See also the constructor <code>Transaction(byte[])</code>.  <a href="#ab62b1cabd61da7febe029e6ecca9ecd9">More...</a><br /></td></tr>
 <tr class="separator:ab62b1cabd61da7febe029e6ecca9ecd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09aa7493f2aabaa30409b5e8c6ba9061"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a09aa7493f2aabaa30409b5e8c6ba9061">equals</a> (<a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a> tx)</td></tr>
+<tr class="memdesc:a09aa7493f2aabaa30409b5e8c6ba9061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the two transactions are exactly equal.  <a href="#a09aa7493f2aabaa30409b5e8c6ba9061">More...</a><br /></td></tr>
 <tr class="separator:a09aa7493f2aabaa30409b5e8c6ba9061"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3980b9aaa99bdc53bf3d5eba66cbb4cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a3980b9aaa99bdc53bf3d5eba66cbb4cf">verifySignature</a> (byte[] pubkey, byte[] <a class="el" href="class_d_l_t_1_1_transaction.html#af7021a4620934a28eb9c9bd99026e52d">nonce</a>)</td></tr>
+<tr class="memdesc:a3980b9aaa99bdc53bf3d5eba66cbb4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the transaction's signature against the given public key and address nonce.  <a href="#a3980b9aaa99bdc53bf3d5eba66cbb4cf">More...</a><br /></td></tr>
 <tr class="separator:a3980b9aaa99bdc53bf3d5eba66cbb4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef6e1edc82aedd1670519579aadaa1fe"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#aef6e1edc82aedd1670519579aadaa1fe">generateID</a> ()</td></tr>
+<tr class="memdesc:aef6e1edc82aedd1670519579aadaa1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the <a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> ID from the transaction data.  <a href="#aef6e1edc82aedd1670519579aadaa1fe">More...</a><br /></td></tr>
 <tr class="separator:aef6e1edc82aedd1670519579aadaa1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a383f56d07dd6199f8c4c78b4ecd5a8cd"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a383f56d07dd6199f8c4c78b4ecd5a8cd">getSignature</a> (byte[] <a class="el" href="class_d_l_t_1_1_transaction.html#a56fb4c1eb50820f82dd7dbc0a59b84c9">checksum</a>, byte[] private_key=null)</td></tr>
+<tr class="memdesc:a383f56d07dd6199f8c4c78b4ecd5a8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the signature for the transaction.  <a href="#a383f56d07dd6199f8c4c78b4ecd5a8cd">More...</a><br /></td></tr>
 <tr class="separator:a383f56d07dd6199f8c4c78b4ecd5a8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f8dcb93fd6fb66a367ae9e79394ec6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a2f8dcb93fd6fb66a367ae9e79394ec6c">calculateTotalAmount</a> ()</td></tr>
+<tr class="memdesc:a2f8dcb93fd6fb66a367ae9e79394ec6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the total transaction amount, without fee.  <a href="#a2f8dcb93fd6fb66a367ae9e79394ec6c">More...</a><br /></td></tr>
 <tr class="separator:a2f8dcb93fd6fb66a367ae9e79394ec6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a505dc6973087a549e9047850dae6d3a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a505dc6973087a549e9047850dae6d3a9">generateChecksums</a> ()</td></tr>
+<tr class="memdesc:a505dc6973087a549e9047850dae6d3a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the transaction checksum and stores it in the transaction.  <a href="#a505dc6973087a549e9047850dae6d3a9">More...</a><br /></td></tr>
 <tr class="separator:a505dc6973087a549e9047850dae6d3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f16cad80039e5a36cd557c6ec968f64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a1f16cad80039e5a36cd557c6ec968f64">calculateMinimumFee</a> (<a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> pricePerKb)</td></tr>
+<tr class="memdesc:a1f16cad80039e5a36cd557c6ec968f64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the lowest possible transaction fee based on the size of the transaction.  <a href="#a1f16cad80039e5a36cd557c6ec968f64">More...</a><br /></td></tr>
 <tr class="separator:a1f16cad80039e5a36cd557c6ec968f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9017ca36f04f42ca3e0998fb2ac904f5"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a9017ca36f04f42ca3e0998fb2ac904f5">GetMultisigData</a> ()</td></tr>
+<tr class="memdesc:a9017ca36f04f42ca3e0998fb2ac904f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper function to attempt and parse the transaction's optional data field as some kind of Multisig object.  <a href="#a9017ca36f04f42ca3e0998fb2ac904f5">More...</a><br /></td></tr>
 <tr class="separator:a9017ca36f04f42ca3e0998fb2ac904f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bc89315a2ccdbfa712419158a60c61d"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a6bc89315a2ccdbfa712419158a60c61d">toDictionary</a> ()</td></tr>
+<tr class="memdesc:a6bc89315a2ccdbfa712419158a60c61d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes all transaction data fields into a Dictionary for easier conversion to JSON via the REST API server.  <a href="#a6bc89315a2ccdbfa712419158a60c61d">More...</a><br /></td></tr>
 <tr class="separator:a6bc89315a2ccdbfa712419158a60c61d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa53f7756ba37f9304883821aa9dc0f24"><td class="memItemLeft" align="right" valign="top">static byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#aa53f7756ba37f9304883821aa9dc0f24">calculateChecksum</a> (<a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a> transaction)</td></tr>
+<tr class="memdesc:aa53f7756ba37f9304883821aa9dc0f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the transaction's checksum.  <a href="#aa53f7756ba37f9304883821aa9dc0f24">More...</a><br /></td></tr>
 <tr class="separator:aa53f7756ba37f9304883821aa9dc0f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7c12b8db4f6629ae4d4307f996ed2ee"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_address_data.html">AddressData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#ac7c12b8db4f6629ae4d4307f996ed2ee">findMyMultisigAddressData</a> (byte[] multisig_address)</td></tr>
+<tr class="memdesc:ac7c12b8db4f6629ae4d4307f996ed2ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks owned addresses and returns the first one which is allowed to sign transactions for <code>multisig_address</code>.  <a href="#ac7c12b8db4f6629ae4d4307f996ed2ee">More...</a><br /></td></tr>
 <tr class="separator:ac7c12b8db4f6629ae4d4307f996ed2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a542e4171e057957f72b08df48a65b0b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a542e4171e057957f72b08df48a65b0b1">multisigTransaction</a> (<a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_amount, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_fee, byte[] tx_to, byte[] tx_from, ulong tx_blockHeight)</td></tr>
+<tr class="memdesc:a542e4171e057957f72b08df48a65b0b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a multisig transaction.  <a href="#a542e4171e057957f72b08df48a65b0b1">More...</a><br /></td></tr>
 <tr class="separator:a542e4171e057957f72b08df48a65b0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa065dce1ec1c793b6da03f1a24da5679"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#aa065dce1ec1c793b6da03f1a24da5679">multisigTransaction</a> (<a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_fee, SortedDictionary&lt; byte[], <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> &gt; tx_to_list, byte[] tx_from, ulong tx_blockHeight)</td></tr>
+<tr class="memdesc:aa065dce1ec1c793b6da03f1a24da5679"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a multisig transaction with multiple destination addresses.  <a href="#aa065dce1ec1c793b6da03f1a24da5679">More...</a><br /></td></tr>
 <tr class="separator:aa065dce1ec1c793b6da03f1a24da5679"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad26de6c6bfb84a280125f610fecf21b8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#ad26de6c6bfb84a280125f610fecf21b8">multisigAddTxSignature</a> (string orig_txid, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_fee, byte[] tx_from, ulong tx_blockHeight)</td></tr>
+<tr class="memdesc:ad26de6c6bfb84a280125f610fecf21b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a signature to the specified multisig transaction, if possible. This function generates a transaction which adds the signature for <code>orig_txid</code>.  <a href="#ad26de6c6bfb84a280125f610fecf21b8">More...</a><br /></td></tr>
 <tr class="separator:ad26de6c6bfb84a280125f610fecf21b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a959d0d9fb3ff453e7893f412b7b50deb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a959d0d9fb3ff453e7893f412b7b50deb">multisigAddKeyTransaction</a> (byte[] allowed_address, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_fee, byte[] tx_from, ulong tx_blockHeight)</td></tr>
+<tr class="memdesc:a959d0d9fb3ff453e7893f412b7b50deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a signature to the specified multisig wallet. This function generates a transaction which adds the specified <code>allowed_address</code> to the multisig wallet <code>tx_from</code>.  <a href="#a959d0d9fb3ff453e7893f412b7b50deb">More...</a><br /></td></tr>
 <tr class="separator:a959d0d9fb3ff453e7893f412b7b50deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8d7466937c380155dd9516438ff1ae1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#ae8d7466937c380155dd9516438ff1ae1">multisigDelKeyTransaction</a> (byte[] disallowed_address, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_fee, byte[] tx_from, ulong tx_blockHeight)</td></tr>
+<tr class="memdesc:ae8d7466937c380155dd9516438ff1ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a signature from the specified multisig wallet. This function generates a transaction which deletes the specified <code>disallowed_address</code> from the multisig wallet <code>tx_from</code>.  <a href="#ae8d7466937c380155dd9516438ff1ae1">More...</a><br /></td></tr>
 <tr class="separator:ae8d7466937c380155dd9516438ff1ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a243321f25aa4f2d776cd80e7a4aecb38"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a243321f25aa4f2d776cd80e7a4aecb38">multisigChangeReqSigs</a> (byte sigs, <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> tx_fee, byte[] tx_from, ulong tx_blockHeight)</td></tr>
+<tr class="memdesc:a243321f25aa4f2d776cd80e7a4aecb38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the multisig wallet minimum required signatures value. This function generates a transaction which changes the specified multisig wallet <code>tx_from</code> with a new minimum required signatures value..  <a href="#a243321f25aa4f2d776cd80e7a4aecb38">More...</a><br /></td></tr>
 <tr class="separator:a243321f25aa4f2d776cd80e7a4aecb38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a77a5bbb87c77a60eb55957ed157b93da"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a77a5bbb87c77a60eb55957ed157b93da">version</a></td></tr>
+<tr class="memdesc:a77a5bbb87c77a60eb55957ed157b93da"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> version.  <a href="#a77a5bbb87c77a60eb55957ed157b93da">More...</a><br /></td></tr>
 <tr class="separator:a77a5bbb87c77a60eb55957ed157b93da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e7db2bfa3b8ff31398dfe28fbcb5f3e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a8e7db2bfa3b8ff31398dfe28fbcb5f3e">id</a></td></tr>
+<tr class="memdesc:a8e7db2bfa3b8ff31398dfe28fbcb5f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> ID.  <a href="#a8e7db2bfa3b8ff31398dfe28fbcb5f3e">More...</a><br /></td></tr>
 <tr class="separator:a8e7db2bfa3b8ff31398dfe28fbcb5f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae73dca7364ce0817c78c53653b8ba8f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#ae73dca7364ce0817c78c53653b8ba8f1">type</a></td></tr>
+<tr class="memdesc:ae73dca7364ce0817c78c53653b8ba8f1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> type. See also <code><a class="el" href="class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083ae" title="Type of the transaction.">Transaction.Type</a></code>.  <a href="#ae73dca7364ce0817c78c53653b8ba8f1">More...</a><br /></td></tr>
 <tr class="separator:ae73dca7364ce0817c78c53653b8ba8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0150044dd7df164d5316d48f26714e65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a0150044dd7df164d5316d48f26714e65">amount</a> = new <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>(&quot;0&quot;)</td></tr>
+<tr class="memdesc:a0150044dd7df164d5316d48f26714e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total amount of Ixi being transferred.  <a href="#a0150044dd7df164d5316d48f26714e65">More...</a><br /></td></tr>
 <tr class="separator:a0150044dd7df164d5316d48f26714e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdcbfccf9d186a7ae11e179fe2d05830"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#acdcbfccf9d186a7ae11e179fe2d05830">fee</a> = new <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>(&quot;0&quot;)</td></tr>
+<tr class="memdesc:acdcbfccf9d186a7ae11e179fe2d05830"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> fee - based on the serialized size of the transaction.  <a href="#acdcbfccf9d186a7ae11e179fe2d05830">More...</a><br /></td></tr>
 <tr class="separator:acdcbfccf9d186a7ae11e179fe2d05830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5825255a1c355056d23a0962b695d31"><td class="memItemLeft" align="right" valign="top">SortedDictionary&lt; byte[], <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#ae5825255a1c355056d23a0962b695d31">fromList</a> = new SortedDictionary&lt;byte[], <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&gt;(new <a class="el" href="class_i_x_i_core_1_1_utils_1_1_byte_array_comparer.html">ByteArrayComparer</a>())</td></tr>
+<tr class="memdesc:ae5825255a1c355056d23a0962b695d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wallets where the funds are withdrawn. Each address specifies the amount of Ixi being widthrawn from it.  <a href="#ae5825255a1c355056d23a0962b695d31">More...</a><br /></td></tr>
 <tr class="separator:ae5825255a1c355056d23a0962b695d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a549d74cbb8d07d924e2e642a19ed62bb"><td class="memItemLeft" align="right" valign="top">SortedDictionary&lt; byte[], <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a549d74cbb8d07d924e2e642a19ed62bb">toList</a> = new SortedDictionary&lt;byte[], <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&gt;(new <a class="el" href="class_i_x_i_core_1_1_utils_1_1_byte_array_comparer.html">ByteArrayComparer</a>())</td></tr>
+<tr class="memdesc:a549d74cbb8d07d924e2e642a19ed62bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destination wallets where the funds will be deposited. Each address specifies the amount of Ixi being deposited to it.  <a href="#a549d74cbb8d07d924e2e642a19ed62bb">More...</a><br /></td></tr>
 <tr class="separator:a549d74cbb8d07d924e2e642a19ed62bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a714be66d1a9fe7e7604879555a65b9d6"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a714be66d1a9fe7e7604879555a65b9d6">data</a></td></tr>
+<tr class="memdesc:a714be66d1a9fe7e7604879555a65b9d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional data included with the transaction. This can be any byte-field. The transaction fee will increase with the amount of data.  <a href="#a714be66d1a9fe7e7604879555a65b9d6">More...</a><br /></td></tr>
 <tr class="separator:a714be66d1a9fe7e7604879555a65b9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73f79e2b686bd7104c5f7215c7d799c4"><td class="memItemLeft" align="right" valign="top">ulong&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a73f79e2b686bd7104c5f7215c7d799c4">blockHeight</a></td></tr>
+<tr class="memdesc:a73f79e2b686bd7104c5f7215c7d799c4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> number when the transaction was generated.  <a href="#a73f79e2b686bd7104c5f7215c7d799c4">More...</a><br /></td></tr>
 <tr class="separator:a73f79e2b686bd7104c5f7215c7d799c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7021a4620934a28eb9c9bd99026e52d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#af7021a4620934a28eb9c9bd99026e52d">nonce</a></td></tr>
+<tr class="memdesc:af7021a4620934a28eb9c9bd99026e52d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique 'nonce' value which prevents certain classes of transaction replay attacks.  <a href="#af7021a4620934a28eb9c9bd99026e52d">More...</a><br /></td></tr>
 <tr class="separator:af7021a4620934a28eb9c9bd99026e52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0352e4c4db22152bbc7f375a945f1db"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#af0352e4c4db22152bbc7f375a945f1db">timeStamp</a></td></tr>
+<tr class="memdesc:af0352e4c4db22152bbc7f375a945f1db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestam of when the transaction was created as a unix epoch (seconds since 1970-01-01).  <a href="#af0352e4c4db22152bbc7f375a945f1db">More...</a><br /></td></tr>
 <tr class="separator:af0352e4c4db22152bbc7f375a945f1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56fb4c1eb50820f82dd7dbc0a59b84c9"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a56fb4c1eb50820f82dd7dbc0a59b84c9">checksum</a></td></tr>
+<tr class="memdesc:a56fb4c1eb50820f82dd7dbc0a59b84c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checksum of all transaction data to ensure it hasn't been tampered with or corrupted during transmission.  <a href="#a56fb4c1eb50820f82dd7dbc0a59b84c9">More...</a><br /></td></tr>
 <tr class="separator:a56fb4c1eb50820f82dd7dbc0a59b84c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb68d23d4d0102a2ad263934a9e4a837"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#acb68d23d4d0102a2ad263934a9e4a837">signature</a></td></tr>
+<tr class="memdesc:acb68d23d4d0102a2ad263934a9e4a837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signature by the originating wallets' primary key. See <code>fromList</code>.  <a href="#acb68d23d4d0102a2ad263934a9e4a837">More...</a><br /></td></tr>
 <tr class="separator:acb68d23d4d0102a2ad263934a9e4a837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9965dfd5da0ae433b835cb6497a18686"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a9965dfd5da0ae433b835cb6497a18686">pubKey</a></td></tr>
+<tr class="memdesc:a9965dfd5da0ae433b835cb6497a18686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publick key which performed the signature and owns the source wallets in <code>fromList</code>.  <a href="#a9965dfd5da0ae433b835cb6497a18686">More...</a><br /></td></tr>
 <tr class="separator:a9965dfd5da0ae433b835cb6497a18686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a133757d6a0e381d79e3b131051cc58ee"><td class="memItemLeft" align="right" valign="top">ulong&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a133757d6a0e381d79e3b131051cc58ee">applied</a></td></tr>
+<tr class="memdesc:a133757d6a0e381d79e3b131051cc58ee"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> height at which the transaction was applied.  <a href="#a133757d6a0e381d79e3b131051cc58ee">More...</a><br /></td></tr>
 <tr class="separator:a133757d6a0e381d79e3b131051cc58ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaaca6296f06aea38f325050efab61f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#abaaca6296f06aea38f325050efab61f3">fromLocalStorage</a> = false</td></tr>
+<tr class="memdesc:abaaca6296f06aea38f325050efab61f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator if the transaction was loaded from cold storage.  <a href="#abaaca6296f06aea38f325050efab61f3">More...</a><br /></td></tr>
 <tr class="separator:abaaca6296f06aea38f325050efab61f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a62d8fd8043ce8fd1945e8082b4f283c1"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html#a62d8fd8043ce8fd1945e8082b4f283c1">maxVersion</a> = 3</td></tr>
+<tr class="memdesc:a62d8fd8043ce8fd1945e8082b4f283c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Currently latest transaction version.  <a href="#a62d8fd8043ce8fd1945e8082b4f283c1">More...</a><br /></td></tr>
 <tr class="separator:a62d8fd8043ce8fd1945e8082b4f283c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00012">12</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<div class="textblock"><p>Represents a single transaction on the Ixian blockchain. </p>
+<p>A transaction is an atomic change which manipulates the Ixian <code><a class="el" href="class_d_l_t_1_1_wallet_state.html">WalletState</a></code>. Each transaction processed by the <a class="el" href="namespace_d_l_t.html">DLT</a> must be validated in some way: </p><ul>
+<li>
+For regular transactions this means a valid cryptographic signature by the source wallet owner. </li>
+<li>
+For 'Multi-Signature' transactions this may include multiple cryptographic signatures </li>
+<li>
+For 'PoW solution' transactions, the proposed value must be valid for the block it solves </li>
+<li>
+For a 'Staking Reward' transaction, the proposed changes must be inline with the frozen signatures and the transaction must be accepted by the network majority.  </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00026">26</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ab15d768b9d748f280dbf0405ed47ad8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab15d768b9d748f280dbf0405ed47ad8c">&#9670;&nbsp;</a></span>MultisigWalletChangeType</h2>
@@ -257,13 +319,20 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Type of change being performed on a 'Multi-Signature' wallet. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab15d768b9d748f280dbf0405ed47ad8ca057d9237970f33e6d71db89f9da19311"></a>AddSigner&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab15d768b9d748f280dbf0405ed47ad8ca56ac14c015df3228e1c78485eba8a10d"></a>DelSigner&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab15d768b9d748f280dbf0405ed47ad8ca13c6bb078f4e6a4d1c4d2c64d66ee1b4"></a>ChangeReqSigs&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab15d768b9d748f280dbf0405ed47ad8ca057d9237970f33e6d71db89f9da19311"></a>AddSigner&#160;</td><td class="fielddoc"><p>A signer is being added to the Allowed Signers list. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab15d768b9d748f280dbf0405ed47ad8ca56ac14c015df3228e1c78485eba8a10d"></a>DelSigner&#160;</td><td class="fielddoc"><p>A signer is being removed from the Alloewd Signers list. </p>
+<p>The signer, who is being removed, can still validate the transaction that removes their address from the list. The change The number of signatures must be equal to or less than the number of distinct allowed signers. A <code>ChangeMultisigWallet</code> transaction which would make it impossible to use the wallet is invalid, even if it has enough correct signatures. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab15d768b9d748f280dbf0405ed47ad8ca13c6bb078f4e6a4d1c4d2c64d66ee1b4"></a>ChangeReqSigs&#160;</td><td class="fielddoc"><p>The number of required signatures for the 'Multi-Signature' wallet is being changed. </p>
+<p>The number of signatures must be equal to or less than the number of distinct allowed signers. A <code>ChangeMultisigWallet</code> transaction which would make it impossible to use the wallet is invalid, even if it has enough correct signatures. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00026">26</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00070">70</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -286,17 +355,27 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Type of the transaction. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea960b44c579bc2f6818d2daaf9e4c16f0"></a>Normal&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea65423bc8b283342d46d1cd3520fe4929"></a>PoWSolution&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea597d48f48be913f523b469f2b28cf122"></a>StakingReward&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea411f3239ffbefd44ebd08ac9eaec6489"></a>Genesis&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea92e02733932e416fe94f8e395b3ab298"></a>MultisigTX&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea8900c4ae9c4e349e5fac5be4e118b8b3"></a>ChangeMultisigWallet&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea1dd06b706bcf8962382d66cc931e5387"></a>MultisigAddTxSignature&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea960b44c579bc2f6818d2daaf9e4c16f0"></a>Normal&#160;</td><td class="fielddoc"><p>Regular transaction which sends balance from a set of <code><a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a></code>s to a set of <code><a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a></code>s. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea65423bc8b283342d46d1cd3520fe4929"></a>PoWSolution&#160;</td><td class="fielddoc"><p><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> sends a PoW (Proof of Work) solution for a specific block and awards the signer a certain amount of Ixi as a reward. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea597d48f48be913f523b469f2b28cf122"></a>StakingReward&#160;</td><td class="fielddoc"><p><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> awards the Master Nodes which participate in the consensus algorithm a certain reward of Ixi. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea411f3239ffbefd44ebd08ac9eaec6489"></a>Genesis&#160;</td><td class="fielddoc"><p>Genesis transaction which created initial Ixi currency from nothing and deposited it into the seed nodes' wallets. </p>
+<p>This type of transaction should never again appear after the first block. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea92e02733932e416fe94f8e395b3ab298"></a>MultisigTX&#160;</td><td class="fielddoc"><p>Similar to <code>Trasaction.Type.Normal</code>, but requires multiple signatures to spend funds from a 'Multi-Signature' wallet. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea8900c4ae9c4e349e5fac5be4e118b8b3"></a>ChangeMultisigWallet&#160;</td><td class="fielddoc"><p>Special transaction which alows modifying the list of allowed signers on a 'Multi-Signature' wallet. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a473851324cd6f8116e24ea61380083aea1dd06b706bcf8962382d66cc931e5387"></a>MultisigAddTxSignature&#160;</td><td class="fielddoc"><p>When a transaction involving a 'Multi-Signature' is first posted, it only has one signature, so this stub transaction is used to add signatures so that private key sharing is not required among signers. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00015">15</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00031">31</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -317,7 +396,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00106">106</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Creates an empty transaction of the specified type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx_type</td><td><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> type. See <code><a class="el" href="class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083ae" title="Type of the transaction.">Transaction.Type</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00308">308</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -395,7 +482,25 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00123">123</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Generates a new transaction from the provided data. This variant widthdraws from and deposits to a single address. </p>
+<p>The Fee can be higher than the minimum network fee, which will cause the transaction to be included faster in the event of congestion. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx_type</td><td>Type of the transaction. See <code><a class="el" href="class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083ae" title="Type of the transaction.">Transaction.Type</a></code>.</td></tr>
+    <tr><td class="paramname">tx_amount</td><td>Total Ixi amount being transferred.</td></tr>
+    <tr><td class="paramname">tx_feePerKb</td><td><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> fee per kilobyte of data.</td></tr>
+    <tr><td class="paramname">tx_to</td><td>Destination address or nonce.</td></tr>
+    <tr><td class="paramname">tx_from</td><td>Source address or nonce.</td></tr>
+    <tr><td class="paramname">tx_data</td><td>Optional extra data.</td></tr>
+    <tr><td class="paramname">tx_pubKey</td><td>Public key used to sign the transaction, if neccessary.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> height when the transaction was generated.</td></tr>
+    <tr><td class="paramname">tx_nonce</td><td>Unique transaction nonce value.</td></tr>
+    <tr><td class="paramname">tx_timestamp</td><td>Timestamp (unix epoch) when the transaction was generated.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00342">342</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -467,7 +572,24 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00175">175</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Generates a new transaction from the provided data. This variant can deposit to a multiple addresses. </p>
+<p>The Fee can be higher than the minimum network fee, which will cause the transaction to be included faster in the event of congestion. The sum if all amounts in the <code>tx_toList</code> is equal to <code>amount</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx_type</td><td>Type of the transaction. See <code><a class="el" href="class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083ae" title="Type of the transaction.">Transaction.Type</a></code>.</td></tr>
+    <tr><td class="paramname">tx_feePerKb</td><td><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> fee per kilobyte of data.</td></tr>
+    <tr><td class="paramname">tx_toList</td><td>List of deposit addresses and their amounts.</td></tr>
+    <tr><td class="paramname">tx_from</td><td>Withdrawal address.</td></tr>
+    <tr><td class="paramname">tx_data</td><td>Optional extra data.</td></tr>
+    <tr><td class="paramname">tx_pubKey</td><td>Signer public key, if neccessary.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> number when the transaction was generated.</td></tr>
+    <tr><td class="paramname">tx_nonce</td><td>Unique nonce value for the transaction.</td></tr>
+    <tr><td class="paramname">tx_timestamp</td><td>Timestamp (unich epoch) when the transaction was generated.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00411">411</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -539,7 +661,24 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00233">233</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Generates a new transaction from the provided data. This variant can withdraw from and deposit to a multiple addresses. </p>
+<p>The Fee can be higher than the minimum network fee, which will cause the transaction to be included faster in the event of congestion. All addresses in the <code>tx_fromList</code> must belong to the same signing keypair. The sum if all amounts in the <code>tx_toList</code> is equal to <code>amount</code>. The sum of all amounts in the <code>tx_fromList</code> must be equal to <code>amount</code> + <code>fee</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx_type</td><td>Type of the transaction. See <code><a class="el" href="class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083ae" title="Type of the transaction.">Transaction.Type</a></code>.</td></tr>
+    <tr><td class="paramname">tx_feePerKb</td><td><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> fee per kilobyte of data.</td></tr>
+    <tr><td class="paramname">tx_toList</td><td>List of deposit addresses and their amounts.</td></tr>
+    <tr><td class="paramname">tx_fromList</td><td>List of withdrawal addresses and their amounts.</td></tr>
+    <tr><td class="paramname">tx_data</td><td>Optional extra data.</td></tr>
+    <tr><td class="paramname">tx_pubKey</td><td>Pubkey which can sign all the addresses in <code>tx_fromList</code>, if not already known.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> number when the transaction was generated.</td></tr>
+    <tr><td class="paramname">tx_nonce</td><td>Unique nonce value for the transaction.</td></tr>
+    <tr><td class="paramname">sign_transaction</td><td>True if the signature should be calculated, false if the signature will be calculated later</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00487">487</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -559,7 +698,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00281">281</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Copy constructor. </p>
+<p>In some places the Ixian software requires a full copy of the transaction and not a shared reference, so this constructor is provided to achieve that. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx_transaction</td><td>Source transaction to copy.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00543">543</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -579,7 +727,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00341">341</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Constructs a transaction object from the serialized transaction data. See also <code><a class="el" href="class_d_l_t_1_1_transaction.html#ab62b1cabd61da7febe029e6ecca9ecd9" title="Serializes the transaction object for transmission and returns a byte-field. See also the constructor...">getBytes()</a></code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td>Byte-field with the serialized transaction</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00607">607</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -608,7 +764,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00644">644</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Calculates the transaction's checksum. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transaction</td><td><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> to calculate the checksum from.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Byte-field with the checksum value.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00930">930</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -628,7 +793,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00734">734</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Calculates the lowest possible transaction fee based on the size of the transaction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pricePerKb</td><td>Price per kilobyte of data.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimum fee given the specified price per kilobyte.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01037">1037</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -647,7 +821,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00718">718</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Calculates the total transaction amount, without fee. </p>
+<dl class="section return"><dt>Returns</dt><dd>Sum of all deposits in the transaction's <code>toList</code>.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01013">1013</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -667,7 +844,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00519">519</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Checks if the two transactions are exactly equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx</td><td>Other transaction.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if both objects represent the same Ixian transaction.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00793">793</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -695,7 +881,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01076">1076</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Checks owned addresses and returns the first one which is allowed to sign transactions for <code>multisig_address</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">multisig_address</td><td>Multisig address to check.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Own address which is allowed to sign transactions for <code>multisig_address</code>, or null, if no such local address.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01414">1414</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -714,7 +909,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00728">728</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Calculates the transaction checksum and stores it in the transaction. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01026">1026</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -733,7 +930,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00575">575</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Generates the <a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> ID from the transaction data. </p>
+<dl class="section return"><dt>Returns</dt><dd>TXID</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00857">857</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -752,7 +952,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00434">434</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Serializes the transaction object for transmission and returns a byte-field. See also the constructor <code>Transaction(byte[])</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Byte-field with the serialized transaction, suiteable for network transmission.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00704">704</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -771,7 +974,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01059">1059</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Wrapper function to attempt and parse the transaction's optional data field as some kind of Multisig object. </p>
+<dl class="section return"><dt>Returns</dt><dd>A multisig data object, if found, or null.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01392">1392</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -801,7 +1007,17 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00700">700</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Calculates the signature for the transaction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">checksum</td><td><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> checksum.</td></tr>
+    <tr><td class="paramname">private_key</td><td>Private key with which to sign the transaction, or null if the primary key should be used.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> signature in a byte-field.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00992">992</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -851,7 +1067,20 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01184">1184</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Adds a signature to the specified multisig wallet. This function generates a transaction which adds the specified <code>allowed_address</code> to the multisig wallet <code>tx_from</code>. </p>
+<p>The transaction fee is paid by <code>tx_from</code> - the multisig wallet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">allowed_address</td><td><a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a> which will be added to <code>tx_from</code>.</td></tr>
+    <tr><td class="paramname">tx_fee</td><td>Fee per kilobyte of data.</td></tr>
+    <tr><td class="paramname">tx_from</td><td>Multisig address where the <code>allowed_address</code> will be added.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> height at which to generate the new transaction/</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Multisig change transaction.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01558">1558</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -901,7 +1130,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01159">1159</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Adds a signature to the specified multisig transaction, if possible. This function generates a transaction which adds the signature for <code>orig_txid</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orig_txid</td><td>Multisig transaction which is waiting to accumulate signatures.</td></tr>
+    <tr><td class="paramname">tx_fee</td><td>Fee per kilobyte of data.</td></tr>
+    <tr><td class="paramname">tx_from</td><td>Own address which may be allowed to sign <code>orig_txid</code>.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> height at which to generate the new transaction/</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Signing transaction.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01523">1523</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -951,7 +1192,20 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01232">1232</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Changes the multisig wallet minimum required signatures value. This function generates a transaction which changes the specified multisig wallet <code>tx_from</code> with a new minimum required signatures value.. </p>
+<p>The transaction fee is paid by <code>tx_from</code> - the multisig wallet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sigs</td><td>New minimum required signatures value for <code>tx_from</code>.</td></tr>
+    <tr><td class="paramname">tx_fee</td><td>Fee per kilobyte of data.</td></tr>
+    <tr><td class="paramname">tx_from</td><td>Multisig address where the <code>allowed_address</code> will be added.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> height at which to generate the new transaction/</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Multisig change transaction.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01629">1629</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1001,7 +1255,20 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01208">1208</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Deletes a signature from the specified multisig wallet. This function generates a transaction which deletes the specified <code>disallowed_address</code> from the multisig wallet <code>tx_from</code>. </p>
+<p>The transaction fee is paid by <code>tx_from</code> - the multisig wallet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disallowed_address</td><td><a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a> which will be removed from <code>tx_from</code>.</td></tr>
+    <tr><td class="paramname">tx_fee</td><td>Fee per kilobyte of data.</td></tr>
+    <tr><td class="paramname">tx_from</td><td>Multisig address where the <code>allowed_address</code> will be added.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> height at which to generate the new transaction/</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Multisig change transaction.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01593">1593</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1057,7 +1324,20 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01111">1111</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Generates a multisig transaction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx_amount</td><td>Amount of Ixi to widthraw and deposit.</td></tr>
+    <tr><td class="paramname">tx_fee</td><td><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> fee</td></tr>
+    <tr><td class="paramname">tx_to</td><td>Destination address where the funds should be deposited.</td></tr>
+    <tr><td class="paramname">tx_from</td><td>Multisig wallet where the funds should be withdrawn.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td>Blockheight at which the transaction is generated.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Generated transaction object.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01458">1458</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1107,7 +1387,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01135">1135</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Generates a multisig transaction with multiple destination addresses. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx_fee</td><td><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> fee</td></tr>
+    <tr><td class="paramname">tx_to_list</td><td>Destination addresses where the funds should be deposited.</td></tr>
+    <tr><td class="paramname">tx_from</td><td>Multisig wallet where the funds should be withdrawn.</td></tr>
+    <tr><td class="paramname">tx_blockHeight</td><td>Blockheight at which the transaction is generated.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Generated transaction object.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01490">1490</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1126,7 +1418,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01256">1256</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Encodes all transaction data fields into a Dictionary for easier conversion to JSON via the REST API server. </p>
+<dl class="section return"><dt>Returns</dt><dd>Dictionary with all transaction fields.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l01657">1657</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1156,7 +1451,17 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00528">528</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Checks the transaction's signature against the given public key and address nonce. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pubkey</td><td>Public key which signed the transaction</td></tr>
+    <tr><td class="paramname">nonce</td><td>Nonce value of the originating wallet.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the signature is valid.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00807">807</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1173,7 +1478,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00064">64</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Total amount of Ixi being transferred. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00205">205</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1189,7 +1496,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00077">77</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> height at which the transaction was applied. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00261">261</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1205,7 +1514,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00071">71</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a> number when the transaction was generated. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00237">237</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1221,7 +1532,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00074">74</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Checksum of all transaction data to ensure it hasn't been tampered with or corrupted during transmission. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00249">249</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1237,7 +1550,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00070">70</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Optional data included with the transaction. This can be any byte-field. The transaction fee will increase with the amount of data. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00233">233</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1253,7 +1568,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00065">65</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> fee - based on the serialized size of the transaction. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00209">209</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1269,7 +1586,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00067">67</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Source wallets where the funds are withdrawn. Each address specifies the amount of Ixi being widthrawn from it. </p>
+<p>The sum of all amounts must be equal to <code>amount</code> + <code>fee</code>, otherwise the transaction is invalid. All source wallets must belong to the same primary signing key. The address can either be a wallet address or a nonce value which was used to generate the address. If the value is a nonce value, then the public key, <code>pubKey</code>, for the transaction must be specified. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00220">220</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1285,7 +1605,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00079">79</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Indicator if the transaction was loaded from cold storage. </p>
+<p>If false, the transaction was generated by the current executable or received through the network. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00268">268</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1301,7 +1624,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00062">62</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> ID. </p>
+<p>The transaction ID is not transferred over the network, because it can be recalculated from the transaction data. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00197">197</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1325,7 +1651,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00083">83</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Currently latest transaction version. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00278">278</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1341,7 +1669,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00072">72</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Unique 'nonce' value which prevents certain classes of transaction replay attacks. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00241">241</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1357,7 +1687,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00076">76</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Publick key which performed the signature and owns the source wallets in <code>fromList</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00257">257</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1373,7 +1705,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00075">75</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Signature by the originating wallets' primary key. See <code>fromList</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00253">253</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1389,7 +1723,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00073">73</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Timestam of when the transaction was created as a unix epoch (seconds since 1970-01-01). </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00245">245</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1405,7 +1741,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00068">68</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Destination wallets where the funds will be deposited. Each address specifies the amount of Ixi being deposited to it. </p>
+<p>The sum of all amounts must be equal to <code>amount</code>, otherwise the transaction is invalid. Destination wallets can belong to different signing keys. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00228">228</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1760,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00063">63</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> type. See also <code><a class="el" href="class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083ae" title="Type of the transaction.">Transaction.Type</a></code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00201">201</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -1437,7 +1778,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00061">61</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> version. </p>
+<p>Later versions enable new features which were introduced later in development. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00190">190</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>

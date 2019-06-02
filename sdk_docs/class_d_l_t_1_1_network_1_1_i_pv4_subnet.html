@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -105,23 +106,32 @@ $(document).ready(function(){initNavTree('class_d_l_t_1_1_network_1_1_i_pv4_subn
 <div class="title">DLT.Network.IPv4Subnet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Helper class to help filter and classify IPv4 addresses  
+ <a href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad3d6abaf90423789f788edaf3586d519"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#ad3d6abaf90423789f788edaf3586d519">IsIPInSubnet</a> (IPAddress addr)</td></tr>
+<tr class="memdesc:ad3d6abaf90423789f788edaf3586d519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given IP address is a member of this IPv4 subnet.  <a href="#ad3d6abaf90423789f788edaf3586d519">More...</a><br /></td></tr>
 <tr class="separator:ad3d6abaf90423789f788edaf3586d519"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd3dff2ddb8e792e4fdd540855a09a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a9dd3dff2ddb8e792e4fdd540855a09a7">IsIPInSubnet</a> (String ipaddr)</td></tr>
+<tr class="memdesc:a9dd3dff2ddb8e792e4fdd540855a09a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given IP address, given as a string, is a member of this IPv4 subnet.  <a href="#a9dd3dff2ddb8e792e4fdd540855a09a7">More...</a><br /></td></tr>
 <tr class="separator:a9dd3dff2ddb8e792e4fdd540855a09a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a01ff7d0f85f2577afe621e50500f8b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html">IPv4Subnet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a5a01ff7d0f85f2577afe621e50500f8b">FromCIDR</a> (String cidr)</td></tr>
+<tr class="memdesc:a5a01ff7d0f85f2577afe621e50500f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an address in a CIDR notation to the <code><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html" title="Helper class to help filter and classify IPv4 addresses">IPv4Subnet</a></code> object.  <a href="#a5a01ff7d0f85f2577afe621e50500f8b">More...</a><br /></td></tr>
 <tr class="separator:a5a01ff7d0f85f2577afe621e50500f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a514c5b74a0374a701e317512c3582856"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html">IPv4Subnet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a514c5b74a0374a701e317512c3582856">FromSubnet</a> (String subnet, String mask)</td></tr>
+<tr class="memdesc:a514c5b74a0374a701e317512c3582856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html" title="Helper class to help filter and classify IPv4 addresses">IPv4Subnet</a></code> from a network address and subnet mask, given as strings.  <a href="#a514c5b74a0374a701e317512c3582856">More...</a><br /></td></tr>
 <tr class="separator:a514c5b74a0374a701e317512c3582856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3569c8242898cda3eb314400287cca26"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html">IPv4Subnet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a3569c8242898cda3eb314400287cca26">FromSubnet</a> (IPAddress subnet, IPAddress mask)</td></tr>
+<tr class="memdesc:a3569c8242898cda3eb314400287cca26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html" title="Helper class to help filter and classify IPv4 addresses">IPv4Subnet</a></code> from a network address and mask, given as <code>IPAddress</code>.  <a href="#a3569c8242898cda3eb314400287cca26">More...</a><br /></td></tr>
 <tr class="separator:a3569c8242898cda3eb314400287cca26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0141ccb70837119596c323a9394ffc47"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a0141ccb70837119596c323a9394ffc47">IsPublicIP</a> (IPAddress addr)</td></tr>
+<tr class="memdesc:a0141ccb70837119596c323a9394ffc47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies that the given address is on a public network. (It is not a special address or one of the reserved private subnets.)  <a href="#a0141ccb70837119596c323a9394ffc47">More...</a><br /></td></tr>
 <tr class="separator:a0141ccb70837119596c323a9394ffc47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -172,8 +182,9 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a4377e8ef59d8ffcc9de9f7b18dc0ecf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00089">89</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<div class="textblock"><p>Helper class to help filter and classify IPv4 addresses </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00143">143</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5a01ff7d0f85f2577afe621e50500f8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a01ff7d0f85f2577afe621e50500f8b">&#9670;&nbsp;</a></span>FromCIDR()</h2>
@@ -199,7 +210,22 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00124">124</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p>Converts an address in a CIDR notation to the <code><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html" title="Helper class to help filter and classify IPv4 addresses">IPv4Subnet</a></code> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cidr</td><td>IP addrss in the format 1.2.3.4/5</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentException</td><td>The provided CIDR is invalid.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>IPv4 network.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00184">184</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -237,7 +263,17 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00162">162</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p>Constructs an <code><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html" title="Helper class to help filter and classify IPv4 addresses">IPv4Subnet</a></code> from a network address and subnet mask, given as strings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subnet</td><td><a class="el" href="namespace_d_l_t_1_1_network.html">Network</a> address.</td></tr>
+    <tr><td class="paramname">mask</td><td>Subnet Mask</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>IPv4 network</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00228">228</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -275,7 +311,17 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00184">184</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p>Constructs an <code><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html" title="Helper class to help filter and classify IPv4 addresses">IPv4Subnet</a></code> from a network address and mask, given as <code>IPAddress</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subnet</td><td><a class="el" href="namespace_d_l_t_1_1_network.html">Network</a> address.</td></tr>
+    <tr><td class="paramname">mask</td><td>Subnet mask.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>IPv4 network</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00256">256</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -295,7 +341,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00228">228</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p>Checks if the given IP address is a member of this IPv4 subnet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>IP address to check.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the IP address is a part of the subnet this object represents.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00310">310</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -315,7 +370,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00247">247</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p>Checks if the given IP address, given as a string, is a member of this IPv4 subnet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>IP address to check.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the IP address is a part of the subnet this object represents.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00334">334</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -343,7 +407,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00197">197</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p>Verifies that the given address is on a public network. (It is not a special address or one of the reserved private subnets.) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>IP address to check</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the given IP is a public, routable address.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00274">274</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -368,7 +441,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00108">108</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00162">162</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -392,7 +465,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00107">107</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00161">161</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -416,7 +489,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00111">111</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00165">165</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -440,7 +513,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00112">112</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00166">166</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -464,7 +537,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00116">116</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00170">170</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -488,7 +561,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00105">105</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00159">159</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -512,7 +585,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00101">101</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00155">155</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -536,7 +609,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00100">100</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00154">154</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -560,7 +633,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00098">98</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00152">152</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -584,7 +657,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00097">97</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00151">151</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -608,7 +681,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00104">104</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00158">158</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -632,7 +705,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00103">103</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00157">157</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -656,7 +729,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00102">102</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00156">156</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -680,7 +753,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00095">95</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00149">149</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -704,7 +777,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00099">99</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00153">153</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -728,7 +801,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00110">110</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00164">164</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -752,7 +825,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00109">109</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00163">163</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -776,7 +849,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00115">115</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00169">169</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -800,7 +873,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00096">96</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00150">150</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -824,7 +897,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00106">106</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00160">160</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -848,7 +921,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00113">113</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00167">167</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -872,7 +945,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00114">114</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00168">168</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>

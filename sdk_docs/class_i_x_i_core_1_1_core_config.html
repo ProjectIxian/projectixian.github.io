@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -111,6 +112,7 @@ $(document).ready(function(){initNavTree('class_i_x_i_core_1_1_core_config.html'
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af94777002e79272c33b407a3eac5655b"><td class="memItemLeft" align="right" valign="top">static ulong&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#af94777002e79272c33b407a3eac5655b">getRedactedWindowSize</a> (int block_version=-1)</td></tr>
+<tr class="memdesc:af94777002e79272c33b407a3eac5655b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the lenght of the redacted window based on the block version in use.  <a href="#af94777002e79272c33b407a3eac5655b">More...</a><br /></td></tr>
 <tr class="separator:af94777002e79272c33b407a3eac5655b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -152,44 +154,64 @@ Static Public Attributes</h2></td></tr>
 <tr class="memdesc:a00f876b0fad8280e654fba950734296f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum size of a network message in bytes.  <a href="#a00f876b0fad8280e654fba950734296f">More...</a><br /></td></tr>
 <tr class="separator:a00f876b0fad8280e654fba950734296f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a152d8a31963a33eaab90fb8f75e215c3"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a152d8a31963a33eaab90fb8f75e215c3">pongInterval</a> = 2</td></tr>
+<tr class="memdesc:a152d8a31963a33eaab90fb8f75e215c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pong interval (in seconds) - if no data has been received from connected remote client for this time, a special packet will be sent instead to 'wake up' the receiver.  <a href="#a152d8a31963a33eaab90fb8f75e215c3">More...</a><br /></td></tr>
 <tr class="separator:a152d8a31963a33eaab90fb8f75e215c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9858535bf6ce0057c41a1efe5b5675d2"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a9858535bf6ce0057c41a1efe5b5675d2">pingTimeout</a> = 10</td></tr>
+<tr class="memdesc:a9858535bf6ce0057c41a1efe5b5675d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout (in seconds) before a remote client is disconnected if no data is received from it.  <a href="#a9858535bf6ce0057c41a1efe5b5675d2">More...</a><br /></td></tr>
 <tr class="separator:a9858535bf6ce0057c41a1efe5b5675d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a16d2161e6b83b6f0067a8d399a179e"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a3a16d2161e6b83b6f0067a8d399a179e">networkClientReconnectInterval</a> = 10 * 1000</td></tr>
+<tr class="memdesc:a3a16d2161e6b83b6f0067a8d399a179e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration (in milliseconds) between reconnection attempts to remote clients.  <a href="#a3a16d2161e6b83b6f0067a8d399a179e">More...</a><br /></td></tr>
 <tr class="separator:a3a16d2161e6b83b6f0067a8d399a179e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7aa58efc35b2168ee2d56837e5f6a475"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a7aa58efc35b2168ee2d56837e5f6a475">keepAliveInterval</a> = 45</td></tr>
+<tr class="memdesc:a7aa58efc35b2168ee2d56837e5f6a475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interval (in seconds) how often to send a 'Keep-Alive' packet into the network.  <a href="#a7aa58efc35b2168ee2d56837e5f6a475">More...</a><br /></td></tr>
 <tr class="separator:a7aa58efc35b2168ee2d56837e5f6a475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa587055be2dfed65eee72548e811f29d"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#aa587055be2dfed65eee72548e811f29d">maximumNeighborReconnectCount</a> = 3</td></tr>
+<tr class="memdesc:aa587055be2dfed65eee72548e811f29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of retries when connecting to a neighbor node, before giving up.  <a href="#aa587055be2dfed65eee72548e811f29d">More...</a><br /></td></tr>
 <tr class="separator:aa587055be2dfed65eee72548e811f29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f8deeef12692e49ac6a617fc05080f4"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a0f8deeef12692e49ac6a617fc05080f4">simultaneousConnectedNeighbors</a> = 6</td></tr>
+<tr class="memdesc:a0f8deeef12692e49ac6a617fc05080f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Target number of simultaneously connected neighbors.  <a href="#a0f8deeef12692e49ac6a617fc05080f4">More...</a><br /></td></tr>
 <tr class="separator:a0f8deeef12692e49ac6a617fc05080f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a960ebbceb98c3bef42a29c75a1a13bfd"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a960ebbceb98c3bef42a29c75a1a13bfd">maximumSubscribableEvents</a> = 500</td></tr>
+<tr class="memdesc:a960ebbceb98c3bef42a29c75a1a13bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of events a client can be subscribed to.  <a href="#a960ebbceb98c3bef42a29c75a1a13bfd">More...</a><br /></td></tr>
 <tr class="separator:a960ebbceb98c3bef42a29c75a1a13bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48a059c61dc9a7bcf7e3347f165f7094"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a48a059c61dc9a7bcf7e3347f165f7094">maximumServerMasterNodes</a> = 200</td></tr>
+<tr class="memdesc:a48a059c61dc9a7bcf7e3347f165f7094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of neighbor Master Nodes this server can accept (used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable).  <a href="#a48a059c61dc9a7bcf7e3347f165f7094">More...</a><br /></td></tr>
 <tr class="separator:a48a059c61dc9a7bcf7e3347f165f7094"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4678f9fcdc2b0e423ea5c41372b459b"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#ad4678f9fcdc2b0e423ea5c41372b459b">maximumServerClients</a> = 200</td></tr>
+<tr class="memdesc:ad4678f9fcdc2b0e423ea5c41372b459b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of client connections this server can accept (used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable).  <a href="#ad4678f9fcdc2b0e423ea5c41372b459b">More...</a><br /></td></tr>
 <tr class="separator:ad4678f9fcdc2b0e423ea5c41372b459b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3131f827654fb65bbb2c257d58b5aab"><td class="memItemLeft" align="right" valign="top">static readonly double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#ae3131f827654fb65bbb2c257d58b5aab">networkConsensusRatio</a> = 0.75</td></tr>
+<tr class="memdesc:ae3131f827654fb65bbb2c257d58b5aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of signatures (ratio) of consenting signatures vs. available Master Nodes before a block can be accepted.  <a href="#ae3131f827654fb65bbb2c257d58b5aab">More...</a><br /></td></tr>
 <tr class="separator:ae3131f827654fb65bbb2c257d58b5aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f10e7185783c71c68fe6e6fd916008a"><td class="memItemLeft" align="right" valign="top">static readonly <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a1f10e7185783c71c68fe6e6fd916008a">minimumMasterNodeFunds</a> = new <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>(&quot;20000&quot;)</td></tr>
+<tr class="memdesc:a1f10e7185783c71c68fe6e6fd916008a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum funds a wallet must have before it is allowed to participate in the block consensus algorithm. (used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable).  <a href="#a1f10e7185783c71c68fe6e6fd916008a">More...</a><br /></td></tr>
 <tr class="separator:a1f10e7185783c71c68fe6e6fd916008a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a521f2a77e62311dadd396f3811407aab"><td class="memItemLeft" align="right" valign="top">static readonly <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a521f2a77e62311dadd396f3811407aab">transactionPrice</a> = new <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>(&quot;0.00005000&quot;)</td></tr>
+<tr class="memdesc:a521f2a77e62311dadd396f3811407aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transaction fee per kilobyte. Total transaction size is used. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.)  <a href="#a521f2a77e62311dadd396f3811407aab">More...</a><br /></td></tr>
 <tr class="separator:a521f2a77e62311dadd396f3811407aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d4f5fc6f767945e57d004f48da0e492"><td class="memItemLeft" align="right" valign="top">static readonly <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a7d4f5fc6f767945e57d004f48da0e492">foundationFeePercent</a> = 3</td></tr>
+<tr class="memdesc:a7d4f5fc6f767945e57d004f48da0e492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of transaction fees, in percent, that are deposited into the foundation wallet, which funds the development of Ixian technology. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.)  <a href="#a7d4f5fc6f767945e57d004f48da0e492">More...</a><br /></td></tr>
 <tr class="separator:a7d4f5fc6f767945e57d004f48da0e492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a273ff9fa4922787302e6ed8828ace2fd"><td class="memItemLeft" align="right" valign="top">static readonly byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a273ff9fa4922787302e6ed8828ace2fd">foundationAddress</a> = Base58Check.Base58CheckEncoding.DecodePlain(&quot;153xXfVi1sznPcRqJur8tutgrZecNVYGSzetp47bQvRfNuDix&quot;)</td></tr>
+<tr class="memdesc:a273ff9fa4922787302e6ed8828ace2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Address of the Ixian foundation wallet, which is used to fund development of the Ixian technology stack. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.)  <a href="#a273ff9fa4922787302e6ed8828ace2fd">More...</a><br /></td></tr>
 <tr class="separator:a273ff9fa4922787302e6ed8828ace2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a088cf0deb1c402c2cd4b0c68dd1ff725"><td class="memItemLeft" align="right" valign="top">static readonly <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a088cf0deb1c402c2cd4b0c68dd1ff725">relayPriceInitial</a> = new <a class="el" href="class_d_l_t_1_1_ixi_number.html">IxiNumber</a>(&quot;0.0002&quot;)</td></tr>
+<tr class="memdesc:a088cf0deb1c402c2cd4b0c68dd1ff725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial price for relaying a kilobyte of data through an S2 node. (Used in S2 Node executable.)  <a href="#a088cf0deb1c402c2cd4b0c68dd1ff725">More...</a><br /></td></tr>
 <tr class="separator:a088cf0deb1c402c2cd4b0c68dd1ff725"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf16edded1f98b73d1be221c8bcd2f8"><td class="memItemLeft" align="right" valign="top">static readonly ulong&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#acdf16edded1f98b73d1be221c8bcd2f8">maximumTransactionsPerBlock</a> = 2000</td></tr>
+<tr class="memdesc:acdf16edded1f98b73d1be221c8bcd2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of transactions in each block. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.)  <a href="#acdf16edded1f98b73d1be221c8bcd2f8">More...</a><br /></td></tr>
 <tr class="separator:acdf16edded1f98b73d1be221c8bcd2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a091e8483b9c88805987f84e7c011f724"><td class="memItemLeft" align="right" valign="top">static readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a091e8483b9c88805987f84e7c011f724">maximumTransactionsPerChunk</a> = 500</td></tr>
+<tr class="memdesc:a091e8483b9c88805987f84e7c011f724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of transactions sent in each chunk when a fresh <a class="el" href="namespace_d_l_t.html">DLT</a> Node is synchronizing. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.)  <a href="#a091e8483b9c88805987f84e7c011f724">More...</a><br /></td></tr>
 <tr class="separator:a091e8483b9c88805987f84e7c011f724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af33860ce7654fa105be0d08abf032d10"><td class="memItemLeft" align="right" valign="top">static readonly byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#af33860ce7654fa105be0d08abf032d10">ixianChecksumLock</a> = Encoding.UTF8.GetBytes(&quot;Ixian&quot;)</td></tr>
+<tr class="memdesc:af33860ce7654fa105be0d08abf032d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial value for seeding the Transaction SHA512 checksum generator.  <a href="#af33860ce7654fa105be0d08abf032d10">More...</a><br /></td></tr>
 <tr class="separator:af33860ce7654fa105be0d08abf032d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a023e210f08496a5f714427a9efd4fd7e"><td class="memItemLeft" align="right" valign="top">static readonly string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a023e210f08496a5f714427a9efd4fd7e">ixianChecksumLockString</a> = &quot;Ixian&quot;</td></tr>
+<tr class="memdesc:a023e210f08496a5f714427a9efd4fd7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial value for seeding various SHA512 checksums throughout Ixian.  <a href="#a023e210f08496a5f714427a9efd4fd7e">More...</a><br /></td></tr>
 <tr class="separator:a023e210f08496a5f714427a9efd4fd7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0623e71ff8c39f4cde51ba60cdf04523"><td class="memItemLeft" align="right" valign="top">static readonly bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_core_config.html#a0623e71ff8c39f4cde51ba60cdf04523">threadLiveCheckEnabled</a> = false</td></tr>
+<tr class="memdesc:a0623e71ff8c39f4cde51ba60cdf04523"><td class="mdescLeft">&#160;</td><td class="mdescRight">If set to true, all threads will report liveness periodically, thus enabling checking for deadlocks.  <a href="#a0623e71ff8c39f4cde51ba60cdf04523">More...</a><br /></td></tr>
 <tr class="separator:a0623e71ff8c39f4cde51ba60cdf04523"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -221,7 +243,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00129">129</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Retrieves the lenght of the redacted window based on the block version in use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">block_version</td><td>Block version for which you'd like to calculate the redacted window.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Redacted window length.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00196">196</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -299,7 +330,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00116">116</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Address of the Ixian foundation wallet, which is used to fund development of the Ixian technology stack. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.) </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00160">160</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -323,7 +356,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00115">115</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Amount of transaction fees, in percent, that are deposited into the foundation wallet, which funds the development of Ixian technology. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.) </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00156">156</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -347,7 +382,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00122">122</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Initial value for seeding the Transaction SHA512 checksum generator. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00177">177</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -371,7 +408,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00123">123</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Initial value for seeding various SHA512 checksums throughout Ixian. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00181">181</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -421,7 +460,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00104">104</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Interval (in seconds) how often to send a 'Keep-Alive' packet into the network. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00115">115</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -472,7 +513,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00105">105</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Number of retries when connecting to a neighbor node, before giving up. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00119">119</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -496,7 +539,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00109">109</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Maximum number of client connections this server can accept (used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable). </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00139">139</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -520,7 +565,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00108">108</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Maximum number of neighbor Master Nodes this server can accept (used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable). </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00135">135</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -544,7 +591,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00107">107</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Maximum number of events a client can be subscribed to. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00131">131</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -568,7 +617,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00118">118</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Maximum number of transactions in each block. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.) </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00168">168</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -592,7 +643,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00119">119</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Maximum number of transactions sent in each chunk when a fresh <a class="el" href="namespace_d_l_t.html">DLT</a> Node is synchronizing. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.) </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00172">172</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -694,7 +747,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00113">113</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Minimum funds a wallet must have before it is allowed to participate in the block consensus algorithm. (used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable). </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00148">148</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -745,7 +800,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00103">103</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Duration (in milliseconds) between reconnection attempts to remote clients. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00111">111</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -769,7 +826,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00110">110</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Amount of signatures (ratio) of consenting signatures vs. available Master Nodes before a block can be accepted. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00143">143</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -793,7 +852,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00102">102</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Timeout (in seconds) before a remote client is disconnected if no data is received from it. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00107">107</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -817,7 +878,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00101">101</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Pong interval (in seconds) - if no data has been received from connected remote client for this time, a special packet will be sent instead to 'wake up' the receiver. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00103">103</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -894,7 +957,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00117">117</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Initial price for relaying a kilobyte of data through an S2 node. (Used in S2 Node executable.) </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00164">164</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -918,7 +983,10 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00106">106</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Target number of simultaneously connected neighbors. </p>
+<p>If more neighbors are connected, they will slowly be disconnected. If fewer neighbors are connected, more will be added over time. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00127">127</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -969,7 +1037,10 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00126">126</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>If set to true, all threads will report liveness periodically, thus enabling checking for deadlocks. </p>
+<p>See class <code>ThreadLiveCheck</code> for details. </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00189">189</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>
@@ -993,7 +1064,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00114">114</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
+<p>Transaction fee per kilobyte. Total transaction size is used. (Used in <a class="el" href="namespace_d_l_t.html">DLT</a> Node executable.) </p>
+
+<p class="definition">Definition at line <a class="el" href="_core_config_8cs_source.html#l00152">152</a> of file <a class="el" href="_core_config_8cs_source.html">CoreConfig.cs</a>.</p>
 
 </div>
 </div>

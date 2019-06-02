@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -103,19 +104,27 @@ $(document).ready(function(){initNavTree('struct_d_l_t_1_1_transaction_1_1_multi
 <div class="title">DLT.Transaction.MultisigChSig Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Change the number of required signatures for a 'Multi-Signature' wallet.  
+ <a href="struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a8834213160b8f7540d03c1cb8460eff3"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html#a8834213160b8f7540d03c1cb8460eff3">reqSigs</a></td></tr>
+<tr class="memdesc:a8834213160b8f7540d03c1cb8460eff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">New value for the minimum required signatures on the 'Multi-Signature' wallet.  <a href="#a8834213160b8f7540d03c1cb8460eff3">More...</a><br /></td></tr>
 <tr class="separator:a8834213160b8f7540d03c1cb8460eff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae91e6cfd03ddee682b6dec4f8b6ae34f"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html#ae91e6cfd03ddee682b6dec4f8b6ae34f">signerPubKey</a></td></tr>
+<tr class="memdesc:ae91e6cfd03ddee682b6dec4f8b6ae34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public key of the signer that is validating this change, if neccessary.  <a href="#ae91e6cfd03ddee682b6dec4f8b6ae34f">More...</a><br /></td></tr>
 <tr class="separator:ae91e6cfd03ddee682b6dec4f8b6ae34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67c909fd6280feebe8c70ddaecc8e074"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html#a67c909fd6280feebe8c70ddaecc8e074">signerNonce</a></td></tr>
+<tr class="memdesc:a67c909fd6280feebe8c70ddaecc8e074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonce value of the signer that is validating this change.  <a href="#a67c909fd6280feebe8c70ddaecc8e074">More...</a><br /></td></tr>
 <tr class="separator:a67c909fd6280feebe8c70ddaecc8e074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00047">47</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<div class="textblock"><p>Change the number of required signatures for a 'Multi-Signature' wallet. </p>
+<p>The number of required signatures can be between 1 and the number of allowed signers for the wallet. If a transaction attempts to change the required signatures number to larger than is possible (it would render the wallet unusable), such a change is considered invalid. The <code>ChangeMultisigWallet</code> transaction which introduces the change is also subject to the <em>current</em> minimum signatures requirement. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00149">149</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a8834213160b8f7540d03c1cb8460eff3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8834213160b8f7540d03c1cb8460eff3">&#9670;&nbsp;</a></span>reqSigs</h2>
@@ -129,7 +138,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00049">49</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>New value for the minimum required signatures on the 'Multi-Signature' wallet. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00154">154</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -145,7 +156,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00051">51</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Nonce value of the signer that is validating this change. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00162">162</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -161,7 +174,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00050">50</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Public key of the signer that is validating this change, if neccessary. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00158">158</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>

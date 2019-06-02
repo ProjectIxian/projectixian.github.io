@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -110,8 +111,10 @@ $(document).ready(function(){initNavTree('_network_8cs.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html">DLT.Network.IPv4Subnet</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class to help filter and classify IPv4 addresses  <a href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_network_1_1_i_p_and_mask.html">DLT.Network.IPAndMask</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an IP address and a subnet mask.  <a href="struct_d_l_t_1_1_network_1_1_i_p_and_mask.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_core_network_utils.html">DLT.Network.CoreNetworkUtils</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,6 +148,7 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespace_d_l_t_1_1_network.html#a4c40a5e76a2854af62a89ca3d02831bea81ac48f75a3129d56d7995d71c6f1171">DLT.Network.ProtocolByeCode.addressMismatch</a> = 604
 <br />
  }</td></tr>
+<tr class="memdesc:a4c40a5e76a2854af62a89ca3d02831be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reason for disconnection.  <a href="namespace_d_l_t_1_1_network.html#a4c40a5e76a2854af62a89ca3d02831be">More...</a><br /></td></tr>
 <tr class="separator:a4c40a5e76a2854af62a89ca3d02831be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f0af03368dbd101aaa4f4f4398cc068"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068">DLT.Network.ProtocolMessageCode</a> { <br />
 &#160;&#160;<a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068a5d41402abc4b2a76b9719d911017c592">DLT.Network.ProtocolMessageCode.hello</a> = 0, 
@@ -206,11 +210,13 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068a4e6c6c8539bbd51b073614dc0def3dde">DLT.Network.ProtocolMessageCode.getNextSuperBlock</a> = 45
 <br />
  }</td></tr>
+<tr class="memdesc:a7f0af03368dbd101aaa4f4f4398cc068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Codes represent types of network messages accepted by the Ixian network. Each code implies the expected following message structure.  <a href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068">More...</a><br /></td></tr>
 <tr class="separator:a7f0af03368dbd101aaa4f4f4398cc068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac760d9524c656742cf9e957ebdf14621"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621">DLT.Network.RemoteEndpointState</a> { <a class="el" href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621a4f2a91e15af2631ff9424564b8a45fb2">DLT.Network.RemoteEndpointState.Initial</a>, 
 <a class="el" href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621a072f9734fceb02f516b50d4174ac0f18">DLT.Network.RemoteEndpointState.Established</a>, 
 <a class="el" href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621a03f4a47830f97377a35321051685071e">DLT.Network.RemoteEndpointState.Closed</a>
  }</td></tr>
+<tr class="memdesc:ac760d9524c656742cf9e957ebdf14621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current stateus of the remote endpoint (server or client).  <a href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621">More...</a><br /></td></tr>
 <tr class="separator:ac760d9524c656742cf9e957ebdf14621"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -109,14 +110,19 @@ $(document).ready(function(){initNavTree('_transaction_8cs.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html">DLT.Transaction</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single transaction on the Ixian blockchain.  <a href="class_d_l_t_1_1_transaction.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html">DLT.Transaction.MultisigAddrAdd</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Another allowed signer is being added to a <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a>. If the target wallet is not yet a 'Multi-Signature' wallet, it will be converted into one and the number of required signatures will be set to 1.  <a href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_del.html">DLT.Transaction.MultisigAddrDel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An allowed signer is being removed from a <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a>. If the target wallet is not a 'Multi-Signature' wallet, such a transaction is considered invalid. The original <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a>'s owner cannot be removed.  <a href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_del.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html">DLT.Transaction.MultisigChSig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the number of required signatures for a 'Multi-Signature' wallet.  <a href="struct_d_l_t_1_1_transaction_1_1_multisig_ch_sig.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html">DLT.Transaction.MultisigTxData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional signature for an existing <code>MultisigTX</code> transaction that is waiting in the pool.  <a href="struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>

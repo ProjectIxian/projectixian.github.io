@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -103,19 +104,26 @@ $(document).ready(function(){initNavTree('struct_d_l_t_1_1_transaction_1_1_multi
 <div class="title">DLT.Transaction.MultisigAddrAdd Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Another allowed signer is being added to a <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a>. If the target wallet is not yet a 'Multi-Signature' wallet, it will be converted into one and the number of required signatures will be set to 1.  
+ <a href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:afda8232f3c1b5b0be73c1ef7b00f9b5e"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html#afda8232f3c1b5b0be73c1ef7b00f9b5e">addrToAdd</a></td></tr>
+<tr class="memdesc:afda8232f3c1b5b0be73c1ef7b00f9b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a> address of the new signer that is being added.  <a href="#afda8232f3c1b5b0be73c1ef7b00f9b5e">More...</a><br /></td></tr>
 <tr class="separator:afda8232f3c1b5b0be73c1ef7b00f9b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2211928cf6ff5dbff24584d562cba34a"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html#a2211928cf6ff5dbff24584d562cba34a">signerPubKey</a></td></tr>
+<tr class="memdesc:a2211928cf6ff5dbff24584d562cba34a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public key of the new signer that is being validating this transaction, if neccessary.  <a href="#a2211928cf6ff5dbff24584d562cba34a">More...</a><br /></td></tr>
 <tr class="separator:a2211928cf6ff5dbff24584d562cba34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78105ea39edc6547a900798dc28742e9"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_addr_add.html#a78105ea39edc6547a900798dc28742e9">signerNonce</a></td></tr>
+<tr class="memdesc:a78105ea39edc6547a900798dc28742e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonce value of the new signer that is validating this change.  <a href="#a78105ea39edc6547a900798dc28742e9">More...</a><br /></td></tr>
 <tr class="separator:a78105ea39edc6547a900798dc28742e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00033">33</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<div class="textblock"><p>Another allowed signer is being added to a <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a>. If the target wallet is not yet a 'Multi-Signature' wallet, it will be converted into one and the number of required signatures will be set to 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00100">100</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="afda8232f3c1b5b0be73c1ef7b00f9b5e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afda8232f3c1b5b0be73c1ef7b00f9b5e">&#9670;&nbsp;</a></span>addrToAdd</h2>
@@ -129,7 +137,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00035">35</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p><a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a> address of the new signer that is being added. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00105">105</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -145,7 +155,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00037">37</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Nonce value of the new signer that is validating this change. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00113">113</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -161,7 +173,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00036">36</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Public key of the new signer that is being validating this transaction, if neccessary. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00109">109</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>

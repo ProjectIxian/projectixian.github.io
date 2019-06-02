@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -104,54 +105,77 @@ $(document).ready(function(){initNavTree('class_d_l_t_1_1_network_1_1_network_se
 <div class="title">DLT.Network.NetworkServer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Ixian network server object. This is used to accept connections from Ixian clients or other nodes and recieve Ixian protocol messages. Basic protocol validation is performed before a specialized protocol parser is called.  
+ <a href="class_d_l_t_1_1_network_1_1_network_server.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0c8bb5ada173e27fc0d09c960fcc4244"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a0c8bb5ada173e27fc0d09c960fcc4244">beginNetworkOperations</a> ()</td></tr>
+<tr class="memdesc:a0c8bb5ada173e27fc0d09c960fcc4244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts listening for and accepting network connections.  <a href="#a0c8bb5ada173e27fc0d09c960fcc4244">More...</a><br /></td></tr>
 <tr class="separator:a0c8bb5ada173e27fc0d09c960fcc4244"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf2ebd850086e734915ac96fdb469200"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#adf2ebd850086e734915ac96fdb469200">stopNetworkOperations</a> ()</td></tr>
+<tr class="memdesc:adf2ebd850086e734915ac96fdb469200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops listening for new connections and disconnects all connected clients.  <a href="#adf2ebd850086e734915ac96fdb469200">More...</a><br /></td></tr>
 <tr class="separator:adf2ebd850086e734915ac96fdb469200"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a202804f36e6d9a3044e054a31a104cb2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a202804f36e6d9a3044e054a31a104cb2">handleDisconnectedClients</a> ()</td></tr>
+<tr class="memdesc:a202804f36e6d9a3044e054a31a104cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the list of clients and removes the ones who have disconnected since the last check.  <a href="#a202804f36e6d9a3044e054a31a104cb2">More...</a><br /></td></tr>
 <tr class="separator:a202804f36e6d9a3044e054a31a104cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e1350cfc11740e551cfb4960d93b960"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a7e1350cfc11740e551cfb4960d93b960">restartNetworkOperations</a> ()</td></tr>
+<tr class="memdesc:a7e1350cfc11740e551cfb4960d93b960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restarts the network server.  <a href="#a7e1350cfc11740e551cfb4960d93b960">More...</a><br /></td></tr>
 <tr class="separator:a7e1350cfc11740e551cfb4960d93b960"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef81d197bc8fdfc34f6dc7d0c734ed06"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#aef81d197bc8fdfc34f6dc7d0c734ed06">broadcastData</a> (char[] types, <a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068">ProtocolMessageCode</a> code, byte[] data, byte[] helper_data, <a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a> skipEndpoint=null)</td></tr>
+<tr class="memdesc:aef81d197bc8fdfc34f6dc7d0c734ed06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the given data to all appropriate connected clients.  <a href="#aef81d197bc8fdfc34f6dc7d0c734ed06">More...</a><br /></td></tr>
 <tr class="separator:aef81d197bc8fdfc34f6dc7d0c734ed06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a618eea4db6f426add5c49a8183897e4f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a618eea4db6f426add5c49a8183897e4f">broadcastEventData</a> (<a class="el" href="class_d_l_t_1_1_network_events.html#ad7d140634a65d105e7239e686801a032">NetworkEvents.Type</a> type, <a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068">ProtocolMessageCode</a> code, byte[] data, byte[] address, byte[] helper_data, <a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a> skipEndpoint=null)</td></tr>
+<tr class="memdesc:a618eea4db6f426add5c49a8183897e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the specified event to all connected clients. The information is only sent to those clients who have previously subscribed to this event type  <a href="#a618eea4db6f426add5c49a8183897e4f">More...</a><br /></td></tr>
 <tr class="separator:a618eea4db6f426add5c49a8183897e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22ee8b8fcac32f3bf3360148538aaf36"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a22ee8b8fcac32f3bf3360148538aaf36">forwardMessage</a> (byte[] address, <a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068">ProtocolMessageCode</a> code, byte[] message)</td></tr>
+<tr class="memdesc:a22ee8b8fcac32f3bf3360148538aaf36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the specified network message to the given address, if it is known and connected among clients.  <a href="#a22ee8b8fcac32f3bf3360148538aaf36">More...</a><br /></td></tr>
 <tr class="separator:a22ee8b8fcac32f3bf3360148538aaf36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0269caa45b8aa93602c17ec96e0fed38"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a0269caa45b8aa93602c17ec96e0fed38">sendToClient</a> (string neighbor, <a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068">ProtocolMessageCode</a> code, byte[] data, byte[] helper_data)</td></tr>
+<tr class="memdesc:a0269caa45b8aa93602c17ec96e0fed38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the protocol message to the specified neighbor node, given as a Hostname or IP address and port.  <a href="#a0269caa45b8aa93602c17ec96e0fed38">More...</a><br /></td></tr>
 <tr class="separator:a0269caa45b8aa93602c17ec96e0fed38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4eb05c82450dd5d585902e86902fcd86"><td class="memItemLeft" align="right" valign="top">static string []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a4eb05c82450dd5d585902e86902fcd86">getConnectedClients</a> (bool useIncomingPort=false)</td></tr>
+<tr class="memdesc:a4eb05c82450dd5d585902e86902fcd86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all connected remote endpoints as hostnames or IP addresses and optionally ports.  <a href="#a4eb05c82450dd5d585902e86902fcd86">More...</a><br /></td></tr>
 <tr class="separator:a4eb05c82450dd5d585902e86902fcd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30d7c8559e886ddf9407be85bbbc895a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a30d7c8559e886ddf9407be85bbbc895a">removeEndpoint</a> (<a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a> endpoint)</td></tr>
+<tr class="memdesc:a30d7c8559e886ddf9407be85bbbc895a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the given endpoint from the connected client list, but does not immediately issue a disconnect message.  <a href="#a30d7c8559e886ddf9407be85bbbc895a">More...</a><br /></td></tr>
 <tr class="separator:a30d7c8559e886ddf9407be85bbbc895a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a093de6d128a5c31c22f404653a2b37"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a5a093de6d128a5c31c22f404653a2b37">getQueuedMessageCount</a> ()</td></tr>
+<tr class="memdesc:a5a093de6d128a5c31c22f404653a2b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of queued outgoing messages for all clients.  <a href="#a5a093de6d128a5c31c22f404653a2b37">More...</a><br /></td></tr>
 <tr class="separator:a5a093de6d128a5c31c22f404653a2b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96514760dfca22aca337b439820b9646"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a96514760dfca22aca337b439820b9646">getClient</a> (int idx)</td></tr>
+<tr class="memdesc:a96514760dfca22aca337b439820b9646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the client by sequential index.  <a href="#a96514760dfca22aca337b439820b9646">More...</a><br /></td></tr>
 <tr class="separator:a96514760dfca22aca337b439820b9646"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2db8e95bcb8c18e2d13669f9dd1de958"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a2db8e95bcb8c18e2d13669f9dd1de958">blacklistNode</a> (string ip)</td></tr>
+<tr class="memdesc:a2db8e95bcb8c18e2d13669f9dd1de958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the speficied node to the blacklist by public IP.  <a href="#a2db8e95bcb8c18e2d13669f9dd1de958">More...</a><br /></td></tr>
 <tr class="separator:a2db8e95bcb8c18e2d13669f9dd1de958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa82a94e663f7b7260c354ac714483c3f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#aa82a94e663f7b7260c354ac714483c3f">isNodeBlacklisted</a> (string ip)</td></tr>
+<tr class="memdesc:aa82a94e663f7b7260c354ac714483c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the specified IP is blacklisted.  <a href="#aa82a94e663f7b7260c354ac714483c3f">More...</a><br /></td></tr>
 <tr class="separator:aa82a94e663f7b7260c354ac714483c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac20a4f288ccfb0d2b0b72013964dabb2"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#ac20a4f288ccfb0d2b0b72013964dabb2">isRunning</a> ()</td></tr>
+<tr class="memdesc:ac20a4f288ccfb0d2b0b72013964dabb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the server is running.  <a href="#ac20a4f288ccfb0d2b0b72013964dabb2">More...</a><br /></td></tr>
 <tr class="separator:ac20a4f288ccfb0d2b0b72013964dabb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a916a5bbb59869c5c60ca2ea1ce916b28"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a916a5bbb59869c5c60ca2ea1ce916b28">isConnectable</a> ()</td></tr>
+<tr class="memdesc:a916a5bbb59869c5c60ca2ea1ce916b28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the server is proven to be connectable. (Someone has connected to the server successfully within the past 5 minutes.)  <a href="#a916a5bbb59869c5c60ca2ea1ce916b28">More...</a><br /></td></tr>
 <tr class="separator:a916a5bbb59869c5c60ca2ea1ce916b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:acf736316e0d1c465a6b9cbb1a59bd28f"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#acf736316e0d1c465a6b9cbb1a59bd28f">publicIPAddress</a> = &quot;127.0.0.1&quot;</td></tr>
+<tr class="memdesc:acf736316e0d1c465a6b9cbb1a59bd28f"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP address on which the server will listen. For security reasons this is pre-set to the local loopback address and must be specifically overwritten when starting the server.  <a href="#acf736316e0d1c465a6b9cbb1a59bd28f">More...</a><br /></td></tr>
 <tr class="separator:acf736316e0d1c465a6b9cbb1a59bd28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5192a2feba3f36623865bea6c6a958be"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a5192a2feba3f36623865bea6c6a958be">connectedClients</a> = new List&lt;<a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a>&gt;()</td></tr>
+<tr class="memdesc:a5192a2feba3f36623865bea6c6a958be"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of connected clients.  <a href="#a5192a2feba3f36623865bea6c6a958be">More...</a><br /></td></tr>
 <tr class="separator:a5192a2feba3f36623865bea6c6a958be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a018c39e760f94f1713f7f2b59a71044d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html#a018c39e760f94f1713f7f2b59a71044d">connectable</a> = true</td></tr>
+<tr class="memdesc:a018c39e760f94f1713f7f2b59a71044d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag, indicating whether the listening socket is open and accepting connections.  <a href="#a018c39e760f94f1713f7f2b59a71044d">More...</a><br /></td></tr>
 <tr class="separator:a018c39e760f94f1713f7f2b59a71044d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00019">19</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<div class="textblock"><p>Ixian network server object. This is used to accept connections from Ixian clients or other nodes and recieve Ixian protocol messages. Basic protocol validation is performed before a specialized protocol parser is called. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00028">28</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0c8bb5ada173e27fc0d09c960fcc4244"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c8bb5ada173e27fc0d09c960fcc4244">&#9670;&nbsp;</a></span>beginNetworkOperations()</h2>
@@ -176,7 +200,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00043">43</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Starts listening for and accepting network connections. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00064">64</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -204,7 +230,15 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00468">468</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Adds the speficied node to the blacklist by public IP. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>Node to blacklist.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00547">547</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -260,7 +294,20 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00198">198</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Sends the given data to all appropriate connected clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">types</td><td>Types of clients to which the data should be sent.</td></tr>
+    <tr><td class="paramname">code</td><td>Type of the protocol message being sent.</td></tr>
+    <tr><td class="paramname">data</td><td>Byte-field of the data, appropriate for the specific <code>code</code> used.</td></tr>
+    <tr><td class="paramname">helper_data</td><td>Optional, additional data to transmit after <code>data</code>.</td></tr>
+    <tr><td class="paramname">skipEndpoint</td><td>If given, the message will not be sent to this remote endpoint. This prevents echoing the message to the originating node.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if at least one message was sent to at least one client.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00234">234</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -322,7 +369,21 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00237">237</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Sends the specified event to all connected clients. The information is only sent to those clients who have previously subscribed to this event type </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Types of the event that has occurred.</td></tr>
+    <tr><td class="paramname">code</td><td>Type of the protocol message being sent.</td></tr>
+    <tr><td class="paramname">data</td><td>Byte-field of the data, appropriate for the specific <code>code</code> used.</td></tr>
+    <tr><td class="paramname">address</td><td>Ixian <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a> <a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a> which triggered the event</td></tr>
+    <tr><td class="paramname">helper_data</td><td>Optional, additional data to transmit after <code>data</code>.</td></tr>
+    <tr><td class="paramname">skipEndpoint</td><td>If given, the message will not be sent to this remote endpoint. This prevents echoing the message to the originating node.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if at least one message was sent to at least one client.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00283">283</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -366,7 +427,18 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00278">278</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Sends the specified network message to the given address, if it is known and connected among clients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Ixian <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a> <a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a> - the recipient of the message</td></tr>
+    <tr><td class="paramname">code</td><td>Type of the network message to send</td></tr>
+    <tr><td class="paramname">message</td><td>Byte-field with the required data, as specified by <code>code</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the message was delivered.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00330">330</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -394,7 +466,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00444">444</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Gets the client by sequential index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Sequential index of the client.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Client at the given index, or null if out of bounds.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00520">520</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -422,7 +503,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00338">338</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Retrieves all connected remote endpoints as hostnames or IP addresses and optionally ports. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">useIncomingPort</td><td>Whether the TCP port information should be included.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of connected clients with optional port information.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00401">401</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -449,7 +539,10 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00431">431</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Retrieves the number of queued outgoing messages for all clients. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of messages in all outgoing queues</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00502">502</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -476,7 +569,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00101">101</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Checks the list of clients and removes the ones who have disconnected since the last check. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00128">128</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -503,7 +598,10 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00501">501</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Returns if the server is proven to be connectable. (Someone has connected to the server successfully within the past 5 minutes.) </p>
+<dl class="section return"><dt>Returns</dt><dd>True, if the server is connectable from the Internet.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00591">591</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -531,7 +629,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00478">478</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Checks if the specified IP is blacklisted. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>IP address to check</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the node is blacklisted.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00560">560</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -558,7 +665,10 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00496">496</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Checks if the server is running. </p>
+<dl class="section return"><dt>Returns</dt><dd>True, if the network server is running and accepting connections.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00581">581</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -586,7 +696,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00421">421</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Removes the given endpoint from the connected client list, but does not immediately issue a disconnect message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">endpoint</td><td>Endpoint to remove</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the endpoint was removed or false if the endpoint was not known.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00488">488</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -613,7 +732,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00134">134</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Restarts the network server. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00163">163</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -663,7 +784,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00315">315</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Sends the protocol message to the specified neighbor node, given as a Hostname or IP address and port. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">neighbor</td><td>IP address or hostname and port for the neighbor.</td></tr>
+    <tr><td class="paramname">code</td><td>Type of the protocol message</td></tr>
+    <tr><td class="paramname">data</td><td>Data required by the protocol message <code>code</code>.</td></tr>
+    <tr><td class="paramname">helper_data</td><td>Optional, additional data to transmit after <code>data</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the data was sent to the specified neighbor.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00374">374</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -690,7 +823,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00071">71</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Stops listening for new connections and disconnects all connected clients. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00095">95</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -715,7 +850,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00033">33</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>Flag, indicating whether the listening socket is open and accepting connections. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00051">51</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -739,7 +876,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00027">27</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>List of connected clients. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00042">42</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>
@@ -763,7 +902,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00021">21</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
+<p>IP address on which the server will listen. For security reasons this is pre-set to the local loopback address and must be specifically overwritten when starting the server. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_server_8cs_source.html#l00034">34</a> of file <a class="el" href="_network_server_8cs_source.html">NetworkServer.cs</a>.</p>
 
 </div>
 </div>

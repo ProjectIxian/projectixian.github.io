@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -127,7 +128,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af7fc51f4aa633929425a5f14b2fe8355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of block equality.  <a href="#af7fc51f4aa633929425a5f14b2fe8355">More...</a><br /></td></tr>
 <tr class="separator:af7fc51f4aa633929425a5f14b2fe8355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72220d067dc6182214e6513c19815625"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_block.html#a72220d067dc6182214e6513c19815625">addTransaction</a> (string txid)</td></tr>
-<tr class="memdesc:a72220d067dc6182214e6513c19815625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an Ixian <code><a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a></code> to the block. The transaction must already be present in the TransactionPool.  <a href="#a72220d067dc6182214e6513c19815625">More...</a><br /></td></tr>
+<tr class="memdesc:a72220d067dc6182214e6513c19815625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an Ixian <code><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a></code> to the block. The transaction must already be present in the TransactionPool.  <a href="#a72220d067dc6182214e6513c19815625">More...</a><br /></td></tr>
 <tr class="separator:a72220d067dc6182214e6513c19815625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a545463684c7f0bfc7ec99e0deec9bb8e"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_block.html#a545463684c7f0bfc7ec99e0deec9bb8e">calculateChecksum</a> ()</td></tr>
 <tr class="memdesc:a545463684c7f0bfc7ec99e0deec9bb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <code>blockChecksum</code> of the <a class="el" href="namespace_d_l_t.html">DLT</a> <a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a>, using the relevant fields.  <a href="#a545463684c7f0bfc7ec99e0deec9bb8e">More...</a><br /></td></tr>
@@ -416,7 +417,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds an Ixian <code><a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a></code> to the block. The transaction must already be present in the TransactionPool. </p>
+<p>Adds an Ixian <code><a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a></code> to the block. The transaction must already be present in the TransactionPool. </p>
 <p>Note that the transaction is not executed against the <code><a class="el" href="class_d_l_t_1_1_wallet_state.html">WalletState</a></code> when it's added to the block with this function. It is the responsibiltiy of the Master Node implementation to ensure that all transactions, which are added to a specific block, are also applied against the <a class="el" href="class_d_l_t_1_1_wallet_state.html">WalletState</a>, so that the walletStateSchecksum represents the finishing state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -945,7 +946,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Ixian Hybrid PoW difficulty value. </p>
-<p>Ixian Blockchain works on a consensus model and mining is not strictly required. An optional mining system is included to enable initial coin supply distribution. The mining algorithm is Argon2id and the solutions are not included in blocks themselves. There is a special <a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a> type which submits a solution to a block. Miners are able to work on any block in the Redacted History window, with the target block specifying its difficulty to which the posted solution must conform. </p>
+<p>Ixian Blockchain works on a consensus model and mining is not strictly required. An optional mining system is included to enable initial coin supply distribution. The mining algorithm is Argon2id and the solutions are not included in blocks themselves. There is a special <a class="el" href="class_d_l_t_1_1_transaction.html" title="Represents a single transaction on the Ixian blockchain.">Transaction</a> type which submits a solution to a block. Miners are able to work on any block in the Redacted History window, with the target block specifying its difficulty to which the posted solution must conform. </p>
 
 <p class="definition">Definition at line <a class="el" href="_block_8cs_source.html#l00105">105</a> of file <a class="el" href="_block_8cs_source.html">Block.cs</a>.</p>
 

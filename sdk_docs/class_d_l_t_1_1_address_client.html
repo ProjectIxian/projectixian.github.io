@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -103,27 +104,38 @@ $(document).ready(function(){initNavTree('class_d_l_t_1_1_address_client.html','
 <div class="title">DLT.AddressClient Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Allows a client to generated a secret value with incorporated markers for multiple addresses. Such a value obscures which addresses it represents, but allows others to check whether a given address is part of the set or not with a configurable degree of false-positives. See also <code><a class="el" href="class_d_l_t_1_1_address_matcher.html" title="The other half of the implementation for AddressClient, which allows an untrusted party to check if g...">AddressMatcher</a></code>.  
+ <a href="class_d_l_t_1_1_address_client.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a815d5aa4ab47e89140c53e136a7bc04e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_client.html#a815d5aa4ab47e89140c53e136a7bc04e">AddressClient</a> ()</td></tr>
 <tr class="separator:a815d5aa4ab47e89140c53e136a7bc04e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9795bbf431d2f47a8a7ed5394a88651"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_client.html#ac9795bbf431d2f47a8a7ed5394a88651">addAddress</a> (byte[] addr)</td></tr>
+<tr class="memdesc:ac9795bbf431d2f47a8a7ed5394a88651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an addres to the matcher.  <a href="#ac9795bbf431d2f47a8a7ed5394a88651">More...</a><br /></td></tr>
 <tr class="separator:ac9795bbf431d2f47a8a7ed5394a88651"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51c7c2485ccf42ed92259c6d40c04921"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_client.html#a51c7c2485ccf42ed92259c6d40c04921">clearAddresses</a> ()</td></tr>
+<tr class="memdesc:a51c7c2485ccf42ed92259c6d40c04921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all addresses from the matcher.  <a href="#a51c7c2485ccf42ed92259c6d40c04921">More...</a><br /></td></tr>
 <tr class="separator:a51c7c2485ccf42ed92259c6d40c04921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9299848c6ab241575632430893862b34"><td class="memItemLeft" align="right" valign="top">List&lt; byte[]&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_client.html#a9299848c6ab241575632430893862b34">getAddresses</a> ()</td></tr>
+<tr class="memdesc:a9299848c6ab241575632430893862b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all addresses from the matcher.  <a href="#a9299848c6ab241575632430893862b34">More...</a><br /></td></tr>
 <tr class="separator:a9299848c6ab241575632430893862b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d70133eb6ef33fd5ca01243f9915745"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_client.html#a6d70133eb6ef33fd5ca01243f9915745">numAddresses</a> ()</td></tr>
+<tr class="memdesc:a6d70133eb6ef33fd5ca01243f9915745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of addresses currently in the matcher.  <a href="#a6d70133eb6ef33fd5ca01243f9915745">More...</a><br /></td></tr>
 <tr class="separator:a6d70133eb6ef33fd5ca01243f9915745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fda259e70d88d456444a37dd50f436e"><td class="memItemLeft" align="right" valign="top">List&lt; byte[]&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_client.html#a7fda259e70d88d456444a37dd50f436e">generateHiddenMatchAddresses</a> (Random rnd, int bytes_per_addr)</td></tr>
+<tr class="memdesc:a7fda259e70d88d456444a37dd50f436e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the 'matcher' value (see description of this class <code><a class="el" href="class_d_l_t_1_1_address_client.html" title="Allows a client to generated a secret value with incorporated markers for multiple addresses....">AddressClient</a></code>.  <a href="#a7fda259e70d88d456444a37dd50f436e">More...</a><br /></td></tr>
 <tr class="separator:a7fda259e70d88d456444a37dd50f436e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a001e2bb059a8dcb612bd9a883bc92fb4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_client.html#a001e2bb059a8dcb612bd9a883bc92fb4">containsAddress</a> (byte[] addr)</td></tr>
+<tr class="memdesc:a001e2bb059a8dcb612bd9a883bc92fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the matcher contains the given address.  <a href="#a001e2bb059a8dcb612bd9a883bc92fb4">More...</a><br /></td></tr>
 <tr class="separator:a001e2bb059a8dcb612bd9a883bc92fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00008">8</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
+<div class="textblock"><p>Allows a client to generated a secret value with incorporated markers for multiple addresses. Such a value obscures which addresses it represents, but allows others to check whether a given address is part of the set or not with a configurable degree of false-positives. See also <code><a class="el" href="class_d_l_t_1_1_address_matcher.html" title="The other half of the implementation for AddressClient, which allows an untrusted party to check if g...">AddressMatcher</a></code>. </p>
+<p>This mechanism is used by clients, who do not wish to disclose all their addresses ahead of time, to 'register' to an untrusted <a class="el" href="namespace_d_l_t.html">DLT</a> Node in order to receive information (events) when the client's addresses are encountered on the blockchain. It would be unfeasible for the <a class="el" href="namespace_d_l_t.html">DLT</a> Node to send all events to all clients (bandwidth prohibitative), so some filtering is required. By using this object, the client sends the <a class="el" href="namespace_d_l_t.html">DLT</a> Node a 'condensed' piece of information which matches multiple addresses, <em>including</em> the ones the client is interested in. There are false positives, but never false negatives. Of course, the <a class="el" href="namespace_d_l_t.html">DLT</a> Node may record which addresses match the 'matcher', but it is impossible to determine which of the matches are false positives and which are real. Whether a given address truly belongs to a client can only be determined with 100% accuracy when the client chooses to use it - send a transaction from that address, thus revealing the public key and nonce associated with it. </p>
+
+<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00025">25</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a815d5aa4ab47e89140c53e136a7bc04e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a815d5aa4ab47e89140c53e136a7bc04e">&#9670;&nbsp;</a></span>AddressClient()</h2>
@@ -140,7 +152,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00012">12</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00029">29</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
 
 </div>
 </div>
@@ -161,7 +173,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00017">17</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
+<p>Adds an addres to the matcher. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Ixian wallet address.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00038">38</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
 
 </div>
 </div>
@@ -180,7 +200,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00025">25</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
+<p>Removes all addresses from the matcher. </p>
+
+<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00049">49</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
 
 </div>
 </div>
@@ -200,7 +222,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00092">92</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
+<p>Checks if the matcher contains the given address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td><a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a> to search</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the matcher already contains this address.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00143">143</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
 
 </div>
 </div>
@@ -230,7 +261,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00056">56</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
+<p>Generates the 'matcher' value (see description of this class <code><a class="el" href="class_d_l_t_1_1_address_client.html" title="Allows a client to generated a secret value with incorporated markers for multiple addresses....">AddressClient</a></code>. </p>
+<p>The random generator for this function doesn't strictly have to be cryptographically secure, but it is recommended to use a cryptographically secure random if possible. The <code>bytes_per_addr</code> value determines how many false positives are likely to occur when matching random addresses. A smaller value will produce more false positives, straining the bandwith and making the client process more data, while a higher number will yield fewer false positives, but give away client's addresses with more certainty. 2-4 are usually good values. Please note that both parties must agree on what value to use in <code>bytes_per_addr</code> in order for the matcher to work. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rnd</td><td>Source of entropy - this should be pseudo-random, but doesn't need to be cryptographically secure.</td></tr>
+    <tr><td class="paramname">bytes_per_addr</td><td>How many bytes should be used to encode each address. See remarks.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matcher value, which can be used to determine if any random address was included in this matcher's set.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00102">102</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
 
 </div>
 </div>
@@ -249,7 +291,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00030">30</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
+<p>Retrieves all addresses from the matcher. </p>
+<dl class="section return"><dt>Returns</dt><dd>All addresses in the matcher.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00058">58</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
 
 </div>
 </div>
@@ -268,7 +313,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00035">35</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
+<p>Retrieves the number of addresses currently in the matcher. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_address_client_8cs_source.html#l00067">67</a> of file <a class="el" href="_address_client_8cs_source.html">AddressClient.cs</a>.</p>
 
 </div>
 </div>

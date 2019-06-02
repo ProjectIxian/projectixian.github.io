@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -105,6 +106,9 @@ $(document).ready(function(){initNavTree('class_d_l_t_1_1_network_client.html','
 <div class="title">DLT.NetworkClient Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of the <code><a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a></code> interface as an Ixian network client.  
+ <a href="class_d_l_t_1_1_network_client.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for DLT.NetworkClient:</div>
 <div class="dyncontent">
@@ -120,12 +124,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8a595ec09f8025b0d4b31acd3704b2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_client.html#ae8a595ec09f8025b0d4b31acd3704b2b">NetworkClient</a> ()</td></tr>
 <tr class="separator:ae8a595ec09f8025b0d4b31acd3704b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32b73707ac5a5b0e170d98fc6a71df86"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_client.html#a32b73707ac5a5b0e170d98fc6a71df86">connectToServer</a> (string hostname, int port, byte[] wallet_address)</td></tr>
+<tr class="memdesc:a32b73707ac5a5b0e170d98fc6a71df86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establishes connection to the given hostname and port. An expected remote wallet address must be provided before a connection to the Ixian network can be made safely.  <a href="#a32b73707ac5a5b0e170d98fc6a71df86">More...</a><br /></td></tr>
 <tr class="separator:a32b73707ac5a5b0e170d98fc6a71df86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8313e97e581446356a09114e8f09aeea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_client.html#a8313e97e581446356a09114e8f09aeea">reconnect</a> ()</td></tr>
+<tr class="memdesc:a8313e97e581446356a09114e8f09aeea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnects (optionally) and reconnects to the same remote host as was given in <code><a class="el" href="class_d_l_t_1_1_network_client.html#a32b73707ac5a5b0e170d98fc6a71df86" title="Establishes connection to the given hostname and port. An expected remote wallet address must be prov...">connectToServer()</a></code>.  <a href="#a8313e97e581446356a09114e8f09aeea">More...</a><br /></td></tr>
 <tr class="separator:a8313e97e581446356a09114e8f09aeea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac335bfcb462796d53a2000c8505503e2"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_client.html#ac335bfcb462796d53a2000c8505503e2">disconnect</a> ()</td></tr>
+<tr class="memdesc:ac335bfcb462796d53a2000c8505503e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Breaks the connection to the remote server.  <a href="#ac335bfcb462796d53a2000c8505503e2">More...</a><br /></td></tr>
 <tr class="separator:ac335bfcb462796d53a2000c8505503e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dd5600175778ac87aba4a545488660f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_client.html#a5dd5600175778ac87aba4a545488660f">getTotalReconnectsCount</a> ()</td></tr>
+<tr class="memdesc:a5dd5600175778ac87aba4a545488660f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of times this connection was re-established (disconnected and reconnected).  <a href="#a5dd5600175778ac87aba4a545488660f">More...</a><br /></td></tr>
 <tr class="separator:a5dd5600175778ac87aba4a545488660f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_d_l_t_1_1_remote_endpoint"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_d_l_t_1_1_remote_endpoint')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_d_l_t_1_1_remote_endpoint.html">DLT.RemoteEndpoint</a></td></tr>
 <tr class="memitem:a3d01fc4db0f9ab8d5bff9083a2b177b8 inherit pub_methods_class_d_l_t_1_1_remote_endpoint"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_remote_endpoint.html#a3d01fc4db0f9ab8d5bff9083a2b177b8">start</a> (Socket socket=null)</td></tr>
@@ -156,6 +164,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a696e0c5d0e03b11390ba2b846d606231"><td class="memItemLeft" align="right" valign="top">TcpClient&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_client.html#a696e0c5d0e03b11390ba2b846d606231">tcpClient</a> = null</td></tr>
+<tr class="memdesc:a696e0c5d0e03b11390ba2b846d606231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unerlying framework connection, if an operation must be performed directly on it.  <a href="#a696e0c5d0e03b11390ba2b846d606231">More...</a><br /></td></tr>
 <tr class="separator:a696e0c5d0e03b11390ba2b846d606231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_d_l_t_1_1_remote_endpoint"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_d_l_t_1_1_remote_endpoint')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_d_l_t_1_1_remote_endpoint.html">DLT.RemoteEndpoint</a></td></tr>
 <tr class="memitem:ac3a368a4e7aa448883e9391318293958 inherit pub_attribs_class_d_l_t_1_1_remote_endpoint"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_remote_endpoint.html#ac3a368a4e7aa448883e9391318293958">fullAddress</a> = &quot;127.0.0.1:10000&quot;</td></tr>
@@ -234,8 +243,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ae4e513a65170d8d94719eae7d676661a inherit pro_attribs_class_d_l_t_1_1_remote_endpoint"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00009">9</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
+<div class="textblock"><p>Implementation of the <code><a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a></code> interface as an Ixian network client. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00012">12</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae8a595ec09f8025b0d4b31acd3704b2b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8a595ec09f8025b0d4b31acd3704b2b">&#9670;&nbsp;</a></span>NetworkClient()</h2>
@@ -252,7 +262,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00019">19</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00025">25</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
 
 </div>
 </div>
@@ -289,7 +299,18 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00038">38</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
+<p>Establishes connection to the given hostname and port. An expected remote wallet address must be provided before a connection to the Ixian network can be made safely. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hostname</td><td>Hostname or IP address of the remote server</td></tr>
+    <tr><td class="paramname">port</td><td>Port on which to connect</td></tr>
+    <tr><td class="paramname">wallet_address</td><td>Expected wallet address of the remote server we are connecting to.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the connection was successful.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00052">52</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
 
 </div>
 </div>
@@ -316,9 +337,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Breaks the connection to the remote server. </p>
+
 <p>Reimplemented from <a class="el" href="class_d_l_t_1_1_remote_endpoint.html#ad73be5a98ebe3538f2c2e7f394c768a7">DLT.RemoteEndpoint</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00140">140</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00160">160</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
 
 </div>
 </div>
@@ -337,7 +360,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00147">147</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
+<p>Returns the number of times this connection was re-established (disconnected and reconnected). </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of connection attempts.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00170">170</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
 
 </div>
 </div>
@@ -356,7 +382,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00112">112</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
+<p>Disconnects (optionally) and reconnects to the same remote host as was given in <code><a class="el" href="class_d_l_t_1_1_network_client.html#a32b73707ac5a5b0e170d98fc6a71df86" title="Establishes connection to the given hostname and port. An expected remote wallet address must be prov...">connectToServer()</a></code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>True, if the connection attempt was successful.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00129">129</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
 
 </div>
 </div>
@@ -385,7 +414,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_d_l_t_1_1_remote_endpoint.html#a16c76a19a13b9473f71dd24f5a0dad62">DLT.RemoteEndpoint</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00133">133</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00150">150</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
 
 </div>
 </div>
@@ -402,7 +431,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00011">11</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
+<p>Unerlying framework connection, if an operation must be performed directly on it. </p>
+
+<p class="definition">Definition at line <a class="el" href="_network_client_8cs_source.html#l00017">17</a> of file <a class="el" href="_network_client_8cs_source.html">NetworkClient.cs</a>.</p>
 
 </div>
 </div>

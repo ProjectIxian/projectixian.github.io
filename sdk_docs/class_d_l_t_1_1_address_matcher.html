@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -103,17 +104,23 @@ $(document).ready(function(){initNavTree('class_d_l_t_1_1_address_matcher.html',
 <div class="title">DLT.AddressMatcher Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The other half of the implementation for <code><a class="el" href="class_d_l_t_1_1_address_client.html" title="Allows a client to generated a secret value with incorporated markers for multiple addresses....">AddressClient</a></code>, which allows an untrusted party to check if given addresses are of interest to the client. The client supplies a 'matcher' value, against which the addresses are checked. The matcher will produce false-positives, but never false-negatives, which means that it is impossible to accurately determine if an address belongs to the client or not.  
+ <a href="class_d_l_t_1_1_address_matcher.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a2bb2daa5860c471f1e717218eb3a46f9"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_matcher.html#a2bb2daa5860c471f1e717218eb3a46f9">matches</a> (byte[] matcher, byte[] addr, int match_bytes)</td></tr>
+<tr class="memdesc:a2bb2daa5860c471f1e717218eb3a46f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given address matches the provided 'matcher' data.  <a href="#a2bb2daa5860c471f1e717218eb3a46f9">More...</a><br /></td></tr>
 <tr class="separator:a2bb2daa5860c471f1e717218eb3a46f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11ea171c6c9b2990253315c2611e0141"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_matcher.html#a11ea171c6c9b2990253315c2611e0141">matchesAny</a> (List&lt; byte[]&gt; matchers, byte[] addr, int match_bytes)</td></tr>
+<tr class="memdesc:a11ea171c6c9b2990253315c2611e0141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given addresses matches any of the provided 'matcher' data.  <a href="#a11ea171c6c9b2990253315c2611e0141">More...</a><br /></td></tr>
 <tr class="separator:a11ea171c6c9b2990253315c2611e0141"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_address_matcher_8cs_source.html#l00007">7</a> of file <a class="el" href="_address_matcher_8cs_source.html">AddressMatcher.cs</a>.</p>
+<div class="textblock"><p>The other half of the implementation for <code><a class="el" href="class_d_l_t_1_1_address_client.html" title="Allows a client to generated a secret value with incorporated markers for multiple addresses....">AddressClient</a></code>, which allows an untrusted party to check if given addresses are of interest to the client. The client supplies a 'matcher' value, against which the addresses are checked. The matcher will produce false-positives, but never false-negatives, which means that it is impossible to accurately determine if an address belongs to the client or not. </p>
+
+<p class="definition">Definition at line <a class="el" href="_address_matcher_8cs_source.html#l00013">13</a> of file <a class="el" href="_address_matcher_8cs_source.html">AddressMatcher.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2bb2daa5860c471f1e717218eb3a46f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2bb2daa5860c471f1e717218eb3a46f9">&#9670;&nbsp;</a></span>matches()</h2>
@@ -155,7 +162,18 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_matcher_8cs_source.html#l00010">10</a> of file <a class="el" href="_address_matcher_8cs_source.html">AddressMatcher.cs</a>.</p>
+<p>Checks if the given address matches the provided 'matcher' data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matcher</td><td>Matcher data, as provided by the <code><a class="el" href="class_d_l_t_1_1_address_client.html" title="Allows a client to generated a secret value with incorporated markers for multiple addresses....">AddressClient</a></code> object.</td></tr>
+    <tr><td class="paramname">addr</td><td><a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a> to check.</td></tr>
+    <tr><td class="paramname">match_bytes</td><td>Number of bytes to match. See remarks of <code><a class="el" href="class_d_l_t_1_1_address_client.html#a7fda259e70d88d456444a37dd50f436e" title="Generates the &#39;matcher&#39; value (see description of this class AddressClient.">AddressClient.generateHiddenMatchAddresses()</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the address matches (may be a false positive)</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_address_matcher_8cs_source.html#l00022">22</a> of file <a class="el" href="_address_matcher_8cs_source.html">AddressMatcher.cs</a>.</p>
 
 </div>
 </div>
@@ -199,7 +217,18 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_address_matcher_8cs_source.html#l00026">26</a> of file <a class="el" href="_address_matcher_8cs_source.html">AddressMatcher.cs</a>.</p>
+<p>Checks if the given addresses matches any of the provided 'matcher' data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matchers</td><td>A list of matcher objects.</td></tr>
+    <tr><td class="paramname">addr</td><td><a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a> to check</td></tr>
+    <tr><td class="paramname">match_bytes</td><td>Number of bytes to use for matching. See remarks of <code><a class="el" href="class_d_l_t_1_1_address_client.html#a7fda259e70d88d456444a37dd50f436e" title="Generates the &#39;matcher&#39; value (see description of this class AddressClient.">AddressClient.generateHiddenMatchAddresses()</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if the address matches any of the matchers (may be a false positive)</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_address_matcher_8cs_source.html#l00044">44</a> of file <a class="el" href="_address_matcher_8cs_source.html">AddressMatcher.cs</a>.</p>
 
 </div>
 </div>

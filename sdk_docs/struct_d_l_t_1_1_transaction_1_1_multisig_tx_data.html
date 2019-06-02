@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -103,19 +104,26 @@ $(document).ready(function(){initNavTree('struct_d_l_t_1_1_transaction_1_1_multi
 <div class="title">DLT.Transaction.MultisigTxData Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Additional signature for an existing <code>MultisigTX</code> transaction that is waiting in the pool.  
+ <a href="struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a6a93b82e7aa4f13e200c030cdba6ebd0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html#a6a93b82e7aa4f13e200c030cdba6ebd0">origTXId</a></td></tr>
+<tr class="memdesc:a6a93b82e7aa4f13e200c030cdba6ebd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">TXID of the original transaction which this transaction validates.  <a href="#a6a93b82e7aa4f13e200c030cdba6ebd0">More...</a><br /></td></tr>
 <tr class="separator:a6a93b82e7aa4f13e200c030cdba6ebd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cf426644cebce54f1579b4492f25459"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html#a1cf426644cebce54f1579b4492f25459">signerPubKey</a></td></tr>
+<tr class="memdesc:a1cf426644cebce54f1579b4492f25459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public key of the signer which can help authorize a Multisig transaction, if required (key is not yet present in the <a class="el" href="class_d_l_t_1_1_presence_list.html">PresenceList</a>).  <a href="#a1cf426644cebce54f1579b4492f25459">More...</a><br /></td></tr>
 <tr class="separator:a1cf426644cebce54f1579b4492f25459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b6c9ca43708a1d76c463d3cb8ee33d6"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_transaction_1_1_multisig_tx_data.html#a4b6c9ca43708a1d76c463d3cb8ee33d6">signerNonce</a></td></tr>
+<tr class="memdesc:a4b6c9ca43708a1d76c463d3cb8ee33d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonce value of the signer which can help authorize a Multisig transaction.  <a href="#a4b6c9ca43708a1d76c463d3cb8ee33d6">More...</a><br /></td></tr>
 <tr class="separator:a4b6c9ca43708a1d76c463d3cb8ee33d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00054">54</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<div class="textblock"><p>Additional signature for an existing <code>MultisigTX</code> transaction that is waiting in the pool. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00168">168</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a6a93b82e7aa4f13e200c030cdba6ebd0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6a93b82e7aa4f13e200c030cdba6ebd0">&#9670;&nbsp;</a></span>origTXId</h2>
@@ -129,7 +137,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00056">56</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>TXID of the original transaction which this transaction validates. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00173">173</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -145,7 +155,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00058">58</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Nonce value of the signer which can help authorize a Multisig transaction. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00181">181</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>
@@ -161,7 +173,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00057">57</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
+<p>Public key of the signer which can help authorize a Multisig transaction, if required (key is not yet present in the <a class="el" href="class_d_l_t_1_1_presence_list.html">PresenceList</a>). </p>
+
+<p class="definition">Definition at line <a class="el" href="_transaction_8cs_source.html#l00177">177</a> of file <a class="el" href="_transaction_8cs_source.html">Transaction.cs</a>.</p>
 
 </div>
 </div>

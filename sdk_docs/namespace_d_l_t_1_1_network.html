@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -109,14 +110,18 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_core_network_utils.html">CoreNetworkUtils</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_network_1_1_i_p_and_mask.html">IPAndMask</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an IP address and a subnet mask.  <a href="struct_d_l_t_1_1_network_1_1_i_p_and_mask.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html">IPv4Subnet</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class to help filter and classify IPv4 addresses  <a href="class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_network_1_1_net_ops_data.html">NetOpsData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper structure which holds a single IP addresses on which the server component is listening. Used only to communicate the configuration to the server listening thread.  <a href="struct_d_l_t_1_1_network_1_1_net_ops_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_queue.html">NetworkQueue</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_server.html">NetworkServer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ixian network server object. This is used to accept connections from Ixian clients or other nodes and recieve Ixian protocol messages. Basic protocol validation is performed before a specialized protocol parser is called.  <a href="class_d_l_t_1_1_network_1_1_network_server.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_1_1_network_utils.html">NetworkUtils</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +152,7 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespace_d_l_t_1_1_network.html#a4c40a5e76a2854af62a89ca3d02831bea81ac48f75a3129d56d7995d71c6f1171">ProtocolByeCode.addressMismatch</a> = 604
 <br />
  }</td></tr>
+<tr class="memdesc:a4c40a5e76a2854af62a89ca3d02831be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reason for disconnection.  <a href="namespace_d_l_t_1_1_network.html#a4c40a5e76a2854af62a89ca3d02831be">More...</a><br /></td></tr>
 <tr class="separator:a4c40a5e76a2854af62a89ca3d02831be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f0af03368dbd101aaa4f4f4398cc068"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068">ProtocolMessageCode</a> { <br />
 &#160;&#160;<a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068a5d41402abc4b2a76b9719d911017c592">ProtocolMessageCode.hello</a> = 0, 
@@ -208,11 +214,13 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068a4e6c6c8539bbd51b073614dc0def3dde">ProtocolMessageCode.getNextSuperBlock</a> = 45
 <br />
  }</td></tr>
+<tr class="memdesc:a7f0af03368dbd101aaa4f4f4398cc068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Codes represent types of network messages accepted by the Ixian network. Each code implies the expected following message structure.  <a href="namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068">More...</a><br /></td></tr>
 <tr class="separator:a7f0af03368dbd101aaa4f4f4398cc068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac760d9524c656742cf9e957ebdf14621"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621">RemoteEndpointState</a> { <a class="el" href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621a4f2a91e15af2631ff9424564b8a45fb2">RemoteEndpointState.Initial</a>, 
 <a class="el" href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621a072f9734fceb02f516b50d4174ac0f18">RemoteEndpointState.Established</a>, 
 <a class="el" href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621a03f4a47830f97377a35321051685071e">RemoteEndpointState.Closed</a>
  }</td></tr>
+<tr class="memdesc:ac760d9524c656742cf9e957ebdf14621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current stateus of the remote endpoint (server or client).  <a href="namespace_d_l_t_1_1_network.html#ac760d9524c656742cf9e957ebdf14621">More...</a><br /></td></tr>
 <tr class="separator:ac760d9524c656742cf9e957ebdf14621"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -235,24 +243,40 @@ Enumerations</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reason for disconnection. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea5039dbadc17efcc3d5ee24a951c41bf8"></a>blockInvalidChecksum&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bead1154ecf1a73d71c4aa35a57b275179a"></a>blockInvalidForked&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea6b68dc89caf55a57b1c5559ebfa79d76"></a>blockInvalidNoConsensus&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beabfa99df33b137bc8fb5f5407d7e58da8"></a>bye&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beafadbf19906908ba18d90bb1bacf7b0e8"></a>expectingMaster&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea96a3fc7e9e9f98157497c592d3b54730"></a>forked&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea54dac5afe1fcac2f65c059fc97b44a58"></a>deprecated&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beafd2071346b7e1fdb5dc789b7f505da31"></a>incorrectNetworkType&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea832374378968bdf79839100bb700ef61"></a>insufficientFunds&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beabaded4e629b35a61a5d09af26dbfd9f3"></a>incorrectIp&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea5e2b0847dd83a18e1eb8a4024d0dfe56"></a>notConnectable&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beaa5f96d1d9c598d708a40986e696b6942"></a>tooFarBehind&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea52cbd86d7303076873070015f352644d"></a>authFailed&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea81ac48f75a3129d56d7995d71c6f1171"></a>addressMismatch&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea5039dbadc17efcc3d5ee24a951c41bf8"></a>blockInvalidChecksum&#160;</td><td class="fielddoc"><p>A <code><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a></code> was sent with an incorrect checksum. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bead1154ecf1a73d71c4aa35a57b275179a"></a>blockInvalidForked&#160;</td><td class="fielddoc"><p>A <code><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a></code> which was sent is suspected to be from a forked chain. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea6b68dc89caf55a57b1c5559ebfa79d76"></a>blockInvalidNoConsensus&#160;</td><td class="fielddoc"><p>A <code><a class="el" href="class_d_l_t_1_1_block.html" title="An Ixian DLT Block. A block contains all the transactions which act on the WalletState and various ch...">Block</a></code> was sent without sufficient consensus signatures. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beabfa99df33b137bc8fb5f5407d7e58da8"></a>bye&#160;</td><td class="fielddoc"><p>Unspecified disconnection reason. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beafadbf19906908ba18d90bb1bacf7b0e8"></a>expectingMaster&#160;</td><td class="fielddoc"><p>A Master Node was expected. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea96a3fc7e9e9f98157497c592d3b54730"></a>forked&#160;</td><td class="fielddoc"><p>The sending node suspects it is on a forked network. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea54dac5afe1fcac2f65c059fc97b44a58"></a>deprecated&#160;</td><td class="fielddoc"><p>A deprecated protocol was used which is not supported. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beafd2071346b7e1fdb5dc789b7f505da31"></a>incorrectNetworkType&#160;</td><td class="fielddoc"><p>The connecting node is on a different network (TestNet vs. MainNet). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea832374378968bdf79839100bb700ef61"></a>insufficientFunds&#160;</td><td class="fielddoc"><p>The connecting Master Node does not have sufficient funds int he wallet to participate in consensus. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beabaded4e629b35a61a5d09af26dbfd9f3"></a>incorrectIp&#160;</td><td class="fielddoc"><p>The IP address specified in the Hello message was invalid. (Not a public IP address.) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea5e2b0847dd83a18e1eb8a4024d0dfe56"></a>notConnectable&#160;</td><td class="fielddoc"><p>The IP address specified in the Hello message was not reachable for a connection test. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831beaa5f96d1d9c598d708a40986e696b6942"></a>tooFarBehind&#160;</td><td class="fielddoc"><p>The connecting node has fallen too far behind on the blockchain. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea52cbd86d7303076873070015f352644d"></a>authFailed&#160;</td><td class="fielddoc"><p>The authentication value does not match the connecting node's address. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c40a5e76a2854af62a89ca3d02831bea81ac48f75a3129d56d7995d71c6f1171"></a>addressMismatch&#160;</td><td class="fielddoc"><p>The remote node's address does not match the known address for that node. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00013">13</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00016">16</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -275,6 +299,8 @@ Enumerations</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Codes represent types of network messages accepted by the Ixian network. Each code implies the expected following message structure. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7f0af03368dbd101aaa4f4f4398cc068a5d41402abc4b2a76b9719d911017c592"></a>hello&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7f0af03368dbd101aaa4f4f4398cc068a18f7d81986f9167ab3236e18e096f85f"></a>helloData&#160;</td><td class="fielddoc"></td></tr>
@@ -324,7 +350,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a7f0af03368dbd101aaa4f4f4398cc068a4e6c6c8539bbd51b073614dc0def3dde"></a>getNextSuperBlock&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00032">32</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00080">80</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>
@@ -347,13 +373,15 @@ Enumerations</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Current stateus of the remote endpoint (server or client). </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac760d9524c656742cf9e957ebdf14621a4f2a91e15af2631ff9424564b8a45fb2"></a>Initial&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac760d9524c656742cf9e957ebdf14621a072f9734fceb02f516b50d4174ac0f18"></a>Established&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac760d9524c656742cf9e957ebdf14621a03f4a47830f97377a35321051685071e"></a>Closed&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00082">82</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_network_8cs_source.html#l00133">133</a> of file <a class="el" href="_network_8cs_source.html">Network.cs</a>.</p>
 
 </div>
 </div>

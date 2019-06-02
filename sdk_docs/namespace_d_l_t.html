@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="Doxygen_customizations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -118,10 +119,12 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ixian <a class="el" href="class_d_l_t_1_1_wallet.html">Wallet</a> <a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a>. This class holds a binary value of an Ixian <a class="el" href="class_d_l_t_1_1_address.html" title="Ixian Wallet Address. This class holds a binary value of an Ixian Address and contains functions to e...">Address</a> and contains functions to encode that information to- or retrieve it from a bytestream. An address can be constructed either directly from address bytes or from a combination of public key and a 'nonce' value.  <a href="class_d_l_t_1_1_address.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_client.html">AddressClient</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows a client to generated a secret value with incorporated markers for multiple addresses. Such a value obscures which addresses it represents, but allows others to check whether a given address is part of the set or not with a configurable degree of false-positives. See also <code><a class="el" href="class_d_l_t_1_1_address_matcher.html" title="The other half of the implementation for AddressClient, which allows an untrusted party to check if g...">AddressMatcher</a></code>.  <a href="class_d_l_t_1_1_address_client.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_data.html">AddressData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_address_matcher.html">AddressMatcher</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The other half of the implementation for <code><a class="el" href="class_d_l_t_1_1_address_client.html" title="Allows a client to generated a secret value with incorporated markers for multiple addresses....">AddressClient</a></code>, which allows an untrusted party to check if given addresses are of interest to the client. The client supplies a 'matcher' value, against which the addresses are checked. The matcher will produce false-positives, but never false-negatives, which means that it is impossible to accurately determine if an address belongs to the client or not.  <a href="class_d_l_t_1_1_address_matcher.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_bit_reader.html">BitReader</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +168,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_l_t_1_1_net_out_queue_item.html">NetOutQueueItem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_client.html">NetworkClient</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the <code><a class="el" href="class_d_l_t_1_1_remote_endpoint.html">RemoteEndpoint</a></code> interface as an Ixian network client.  <a href="class_d_l_t_1_1_network_client.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_network_client_manager.html">NetworkClientManager</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,6 +196,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_time_sync_data.html">TimeSyncData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_transaction.html">Transaction</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single transaction on the Ixian blockchain.  <a href="class_d_l_t_1_1_transaction.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_t_1_1_u_pn_p.html">UPnP</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
