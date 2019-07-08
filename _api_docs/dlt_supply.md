@@ -1,6 +1,6 @@
 ---
 title: Supply
-type: core
+type: dlt
 ---
 ## Supply
 Returns current total IxiCash supply in the network.

@@ -1,6 +1,6 @@
 ---
 title: Get Balance
-type: core
+type: dlt
 ---
 ## Get Balance
 Returns balance of the specified address.

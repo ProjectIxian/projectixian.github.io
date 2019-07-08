@@ -1,6 +1,6 @@
 ---
 title: Presence List
-type: core
+type: dlt
 ---
 ## Presence List
 Returns the presence list information.

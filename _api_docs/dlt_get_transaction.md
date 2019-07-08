@@ -1,6 +1,6 @@
 ---
 title: Get Transaction
-type: core
+type: dlt
 ---
 ## Get Transaction
 Returns the information about a specified transaction.

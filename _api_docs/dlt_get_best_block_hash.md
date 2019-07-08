@@ -1,6 +1,6 @@
 ---
 title: Get Best Block Hash
-type: core
+type: dlt
 ---
 ## Get Best Block Hash
 Returns the latest hash value of the best chain. This function is provided to improve compatibility

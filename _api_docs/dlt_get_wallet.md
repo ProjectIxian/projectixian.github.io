@@ -1,6 +1,6 @@
 ---
 title: Get Wallet
-type: core
+type: dlt
 ---
 ## Get Wallet
 Returns the information about a specified address/wallet.

@@ -1,6 +1,6 @@
 ---
 title: Get Last Blocks
-type: core
+type: dlt
 ---
 ## Get Last Blocks
 Returns the last 10 blocks.

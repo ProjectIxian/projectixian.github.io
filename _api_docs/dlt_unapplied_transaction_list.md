@@ -1,12 +1,14 @@
 ---
 title: Unapplied Transaction List
-type: core
+type: dlt
 ---
 ## Unapplied Transaction List
 Returns the list of unapplied transactions in the memory pool.
 ### Method: `txu`
 ### Input parameters:
-None
+| fromIndex | Number | No | Starting index (used for splitting the results into pages). |
+| count | Number | No | Number of results to fetch. By itself, this parameter is useful for fetching only the recent history, but combined with `fromIndex` this parameters enables fetching results in pages. |
+
 
 ### Errors:
 
@@ -42,6 +44,7 @@ GET http://localhost:8081/txu
 				"15iYQBgVhq4JeY3TUfNaMBNFkz27UCQWFjjay14C4b3EuHofG": "20000.00000000"
 			},
 			"fee": "0.00005000"
+            "totalAmount": "20000.00005000"
 		},
 		...
 	},

@@ -1,6 +1,6 @@
 ---
 title: Get Block
-type: core
+type: dlt
 ---
 ## Get Block
 Returns specified block data.

@@ -1,6 +1,6 @@
 ---
 title: Get Block Count
-type: core
+type: dlt
 ---
 ## Get Block Count
 Returns the number of Ixian blocks generated so far. This function is provided to improve exchange compatibility

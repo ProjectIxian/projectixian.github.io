@@ -1,6 +1,6 @@
 ---
 title: Get Full Block
-type: core
+type: dlt
 ---
 ## Get Full Block
 Returns specified block data with full transactions included.

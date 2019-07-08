@@ -1,6 +1,6 @@
 ---
 title: Miner Stats
-type: core
+type: dlt
 ---
 ## Miner Stats
 Returns miner stats of the node.

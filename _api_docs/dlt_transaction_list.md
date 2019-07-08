@@ -1,12 +1,13 @@
 ---
 title: Transaction List
-type: core
+type: dlt
 ---
 ## Transaction List
-Returns the list of applied transactions in the redacted window.
-### Method: `txa`
+Returns the list of all transactions in the redacted window.
+### Method: `tx`
 ### Input parameters:
-None
+| fromIndex | Number | No | Starting index (used for splitting the results into pages). |
+| count | Number | No | Number of results to fetch. By itself, this parameter is useful for fetching only the recent history, but combined with `fromIndex` this parameters enables fetching results in pages. |
 
 ### Errors:
 
@@ -19,7 +20,7 @@ None
 - fail: JSON encoded details with a non-null error and a null result
 
 ### Example:
-GET http://localhost:8081/txa
+GET http://localhost:8081/tx
 ```
 {
 	"result": {
@@ -44,7 +45,8 @@ GET http://localhost:8081/txa
 			"19V9VYuGfqoGjRbGZgcF8XNrAeb5REF8gCZKhp7ZsNX3rG8VZ": "0.00010001",
 			"1JKZFqQs4yiH6Dq4bfom7xcpL6zG53DrjcY6HD9QJ6cRWmXdq": "0.09988999"
 		},
-		"fee": "0.00000000"
+		"fee": "0.00000000",
+        "totalAmount": "0.20002001"
 		},
 		...
 	},

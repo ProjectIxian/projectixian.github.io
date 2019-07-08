@@ -1,6 +1,6 @@
 ---
 title: Status
-type: core
+type: dlt
 ---
 ## Status
 Returns the status of the node.

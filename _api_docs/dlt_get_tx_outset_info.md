@@ -1,6 +1,6 @@
 ---
 title: Get Unspent Transaction Outputs Stats
-type: core
+type: dlt
 ---
 ## Get Unspent Transaction Outputs Stats
 Returns statistical information about unspent transaction outputs for the currently accepted block. This function is provided
