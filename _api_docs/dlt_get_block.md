@@ -3,13 +3,14 @@ title: Get Block
 type: dlt
 ---
 ## Get Block
-Returns specified block data.
+Returns specified block data, either as a JSON object or as a binary object converted into hexadecimal.
 ### Method: `getblock`
 ### Input parameters:
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | num | Number | Yes | Block number to retrieve. |
+| bytes | Boolean | No | If specified, the block data will be returned as a hexadecimal string. |
 
 ### Errors:
 

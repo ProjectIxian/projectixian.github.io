@@ -4,7 +4,7 @@ type: core
 ---
 ## Add MultiSig TX Signature
 Signs an already existing Multi-Signature wallet transaction, thereby permitting the change on the wallet or the withdrawal of funds.  
-Note: If there are more allowed signers than the required signatures value, any combination of allowd signatures will work, as long as they reach the required minimum number of signatures.
+Note: If there are more allowed signers than the required signatures value, any combination of allowed signatures will work, as long as they reach the required minimum number of signatures that the wallet defines.
 
 ### Method: `addmultisigtxsignature`
 ### Input parameters:
@@ -50,7 +50,8 @@ GET http://localhost:8081/addmultisigtransaction?wallet=1CQy94c7iNv1QGv9P4UQmgLE
         "to": {
             "1CQy94c7iNv1QGv9P4UQmgLEPMNzrkq89gdVWiq87CundLWKv": "0.00000000"
         },
-        "fee": "0.00010000"
+        "fee": "0.00010000",
+		"totalAmount": "0.00010000"
     },
     "error": null,
     "id": null

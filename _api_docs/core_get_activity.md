@@ -28,7 +28,10 @@ Retrieves the activity for the currently loaded wallet with optional filtering o
 - activity details are returned as a JSON object and the error field is set to null:
 
 ### Errors:
-None.
+| Error | Description |
+| --- | --- |
+| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+
 
 ### Example:
 GET http://localhost:8081/activity

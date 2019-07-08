@@ -10,7 +10,10 @@ with Bitcoin-based and derivative technology.
 None
 
 ### Errors:
-None
+| Error | Description |
+| --- | --- |
+| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+
 
 ### Output:
 - success: number of Ixian blocks since the Genesis block

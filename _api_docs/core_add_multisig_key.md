@@ -48,7 +48,8 @@ In the event where the wallet is newly converted into a multisig wallet, the req
         "to": {
             "1CQy94c7iNv1QGv9P4UQmgLEPMNzrkq89gdVWiq87CundLWKv": "0.00000000"
         },
-        "fee": "0.00010000"
+        "fee": "0.00010000",
+        "totalAmount": "0.00010000"
     },
     "error": null,
     "id": null

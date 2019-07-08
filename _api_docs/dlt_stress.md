@@ -2,6 +2,8 @@
 title: Stress Test
 type: dlt
 ---
+## **DEBUG/TESTNET ONLY**
+
 ## Stress Test
 Performs a stress test of the Ixian DLT network. **DEBUG/TESTNET ONLY**
 Depending on the type of the test, the node will execute a number of transactions, protocol messages or connections, 

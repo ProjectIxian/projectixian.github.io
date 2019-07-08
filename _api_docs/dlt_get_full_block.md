@@ -3,7 +3,7 @@ title: Get Full Block
 type: dlt
 ---
 ## Get Full Block
-Returns specified block data with full transactions included.
+Returns specified block data with full transactions and superblock data included.
 ### Method: `getfullblock`
 ### Input parameters:
 

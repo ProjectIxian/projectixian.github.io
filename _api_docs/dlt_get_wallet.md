@@ -4,6 +4,7 @@ type: dlt
 ---
 ## Get Wallet
 Returns the information about a specified address/wallet.
+
 ### Method: `getwallet`
 ### Input parameters:
 

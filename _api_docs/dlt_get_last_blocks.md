@@ -3,7 +3,7 @@ title: Get Last Blocks
 type: dlt
 ---
 ## Get Last Blocks
-Returns the last 10 blocks.
+Returns the last 10 blocks as JSON objects.
 ### Method: `getlastblocks`
 ### Input parameters:
 None
@@ -46,4 +46,4 @@ GET http://localhost:8081/getlastblocks
 }
 ```
 
-Note: the resulting block object is exactly the same as for the `getblock` method.
+Note: the resulting block object is exactly the same as for the `getblock` method, except that this method currently does not support returning data as binary hexadecimal strings.

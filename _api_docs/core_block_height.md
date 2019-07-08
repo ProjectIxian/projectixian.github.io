@@ -5,18 +5,20 @@ type: core
 ## Get Block Height
 Returns the number of Ixian blocks generated so far, usually named 'Block Height'.
 
-### Method: `getblockheight`
+### Method: `blockheight`
 ### Input parameters:
 None
 
 ### Errors:
-None
+| Error | Description |
+| --- | --- |
+| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
 
 ### Output:
 - success: number of Ixian blocks since the Genesis block
 
 ### Example:
-GET http://localhost:8081/getblockheight
+GET http://localhost:8081/blockheight
 
 ```
 {

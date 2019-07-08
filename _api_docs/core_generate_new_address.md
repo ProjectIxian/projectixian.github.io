@@ -3,10 +3,16 @@ title: Generate New Address
 type: core
 ---
 ## Generate New Address
-Generates new address for receiving and spending IxiCash, using the node's public key.
+Generates new address for receiving and spending IxiCash, using the chosen public key. The parameter `address` controls which keypair will be used to generate a new address. The specified address must have a public and private keypair loaded in the running node or client.
+
+Note: The required 'nonce' value used to generate a new address is determined automatically.
+
 ### Method: `generatenewaddress`
 ### Input parameters:
-None
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| address | String | No | Primary address (key pair) which will be used to generate a new address. |
+
 
 ### Errors:
 

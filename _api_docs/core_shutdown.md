@@ -4,13 +4,15 @@ type: core
 ---
 ## Shutdown
 Gracefully shuts down the running Ixian executable and closes the program.  
-Note: It is not possible to 'revive' the node after this command exits without access to the remote computer's OS.
+Note: It is not possible to 'revive' the node after this command without access to the remote computer's OS.
 ### Method: `shutdown`
 ### Input parameters:
 None
 
 ### Errors:
-None
+| Error | Description |
+| --- | --- |
+| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
 
 ### Output:
 - a JSON object containinly only the string "Node shutdown" as the result.

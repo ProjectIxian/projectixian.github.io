@@ -3,20 +3,19 @@ title: My Wallet
 type: core
 ---
 ## My Wallet
-Returns all the wallets in the node's wallet file and their balances.
+Returns all the loaded (unlocked) wallets in the node's wallet file and their balances.
 ### Method: `mywallet`
 ### Input parameters:
 None
 
 ### Errors:
-
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
 
+
 ### Output:
-- success: result field contains JSON-encoded list of wallets and balances and the with error field is set to null
-- fail: JSON encoded details with a non-null error and a null result
+- a JSON-encoded list of wallets and balances, with the error field set to null
 
 ### Example:
 GET http://localhost:8081/mywallet

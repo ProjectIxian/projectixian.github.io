@@ -16,6 +16,7 @@ Ensures that the given address is in the correct format.
 | Error | Description |
 | --- | --- |
 | RPC_INVALID_ADDRESS_OR_KEY | The provided vaue does not represent a valid Ixian address, or there was no value provided. |
+| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
 
 
 ### Output:

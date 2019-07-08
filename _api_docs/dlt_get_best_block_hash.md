@@ -14,7 +14,10 @@ have re-connected and performed appropriate chain reorganization.
 None
 
 ### Errors:
-None
+| Error | Description |
+| --- | --- |
+| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+
 
 ### Output:
 - success: checksum value of the latest (best) block
