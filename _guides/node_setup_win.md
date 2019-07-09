@@ -65,6 +65,7 @@ In order to interact with the running DLT Node and use the built-in wallet softw
 If you have configured a different *API Port*, then change the port number in the link like so: **http://localhost:PORT_NUMBER**.
 
 The Ixian built-in Wallet looks like this:
+
 ![Ixian Built-In Wallet](https://projectixian.github.io/assets/images/guide_win_7.png)
 
 
@@ -81,6 +82,7 @@ Ixian DLT Node settings are provided on the command line when starting the Ixian
 If you need to run the DLT Node with different settings, it can be tedious to type them out every time you wish to start the software. It is recommended to create a batch file (**.bat**) with the options already set. To do this, follow the guide below:
 
 1. Toggle showing file extensions in Windows Explorer:
+
 ![Show File Extensions](https://projectixian.github.io/assets/images/guide_win_8.png)
 2. Browse to the unpacked Ixian DLT folder.
 3. Create a new text file and change its name to "Start Ixian.bat" (note the changed extension from .txt to .bat). Windows will ask you if you really wish to change the file's extension, which you should confirm.
