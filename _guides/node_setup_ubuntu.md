@@ -29,15 +29,18 @@ Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
 
 ## Install required software
 1. Install a recent Mono release for linux by following the guide for your Linux distribution here: [Mono Installation Guide](https://www.mono-project.com/download/stable/). When installing, use the "mono-devel" package:
-```sudo apt install mono-devel
+```
+sudo apt install mono-devel
 ```
 
 2. Install additional required packages:
-```sudo apt install nuget msbuild git gcc unzip
+```
+sudo apt install nuget msbuild git gcc unzip
 ```
 
 3. Prepare a directory for the Ixian Project:
-```mkdir ~/Ixian
+```
+mkdir ~/Ixian
 cd ~/Ixian
 ```
 
@@ -47,40 +50,48 @@ git clone -b master https://github.com/ProjectIxian/Ixian-Core.git
 git clone -b master https://github.com/ProjectIxian/Ixian-DLT.git
 ```
 The directory structure should look like this:
-```.
+```
+.
 ..
 Ixian-Core
 Ixian-DLT
 ```
 
 5. Switch into the `Ixian-DLT` directory and download the required NuGet packages:
-```cd Ixian-DLT
+```
+cd Ixian-DLT
 nuget restore DLTNode.sln
 ```
 
 6. Compile the DLT Node executable in the ‘Release Configuration’:
-```msbuild DLTNode.sln /p:Configuration=Release
+```
+msbuild DLTNode.sln /p:Configuration=Release
 ```
 
 7. Ixian DLT Node requires the Argon2 library to function. In order to build one for your system, follow these steps:
 ..a. Obtain the Argon2 source code from github:
-```cd ~/Ixian
+```
+cd ~/Ixian
 git clone https://github.com/P-H-C/phc-winner-argon2.git
 ```
 ..b. Compile the Argon2 source:
-```cd phc-winner-argon2
+```
+cd phc-winner-argon2
 make
 ```
 ..c. Copy the resulting Argon2 library to the IxianDLT folder. Please note that the file should be renamed to ‘libargon2.so’:
-```cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.so
+```
+cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.so
 ```
 
 8. Switch to the Ixian binaries folder:
-```cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
+```
+cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
 ```
 
 9. (Optional) Download and unpack the bootstrap data file to enable faster synchronization. The link to the current bootstrap file can be found on the Ixian website. At the time of writing the link to the bootstrap file is [https://ixian.io/data.zip](https://ixian.io/data.zip).
-```cd ~/Ixian/Node
+```
+cd ~/Ixian/Node
 curl -o bootstrap.zip [LINK TO THE BOOTSTRAP FILE]
 unzip bootstrap.zip
 rm bootstrap.zip
@@ -91,7 +102,8 @@ The Ixian DLT node is now ready to start.
 ## Running the software
 
 Switch to the Ixian DLT binaries folder and issue the command to start the IxianDLT software:
-```mono IxianDLT.exe
+```
+mono IxianDLT.exe
 ```
 
 The output should look like this:
