@@ -1,22 +1,14 @@
 ---
-title: Node setup on Ubuntu/Debian
+title: Node setup on macOS
 ---
 
-Note: This guide should work for most apt-based distributions, such as:
-* Ubuntu, recent versions
-* Debian, recent versions
-* Devuan
-* Kali Linux
-* MX Linux
-* Mint
+Ixian was tested on macOS 10.13 High Sierra and 10.14 Mojave
 
-Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
-
-# Installing an Ixian DLT Node on Linux (Debian/Ubuntu clones)
+# Installing an Ixian DLT Node on macOS
 
 ## Prerequisites
 
-* Operating system: apt-based Linux distribution, such as Debian or Ubuntu
+* Operating system: macOS 10.9 or higher
 * RAM: 4 GB, Recommended 8 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least GHz
 * Free Disk Space: 30 GB, 100 GB Recommended
@@ -28,17 +20,11 @@ Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
 
 
 ## Install required software
-1. Install a recent Mono release for linux by following the guide for your Linux distribution here: [Mono Installation Guide](https://www.mono-project.com/download/stable/). When installing, use the "mono-devel" package:
-```
-sudo apt install mono-devel
-```
+1. Install a recent Mono release for macOS by following the guide here: [Mono Installation Guide](https://www.mono-project.com/docs/getting-started/install/mac/). If you do not intend to edit the Ixian source code, you can choose the *Stable* channel.
 
-2. Install additional required packages:
-```
-sudo apt install nuget msbuild git gcc unzip
-```
+2. Install git from the [Git Download page](https://git-scm.com/download/mac)
 
-3. Prepare a directory for the Ixian Project:
+3. Prepare a directory for the Ixian Project. The commands should be executed in the *Terminal*:
 ```
 mkdir ~/Ixian
 cd ~/Ixian

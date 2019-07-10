@@ -22,6 +22,8 @@ Visit the Ixian Github [Releases](https://github.com/ProjectIxian/Ixian-DLT/rele
 
 ![Release Package](https://projectixian.github.io/assets/images/guide_win_1.png)
 
+## (Optional) (Optional) Download and unpack the bootstrap data file to enable faster synchronization. The link to the current bootstrap file can be found on the Ixian website. At the time of writing the link to the bootstrap file is [https://ixian.io/data.zip](https://ixian.io/data.zip).
+The data from the archive should be placed in the same folder as the Ixian executables.
 
 ## Running the software
 
@@ -35,7 +37,6 @@ This is expected and occurs becuse Ixian does not yet have a code signing certif
 
 ![Smart Screen Popup 1](https://projectixian.github.io/assets/images/guide_win_3.png)
 ![Smart Screen Popup 2](https://projectixian.github.io/assets/images/guide_win_4.png)
-
 
 ### Creating a wallet
 
