@@ -13,6 +13,7 @@ not saved.
 None
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | 400 | An error occured while loading the snapshot. |

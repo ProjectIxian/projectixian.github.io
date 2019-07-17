@@ -6,6 +6,7 @@ type: core
 Initiates a network connection to the specified address.
 ### Method: `connect`
 ### Input parameters:
+
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | to | String | Yes | Hostname or IP address of the target Ixian node. |

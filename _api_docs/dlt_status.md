@@ -9,12 +9,14 @@ Note: This function overrides the `status` method of the IXICore implementation 
 
 ### Method: `status`
 ### Input parameters:
+
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | verbose | Boolean | No | Additional details are returned. |
 
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |

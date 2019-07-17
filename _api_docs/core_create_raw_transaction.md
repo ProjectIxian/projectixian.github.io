@@ -7,7 +7,7 @@ Generates a new IXI transaction, but doesn't add it to the Transaction Pool. Thi
 
 Note: If you do not specify `from`, the required funds and fee will be deducted from the node's addresses (the order is unspecified). Multiple addresses may be used if the first one chosen does not have sufficient funds.
 If you do specify `from`, it will not include any transaction fees. It is up to the caller of this API to examine the returned Transaction object and add the fee in the `from` list. This allows greater flexibility than `autofee` or not specifying the `from` list.  
-Note: The transaction can be returned in a raw (binary) form, encoded as a hexadecimal string. In order to convert it into a JSON object, use the API call [Decode Raw Transaction](#decode-raw-transaction), or supply the parameter `json` when creating the raw transaction.
+Note: The transaction can be returned in a raw (binary) form, encoded as a hexadecimal string. In order to convert it into a JSON object, use the API call [Decode Raw Transaction](https://projectixian.github.io/api_docs/core_decode_raw_transaction.html), or supply the parameter `json` when creating the raw transaction.
 Note: The returned transaction is not signed.
 
 Note: If using the `primaryAddress` parameter, the chosen address (public key) must be a valid signer for all addresses in the `from` list. This is the case if all the `from` addresses were derived from `primaryAddress` via the `generatenewaddress` API.

@@ -9,6 +9,7 @@ Note: The required 'nonce' value used to generate a new address is determined au
 
 ### Method: `generatenewaddress`
 ### Input parameters:
+
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | address | String | No | Primary address (key pair) which will be used to generate a new address. |

@@ -9,6 +9,7 @@ Returns the Ixian software versions in use on the network.
 None
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |

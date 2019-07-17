@@ -12,6 +12,7 @@ Node: If the node is configured as a Full History Node, synchronization will sta
 None
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |

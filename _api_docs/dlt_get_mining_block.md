@@ -10,6 +10,7 @@ The function only returns the relevant block data required for computing the PoW
 Note: In a cooperative pool mining, the solution should incorporate the pool controller's wallet address, so that it can be successfully verified by the DLT network. The pool controller is responsible for further reward payouts based on miner participation or any other metric at the pool's discretion.
 
 ## Algorithms
+
 | ID  | Name | Description |
 | --- | --- | --- |
 | -1 | No algorithm | Stop mining. |
@@ -20,11 +21,13 @@ Note: In a cooperative pool mining, the solution should incorporate the pool con
 
 ### Method: `getminingblock`
 ### Input parameters:
+
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | algo | Number | Yes | ID of the desired mining algorithm |
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INVALID_PARAMETER | The required parameter is missing. |

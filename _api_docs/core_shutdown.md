@@ -10,6 +10,7 @@ Note: It is not possible to 'revive' the node after this command without access 
 None
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |

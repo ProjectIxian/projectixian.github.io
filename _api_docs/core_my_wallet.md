@@ -9,6 +9,7 @@ Returns all the loaded (unlocked) wallets in the node's wallet file and their ba
 None
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |

@@ -6,6 +6,7 @@ type: dlt
 Modifies the running DLT Node or Miner software and changes the way blocks are selected for mining. It is also possible to activate or deactivate mining using this method.
 
 ## Algorithms
+
 | ID  | Name | Description |
 | --- | --- | --- |
 | -1 | No algorithm | Stop mining. |
@@ -17,12 +18,14 @@ Modifies the running DLT Node or Miner software and changes the way blocks are s
 
 ### Method: `setBlockSelectionAlgorithm`
 ### Input parameters:
+
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | algorithm | Number | Yes | New block selection algorithm. See the values above. |
 
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
@@ -32,7 +35,7 @@ Modifies the running DLT Node or Miner software and changes the way blocks are s
 - fail: JSON encoded details with a non-null error and a null result
 
 ### Example:
-GET http://localhost:8081/setBlockSelectionAlgorithm?algorithm=
+GET http://localhost:8081/setBlockSelectionAlgorithm?algorithm=1
 ```
 {
 	"result": null,

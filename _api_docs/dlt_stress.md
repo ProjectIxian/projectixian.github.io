@@ -15,12 +15,14 @@ this API function.
 
 ### Method: `stress`
 ### Input parameters:
+
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | type | String | no | Type of the stress test to perform. Transaction Spam is the default. |
 | num | Number | no | Number of requests or transactions to send. |
 
 ### Types
+
 | Name | Description |
 | --- | --- |
 | txspam | Send a large number of transctions, each 0.01 Ixi, to the foundation address. Normal transaction fees apply. |

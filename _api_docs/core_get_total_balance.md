@@ -9,6 +9,7 @@ Gets the total balance of IXIcoins in all currently loaded wallets on this Ixian
 None
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |

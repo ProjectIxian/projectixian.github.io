@@ -12,7 +12,7 @@ Note: If a signed transaction is given as an input, the signature is overwritten
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| transaction | string | Yes | The encoded transaction, as returned by [Create Raw Transaction](#create-raw-transaction) |
+| transaction | string | Yes | The encoded transaction, as returned by [Create Raw Transaction](https://projectixian.github.io/api_docs/core_create_raw_transaction.html) |
 
 
 ### Output:

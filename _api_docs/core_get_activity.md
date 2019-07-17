@@ -15,6 +15,7 @@ Retrieves the activity for the currently loaded wallet with optional filtering o
 | type | Number | No | Type of the activity to fetch as a number. See below. |
 
 ### Activity Types
+
 | Id | Type | Detail |
 | --- | --- | --- |
 | 100 | TransactionReceived | A transaction has been received. (Destination address belongs to the currently loaded wallet. |
@@ -28,6 +29,7 @@ Retrieves the activity for the currently loaded wallet with optional filtering o
 - activity details are returned as a JSON object and the error field is set to null:
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |

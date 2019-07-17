@@ -7,12 +7,14 @@ Submits the given solution to the PoW mining problem for the specified block.
 
 ### Method: `submitminingsolution`
 ### Input parameters:
+
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | nonce | String | Yes | Nonce value which satisfies the difficulty. |
 | blocknum | Number | Yes | Solved block number. |
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INVALID_PARAMETER | One or more of the required parameters are missing. |

@@ -9,6 +9,7 @@ Retrieves the currently loaded wallet as a hexadecimal string. The wallet is enc
 None
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |

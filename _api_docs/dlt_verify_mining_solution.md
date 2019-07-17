@@ -7,6 +7,7 @@ Checks the given solution against the block's difficulty field to determine if i
 
 ### Method: `verifyminingsolution`
 ### Input parameters:
+
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | nonce | String | Yes | Nonce value which satisfies the difficulty. |
@@ -14,6 +15,7 @@ Checks the given solution against the block's difficulty field to determine if i
 | diff | Number | Yes | Difficulty value. |
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INVALID_PARAMETER | One or more of the required parameters are missing. |

@@ -13,6 +13,7 @@ For Ixian, only the as-yet unapplied transactions are included in the calculatio
 None
 
 ### Errors:
+
 | Error | Description |
 | --- | --- |
 | RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
