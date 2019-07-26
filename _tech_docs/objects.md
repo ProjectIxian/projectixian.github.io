@@ -10,6 +10,7 @@ title: Programming Objects
 Represents the fundamental structure of a DLT block, a basic object of the block chain.
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | blockNum | ulong | Sequential number of the block. |

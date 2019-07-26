@@ -97,7 +97,7 @@ helps prevent certain types of network-based exploits.
 ## Information Stored Within a Node
 Each node must hold some critical information in order to function. The reference implementation has the following structures always present
 in memory:
-* The redacted window of the blockchain. See chapter TODO for details on the redacted blockchain technology.
+* The redacted window of the blockchain. See the chapter [Redacted History](redacted-history) for details on the redacted blockchain technology.
 * Transactions, which are referenced by blocks in the redacted window.
 * Unapplied transactions, which are waiting for inclusion into a block.
 * Wallet State, which has details about all existing Ixian wallets and their balances, as well as other data.
@@ -106,7 +106,7 @@ In addition to keeping this data in memory, the reference node implementation wi
 restart rapidly after shutting down or failing. If the node is configured as a “Full history” node (see TODO), this on-disk structure will also
 contain all the blocks and transactions from the beginning of the Ixian blockchain.
 For a detailed description of each data structure in the Ixian node, please see the documentation page at:
-[IXIAN Programming Objects](https://projectixian.github.io/tech_docs/objects.html) _TODO_
+[IXIAN Programming Objects](https://projectixian.github.io/tech_docs/objects.html)
 
 
 ## Block
