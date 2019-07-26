@@ -35,6 +35,7 @@ Represents the fundamental structure of a DLT block, a basic object of the block
 Represents the DLT blocks in the node's memory. If the node is a `full history node`, this is also the object which reads archived blocks from cold storage.
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | blocks | List<[Block](#Block)> | A sequential list of the Blocks in the current `redactedWindow`. |
@@ -74,6 +75,7 @@ Type of change which is performed on a multisig wallet. Only valid for the Trans
 | ChangeReqSigs | 3 | Sets the number of required signatures before a `MultisigTX` is considered valid for a multisig wallet. |
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | version | int | Version of the transaction. Higher versions enable new features and support new address and key formats. It is recommended to always generate the highest possible version of transactions. |
@@ -101,6 +103,7 @@ Type of change which is performed on a multisig wallet. Only valid for the Trans
 Contains all [Transactions](#transaction) which are referenced in the current window of the redacted blockchain.
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | transactions | Dictionary<string, [Transaction](#transaction)> | A dictionary of all transactions, accessed through their transaction id (txid). |
@@ -154,6 +157,7 @@ In this method, each accepted `Block` confirms a particular state of all wallets
 In addition to holding the current state of all wallets, the `WalletState` object can also 'snapshot' the state and later return to the saved snapshot. This allows the node to run efficient "What if" scenarios when testing validity of blocks or individual transactions.
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | stateLock | Object | Used for internal multithreaded synchronization. |
@@ -172,6 +176,7 @@ In addition to holding the current state of all wallets, the `WalletState` objec
 The `Address` object is primarily used to convert different input address types into an address byte array, which is used elsewhere in the Node. It can properly handle all versions of address data passed to it.
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | version | int | The version of the address, which was recognized from the input data. |
@@ -185,6 +190,7 @@ The `Address` object is primarily used to convert different input address types 
 A single presence object contains information about a live node or client on the DLT/S2 network. The structure contains all the required data to locate the node or client.
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | version | int | Presence entry vesion. Currenty fixed at 0x0. |
@@ -202,6 +208,7 @@ A single presence object contains information about a live node or client on the
 Presence address contains enough information to allow contacting the owner of the presence (DLT node, S2 node or a client). It includes information on which relay node this specific address is registered.
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | version | int | Presence address vesion. Currenty fixed at 0x0. |
@@ -213,6 +220,7 @@ Presence address contains enough information to allow contacting the owner of th
 | signature | byte[] | Signature by the owner node to prevent tampering with the presence list. |
 
 ## Type Code
+
 | Type code | Description |
 | --- | --- |
 | M | Master node - processess DLT transactions and participates in the Ixian Consensus algorithm. |
@@ -230,6 +238,7 @@ Note: For the address type 'C', the `address` field will contain the relay node'
 The Presence List object holds all [Presences](#presence) currently known to the DLT node.
 
 ## Fields
+
 | Field | Type | Description |
 | --- | --- | --- |
 | presences | List<[Presence](#presence)> | A list of all known presences. |

@@ -11,6 +11,7 @@ See: [RSACryptoServiceProvider.SignData](https://docs.microsoft.com/en-us/dotnet
 Key size: Minimum 4096 bits
 
 ### Used for
+
 | Code file | Function | Input data | Reason |
 | --- | --- | --- | --- |
 | Block.cs | applySignature() | blockChecksum | Working of the Ixian's Consensus algorithm - nodes sign the block they consider valid with their private key using RSA/SHA512 to achieve an acceptable speed of verification. |
@@ -34,6 +35,7 @@ return h2.First(hash_len);
 ```
 
 ### Used for
+
 | Code file | Function | Input data | Truncated length | Reason |
 | --- | --- | --- | --- | --- |
 | Address.cs | constructAddress() | base_address | 3 bytes | The last three bytes of an address are the checksum, used to ensure integrity during transmission or save/load. |
@@ -64,6 +66,7 @@ return h4.First(hash_len);
 ```
 
 ### Used for
+
 | Code file | Function | Input data | Truncated length | Reason |
 | --- | --- | --- | --- | --- |
 | Address.cs | constructAddress_v0 | public_key | 44 bytes | For addressees version 0, the quad/truncated hash value was used as the base of the address. |
