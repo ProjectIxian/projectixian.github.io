@@ -19,7 +19,7 @@ E.g.: "abcd"|"efgh" = "abcdefgh", and
 
 # Address Format
 ## Relevant C# objects:
-`DLT.Address`
+`IXICore.Address`
 
 ## v0 Addresses:
 
@@ -70,8 +70,8 @@ raw_address = 44 bytes, `truncate(sha512sq(primay_address|nonce), 44)`
 
 # Key format
 ## Relevant C# objects:
-`DLT.IxianKeyPair`  
-`DLT.CyrptoLib`  
+`IXICore.IxianKeyPair`
+`IXICore.CyrptoLib`
 
 ## v0 Public key
 
@@ -140,8 +140,8 @@ raw_privkey =  mod_len | modulus
 
 # Presence
 ## Relevant C# objects:
-`DLT.PresenceList`
-`DLT.Presence`
+`IXICore.PresenceList`
+`IXICore.Presence`
 
 ## Description
 Presences are how Ixian DLT network keeps track of which nodes and clients are online or offline.
@@ -160,7 +160,7 @@ Note: For a description of the `address_record` format, see [Presence Address](#
 
 # Presence Address
 ## Relevant C# objects:
-`DLT.PresenceAddress`
+`IXICore.PresenceAddress`
 
 ## Description
 A presence address represents a network endpoint on which the specific node or client device may be reached.
@@ -181,13 +181,13 @@ Format = version
 
 # Transaction
 ## Relevant C# objects:
-`DLT.Transaction`
-`DLT.Transction.Type`
-`DLT.Transaction.MultisigWalletChangeType`
-`DLT.Transaction.MultisigAddrAdd`
-`DLT.Transaction.MultisigAddrDel`
-`DLT.Transaction.MultisigChSig`
-`DLT.Transaction.MultisigTxData`
+`IXICore.Transaction`
+`IXICore.Transction.Type`
+`IXICore.Transaction.MultisigWalletChangeType`
+`IXICore.Transaction.MultisigAddrAdd`
+`IXICore.Transaction.MultisigAddrDel`
+`IXICore.Transaction.MultisigChSig`
+`IXICore.Transaction.MultisigTxData`
 
 ## Description
 The `Transction` object is the cornerstone of any DLT network. It represents a single, atomic operation in much the same way as a transactional database.  
@@ -221,8 +221,8 @@ See also: [Address Format](#address-format)
 
 # Wallet
 ## Relevant C# objects:
-`DLT.WalletType`
-`DLT.Wallet`
+`IXICore.WalletType`
+`IXICore.Wallet`
 
 ## Description
 The `Wallet` object contains primarily the amount of funds for a specific Ixian DLT wallet. This structure is held and synchronized by the DLT Master nodes and checked using the field `walletStateChecksum` in the `Block` object.
