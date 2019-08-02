@@ -2,22 +2,46 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{{ page.title }}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1" />
+        <title>{{ page.title }} | Ixian Documentation</title>
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+        <meta name="description" content="Welcome to Ixian Documentation Pages, here you can learn more about Ixian and how to get started quickly!">
+        <meta name="keywords" content="Ixian,DLT,Chat,Blockchain,Cryptocurrency,Crypto,IxiCash,Spixi">
     </head>
     <body>
         <header>
-            <div class="logoWrapper">
-                <img src="/assets/images/ixianFullLogo.png" alt="Ixian Full Logo" class="ixianFullLogo"/>
-            </div>
-            <div class="welcomeText">
-                <h1>Welcome to Ixian documentation pages</h1>
-                <span class="subTitle">Here you will find all relevant information and documentation regarding Project Ixian.<br/>
-                    Learn more about Ixian and how to get started quickly!</span>
+            <div class="widthLimiter">
+                <div class="logoWrapper">
+                    <img src="/assets/images/ixianFullLogo.png" alt="Ixian Full Logo" class="ixianFullLogo"/>
+                </div>
+                <div class="welcomeText">
+                    <h1>Ixian Documentation</h1>
+                    <span class="subTitle">Welcome to Ixian Documentation Pages, here you can learn more about Ixian and how to get started quickly!</span>
+                </div>
             </div>
             {% include navigation.html %}
         </header>
         {{ content }}
+        <footer>
+            <div class="widthLimiter">
+                <div class="logoWrapper">
+                    <img src="/assets/images/ixianFullLogoFooter.png" alt="Ixian Full Logo" class="ixianFullLogo"/>
+                </div>
+                <div class="links">
+                    <a href="terms.html">Terms & Conditions</a> |
+                    <a href="privacy.html">Privacy Policy</a> |
+                    <a href="cookies.html">Cookie Policy</a> |
+                    <a href="https://www.ixian.io">Visit ixian.io</a>
+                </div><br/>
+                <br/>
+                <div class="copyright">
+                    &copy; COPYRIGHT IXIAN.IO 2019<br/>
+                    ALL RIGHTS RESERVED
+                </div>
+            </div>
+        </footer>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"/>
     </body>
 </html>

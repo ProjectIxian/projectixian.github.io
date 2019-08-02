@@ -12,6 +12,16 @@ html, body
     height: 100%;
 }
 
+body
+{
+    background: #111111;
+}
+
+.widthLimiter
+{
+    width: 1000px;
+}
+
 a
 {
     text-decoration: none;
@@ -55,6 +65,7 @@ header .welcomeText
 {
     display: inline-block;
     margin-bottom: 20px;
+    width: 750px;
 }
 
 header nav
@@ -140,11 +151,7 @@ header nav > a:first-child
     padding: 10px 2%;
     width: auto;
     vertical-align: top;
-}
-
-.content pre
-{
-    background-color: #d3e7d0;
+    background: white;
 }
 
 .content code
@@ -152,6 +159,7 @@ header nav > a:first-child
     background-color: #d3e7d0;
     padding: .2em .4em;
     border-radius: 3px;
+    display: inline-block;
 }
 
 .content table
@@ -206,4 +214,44 @@ iframe
     width: 100%;
     height: 100%;
     border: none;
+}
+
+footer
+{
+    padding: 20px;
+    background: #111111;
+    height: 146px;
+    text-align: center;
+    color: #f7fafa;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+footer a
+{
+    color: #f7fafa;
+}
+
+footer .widthLimiter
+{
+    position: relative;
+    margin: 0 auto;
+}
+
+footer .logoWrapper
+{
+    position: absolute;
+    left: 0px;
+}
+
+footer .links
+{
+    display: inline-block;
+    margin-top: 15px;
+}
+
+footer .links a
+{
+    padding: 0px 20px;
 }
