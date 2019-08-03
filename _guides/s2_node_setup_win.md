@@ -1,0 +1,95 @@
+---
+title: S2 Node setup on Windows
+---
+
+# Installing an Ixian S2 Node on Windows
+
+## Prerequisites
+
+* Operating system: Windows 7 or higher, Recommended Windows 10
+..* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
+* RAM: 2 GB, Recommended 4 GB
+* CPU: i3/i5/i7/Xeon or AMD equivalent with at least GHz
+* Free Disk Space: 5 GB, 10 GB Recommended
+* Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
+
+## Additional requirements
+* Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10235.)
+
+## Obtaining the software
+Visit the Ixian S2 Github [Releases](https://github.com/ProjectIxian/Ixian-S2/releases) page and obtain the latest available version as a ZIP package. The release file is available in the "Assets" section of each release announcement.
+
+![Release Package](https://projectixian.github.io/assets/images/guide_win_s2_1.png)
+
+## Running the software
+
+Unpack the archive and start the S2 node by double-clicking the IxianS2 executable, or by issuing the command IxianS2.exe from a console window.
+The output should look like this:
+
+![Ixian Console Output](https://projectixian.github.io/assets/images/guide_win_s2_2.png)
+
+Note: When starting Ixian S2 software on Windows 10 operating systems for the first time, a Windows Defender SmartScreen might pop up that looks like the image below. You have to click on "More info" and then "Run anyway" to proceed.
+This is expected and occurs becuse Ixian does not yet have a code signing certificate in this early stage of development.
+
+![Smart Screen Popup 1](https://projectixian.github.io/assets/images/guide_win_3.png)
+![Smart Screen Popup 2](https://projectixian.github.io/assets/images/guide_win_s2_4.png)
+
+### Creating a wallet
+
+If this is the first time that you're starting Ixian S2, a new wallet will be generated for you. You have to set your new wallet's password to proceed. This password will be used to encrypt the ixian.wal wallet file and will be required every time you start the Ixian S2 node.
+Additionally, if this is the first time that you're starting Ixian S2, a firewall window may pop-up (as seen on the image below). Select private and public networks and click "Allow access".
+
+![Ixian Firewall Window](https://projectixian.github.io/assets/images/guide_win_s2_5.png)
+
+It is recommended to periodically copy the wallet to a safe location, preferably on an offline media (USB Key), or a different machine. The file is encrypted using AES256.
+The wallet file is called **ixian.wal**.
+
+Note: If you would like to use an existing wallet for S2 (perhaps the same wallet which you are already using for a DLT Node, or for SPIXI client, copy the **ixian.wal** file into the same directory as IxianS2.exe before starting the node. Ixian S2 will detect and use the existing wallet. You will have to enter the wallet's encryption password every time you start the node.
+
+### Verifying the status of the S2 Node
+
+While the node is running, it will display a logo and some basic information in the command window. Please do not close this window, as closing it will cause the S2 Node to shut down.
+
+![Ixian Run Information](https://projectixian.github.io/assets/images/guide_win_s2_6.png)
+
+When the Ixian S2 Node first starts, the status text will display **connecting** while the software is establishing connections to the Ixian network. When this process has been completed, the status text will change to **active**. The time to acquire a connection to the network should be quite short (a few minutes). If your S2 Node is taking longer, please check the following:
+* That your internet connection is working
+* Your Windows Firewall is allowing the S2 node to connect
+* You have enabled Port-Forwarding and configured the correct TCP port for the S2 (see below)
+* You are running the latest version of the S2 software
+
+If the S2 Node is shut down and later restarted, it will have to connect again.
+
+
+## Changing the settings
+
+Ixian S2 Node settings are provided on the command line when starting the IxianS2 executable. The most important parameters are:
+* **-p** DLT Port: If you are for some reason unable to port-forward the default port, 10235, you may use a different port. The `-p` switch will change which port the software uses for S2 communication.
+* **-i** External IP address: The IxianS2 software will use UPnP to try and determine the external IP address of your node. If this fails for some reason, you can specify the external address using the `-i` option.
+* **-a** API Port: This changes the port on which the node accepts API commands, as well as the port on which the built-in wallet operates. If you provide a different API port, then the built-in wallet for the node will be at **http://localhost:API_PORT**.
+* **--help**: Displays a short help with some other, less frequently used command options.
+
+If you need to run the S2 Node with different settings, it can be tedious to type them out every time you wish to start the software. It is recommended to create a batch file (**.bat**) with the options already set. To do this, follow the guide below:
+
+1. Toggle showing file extensions in Windows Explorer:
+
+![Show File Extensions](https://projectixian.github.io/assets/images/guide_win_8.png)
+2. Browse to the unpacked Ixian S2 folder.
+3. Create a new text file and change its name to "Start Ixian S2.bat" (note the changed extension from .txt to .bat). Windows will ask you if you really wish to change the file's extension, which you should confirm.
+4. Type or paste the IxianS2 command into the file. You may use the command below, which includes the most common options, as the starting point.
+`IxianDLT.exe -p 10235 -a 8081`
+5. Use the new "Start Ixian S2.bat" file to start the S2 Node with the specified options.
+6. (Optional) Disable "Show file extensions" in Windows Explorer in the same way you enabled them in step 1.
+
+
+## Upgrading the S2 Node software
+
+When a new version is released, you can upgrade the software using the following checklist:
+
+Note: It is recommended to backup the wallet file **ixian.wal** before performing any upgrade or changing any settings on the command line.
+
+1. Shutdown the Ixian S2 Node.
+2. Obtain the new release package from the Ixian S2 [Releases](https://github.com/ProjectIxian/Ixian-S2/releases) Github page.
+3. Extract the contents of the release package and overwrite files.
+4. Start the Ixian S2 Node again. The node will use the existing wallet file, so it will not need to generate a new one.
+

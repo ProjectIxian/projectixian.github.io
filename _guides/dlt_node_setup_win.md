@@ -1,5 +1,5 @@
 ---
-title: Node setup on Windows
+title: DLT Node setup on Windows
 ---
 
 # Installing an Ixian DLT Node on Windows
@@ -9,7 +9,7 @@ title: Node setup on Windows
 * Operating system: Windows 7 or higher, Recommended Windows 10
 ..* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
 * RAM: 4 GB, Recommended 8 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least GHz
+* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz
 * Free Disk Space: 30 GB, 100 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
 
@@ -97,9 +97,10 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 
 When a new version is released, you can upgrade the software using the following checklist:
 
+Note: It is recommended to backup the wallet file **ixian.wal** before performing any upgrade or changing any settings on the command line.
+
 1. Shutdown the Ixian DLT Node.
 2. Obtain the new release package from the Ixian [Releases](https://github.com/ProjectIxian/Ixian-DLT/releases) Github page.
 3. Extract the contents of the release package and overwrite files.
 4. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
 
-Note: It is recommended to backup the wallet file **ixian.wal** before performing any upgrade or changing any settings on the command line.

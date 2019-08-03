@@ -3,9 +3,12 @@ title: Calculate Transaction Fee
 type: core
 ---
 ## Calculate Transaction Fee
-This method takes the same parameters as `addtransaction`, except for `autofee`. It does not generate a transaction object, but rather calculates the size of the resulting Transaction object and therefore the total fee required to send it. The fee is returned as a decimal number in `result`.
+This method takes the same parameters as `addtransaction`, except for `autofee`. It does not generate a Transaction object, but rather calculates the size of the resulting Transaction object and therefore the total fee required to send it. The fee is returned as a decimal number in `result`.
 
-Note: If using the `primaryAddress` parameter, the chosen address (public key) must be a valid signer for all addresses in the `from` list. This is the case if all the `from` addresses were derived from `primaryAddress` via the `generatenewaddress` API.
+Note: If you do not specify `from`, the required funds and fee will be deducted from the node's addresses (the order is implementation-defined). Multiple addresses may be used if the first one chosen does not have sufficient funds. If the order (and amounts) matters, then use the `from` parameter and specify manually.
+
+Note: If using the `primaryAddress` parameter, the chosen address (public key) must be a valid signer for all addresses in the `from` list. This is the case if all the `from` addresses were derived from `primaryAddress` via the `generatenewaddress` API. Mixing of `from` addresses from different keypairs is not supported, nor is mixing non-multisig and multisig wallets.
+
 
 ### Method: `calculatetransactionfee`
 ### Input parameters:

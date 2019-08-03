@@ -1,16 +1,21 @@
 ---
-title: Node setup on Fedora
+title: DLT Node setup on Ubuntu/Debian
 ---
+
+Note: This guide should work for most rpm-based distributions, such as:
+* CentOS
+* RedHat
+* Oracle Linux
 
 Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
 
-# Installing an Ixian DLT Node on Linux (Fedora)
+# Installing an Ixian DLT Node on Linux (RedHat/CentOS clones)
 
 ## Prerequisites
 
-* Operating system: recent version of Fedora Linux
+* Operating system: recent, rpm-based Linux distribution, such as RedHat or CentOS
 * RAM: 4 GB, Recommended 8 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least GHz
+* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz
 * Free Disk Space: 30 GB, 100 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
 
@@ -22,12 +27,12 @@ Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
 ## Install required software
 1. Install a recent Mono release for linux by following the guide for your Linux distribution here: [Mono Installation Guide](https://www.mono-project.com/download/stable/). When installing, use the "mono-devel" package:
 ```
-dnf install mono-devel
+sudo yum install mono-devel
 ```
 
 2. Install additional required packages:
 ```
-dnf install nuget msbuild git gcc unzip make
+sudo yum install nuget msbuild git gcc unzip
 ```
 
 3. Prepare a directory for the Ixian Project:
@@ -154,6 +159,17 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 
 When a new version is released, you can upgrade the software using the following checklist:
 
+Note: It is recommended to backup the wallet file **ixian.wal** before performing any upgrade or changing any settings on the command line.
+
+Note: We assume that you have followed the above instructions and the Ixian directory names are as follows:
+| Directory | Path |
+| --- | --- |
+| Ixian-Core | ~/Ixian/Ixian-Core |
+| Ixian-DLT | ~/Ixian/Ixian-DLT |
+| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release |
+
+If you have placed the Ixian source code folders elsewhere, change them in the below description. Furthermore, if you copied the executable files from the bin/Release folder someplace else, you will need to repeat the copy step to overwrite old executable files with new ones.
+
 1. Shutdown the Ixian DLT Node.
 2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`
 3. Update the sources to the latest version: `git pull`.
@@ -162,4 +178,3 @@ When a new version is released, you can upgrade the software using the following
 6. Compile the new sources: `msbuild DLTNode.sln /p:Configuration=Release`
 7. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
 
-Note: It is recommended to backup the wallet file **ixian.wal** before performing any upgrade or changing any settings on the command line.

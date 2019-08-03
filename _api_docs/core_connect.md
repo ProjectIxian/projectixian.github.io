@@ -3,13 +3,16 @@ title: Connect
 type: core
 ---
 ## Connect
-Initiates a network connection to the specified address.
+Initiates a network connection to the specified address and port.
+
+Note: The `to` parameter must include both a host address and a port. The host address may be a fully qualified domain name (FQDN) or an IP address, but port must be present in both cases.
+
 ### Method: `connect`
 ### Input parameters:
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| to | String | Yes | Hostname or IP address of the target Ixian node. |
+| to | String | Yes | Hostname or IP address and port of the target Ixian node. |
 
 ### Errors:
 
@@ -22,7 +25,7 @@ Initiates a network connection to the specified address.
 - a JSON object containinly only the string "Connecting to node `to`" as the result.
 
 ### Example:
-GET http://localhost:8081/connect?to=192.168.1.25
+GET http://localhost:8081/connect?to=192.168.1.25:10234
 ```
 {
 	"result": "Connecting to node 192.168.1.25",

@@ -5,11 +5,10 @@ type: dlt
 
 ## **Debug/Testnet only**
 
-## Get Wallet
-Returns wallets from the wallet list, capped to the first 50 entries. This function is primarily used when debugging or testing and has
-very little value in production use.
+## Get Wallet List
+Returns wallets from the wallet list, capped to the first 50 entries. This function is primarily used when debugging or testing and has very little value in production use.
 
-### Method: `getwallet`
+### Method: `walletlist`
 ### Input parameters:
 None
 

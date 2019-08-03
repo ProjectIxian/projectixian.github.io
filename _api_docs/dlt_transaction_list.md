@@ -7,6 +7,8 @@ Returns the list of all transactions in the redacted window.
 ### Method: `tx`
 ### Input parameters:
 
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
 | fromIndex | Number | No | Starting index (used for splitting the results into pages). |
 | count | Number | No | Number of results to fetch. By itself, this parameter is useful for fetching only the recent history, but combined with `fromIndex` this parameters enables fetching results in pages. |
 

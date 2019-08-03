@@ -5,13 +5,13 @@ type: core
 ## Add Transaction
 Generates a new IXI transaction to transfer funds between wallets. Multiple 'from' wallets with different amounts may be specified, as well as multiple target wallets and amounts.
 
-Note: If you do not specify `from`, the required funds and fee will be deducted from the node's addresses (the order is unspecified). Multiple addresses may be used if the first one chosen does not have sufficient funds.
+Note: If you do not specify `from`, the required funds and fee will be deducted from the node's addresses (the order depends on the particular implementation). Multiple addresses may be used if the first one chosen does not have sufficient funds.
 Alternatively, if you do specify `from`, your total amount must include the required transaction fee. The transaction fee may be calculated in multiple ways:
  - Call the API `createrawtransaction`, which will generate a transaction object but not send it to the network. In this way you can measure the object's size and calculate an appropriate fee. This API takes the same parameters as `addtransaction`.
  - Call the API `calculatetransactionfee`, which will return the required fee amount for the given transaction. This API takes the same parameters as `addtransaction`.
  - Use the `autofee` parameter, which will deduct the required transaction fee from the first specified `from` address. The address must have sufficient funds to cover both the amount and fee. You can change the order of `from` addresses to ensure this.
  
-Note: If using the `primaryAddress` parameter, the chosen address (public key) must be a valid signer for all addresses in the `from` list. This is the case if all the `from` addresses were derived from `primaryAddress` via the `generatenewaddress` API.
+Note: If using the `primaryAddress` parameter, the chosen address (public key) must be a valid signer for all addresses in the `from` list. This is the case if all the `from` addresses were derived from `primaryAddress` via the `generatenewaddress` API. Mixing of `from` addresses from different keypairs is not supported, nor is mixing non-multisig and multisig wallets.
  
 ### Method: `addtransaction`
 ### Input parameters:
