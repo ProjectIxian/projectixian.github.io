@@ -47,24 +47,24 @@ Note: If there are problems with the `IXICore` project, the Ixian-Core was not f
 
 1. In the Visual Studio window `Solution Explorer`, right-click the project `DLTNode` and choose "Rebuild".
 
-![Rebuild Solution](https://projectixian.github.io/assets/images/guide_win_building_dlt_2.png)
+    ![Rebuild Solution](https://projectixian.github.io/assets/images/guide_win_building_dlt_2.png)
 
 2. Choose the Solution Configuration as either `Debug` or `Release`. The former allows stepping through code and inspecting variables if executed from Visual Studio, but at the cost of significantly worse performance. The Release build is meant for the final product which should run as fast as possible.
 
-![Solution Configuration](https://projectixian.github.io/assets/images/guide_win_building_dlt_6.png)
+    ![Solution Configuration](https://projectixian.github.io/assets/images/guide_win_building_dlt_6.png)
 
 3. When the rebuild has finished, right-click the project `Argon2_C` and choose "Rebuild"
 
 4. (optional) If the Output Window is not enabled, click on View -> Output to see the results of each build.
 
-![Output Window](https://projectixian.github.io/assets/images/guide_win_building_dlt_3.png)
+    ![Output Window](https://projectixian.github.io/assets/images/guide_win_building_dlt_3.png)
 
 5. Each rebuild should finish with the status "Rebuild All Succeeded" in the status bar and in the Output Window. Some warnings are expected, but if you encounter errors at this point please open an issue on the GitHub page and attach the contents of your output window as a text file, so we can find out what went wrong.
 
-![Build Results](https://projectixian.github.io/assets/images/guide_win_building_dlt_4.png)
+    ![Build Results](https://projectixian.github.io/assets/images/guide_win_building_dlt_4.png)
 
 6. The DLT program can be found in the bin\Debug or bin\Release folder under the project `Ixian-DLT`. It will be named `IxianDLT.exe`. The Debug folder is used for Debug-Configuration builds and the Release folder is used for Release-Configuration builds.
 
-![EXE File](https://projectixian.github.io/assets/images/guide_win_building_dlt_5.png)
+    ![EXE File](https://projectixian.github.io/assets/images/guide_win_building_dlt_5.png)
 
 7. (optional) You can copy the binaries (contents of the `Debug` or `Release` folder to any folder on your system, but make sure to include all the files which were generated in the bin\Debug or bin\Release folder. Alternatively, you can start the DLT Node from the Debug or Release folders.
