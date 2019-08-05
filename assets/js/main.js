@@ -1,4 +1,4 @@
-$(document).ready(function(){
+document.addEventListener("ready", function(){
     if(getCookie("ixianCookieAgreed") != "")
     {
         closeCookiePolicyBar();
