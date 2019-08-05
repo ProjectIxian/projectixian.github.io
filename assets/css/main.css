@@ -187,6 +187,11 @@ header nav > a:first-child
     font-weight: 700;
 }
 
+.contentWrapper
+{
+    background: white;
+}
+
 .content
 {
     display: table-cell;
