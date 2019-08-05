@@ -5,8 +5,8 @@ description: Ixian is a fully scalable, decentralized platform that enables encr
 keywords: Ixian,DLT,Chat,Blockchain,Cryptocurrency,Crypto,IxiCash,Spixi
 ---
 <div class="contentWrapper">
-    <h1 class="text-center" style="font-family: Roboto, sans-serif;font-size: 36px;font-weight: 300;padding-top: 180px;color: #540b2e;padding-bottom: 60px;">Cookies Policy</h1><div class="divider"></div>
-    <p style="font-weight: normal;font-family: Roboto, sans-serif;padding-top: 80px;padding-bottom: 80px;margin-left: 5%;margin-right: 5%;"><br>
+    <h1 class="text-center" style="font-family: Roboto, sans-serif;font-size: 36px;font-weight: 300;padding-top: 20px;color: #540b2e;padding-bottom: 60px;">Cookies Policy</h1><div class="divider"></div>
+    <p style="font-weight: normal;font-family: Roboto, sans-serif;padding-top: 20px;padding-bottom: 80px;margin-left: 5%;margin-right: 5%;"><br>
         <strong>This website, like most other websites, uses cookies. Cookies</strong> are messages that web servers send to your web browser when you visit Internet sites, and it helps us provide you with a customized experience
         while enhancing the functionality of the website. You can freely prevent these cookies from being stored, however this may downgrade certain elements of this websites' functionality. For more general information<br>
         on cookies see the <a href="https://en.wikipedia.org/wiki/HTTP_cookie">https://en.wikipedia.org/wiki/HTTP_cookie</a>.<br>

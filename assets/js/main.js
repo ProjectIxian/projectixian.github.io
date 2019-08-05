@@ -1,10 +1,3 @@
-document.body.addEventListener("ready", function(){
-    if(getCookie("ixianCookieAgreed") != "")
-    {
-        closeCookiePolicyBar();
-    }
-});
-
 function closeCookiePolicyBar()
 {
     document.getElementById("cookiePolicyBar").style.display = "none";
@@ -32,4 +25,12 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+
+
+
+if(getCookie("ixianCookieAgreed") != "")
+{
+    closeCookiePolicyBar();
 }
