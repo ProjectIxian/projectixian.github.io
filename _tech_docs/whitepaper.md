@@ -12,7 +12,7 @@ The IXIAN Ecosystem is comprised of three main IXIAN Products: The IXIAN DLT, th
  * Consensus-based block acceptance that allows the network to dynamically adjust the requirement for block validity.
  * Fast and stable block validation and acceptance, based on the “Distributed Lockstep” method, which allows parallel computation by the distinct nodes.
  * Redacted Blockchain, which allows new nodes to join the network quickly and efficiently, without large downloads or massive recomputation.
- * Hybrid Proof-of-Work and Proof-of-Stake algorithm, which takes advantage of both methods where appropriate for new currency generation.
+ * Hybrid consensus Proof-of-Work algorithm, which takes advantage of the former for low processing cost of network operation and the latter for rapid currency generation in the initial phases.
 
 
 ### Ixian S2
@@ -33,7 +33,7 @@ The IXIAN Ecosystem is comprised of three main IXIAN Products: The IXIAN DLT, th
 ## Advantages of IXIAN Redacted DLT
 * **Consensus-based block acceptance**, which allows the network to dynamically adjust the threshold for block validity. Incorrect or manipulative blocks are simply discarded by the network majority.
 * **Limited blockchain size** means that new nodes may be created more quickly and with fewer resources. Storing the entire chain is entirely optional - the network can function with only the recent block history.
-* **Hybrid-PoW-PoS model**. New currency is introduced into the network by a combination of Proof-of-Work and Proof-of-Stake models, allowing nodes to pick whichever suits them best.
+* **Hybrid-PoW-Consensus model**. New currency is introduced into the network by a combination of Proof-of-Work and operational rewards models, allowing nodes to pick whichever suits them best.
 * **Persistent**, immediate wallet state. Each node holds a copy of the currently valid state of the network, which is additionally verified by a specific field in each block. In this way, balance and wallet status lookups can be performed on any node extremely quickly. Because each block is signed by the majority of the network, this also implies that the majority of the network agrees on the current status and balance of each wallet.
 * **High throughput**. Ixian was designed from the start to enable a high throughput of transactions, as well as rapid transaction confirmation. These requirements are mandated by the S2 network. Ixian therefore targets a 30-second block generation window, with actual block times between 30 and 45 seconds..
 
