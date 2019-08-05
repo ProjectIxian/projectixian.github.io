@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110509795-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-110509795-2');
+        </script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1" />
         <title>{{ page.title }} | Ixian Documentation</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
         <meta name="description" content="Welcome to Ixian Documentation Pages, here you can learn more about Ixian and how to get started quickly!">
@@ -42,6 +53,20 @@
                 </div>
             </div>
         </footer>
+        <div id="cookiePolicyBar" class="cookiesPolicy">
+            <div class="container row">
+                <div class="col-xl-6">
+                    <p class="title">Cookies Policy</p>
+                    <p class="subTitle">To make this site work properly, we sometimes place small data files called cookies on your device. Most big websites do this too.</p>
+                </div>
+                <div class="col-xl-6 buttons">
+                    <a class="btn btn-primary text-left radial-fill" onclick="javascript: closeCookiePolicyBar();">I ACCEPT</a>
+                    <a class="btn btn-primary text-left radial-fill" href="cookies.html">READ MORE</a>
+                </div>
+            </div>
+        </div>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"/>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/main.js"></script>
     </body>
 </html>
