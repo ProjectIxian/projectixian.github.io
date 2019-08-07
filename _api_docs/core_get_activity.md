@@ -13,6 +13,7 @@ Retrieves the activity for the currently loaded wallet with optional filtering o
 | fromIndex | Number | No | Starting index (used for splitting the results into pages). |
 | count | Number | No | Number of results to fetch. By itself, this parameter is useful for fetching only the recent history, but combined with `fromIndex` this parameters enables fetching results in pages. |
 | type | Number | No | Type of the activity to fetch as a number. See below. |
+| descending | Boolean | No | Ordering direction of requested data, set to "true" for descending order. Default is ascending order.  |
 
 ### Activity Types
 
