@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('class_i_x_i_core_1_1_crypto_key_1_1_ke
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a644005c3c597574af935b7e9b441503b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_crypto_key_1_1_key_derivation.html#a644005c3c597574af935b7e9b441503b">KeyDerivation</a> (byte[] entropy)</td></tr>
 <tr class="separator:a644005c3c597574af935b7e9b441503b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a005fdf903e6d4ba3a5c880ab65968ae1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_l_t_1_1_ixian_key_pair.html">IxianKeyPair</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_crypto_key_1_1_key_derivation.html#a005fdf903e6d4ba3a5c880ab65968ae1">deriveKey</a> (int key_index, int key_length, ulong public_exponent)</td></tr>
+<tr class="memitem:a005fdf903e6d4ba3a5c880ab65968ae1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_i_x_i_core_1_1_ixian_key_pair.html">IxianKeyPair</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_x_i_core_1_1_crypto_key_1_1_key_derivation.html#a005fdf903e6d4ba3a5c880ab65968ae1">deriveKey</a> (int key_index, int key_length, ulong public_exponent)</td></tr>
 <tr class="separator:a005fdf903e6d4ba3a5c880ab65968ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -129,7 +129,7 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class is able to deterministically generate child RSA keys from a pool of random data. Note: Please do not put this into production until a crypto-expert takes a look at it. This falls under the heading "Roll your own crypto". The problem is that C# and Java (android) - and possibly iOS - implementations do not provide a way to do this. In some cases it's possible to substitute the random generator for something like Sha512/t digest, but the core RSA generation algorithm is implemented differently. That means generating RSA keys from the same starting point would yield different results on different platforms. Furthermore, implementations may change in the future, which would break all key derivation. I see no other way than to implement this ourselves, so that we have control over when we change it and appropriately handle legacy cases. </p>
 
-<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00022">22</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00021">21</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a644005c3c597574af935b7e9b441503b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a644005c3c597574af935b7e9b441503b">&#9670;&nbsp;</a></span>KeyDerivation()</h2>
@@ -147,7 +147,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00094">94</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00093">93</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
 
 </div>
 </div>
@@ -192,7 +192,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00169">169</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00168">168</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
 
 </div>
 </div>
@@ -220,7 +220,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00215">215</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00214">214</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
 
 </div>
 </div>
@@ -231,7 +231,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_d_l_t_1_1_ixian_key_pair.html">IxianKeyPair</a> IXICore.CryptoKey.KeyDerivation.deriveKey </td>
+          <td class="memname"><a class="el" href="class_i_x_i_core_1_1_ixian_key_pair.html">IxianKeyPair</a> IXICore.CryptoKey.KeyDerivation.deriveKey </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>key_index</em>, </td>
@@ -256,7 +256,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00142">142</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00141">141</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
 
 </div>
 </div>
@@ -284,7 +284,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00161">161</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_key_derivation_8cs_source.html#l00160">160</a> of file <a class="el" href="_key_derivation_8cs_source.html">KeyDerivation.cs</a>.</p>
 
 </div>
 </div>

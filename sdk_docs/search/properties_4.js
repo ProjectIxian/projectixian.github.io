@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['french',['French',['../class_d_l_t_1_1_wordlist.html#a010e6f3c0542d561091b7671b099683d',1,'DLT::Wordlist']]],
-  ['from',['from',['../class_d_l_t_1_1_meta_1_1_activity.html#aa4d044a3c524ab600bdc6b71778cb7bb',1,'DLT::Meta::Activity']]]
+  ['french',['French',['../class_i_x_i_core_1_1_utils_1_1_wordlist.html#a9e3c55e176a6a1124ececda2a3a74eae',1,'IXICore::Utils::Wordlist']]],
+  ['from',['from',['../class_i_x_i_core_1_1_meta_1_1_activity.html#a1e2c1f7447eb1bbfdcfd6acd607a78fc',1,'IXICore::Meta::Activity']]]
 ];

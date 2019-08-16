@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['activitystatus',['ActivityStatus',['../namespace_d_l_t_1_1_meta.html#abdc6ce23c5ffcdfe110e5d830ab06ab9',1,'DLT::Meta']]],
-  ['activitytype',['ActivityType',['../namespace_d_l_t_1_1_meta.html#afdcf8c256e07cf60ccc6e823b13a85b1',1,'DLT::Meta']]]
+  ['activitystatus',['ActivityStatus',['../namespace_i_x_i_core_1_1_meta.html#a3d9b99dcd154c8dd9f3c929db377f951',1,'IXICore::Meta']]],
+  ['activitytype',['ActivityType',['../namespace_i_x_i_core_1_1_meta.html#abf43ce03b138f13a303d033ff45d6f66',1,'IXICore::Meta']]]
 ];

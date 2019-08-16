@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['multisigwalletchangetype',['MultisigWalletChangeType',['../class_d_l_t_1_1_transaction.html#ab15d768b9d748f280dbf0405ed47ad8c',1,'DLT::Transaction']]]
+  ['multisigwalletchangetype',['MultisigWalletChangeType',['../class_i_x_i_core_1_1_transaction.html#a6f2bf9257de8975d186d0b80cfe39a05',1,'IXICore::Transaction']]]
 ];

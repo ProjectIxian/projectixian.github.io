@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['metadata',['metaData',['../namespace_d_l_t_1_1_network.html#a7f0af03368dbd101aaa4f4f4398cc068af39b17e1da2af1cd34aae99b867a1c61',1,'DLT::Network']]],
-  ['miningreward',['MiningReward',['../namespace_d_l_t_1_1_meta.html#afdcf8c256e07cf60ccc6e823b13a85b1a4618cbecfeb4f6c5e9007844522d89c5',1,'DLT::Meta']]],
-  ['multisig',['Multisig',['../namespace_d_l_t.html#aca6332606c62a8f1ed415bcf443ffd28aa466640bd41e1875ccffd4d9bfb14f28',1,'DLT']]],
-  ['multisigaddtxsignature',['MultisigAddTxSignature',['../class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083aea1dd06b706bcf8962382d66cc931e5387',1,'DLT::Transaction']]],
-  ['multisigtx',['MultisigTX',['../class_d_l_t_1_1_transaction.html#a473851324cd6f8116e24ea61380083aea92e02733932e416fe94f8e395b3ab298',1,'DLT::Transaction']]]
+  ['miningreward',['MiningReward',['../namespace_i_x_i_core_1_1_meta.html#abf43ce03b138f13a303d033ff45d6f66a4618cbecfeb4f6c5e9007844522d89c5',1,'IXICore::Meta']]],
+  ['multisig',['Multisig',['../namespace_i_x_i_core.html#a373c338e8dfd4f7e60def38399ff0d9aaa466640bd41e1875ccffd4d9bfb14f28',1,'IXICore']]],
+  ['multisigaddtxsignature',['MultisigAddTxSignature',['../class_i_x_i_core_1_1_transaction.html#a43928866048062cc8cbb7d69faee52bea1dd06b706bcf8962382d66cc931e5387',1,'IXICore::Transaction']]],
+  ['multisigtx',['MultisigTX',['../class_i_x_i_core_1_1_transaction.html#a43928866048062cc8cbb7d69faee52bea92e02733932e416fe94f8e395b3ab298',1,'IXICore::Transaction']]]
 ];

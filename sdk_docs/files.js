@@ -4,7 +4,6 @@ var files =
     [ "API", "dir_19ea4dbfe8f0e4681f60b9b97f7b5d11.html", "dir_19ea4dbfe8f0e4681f60b9b97f7b5d11" ],
     [ "Block", "dir_1d036b332eb68ba525ade72acbbf420f.html", "dir_1d036b332eb68ba525ade72acbbf420f" ],
     [ "Crypto", "dir_b1767ebdcd95fd866c9c7bcb0ebb2e68.html", "dir_b1767ebdcd95fd866c9c7bcb0ebb2e68" ],
-    [ "Legacy", "dir_79bbee275bf669e56d53cf6fe52b6e2a.html", "dir_79bbee275bf669e56d53cf6fe52b6e2a" ],
     [ "Meta", "dir_7795a02a4813dcd036f04e5f7854f185.html", "dir_7795a02a4813dcd036f04e5f7854f185" ],
     [ "Network", "dir_356d85c7fe3a31f6238a1e4b453e8aed.html", "dir_356d85c7fe3a31f6238a1e4b453e8aed" ],
     [ "Peer", "dir_1e0f63fe6a80df385a2e3a495e04588a.html", "dir_1e0f63fe6a80df385a2e3a495e04588a" ],

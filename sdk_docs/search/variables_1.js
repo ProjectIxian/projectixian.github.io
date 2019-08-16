@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['balance',['balance',['../class_d_l_t_1_1_wallet.html#a8e7cf2df2fd848fd05bb0545d8adf2ee',1,'DLT::Wallet']]],
-  ['benchmarking',['Benchmarking',['../class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#aa6c739256b5587e8a7379b28a867b9d3',1,'DLT::Network::IPv4Subnet']]],
-  ['blockchecksum',['blockChecksum',['../class_d_l_t_1_1_super_block_segment.html#afcab36c1607bab5b1a0138b5a1fc07fc',1,'DLT.SuperBlockSegment.blockChecksum()'],['../class_d_l_t_1_1_block.html#af1aebe6fe47d7a2e3fc4c6ef9674f566',1,'DLT.Block.blockChecksum()']]],
-  ['blockgenerationinterval',['blockGenerationInterval',['../class_i_x_i_core_1_1_core_config.html#abe3aeaa93ff378422c029858880fbeac',1,'IXICore::CoreConfig']]],
-  ['blockheight',['blockHeight',['../class_d_l_t_1_1_remote_endpoint.html#a6ddcda42109c5d7033e0b37606bd5dc0',1,'DLT.RemoteEndpoint.blockHeight()'],['../class_d_l_t_1_1_transaction.html#a73f79e2b686bd7104c5f7215c7d799c4',1,'DLT.Transaction.blockHeight()']]],
-  ['blocknum',['blockNum',['../class_d_l_t_1_1_super_block_segment.html#a862f2e67e6bdd6bf797d36934e8831dc',1,'DLT.SuperBlockSegment.blockNum()'],['../class_d_l_t_1_1_ws_chunk.html#abb2cf49b205571ec58f2bafa210f9b13',1,'DLT.WsChunk.blockNum()']]],
-  ['broadcast',['Broadcast',['../class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a4377e8ef59d8ffcc9de9f7b18dc0ecf2',1,'DLT::Network::IPv4Subnet']]],
-  ['buffer',['buffer',['../struct_d_l_t_1_1_net_out_queue_item.html#ab79827aec58738cee48f8f8ec1fea6aa',1,'DLT::NetOutQueueItem']]]
+  ['balance',['balance',['../class_i_x_i_core_1_1_wallet.html#afadc924cb5157ce1102b35a4bf39e54f',1,'IXICore::Wallet']]],
+  ['benchmarking',['Benchmarking',['../class_i_x_i_core_1_1_network_1_1_i_pv4_subnet.html#a6b473889581da767ac41a7205baa58a0',1,'IXICore::Network::IPv4Subnet']]],
+  ['blockchecksum',['blockChecksum',['../class_i_x_i_core_1_1_super_block_segment.html#a75f28bbbf73efcf0f904a68a8e62857a',1,'IXICore.SuperBlockSegment.blockChecksum()'],['../class_i_x_i_core_1_1_block.html#a6a0788cbb30385d702e547409a1d0d17',1,'IXICore.Block.blockChecksum()'],['../class_i_x_i_core_1_1_block_header.html#a7b7e3f5e2a8ecdf8f4f901b24b7e6d93',1,'IXICore.BlockHeader.blockChecksum()']]],
+  ['blockgenerationinterval',['blockGenerationInterval',['../class_i_x_i_core_1_1_consensus_config.html#a9049fe2dd0b3706d3d36c0801ae48f6d',1,'IXICore::ConsensusConfig']]],
+  ['blockheight',['blockHeight',['../class_i_x_i_core_1_1_network_1_1_remote_endpoint.html#aac8c2d6c33c818dea5d3abca47e9d3a1',1,'IXICore.Network.RemoteEndpoint.blockHeight()'],['../class_i_x_i_core_1_1_transaction.html#a47d2246ba781add42e66c895968a5604',1,'IXICore.Transaction.blockHeight()']]],
+  ['blocknum',['blockNum',['../class_i_x_i_core_1_1_super_block_segment.html#a2ca9189e2edc0a803efd721ee84e34f9',1,'IXICore.SuperBlockSegment.blockNum()'],['../class_i_x_i_core_1_1_ws_chunk.html#ae00b8c459c44f8a0cac9f9cd27f150e9',1,'IXICore.WsChunk.blockNum()']]],
+  ['broadcast',['Broadcast',['../class_i_x_i_core_1_1_network_1_1_i_pv4_subnet.html#a556872c7fc1bdb31d558de67de32f312',1,'IXICore::Network::IPv4Subnet']]],
+  ['buffer',['buffer',['../struct_i_x_i_core_1_1_utils_1_1_net_out_queue_item.html#a68e9f5a53ba8e6796b7b1fb59246e215',1,'IXICore::Utils::NetOutQueueItem']]]
 ];

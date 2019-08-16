@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['tcpclient',['tcpClient',['../class_d_l_t_1_1_network_client.html#a696e0c5d0e03b11390ba2b846d606231',1,'DLT::NetworkClient']]],
-  ['testnet1documentation',['TestNet1Documentation',['../class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a05514d42f16076d707da0925b7c9080f',1,'DLT::Network::IPv4Subnet']]],
-  ['testnet2documentation',['TestNet2Documentation',['../class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a5e8ff4015dbcbf22166a0f7f5e1c09ef',1,'DLT::Network::IPv4Subnet']]],
-  ['testnet3documentation',['TestNet3Documentation',['../class_d_l_t_1_1_network_1_1_i_pv4_subnet.html#a97ca99188de34ef1abcb51e34ba95a8b',1,'DLT::Network::IPv4Subnet']]],
+  ['tcpclient',['tcpClient',['../class_i_x_i_core_1_1_network_1_1_network_client.html#a1e4722ab26dcee07683ac11561fc7402',1,'IXICore::Network::NetworkClient']]],
+  ['testnet1documentation',['TestNet1Documentation',['../class_i_x_i_core_1_1_network_1_1_i_pv4_subnet.html#a5402a2b0cedf5d3c81bc71bbc4b5043f',1,'IXICore::Network::IPv4Subnet']]],
+  ['testnet2documentation',['TestNet2Documentation',['../class_i_x_i_core_1_1_network_1_1_i_pv4_subnet.html#a7dc7a2b51ea923f87dfbb4886c0ec69d',1,'IXICore::Network::IPv4Subnet']]],
+  ['testnet3documentation',['TestNet3Documentation',['../class_i_x_i_core_1_1_network_1_1_i_pv4_subnet.html#ab63be1069945e6afae90aa038bc50370',1,'IXICore::Network::IPv4Subnet']]],
   ['threadlivecheckenabled',['threadLiveCheckEnabled',['../class_i_x_i_core_1_1_core_config.html#a0623e71ff8c39f4cde51ba60cdf04523',1,'IXICore::CoreConfig']]],
-  ['timedifference',['timeDifference',['../class_d_l_t_1_1_time_sync_data.html#aea797a27c66db81ad9e84187c283529c',1,'DLT.TimeSyncData.timeDifference()'],['../class_d_l_t_1_1_remote_endpoint.html#a463c9708d4586a3a54552fc48a0a2812',1,'DLT.RemoteEndpoint.timeDifference()']]],
-  ['timestamp',['timeStamp',['../class_d_l_t_1_1_transaction.html#af0352e4c4db22152bbc7f375a945f1db',1,'DLT.Transaction.timeStamp()'],['../class_d_l_t_1_1_block.html#a34cbd52bc5982ae04a666a32f80ca281',1,'DLT.Block.timestamp()']]],
-  ['timesynccomplete',['timeSyncComplete',['../class_d_l_t_1_1_remote_endpoint.html#a5aca169d4c7359cfc3b50cdb1533024d',1,'DLT::RemoteEndpoint']]],
-  ['timesyncs',['timeSyncs',['../class_d_l_t_1_1_remote_endpoint.html#adf22a28fc5e187344ec44c67bad9646a',1,'DLT::RemoteEndpoint']]],
-  ['tlc',['TLC',['../class_i_x_i_core_1_1_generic_a_p_i_server.html#a25df45d8507ca19dc189aba649c0910d',1,'IXICore.GenericAPIServer.TLC()'],['../class_d_l_t_1_1_presence_list.html#a6aa517fbb84a3d644f288d855b6c81a4',1,'DLT.PresenceList.TLC()']]],
-  ['tolist',['toList',['../class_d_l_t_1_1_transaction.html#a549d74cbb8d07d924e2e642a19ed62bb',1,'DLT::Transaction']]],
-  ['transactionprice',['transactionPrice',['../class_i_x_i_core_1_1_core_config.html#a521f2a77e62311dadd396f3811407aab',1,'IXICore::CoreConfig']]],
-  ['transactions',['transactions',['../class_d_l_t_1_1_block.html#a11d2ebc044f1505e02db56cb8a3d4d83',1,'DLT::Block']]],
-  ['type',['type',['../class_d_l_t_1_1_presence_address.html#abf3559a4029bc7b3b47d713b5622e35e',1,'DLT.PresenceAddress.type()'],['../class_d_l_t_1_1_transaction.html#ae73dca7364ce0817c78c53653b8ba8f1',1,'DLT.Transaction.type()'],['../class_d_l_t_1_1_wallet.html#a9bb053331fc687433050824ee30ffe73',1,'DLT.Wallet.type()']]]
+  ['timedifference',['timeDifference',['../class_i_x_i_core_1_1_network_1_1_time_sync_data.html#a9642ff895474ed8d5aa895903a34ef14',1,'IXICore.Network.TimeSyncData.timeDifference()'],['../class_i_x_i_core_1_1_network_1_1_remote_endpoint.html#a089e7af5102816643b2f7a3208577cd7',1,'IXICore.Network.RemoteEndpoint.timeDifference()']]],
+  ['timestamp',['timeStamp',['../class_i_x_i_core_1_1_transaction.html#a7efe92cd977a748bacd1bc6ff899104a',1,'IXICore.Transaction.timeStamp()'],['../class_i_x_i_core_1_1_block.html#a33d83abc1704c848c2483efdf3196f88',1,'IXICore.Block.timestamp()']]],
+  ['timesynccomplete',['timeSyncComplete',['../class_i_x_i_core_1_1_network_1_1_remote_endpoint.html#aa0e6eaf99499380341697a85c151b647',1,'IXICore::Network::RemoteEndpoint']]],
+  ['timesyncs',['timeSyncs',['../class_i_x_i_core_1_1_network_1_1_remote_endpoint.html#a71326a299c2d0ba98c7dcfa102d155d6',1,'IXICore::Network::RemoteEndpoint']]],
+  ['tlc',['TLC',['../class_i_x_i_core_1_1_generic_a_p_i_server.html#a25df45d8507ca19dc189aba649c0910d',1,'IXICore.GenericAPIServer.TLC()'],['../class_i_x_i_core_1_1_presence_list.html#a1e71cba56d9d4dc6373032afbe9b8ea5',1,'IXICore.PresenceList.TLC()']]],
+  ['tolist',['toList',['../class_i_x_i_core_1_1_transaction.html#ae71cca7e4297572f8816d2b4466de69b',1,'IXICore::Transaction']]],
+  ['transactionprice',['transactionPrice',['../class_i_x_i_core_1_1_consensus_config.html#aed14fc56f67bb8fe36f003201e7bd150',1,'IXICore::ConsensusConfig']]],
+  ['transactions',['transactions',['../class_i_x_i_core_1_1_block.html#a6e71590c17b31cf3903ee3bf1d835aaf',1,'IXICore.Block.transactions()'],['../class_i_x_i_core_1_1_block_header.html#af01ea7cdd423df927373c7916713851f',1,'IXICore.BlockHeader.transactions()']]],
+  ['type',['type',['../class_i_x_i_core_1_1_presence_address.html#adae60f61513eb23c65cf37401047f6b8',1,'IXICore.PresenceAddress.type()'],['../class_i_x_i_core_1_1_transaction.html#a80610e288184dcbe78116bc6543bc7be',1,'IXICore.Transaction.type()'],['../class_i_x_i_core_1_1_wallet.html#af82a448071b446592c733953d526abcf',1,'IXICore.Wallet.type()']]]
 ];

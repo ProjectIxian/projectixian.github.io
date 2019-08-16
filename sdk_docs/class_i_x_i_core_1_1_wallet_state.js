@@ -1,0 +1,25 @@
+var class_i_x_i_core_1_1_wallet_state =
+[
+    [ "WalletState", "class_i_x_i_core_1_1_wallet_state.html#adc7653b03b47c3948c8a500091e5f1b8", null ],
+    [ "WalletState", "class_i_x_i_core_1_1_wallet_state.html#ab1f1e8a9a1e57709211dce9f05d1e81d", null ],
+    [ "WalletState", "class_i_x_i_core_1_1_wallet_state.html#a4ab85fce02919075dd9daefdc72f68e8", null ],
+    [ "calculateTotalSupply", "class_i_x_i_core_1_1_wallet_state.html#a808a4f0078fdfc5d0abb7bf1bb029a62", null ],
+    [ "calculateWalletStateChecksum", "class_i_x_i_core_1_1_wallet_state.html#abe12c45979ffe9c87824b881bb5d4cd0", null ],
+    [ "calculateWalletStateDeltaChecksum", "class_i_x_i_core_1_1_wallet_state.html#a2da37241140c51afc9ecf5df28d8078c", null ],
+    [ "clear", "class_i_x_i_core_1_1_wallet_state.html#ac451c9149409a51878ad3bf20f033885", null ],
+    [ "commit", "class_i_x_i_core_1_1_wallet_state.html#a1d2e8dcfa74a51525de55be3a4855a7d", null ],
+    [ "debugGetWallets", "class_i_x_i_core_1_1_wallet_state.html#aaa6f835501490dc73d7afe6a074dde77", null ],
+    [ "getWallet", "class_i_x_i_core_1_1_wallet_state.html#a42f65dfd1d9ec20066542a15b7cf9950", null ],
+    [ "getWalletBalance", "class_i_x_i_core_1_1_wallet_state.html#a57061e5caef1d7fded879ec0102876bb", null ],
+    [ "getWalletStateChunks", "class_i_x_i_core_1_1_wallet_state.html#a674861596a900adc0b73356baa1372d6", null ],
+    [ "revert", "class_i_x_i_core_1_1_wallet_state.html#afb6be1ecfc7c44f57d9fc3880103a259", null ],
+    [ "setCachedBlockVersion", "class_i_x_i_core_1_1_wallet_state.html#a5c4e09072181528ddb8849965474b1d4", null ],
+    [ "setWallet", "class_i_x_i_core_1_1_wallet_state.html#a28bd53bbeb3c92e4a4368620d85afa37", null ],
+    [ "setWalletBalance", "class_i_x_i_core_1_1_wallet_state.html#a61a6c64cf6e03cc14efe90b546a2a09c", null ],
+    [ "setWalletChunk", "class_i_x_i_core_1_1_wallet_state.html#aad8889cffd0bcdd63b6937d1d61478e5", null ],
+    [ "setWalletPublicKey", "class_i_x_i_core_1_1_wallet_state.html#ac7bf5884882143c45e2178b26c7b3c39", null ],
+    [ "snapshot", "class_i_x_i_core_1_1_wallet_state.html#aecc2d23bab5eb0ffd98ad6e4befaa56d", null ],
+    [ "version", "class_i_x_i_core_1_1_wallet_state.html#ae356e0075c4f6e6a8331d41894bb3e56", null ],
+    [ "hasSnapshot", "class_i_x_i_core_1_1_wallet_state.html#a7bbd664c411aca7fd4ae6d8cf7723126", null ],
+    [ "numWallets", "class_i_x_i_core_1_1_wallet_state.html#a7c480450964102f0049c0a06ae377915", null ]
+];

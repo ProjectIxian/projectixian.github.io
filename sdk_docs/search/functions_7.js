@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['handleattacheventmessage',['handleAttachEventMessage',['../class_d_l_t_1_1_network_events.html#a285be6a5d0ae9fe5e48412b99912be86',1,'DLT::NetworkEvents']]],
+  ['handleattacheventmessage',['handleAttachEventMessage',['../class_i_x_i_core_1_1_network_1_1_network_events.html#a3af36c12ec6b06ba9b79d40773143d88',1,'IXICore::Network::NetworkEvents']]],
   ['handleconsoleclose',['HandleConsoleClose',['../class_i_x_i_core_1_1_utils_1_1_console_helpers.html#aab34175c9eb3fc81f7621b494ca56d21',1,'IXICore::Utils::ConsoleHelpers']]],
-  ['handledetacheventmessage',['handleDetachEventMessage',['../class_d_l_t_1_1_network_events.html#a609a8a0bb94d6c276b688820ddea9757',1,'DLT::NetworkEvents']]],
-  ['handledisconnectedclients',['handleDisconnectedClients',['../class_d_l_t_1_1_network_1_1_network_server.html#a202804f36e6d9a3044e054a31a104cb2',1,'DLT::Network::NetworkServer']]],
-  ['hashtostring',['hashToString',['../class_d_l_t_1_1_crypto.html#aabdd082a2d6d3b3d9f18a339ec95a999',1,'DLT::Crypto']]],
-  ['hasnodesignature',['hasNodeSignature',['../class_d_l_t_1_1_block.html#a4847a1ca97aa18d9d82166d7cad7f0b1',1,'DLT::Block']]]
+  ['handledetacheventmessage',['handleDetachEventMessage',['../class_i_x_i_core_1_1_network_1_1_network_events.html#a15fdecd58a49b9f2a70f46d833f4c592',1,'IXICore::Network::NetworkEvents']]],
+  ['handledisconnectedclients',['handleDisconnectedClients',['../class_i_x_i_core_1_1_network_1_1_network_server.html#abd770ef55246cb12271235a634ff8e82',1,'IXICore::Network::NetworkServer']]],
+  ['hashtostring',['hashToString',['../class_i_x_i_core_1_1_crypto.html#ac0a9b1ca7bf82eb449653ac4e2f3d1dd',1,'IXICore::Crypto']]],
+  ['hasnodesignature',['hasNodeSignature',['../class_i_x_i_core_1_1_block.html#a1738104d3ba1d2de26f33e08ff51050f',1,'IXICore::Block']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['networkclient',['NetworkClient',['../class_d_l_t_1_1_network_client.html#ae8a595ec09f8025b0d4b31acd3704b2b',1,'DLT::NetworkClient']]],
-  ['normalizekd',['NormalizeKD',['../class_d_l_t_1_1_k_d_table.html#a517e0e708878d618c50c9c7be0d8a159',1,'DLT::KDTable']]],
-  ['numaddresses',['numAddresses',['../class_d_l_t_1_1_address_client.html#a6d70133eb6ef33fd5ca01243f9915745',1,'DLT::AddressClient']]]
+  ['networkclient',['NetworkClient',['../class_i_x_i_core_1_1_network_1_1_network_client.html#a89c67d6f366a905d71fa7474637f6bf7',1,'IXICore::Network::NetworkClient']]],
+  ['normalizekd',['NormalizeKD',['../class_i_x_i_core_1_1_utils_1_1_k_d_table.html#a518164d3819d8f24d2aac65d7cdf6ea7',1,'IXICore::Utils::KDTable']]],
+  ['numaddresses',['numAddresses',['../class_i_x_i_core_1_1_address_client.html#a54035d72c40f147aedf84ddb4faefa92',1,'IXICore::AddressClient']]]
 ];
