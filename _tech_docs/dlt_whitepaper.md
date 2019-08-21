@@ -21,7 +21,7 @@ title: Ixian DLT Whitepaper
 
 # 1. Introduction
 
-Ixian is a Crypto-ecosystem project, rather than just a simple DLT. This whitepaper explains the DLT aspect which, while critical to the operation of the network, comprises only a small part of the final Ixian vision. At the time of writing this document, the following components are envisioned as the basic implementation of Ixian:
+Ixian is a decentralized, open-source, crypto-platform, rather than just a simple DLT. This whitepaper explains the DLT aspect which, while critical to the operation of the network, comprises only a small part of the final Ixian vision. At the time of writing this document, the following components are envisioned as the basic implementation of Ixian:
 * Ixian DLT (Distributed Ledger)
 * Ixian S2 (P2P data transmission network)
 * SPIXI (Instant Messaging app which leverages Ixian DLT and Ixian S2 for decentralized functionality)
@@ -32,34 +32,34 @@ TODO: Ixian mission statement, "The Dream of Ixian", goals...
 
 # 2. Features
 
-The core Ixian Ecosystem is comprised of three main Ixian Products: The Ixian DLT, the S2 Streaming network and the SPIXI Instant Messaging Client. This document is concerned primarily with the Ixian DLT Product, but major features for all three sub-projects are listed to showcase the Ixian Advantage.
+The core Ixian Platform is comprised of three main Ixian Products: The Ixian DLT, the S2 Streaming network and the SPIXI Instant Messaging Client. This document is concerned primarily with the Ixian DLT Product, but major features for all three sub-projects are listed to showcase the Ixian Advantage.
 
 ## Ixian DLT
  * Consensus-based block acceptance that allows the network to dynamically adjust the requirement for block validity.
  * Fast and stable block validation and acceptance, based on the “Distributed Lockstep” method, which allows parallel computation by the distinct nodes.
  * Redacted Blockchain, which allows new nodes to join the network quickly and efficiently, without large downloads or massive recomputation.
- * Hybrid consensus Proof-of-Work algorithm, which takes advantage of the former for low processing cost of network operation and the latter for rapid currency generation in the initial phases.
+ * Hybrid consensus and Proof-of-Work algorithms, taking advantage of the former for low processing cost of network operation and the latter for rapid currency generation in the initial phases.
 
 
 ## Ixian S2
 * A new-age distribution technology, which enables content creators to reach prospective users with unprecedented ease.
-* Dynamically adjusting and re-routing to automatically handle any workload.
-* Supply-and-Demand driven: The participating S2 nodes receive payouts for their broadcasting services based on the amount of data transferred. Market forces will increase or decrease the number of participants based on demand.
+* Dynamically adjusting and re-routing to automatically handle any workload optimaly.
+* Supply-and-Demand driven: The participating S2 nodes receive payouts for their broadcasting services based on the amount of data transferred. Market forces will increase or decrease the number of relay nodes based on demand.
 * End-to-end encryption: Private communication stays private. Messages cannot be decrypted except by the intended recipient(s), no matter how many S2 Nodes they may pass through.
 
 
 ## SPIXI Instant Messaging Client
-* Absolutely no downtime because of the decentralized architecture. Backend is based on the IXIAN DLT ledger to provide ultimate decentralization and security.
+* Decentralized architecture ensures practically no downtime. Backend is based on the IXIAN DLT ledger to provide ultimate decentralization and security.
 * Cryptographically safe, which means that messages may only be read by the intended recipient.
 * Multi-platform (PC, iOS, Android, others)
 * Closely tied with the IXIAN DLT, enabling cryptocurrency wallet features right in the IM client.
-* Messages are not stored in any one country or a central location. There is no legal entity which possesses all the messages, so governments cannot meaningfully demand “decryption keys”.
+* Messages are not stored in any one country or central location. There is no legal entity which possesses all the messages, so no entity can meaningfully demand “decryption keys”.
 
 
 # 3. High-Level Overview
 
 ## Why Ixian is Different?
-Ixian is a completely new implemetation of the blockchain concept. We have termed our method the 'Redacted Blockchain' and differs from contemporary DLT technology in several key areas:
+Ixian is a completely new implemetation of the blockchain concept. We have termed our method the 'Redacted Blockchain' and it differs from contemporary DLT technology in several key areas:
 * Full Wallets are stored with every DLT Master node
 * Complete blockchain history is not required to normal operation
 * Presence list with all DLT Master nodes is stored and updated by each Master node
