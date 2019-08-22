@@ -7,15 +7,16 @@ title: Ixian DLT Whitepaper
 2. Features
 3. High Level Overview
 4. Implementation Details
-4.1. Addresses
-4.2. WalletState
-4.3. Transactions
-4.4. Blocks
-4.5. Superblocks
-4.6. Redaction
-5. Hybrid PoW
-6. TIV
-7. Conclusion
+..4.1. Addresses
+..4.2. WalletState
+..4.3. Transactions
+..4.4. Blocks
+..4.5. Superblocks
+..4.6. Redaction
+5. Communication
+6. Hybrid PoW
+7. TIV
+8. Conclusion
 
 
 
@@ -123,6 +124,8 @@ A block is considered valid if a certain number of nodes sign it with their priv
 * The number of total signatures must be some percentage of the last 'signature-frozen' block. (At the time of writing, this percentage is 75%)
 * There is a maximum number of signers in order to keep the blocks from growing disproportionately large. (At the time of writing, this is 1000 signatures)
 * Signatures, which occur on every block are slowly rotated out of use, based on their speed, so that all participating Master nodes get some reward. (This only comes into effet if there are more than 1000 signing Master nodes.)
+
+Blocks are described in more detail in the [IXIAN Programming Objects](https://projectixian.github.io/tech_docs/objects.html) document.
 
 
 ## Block cycle
@@ -407,15 +410,110 @@ is therefore expected to change and is “fixed” in a future block.
 * timestamp: This accuracy field cannot be verified exactly by neighboring DLT nodes, so it is not included in the block checksum.
 
 
+
 ## 4.5. Superblocks
 
 TODO: Together with Arh
+
 
 
 ## 4.6. Redaction
 
 TODO: Together with Superblocks
 
-# 5. Hybrid PoW
-# 6. TIV
-# 7. Conclusion
+
+# 5. Communication
+
+Ixian uses TCP/IP sockets for communication between nodes. At the time of writing, IPv6 is not fully supported, so users are required to use NAT or a similar technology to provide Internet connectivity to any Master nodes they are running. The default port for an Ixian DLT node is TCP 10234, which may be changed either through the node's command line or in a configuration file.
+
+At the time of writing, this custom protocol is not encrypted, except where any message payload is encrypted by itself, but future versions will employ some sort of TLS (Transport Layer Security) to provide additional protection.
+
+The exact packet format and possible messages are described in the document: [IXIAN Network Protocol](https://projectixian.github.io/tech_docs/protocol.html)
+
+
+# 6. Hybrid PoW
+
+## Difficulty Problem
+
+One of the bigger challenges when designing new DLT concepts is security. Based on the method of operation, it is critical that potentialattackers do not have an easy way to subvert network operation. We must make it difficult for malicious users to alter the blockchain for their own benefit, or disrupt the service, while maintaining a low barrier to entry for legitimate users. We have named this concept the 'Difficulty problem'
+
+Here is a non-comprehensive list of possible modes of operation:
+
+* **Proof-of-Work (Bitcoin, most other cryptocurrencies)**: Barrier to exploitation is the required computing power to produce new, valid blocks. An attacker must be able to generate blocks, which will be accepted by the network, and do so faster than the rest of the network (51% attack). The mathematical problem, which is being solved to ensure the difficulty of this computation has not, as of yet, been found to have cryptographic weaknesses, therefore this approach is now considered safe.
+
+* **Proof-of-Stake (Ethereum - UPCOMING)**: Here, the difficulty in subverting the network lies in the requirement to own pre-existing funds, before valid blocks may be generated and appended to the network. An attacker must own significant amounts of the digital currency in order to subvert the network operation. Proof of Stake is employed much more rarely than Proof-of-Work, but significant weaknesses of the approach have not, so far, been put forward. The approach is considered safe, because an attacker would need significant investment into the cryptocurrency in order to gain enough 'voting power' in the network to do harm.
+
+* **Proof-of-Space, Proof-of-Capacity**: This approach requires commitment of significant amounts of memory or disk space in order to calculate valid blocks. This is similar to Proof-of-Work, whereas an attacker must make a large monetary investment into hardware before he or she would be able to subvert operations.
+
+A constant is quickly revealed: A would-be attacker must invest into either hardware, processing time (cloud) or the targeted cryptocurrency, in order to manipulate the blockchain. Depending on the size of the network and the valuation of the currency, the investment quickly becomes prohibitively large.
+
+## Ixian's solution
+
+One of the critical considerations when starting a DLT project such as Ixian is user adoption. We wanted to make the platform as open and easy to join as possible. Absolutely anyone interested in the project should be able (with the bare minimal hardware and time investment) to set up their own DLT and S2 nodes and begin participating. Ixian's consensus algorithm relies on sufficient numbers to thwart potential attacks or abuse, so we wanted as many people as possible to join.
+
+The barrier to entry must therefore be simple to surmount for regular users, yet problematic should a bad actor attempt to bring up hundreds, or thousands of nodes online in a short period of time. Ixian's barrier to entry for DLT nodes is monetary - a Node must posess a certain number of Ixi coins before it can participate as a Master node. These coins may be obtained through different means:
+* Purchase or gift from an existing Ixian user
+* Trade through a cryptocurrency exchange which supports Ixian
+* Mine the coins on low-cost hardware
+
+The Hybrid PoW concept enables Ixian users to generate currency by solving mathematical problems. The amount required is relatively simple to achieve even for old or low-cost hardware, yet sufficiently limiting if someone wishes to create many Master nodes at once. The Ixian blockchain doesn't require this work - it will keep moving on regardless based on the Ixian Consensus algorithm - but the option of PoW allows us to generate sufficient initial currency for the network to become viable to a wide range of users, and at the same time precludes us from needing to generate all those coins in the Genesis block. A beneficial side effect of this scheme is that Ixian's early adopters will get the most benefit from this system.
+
+A lot more details about how the Hybrid PoW and the block mining difficulty is calculated can be found in the [IXIAN Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html) document.
+
+
+# 7. TIV
+
+## Problem to be solved
+
+As the size of the blockchain grows, it becomes more and more unfeasible for clients and light wallets to download the entire blockchain and keep it updated from the network. In particular, as the transaction volume increases, the amount of data required would put undue pressure on smaller clients (mobile, embedded, constrained devices), or users with limited data transfer (mobile or restrictive ISP). A solution is required to minimize the required data transfer and enable the client to verify that interesting transactions have been included in the blockchain. “Interested transactions” are defined as all transactions the client is interested in (to or from the client’s address, or other addresses the client is following).
+
+This specification defines a procedure clients can use to verify for transaction inclusion in the Redacted Window, without having to download the entire chain with all its blocks and all applicable transactions.
+
+## Minimal required block headers
+
+In order to calculate and verify the chain of block checksums, an Ixian node (both Master Node and Client), must obtain several fields from each block’s header, starting from the most recent block and working backwards. The target block is the block where the transaction was included. This information can be acquired from all master nodes along with the most recent block header.
+
+### Fraud prevention
+
+In order to prevent a malicious node from feeding the client incorrect history, the client must connect to multiple master nodes and compare the returned block checksums for the most recently accepted block. If all master nodes agree on the correct value, then the block header is considered valid. If the checksums differ, the client should reconnect to different master nodes (possibly bootstrapping through a seed node) and try again.
+The block number where the interesting transaction is included can be obtained in the same way - by multiple verification. In order to speed up repeated lookups, the client implementation may store block header data locally, after it has been verified from multiple sources. The maximum amount of data depends on the redacted window size and the block header size. At the time of writing, the block header size is calculated to be between 500 and 90000 bytes, depending on the number of transactions per block. With the redacted window of 20000 blocks, the cache size is estimated between 9.5 MB and 1.7 GB The latter may be prohibitive for embedded or mobile clients, so the number of cached block headers may be reduced to fit acceptable platform limits.
+
+### Following the chain backward
+
+Starting from the most recent block, the client then works backwards along the chain, requesting block headers and comparing the “lastBlockChecksum” field of the newer block with the “blockChecksum” field of the older block. This process may be accelerated by master nodes sending block headers to the client in chunks. The client can receive the entire chain from a single node, or request different chunks from different Master nodes to expedite the download.
+
+### Superblocks:
+
+Once the process of tracking backwards reaches the nearest superblock, it is no longer necessary to fetch each regular block header. If the target block exists between the most recent superblock and the previous superblock, the client can request the target block’s header and TXID field directly and verify the checksum using the list in the superblock. If the target block is further back, the client only has to request each previous superblock, until the target block is included in a superblock.
+
+### Following the chain forward
+In some cases the client might have part of the block chain cached (headers only). New blocks keep being added, but the client does not need to be aware of that process. Should, later on, the client wish to verify inclusion of a more recent transaction, the chain can also be followed forward from the client’s cache. This may be done through only one Master node, but at the end of the process the client must verify the final block checksum against multiple nodes, to prevent a malicious Master node from tinkering with the chain and feeding the client false information in this scenario.
+
+## Required fields
+
+The fields, required by the client to generate and verify the block checksums, are:
+
+| Field name | Purpose |
+| --- | --- |
+| Block number and version | Holds the block height of the specific block and allows easier traversal. A block number is a unique identifier of the block. |
+| Previous block checksum | Establishes verification that the current block really does follow some previous block and that the chain hadn't been forked between them. |
+| Wallet state checksum | Used by Master nodes to verify that applying transactions results in the same state of all Wallets. Not used for TIV, but included because it is a part of the block header. |
+| Signature freeze checksum | Used by Master nodes to lock signatures of past blocks and prevent tampering of the chain. Not used for TIV, but included because it is a part of the block header. |
+| Transaction list | List of transactions included in the given block. This is where the confirmation that a transaction was included comes from. |
+
+## Proof of Inclusion
+The client follows the block headers backwards (and preferably caches this information) until it reaches the block where the interesting transaction is contained. Upon reaching the target block header, the client then requests the list of transaction IDs for that block from any Master node. The list of transaction IDs provides part of the block header’s checksum. It would be unfeasible for malicious nodes to generate a fake list of transactions so that it would match the required node signature. Similarly, it would be unfeasible to calculate false block headers so that they would correctly form a valid chain of checksums.
+
+## Subsequent lookups
+If the client requires multiple lookups within redacted window time, caching is heavily recommended. The client then only has to follow the chain backwards from the latest cached block header.  If the sought transaction is in a block, for which the client already has confirmed block header data in its local cache, it only needs to ask the node for the transaction list for that particular block in order to confirm inclusion.
+
+
+# 8. Conclusion
+
+This whitepaper demonstrates a concept whereby a coherent DLT technology can be implemented and secured in zero-trust systems without requiring difficult computations (PoW) or financial investment (PoS) schemes for basic operation. It also shows that a ledger can be implemented where the state of all known wallets is available at all times without the full history of preceding blocks and transactions. The Ixian DLT project provides a reference implementation for this concept, as well as an SDK which may be employed by third-party developers to:
+a. Hook into the Ixian DLT or S2 and build an application on top of Ixian, or
+b. Construct their own, complete separate distributed system using the building blocks provided by Ixian.
+
+## Future
+
+Ixian project is not complete and it is likely that the work will proceed for quite some time. There will always be additional improvements or optimizations to be made, as well as bugs to be fixed. The research into cryptocurrencies and DLT continues and new findings may affect Ixian's future. What we hope to provide is a solid foundation from which an ecosystem of users and application can arise and prompt more developers to take an interest in these concepts and Ixian in particular.
