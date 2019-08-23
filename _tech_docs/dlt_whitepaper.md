@@ -348,7 +348,7 @@ In an upcoming version, this model will change to what we call "Wallet State Jou
 5. After validation and tests are done, the Block Processor calls the function `revertTransaction()` on the Wallet State.
 6. The binary log (the journal) is played backward until it reaches the point where `beginTransaction()` was called.
 
-The WSJ approach is somewhat more complicated than the snapshotting method, but it allows for certain disadvantages:
+The WSJ approach is somewhat more complicated than the snapshotting method, but it allows for certain advantages:
 * Because a binary log of changes exists, the WalletState can be stored to disk without it having to be locked for modifications during the saving process.
 * When synchronizing the WalletState to fresh nodes, no locking or caching needs to be performed.
 * 'Dirty' or corrupt WalletState, which is saved or transmitted as mentioned above, can be put in a consistent state by replaying the journal.
@@ -413,7 +413,28 @@ is therefore expected to change and is “fixed” in a future block.
 
 ## 4.5. Superblocks
 
-TODO: Together with Arh
+Superblocks are the method which allows us to safely and deterministically remove old entries from the blockchain. The length of the chain kept by all Master nodes is referred to as the "Redaction Window" and is set to 20000 blocks (assuming approximately 30s block intervals, this would amount to about 7 days). After that time blocks become elligible for removal.
+
+Every thousandth (1000th) block is a _Superblock_ and instead of unapplied transaction data, a Superblock contains a list of blocks, their checksums and their transactions which have been accepted since the previous Superblock.
+
+For example:
+
+| Block Number | Superblock | Contents |
+| --- | --- | --- |
+| ... | ... | ... |
+| 998 | No | Transactions for block 998. |
+| 999 | No | Transactions for block 999. |
+| 1000 | Yes | Transactions from blocks 1-999, checksums for blocks 1-999. |
+| 1001 | No | Transactions for block 1001. |
+| ... | ... | ... |
+| 1999 | No | Transactions for block 1999. |
+| 2000 | Yes | Transactions from blocks 1001-1999, checksums for blocks 1001-1999. |
+| 2001 | No | Transactions for block 2001. |
+| ... | ... | ...|
+
+After a specific block (and thus its transactions) is more than 20000 blocks in the past, it is elligible for redaction, but it is not immediately removed. The redaction process takes place when the next Superblock is generated (this implicitly means that the oldest Superblock in the Redacted Window becomes the 20000th block from the top of the chain). At that point, blocks lower than the oldest Superblock on the chain and their transactions are removed.
+
+Note: Superblocks are removed from the active chain, but stored elsewhere. They incur a slight overhead on all Master nodes which grows over time. A pruning method for Superblock data is planned for a future release, but at least 11-years worth of Superblocks must be kept in history. The reason for this decision is that - together with _Full History Nodes_, Superblocks can be used to identify and search for relevant transactions as part of some audit or different enquiry. Most financial legislation mandates keeping financial records for a period of 11 years, so that value was also chosen for Ixian DLT's historical data.
 
 
 
