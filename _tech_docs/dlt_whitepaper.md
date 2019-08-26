@@ -436,12 +436,30 @@ After a specific block (and thus its transactions) is more than 20000 blocks in 
 
 Note: Superblocks are removed from the active chain, but stored elsewhere. They incur a slight overhead on all Master nodes which grows over time. A pruning method for Superblock data is planned for a future release, but at least 11-years worth of Superblocks must be kept in history. The reason for this decision is that - together with _Full History Nodes_, Superblocks can be used to identify and search for relevant transactions as part of some audit or different enquiry. Most financial legislation mandates keeping financial records for a period of 11 years, so that value was also chosen for Ixian DLT's historical data.
 
+### Safer initial synchronization
+
+In traditional blockchains, nodes acquire all blocks ever generated from the genesis (or first) block onward. They can verify that the chain is complete and hasn't been tampered with by querying several other nodes and comparing the most recent block's checksum, then following the chain backwards all the way to block 1.
+This is not possible in a redacted blockchain, since most nodes do not have the fully history and the ones which do might require payment before returning that information, so Superblocks provide similar functionality. The genesis block is included in the official Ixian executable and Superblocks form an unbroken chain from that first block all the way to the present (the latest Superblock will by definition be at most 999 blocks in the past and can thus be queried from multiple nodes). Once the new node acquires Superblocks within the Redacted Window, it can verify the intermediate blocks against records in the Superblocks and thus be reasonably sure that they haven't been tampered with at any point, even if the complete history cannot be efficiently examined.
 
 
 ## 4.6. Redaction
 
-TODO: Together with Superblocks
+One of the key distinguishing features of Ixian is the ability to quickly and easily remove unneccessary data from most Master Nodes. The redaction process happens at the end of the block chain (that is - the oldest blocks in the 'Redacted window'). This specification requires that at least 20000 blocks remain in memory at all times for the purposes of securing the network and recovering from possible forks due to communication problems.
+Once blocks are older than 20000 from the current `Block Height` (the number of the most recently accepted block), they are eligible for removal.
 
+### Redaction and Superblocks
+
+The redaction process is closely tied with the concept of Superblocks and those allow us to trim the chain and prevent certain types of exploits or attacks. (TODO: Can we give an example?) Whenever a Superblock is encountered and becomes elligible for redaction, the normal blocks immediately preceding it can be removed entirely (together with transactions which were applied in those blocks). This means that redaction can only happen at 'round' block numbers (multiples of 1000).
+Superblocks form an idependant chain by liking the current Superblock's checksum field with the previous Superblock's checksum field. An additional advantage of this approach is that older blocks and transactions can be retrieved piecemal, as required, without downloading the entire chain.
+
+### Full History
+
+Some nodes may elect to maintain a complete history of the blockchain, even though it is not required. Those are called the `Full History Nodes`. The reasons for keeping a complete history may include:
+* Long-term verification against 'Slow Lorris' type attacks
+* Regulatory/legal obligations to maintain financial history
+* Extra reward, whenever a user wishes to look up historical data beyond the current 20000 blocks
+
+Because the Superblock chain uniquely identifies intermediate blocks and transactions with appropriate checksums, it is possible to retrieve only a part of the full history (or even a single block), and still be reasonably certain that the acquired block is valid and correct, and that the specified transaction really was included at that point in time. No cross-referencing between different Full History Nodes is required.
 
 # 5. Communication
 
