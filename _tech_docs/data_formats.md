@@ -263,7 +263,7 @@ b. Matches the checksum in the block.
 
 A block uniquely identifies the previous block (and thus, previous WalletState) through a `lastBlockChecksum` field and specifies a list of transaction identifiers (txid) which should be applied next to the WalletState.
 
-Note: Some blocks (every 1000th block) does not contain the usual transactions and signatures, but is a `Superblock` and contains a summary of the previous 999 blocks.
+Note: Some blocks (every 1000th block) do not contain the usual transactions and signatures, but is a `Superblock` and contains a summary of the previous 999 blocks.
 
 ## Specification
 ```
