@@ -124,8 +124,9 @@ A block is a fundamental piece of the Ixian DLT technology. Each block contains 
 
 The following must hold true:
 * The 'Previous Block checksum' field must match the checksum of the previous block in chain (N-1; where N is the block number of the current block).
-* Previous block's 'Wallet State checksum' field must match the Wallet State before any transactions in the current block are applied.
-* The current block's 'Wallet State checksum' field must match the Wallet State _after_ all the transactions in the current block are applied.
+* Changes to the WalletState must all be valid and a `delta` WalletState checksum must be generated, which matches the `walletStateChecksum` field in the block.
+  * The `delta` checksum contains only the Wallets which were changed in this block.
+* If the block is a `Superblock`, the complete WalletState checksum (all Walltes), must be calculated and match the `walletStateChecksum` field in the Superblock.
 * The current block's 'checksum' field must include all other checksum fields and some additional metadata in the block.
 
 A block is considered valid if a certain number of nodes sign it with their private key, which corresponds to their Wallet address. The number of required signatures is determined by an algorithm, which is described in the further sections, but can be summarized here:
