@@ -50,6 +50,14 @@ When a subsequent address is required for the same public key, the `nonce` value
 
 This enables Ixian to rapidly generate as many new addresses as required with a low computational impact. Verification of the new addresses requires the original public key, but since that may be cached, transactions need only include the `primary address` and the `nonce` value, reducing network requirements.
 
+The `nonce` is generated as follows:
+
+```
+base_nonce = sha512SqTrunc(private_key)
+new_nonce = sha512SqTrunc(base_nonce | last_nonce)
+```
+Where `last_nonce` is the most recently used nonce value. This method generates repeable, deterministic addresses, which can only be computed by whoever has the corresponding private key. A full wallet backup is not required whenever a new address is generated, because all possible addresses can be deduced from only the private and public keys.
+
 ### Specification
 ```
 Length = 48 bytes  
@@ -239,5 +247,41 @@ Format = id_len | id
          | pubkey_len | pubkey
 
 allowed_signer = address_len | address
+```
+Note: balance is encoded as a string with the decimal representation of IxiNumber.
+
+***
+
+# Block
+## Relevant C# objects:
+`IXICore.Block`
+
+## Description
+The `Block` object describes a single, coherent unit of work for the DLT network. The specific invariant is that applying a block to a known WalletState (the WalletState as described by the previous block), a new WalletState is produced which:
+a. Has all the transactions in the block applied to Wallets.
+b. Matches the checksum in the block.
+
+A block uniquely identifies the previous block (and thus, previous WalletState) through a `lastBlockChecksum` field and specifies a list of transaction identifiers (txid) which should be applied next to the WalletState.
+
+Note: Some blocks (every 1000th block) does not contain the usual transactions and signatures, but is a `Superblock` and contains a summary of the previous 999 blocks.
+
+## Specification
+```
+Length = varies, depending on contents
+Format = version | block_number
+         | num_transactions | transaction[]
+         | num_signatures | signature[]
+         | checksum_len | checksum
+         | previous_checksum_len | previous_checksum
+         | walletstate_checksum_len | walletstate_checksum
+         | signature_freeze_checksum_len | signature_freeze_checksum
+		 | difficulty
+		 | timestamp
+		 | previous_superblock_height
+		 | previous_superblock_checksum_len | previous_superblock_checksum
+		 | num_superblock_segments | superblock_segment[]
+
+signature = signature_len | signature | address_len | address
+superblock_segment = block_number | block_checksum_len | block_checksum		 
 ```
 Note: balance is encoded as a string with the decimal representation of IxiNumber.

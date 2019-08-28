@@ -7,12 +7,12 @@ title: Ixian DLT Whitepaper
 2. Features
 3. High Level Overview
 4. Implementation Details
-..4.1. Addresses
-..4.2. WalletState
-..4.3. Transactions
-..4.4. Blocks
-..4.5. Superblocks
-..4.6. Redaction
+    4.1. Addresses
+    4.2. WalletState
+    4.3. Transactions
+    4.4. Blocks
+    4.5. Superblocks
+    4.6. Redaction
 5. Communication
 6. Hybrid PoW
 7. TIV
@@ -29,14 +29,16 @@ Ixian is a decentralized, open-source, crypto-platform, rather than just a simpl
 
 Further technical resources will be released alongside all Ixian sub-projects which will allow third party developers to connect and take advantage of the Ixian Platform for their own applications and tecnhologies.
 
-TODO: Ixian mission statement, "The Dream of Ixian", goals...
+The goal of Ixian is to improve upon existing methods and solve some problems inherent in contemporary blockchain technology. We believe that DLT can be made better and this is our attempt to show that.
+
+
 
 # 2. Features
 
 The core Ixian Platform is comprised of three main Ixian Products: The Ixian DLT, the S2 Streaming network and the SPIXI Instant Messaging Client. This document is concerned primarily with the Ixian DLT Product, but major features for all three sub-projects are listed to showcase the Ixian Advantage.
 
 ## Ixian DLT
- * Consensus-based block acceptance that allows the network to dynamically adjust the requirement for block validity.
+ * Consensus-based block acceptance that allows the network to dynamically adjust the requirement for block validity. (Termed `Ixiac` algorithm.)
  * Fast and stable block validation and acceptance, based on the “Distributed Lockstep” method, which allows parallel computation by the distinct nodes.
  * Redacted Blockchain, which allows new nodes to join the network quickly and efficiently, without large downloads or massive recomputation.
  * Hybrid consensus and Proof-of-Work algorithms, taking advantage of the former for low processing cost of network operation and the latter for rapid currency generation in the initial phases.
@@ -50,7 +52,7 @@ The core Ixian Platform is comprised of three main Ixian Products: The Ixian DLT
 
 
 ## SPIXI Instant Messaging Client
-* Decentralized architecture ensures practically no downtime. Backend is based on the IXIAN DLT ledger to provide ultimate decentralization and security.
+* Decentralized architecture ensures practically no downtime. Backend is based on the IXIAN DLT ledger and IXIAN S2 broadcasting network to provide ultimate decentralization and security.
 * Cryptographically safe, which means that messages may only be read by the intended recipient.
 * Multi-platform (PC, iOS, Android, others)
 * Closely tied with the IXIAN DLT, enabling cryptocurrency wallet features right in the IM client.
@@ -59,13 +61,20 @@ The core Ixian Platform is comprised of three main Ixian Products: The Ixian DLT
 
 # 3. High-Level Overview
 
-## Why Ixian is Different?
+## Why is Ixian Different?
 Ixian is a completely new implemetation of the blockchain concept. We have termed our method the 'Redacted Blockchain' and it differs from contemporary DLT technology in several key areas:
 * Full Wallets are stored with every DLT Master node
-* Complete blockchain history is not required to normal operation
+* Complete blockchain history is not required for normal operation
 * Presence list with all DLT Master nodes is stored and updated by each Master node
 * Signature Freeze, a method which allows nodes to keep signing already accepted blocks until a certain threshold (currently this is set to the most recent 5 blocks), but prevents tampering after that.
-* TODO: ...?
+* Completely custom codebase - Ixian is not a fork of an existing project
+* Custom, new algorithm for operation (`Ixiac`)
+* Ixian was designed from the ground up to support a large number of users
+
+
+## Encryption and Signatures
+
+Ixian chose 4096-bit RSA with SHA512 as the primary signature algorithm. The choice was influenced both by security and performance concerns. While Elliptic-Curve Cryptography brings some advantages in terms of key- and signature size, the performance (in particular when verifying signatures) is too slow for the use cases required by Ixian.
 
 
 ## Node
@@ -111,7 +120,7 @@ For a detailed description of each data structure in the Ixian node, please see 
 
 ## Block
 
-A block is a fundamental piece of the Ixian DLT technology. Each block links to the previous block and to its associated Wallet State through its checksum fields. These verify that all the transactions included in that particular block have been successfully applied, and also that the given block logically follows from the previous block.
+A block is a fundamental piece of the Ixian DLT technology. Each block contains IDs of transactions and links to the previous block and to its associated Wallet State through its checksum fields. These verify that all the transactions included in that particular block have been successfully applied, and also that the given block logically follows from the previous block.
 
 The following must hold true:
 * The 'Previous Block checksum' field must match the checksum of the previous block in chain (N-1; where N is the block number of the current block).
@@ -120,8 +129,8 @@ The following must hold true:
 * The current block's 'checksum' field must include all other checksum fields and some additional metadata in the block.
 
 A block is considered valid if a certain number of nodes sign it with their private key, which corresponds to their Wallet address. The number of required signatures is determined by an algorithm, which is described in the further sections, but can be summarized here:
-* A certain number of signers must also have signed the previous block. (At the time of writing, 51%)
-* The number of total signatures must be some percentage of the last 'signature-frozen' block. (At the time of writing, this percentage is 75%)
+* A certain number of signers must also have signed the sixth last block - block number N-6. At the time of writing, 50% + 1 signature are required in order for the block to be accepted.
+* The number of total signatures must be some percentage of the last 'signature-frozen' block (block number N-5). (At the time of writing, this percentage is 75%)
 * There is a maximum number of signers in order to keep the blocks from growing disproportionately large. (At the time of writing, this is 1000 signatures)
 * Signatures, which occur on every block are slowly rotated out of use, based on their speed, so that all participating Master nodes get some reward. (This only comes into effet if there are more than 1000 signing Master nodes.)
 
@@ -149,7 +158,7 @@ The election process uses these pieces of information:
 
 This process yields the same result on all nodes which have a valid block chain, therefore the choice does not need to be communicated or agreed upon. In some rare cases where slight differences would cause another result (e.g.: edge cases due to minute clock differences), an invalid elected node will be determined, but the node will disregard its own generated block and accept one from the network, if it has sufficient signatures from other DLT nodes.
 
-In the cases where a node incorrectly determines itself to be the elected node signer, the other nodes will reject this block and sign the valid one. Sometimes it will happen that a node will go offline shortly before it chosen to generate a block. The network will detect this when a block isn’t generated in some determined period of time and will elect a different node to do so. This will only cause a slight delay before the next block is accepted.
+In the cases where a node incorrectly determines itself to be the elected node signer, the other nodes will reject this block and sign the valid one. Sometimes it will happen that a node will go offline shortly before it is chosen to generate a block. The network will detect this when a block isn’t generated in some determined period of time and will elect a different node to do so. This will only cause a slight delay before the next block is accepted.
 
 
 ### Data Put Into the New Block
@@ -158,28 +167,28 @@ When the elected node generates a new block, it will fill its data fields with t
 * Block Number: Blocks are numbered sequentially, so this is simply the most recent accepted block’s number plus one.
 * timestamp: This is the “unix epoch” value (number of seconds since 1970-01-01 00:00:00) of the moment when the block was generated, with 1-second precision.
 * difficulty: This is the estimated mining difficulty. The formula for calculating this is explained in [IXIAN Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html).
-* version: this is the current version of the blockchain, which is hard-coded in the node’s configuration.
+* version: this is the current version of the block, which is hard-coded in the node’s configuration. The version number of the subsequent block must be at least equal (or greater to) to this version numer.
 * lastBlockChecksum: This field is a copy of the previous block’s checksum field.
-* transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is dependent on the implementation, but in the reference code oldest transaction are picked first. Note: Only the transaction IDs are included to reduce the block size.
+* transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is dependent on the implementation, but in the reference code oldest transactions are picked first. Note: Only the transaction IDs are included to reduce the block size.
 * walletStateChecksum: The transactions chosen in the `transactions` field are temporarily applied to the currently valid Wallet State in order to calculate the next valid state. The checksum from the resulting state is put into the field `walletStateChecksum` in order to ensure that all nodes arrive at the same result when applying the listed transactions.
 * signatures: this field initially contains only the elected node’s signature. As other nodes process and validate this block, they will add their own signatures if they agree with the results.
-* powField: this field is left blank and used later in the PoW process. See [IXIAN Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html)
-* signatureFreezeChecksum: This field ‘freezes’ signatures for a past block (currently 5th last block, not counting the block being generated), in order to prevent manipulating the signature history. 5 blocks (in ideal network conditions this should be about 2:30 minutes) is the accepted time when slower nodes may yet sign a block which has otherwise already been accepted by the majority. For details, see [Signature Freeze](signature-freeze).
+* powField: this field is left blank when the node is generated and is populated later when/if a valid PoW solution is found. See [IXIAN Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html). Note: this field is not transmitted over the network and is maintaned locally by each Node.
+* signatureFreezeChecksum: This field ‘freezes’ signatures for a past block (currently 5th last block, counting the block currently being generated), in order to prevent manipulating the signature history. 5 blocks (in ideal network conditions this should be about 2:30 minutes) is the accepted time when slower nodes may yet sign a block which has otherwise already been accepted by the majority. For details, see [Signature Freeze](#signature-freeze).
 
 
 ### Block Distribution and Signing
 
 The elected node generates a block with the data in the previous section, signs it with its own key and transmits it to its neighbors. The neighbors perform their own validation, which in reference implementation includes:
 1. Basic verification, which includes:
-..a. Block has been generated by the elected node
-..b. Block number is sequential
-..c. Block checksum matches its contents
-..d. Currently present signatures are valid
-..e. Signature Freeze field matches the data in the past block
-..f. Difficulty is calculated according to the difficulty rules
+    a. Block has been generated by the elected node
+    b. Block number is sequential
+    c. Block checksum matches its contents
+    d. Currently present signatures are valid
+    e. Signature Freeze field matches the data in the past block
+    f. Difficulty is calculated according to the difficulty rules
 2. Detailed verification:
-..a. Transactions in the block are valid (signatures match wallets, amounts do not exceed balances, etc…)
-..b. Wallet state checksum matches – this is done by temporarily applying the transactions to the currently valid Wallet state and the result compared with the field `walletStateChecksum`.
+    a. Transactions in the block are valid (signatures match wallets, amounts do not exceed balances, etc…)
+    b. Wallet state checksum matches – this is done by temporarily applying the transactions to the currently valid Wallet state and the result compared with the field `walletStateChecksum`.
 
 If the node finds all the checks in order, it will add its own signature to the list and inform its neighbors of the change. Only the new signature is transmitted to save network bandwidth. The neighbors will then propagate this signature until it has spread to all the Master nodes. If a specific neighbor has not yet received the currently worked-upon block, it will request it from the network. There is no need to transmit and re-transmit the data again.
 
@@ -190,6 +199,8 @@ Note: Until version 0.6.4 the entire block was transmitted in order to speed up 
 
 If a malicious or corrupt node generates a block which is considered invalid by the Ixian protocol, such a block is simply discarded and the generator is added to a black list and eventually disconnected from the network. (The node which produced an invalid block is not immediately disconnected, as the error might have occurred due to a software bug, rather than malicious intent.) Because each node will perform its own validity checks, and it is expected that ‘honest’ or correct nodes outnumber the malicious or corrupted ones, only the proper block will accumulate enough signatures to be accepted by the network majority and invalid blocks will simply be discarded when encountered. In this way, the Ixian network can be considered “self-healing”.
 
+As an additional safety measure, if a block contains invalid transactions or results in an incorrect WalletState, the reference implementation will not accept the block, even if it has sufficient signatures.
+
 
 ## More About Signatures
 
@@ -198,12 +209,12 @@ The signature is simply a cryptographically encrypted `blockChecksum` value, cre
 ### Signature Freeze
 
 The field `signatures` itself is validated by using a concept we called “Signature Freeze”. The reasoning leading to this procedure is as follows:
-* Block is considered ‘accepted’ as soon as the number of signatures reaches the consensus limit. The consensus is defined as 75% of the active Master nodes. The number of active Master nodes is determined as the average number of signatures over the most recent five ‘frozen’ blocks (from 9th last block to 5th last block).
+* Block is considered ‘accepted’ as soon as the number of signatures reaches the consensus limit. The consensus is defined as 75% of the active Master nodes. The number of active Master nodes is determined as the average number of signatures over the blocks N-17 to N-7, where N is the number of the block being verified.
 * The Master nodes are most easily identified as the nodes, which are participating in the consensus algorithm and signing blocks.
 * If the signatures on a block were ‘frozen’ at the moment the block was accepted, the consensus would decrease by 25% on each block cycle, making exploits on the network trivial.
 * Some nodes are slower and will not be able to supply a signature before the node is accepted every time. Some window to catch-up must therefore be allowed.
 
-It was decided that a 5-block window when the signatures may still be added is acceptable. Each block therefore accepts new signatures for the five most recent blocks. When a new block is being generated, the elected node examines the signatures on the oldest ‘non-frozen’ block, which is the 5th last block from the end of the accepted chain, calculates a checksum of all the signatures it has accumulated so far and writes the result into the `signatureFreezeChecksum` field for the new block.
+It was decided that a 5-block window when the signatures may still be added is acceptable. Each block therefore accepts new signatures for the five most recent blocks. When a new block is being generated, the elected node examines the signatures on the oldest ‘non-frozen’ block, which is the 4th last block from the end of the accepted chain, calculates a checksum of all the signatures it has accumulated so far and writes the result into the `signatureFreezeChecksum` field for the new block.
 
 During the process of block acceptance, other nodes may inquire the generating DLT node for the exact contents of the 5th last block’s `signatures` field in order to align it with their own data. If it differs too much (or does not have enough signatures), the newly generated block is considered invalid and the elected node is suspected of attempting to manipulate signature history.
 
@@ -223,7 +234,8 @@ In Ixian DLT we have decided to change this concept. The state of all wallets be
 
 Based on this concept, several statements can be made:
 * Each node contains the status and balance of all known wallets (even if the wallet owner is not yet known)
-* With each accepted block, the state of all wallets is validated again.
+* With each accepted block, the changed wallet are validated by the WalletState delta checksum field.
+* With each accepted Superblock, the entire WalletState is validated by the WalletState checksum field.
 * Master nodes must synchronize the wallet state in full before they can begin operating.
 
 Following from this, it is apparent that the full history of blocks is not required for the network to function. The current state of wallets is maintained and validated purely through the majority consensus. Some history is required for the essential blockchain operations. At the time of writing, this history has been set to 20000 blocks (in ideal network conditions, this would be about 7 days, if the block target of 30 seconds is generally reached). Nodes are allowed and able to store all the history – these kinds of nodes are called ‘Full history nodes’ and will in the future be incentivized by additional rewards for performing functions that require all history. (Some examples: Blockchain explorer, Regulatory enforcement of transaction history, Complete network/wallet state validation, light-weight node transaction look-up.)
@@ -253,13 +265,18 @@ The Ixian block chain deviates from the more common approach by other DLT projec
 * Value of the existing currency increases dramatically over time.
 
 
-Because the Ixian project is aiming at a stable ecosystem where work and services are rewarded, rather than an investment-based economy, where hoarding the currency yields greater benefits, we wanted to keep the price of IXI coins relatively stable and low enough for normal usage. Therefore, the reference node implementation includes several methods for generating new currency. The actual rate at which new IXI coins are created is beyond the scope of this document and will be determined by the Ixian development board in the future.
+Because the Ixian project is aiming at a stable ecosystem where work and services are rewarded, rather than an investment-based economy, where hoarding the currency yields greater benefits, we wanted to keep the price of IXI coins relatively stable and low enough for normal usage. Therefore, the reference node implementation includes several methods for generating new currency. The actual rate at which new IXI coins are created is hard-coded into the reference implementation and changes based on the current block height to reach the specified targets. The rates are:
+* 0.1% yearly inflation for the first month of operation
+* 5% inflation from the second month until 50 billion IxiCoins are generated
+* 1% inflation from 50 billion until 100 billion IxiCoins are generated
+* 1000 IxiCoins per block after 100 billion IxiCoints are generated
  
 Currency in the Ixian DLT is generated through three distinct processes:
 * Genesis block (pre-mine): Several wallets were created when the Genesis block was generated. That block includes a certain number of IXI coins in the wallets. The coins are intended to bootstrap the Ixian economy by:
-..* Providing initial coin supply for network operation
-..* Cover the cost of promotions, exchanges, bounties, faucets, …
-..* Funding the development of the technology
+    * Providing initial coin supply for network operation
+    * Cover the cost of promotions, exchanges, bounties, faucets, …
+    * Funding the development of the technology
+	* Team (Founder) rewards
 * Block Signing Award: Each participating Master node will receive a certain number of new coins with each block. The amount received is based on the targeted yearly inflation rate and the number of signing nodes.
 * Proof-of-Work: In order to quickly generate starting funds for the general community to start participating in the Ixian network, a Proof-of-Work style system is in place which allows nodes to solve mathematical riddles in exchange for new IXI coins. This process is expected to run until a certain number of IXI coins are in circulation, then it will be deactivated. More details about this process can be found in the following document: [IXIAN Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html)
 
@@ -282,15 +299,15 @@ One of the bigger challenges when designing new DLT concepts is security. Based 
 
 Here is a non-comprehensive list of possible modes of operation:
 
-* **Proof-of-Work (Bitcoin, most other cryptocurrencies)**: Barrier to exploitation is the required computing power to produce new, valid blocks. An attacker must be able to generate blocks, which will be accepted by the network, and do so faster than the rest of the network (51% attack). The mathematical problem, which is being solved to ensure the difficulty of this computation has not, as of yet, been found to have cryptographic weaknesses, therefore this approach is now considered safe.
+* **Proof-of-Work (Bitcoin, most other cryptocurrencies)**: Barrier to exploitation is the required computing power to produce new, valid blocks. An attacker must be able to generate blocks, which will be accepted by the network, and do so faster than the rest of the network (51% attack). The mathematical problem, which is being solved to ensure the difficulty of this computation has not, as of yet, been found to have cryptographic weaknesses, therefore this approach is now considered safe for sufficiently large networks where it is unfeasible for a single attacker to possess enough hashing power. __Smaller network may still be taken over or exploited using the 51% attack.__
 
-* **Proof-of-Stake (Ethereum - UPCOMING)**: Here, the difficulty in subverting the network lies in the requirement to own pre-existing funds, before valid blocks may be generated and appended to the network. An attacker must own significant amounts of the digital currency in order to subvert the network operation. Proof of Stake is employed much more rarely than Proof-of-Work, but significant weaknesses of the approach have not, so far, been put forward. The approach is considered safe, because an attacker would need significant investment into the cryptocurrency in order to gain enough 'voting power' in the network to do harm.
+* **Proof-of-Stake (Ethereum - UPCOMING)**: Here, the difficulty in subverting the network lies in the requirement to own pre-existing funds, before valid blocks may be generated and appended to the network. An attacker must own significant amounts of the digital currency in order to subvert the network operation. Proof of Stake is employed less frequently than Proof-of-Work, but significant weaknesses of the approach have not, so far, been put forward. The approach is considered safe, because an attacker would need significant investment into the cryptocurrency in order to gain enough 'voting power' in the network to do harm. The downside of this method is that the most wealthy wallet owners are in a strong position to decide the future of the network, even overruling the majority of "weaker" participants.
 
 * **Proof-of-Space, Proof-of-Capacity**: This approach requires commitment of significant amounts of memory or disk space in order to calculate valid blocks. This is similar to Proof-of-Work, whereas an attacker must make a large monetary investment into hardware before he or she would be able to subvert operations.
 
 A constant is quickly revealed: A would-be attacker must invest into either hardware, processing time (cloud) or the targeted cryptocurrency, in order to manipulate the blockchain. Depending on the size of the network and the valuation of the currency, the investment quickly becomes prohibitively large.
 
-More technical details on how IXIAN uses a combination of above methods can be found here: [IXIAN Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html)
+More technical details on how IXIAN uses a combination of above methods can be found here: [Ixiac algorithm](https://projectixian.github.io/tech_docs/hybrid_pow.html)
 
 
 ## Presence List
@@ -309,6 +326,7 @@ As a short reference, the following pieces of information are tracked by all DLT
 * One or more relay-addresses: A list of Relay S2 Nodes where this particular client may be found.
 * Record age
 * Unique device ID (Please note that this is not tied into the device hardware in any way - it is simply a randomly generated identifier.)
+* Cryptographic signature by the address owner, to prevent tampering or falsiflying presence information
 
 As clients cease communicating, their PL records will age and be removed from the list. This will keep the Presence List accurate with only the currently online clients. This function enables, for example, the SPIXI client to know where the messages should be delivered, even if the recipient has multiple connected devices on different networks.
 
@@ -322,7 +340,12 @@ An address uniquely represents a single wallet in the Ixian DLT.
 
 The basis for generating a wallet address is an RSA public key together with an additional binary value, called the `address nonce`. Each public key can generate infinitely many different address by using distinct `address nonce` values. Due to this design, it is generally impossible to match an address to an appropriate public key, or another address, *until a transaction for that wallet appears on the blockchain*. When funds are spent from a wallet, the correct public key must be made known so as to allow verification of signatures.
 
-Despite the public key being known, it is impossible to connect which wallet addresses belong to that key if the `address nonce` values are generated in a random manner.
+A `nonce` value is exactly 16 bytes long, with the only exception when the address being generated represents the `Primary Address` for that specific public key. This Primary Address is calculated with a null `nonce` value.
+
+Nonce values could be completely random, but that would require implementations to store (and backup) these values, since it would not be possible to recreate them in any way. The reference implementation uses the private part of the key to generate a `base` SHA512SQ truncated hash value, which represents the first nonce and therefore the first additional address generated from the public key. More addresses (further nonce values) are generated by always appending the last-used (most recent) nonce to the base nonce and hashing the resulting binary array again.
+In this way, it is not possible for any user except the owner of the private key to predict new addresses, while allowing the owner to re-generate them from nothing more than the public/private keypair. Only the first wallet backup is strictly required to regain access to all the addresses.
+
+Despite the public key being known, it is impossible to connect which wallet addresses belong to that key, as long as the wallet balance is not spent.
 
 More details about the Address structure and handling can be found in the *Data Formats*, *Programming Objects* and *Cryptographic Primitives* documents.
 
@@ -330,12 +353,14 @@ More details about the Address structure and handling can be found in the *Data 
 
 ## 4.2. WalletState
 
-Ixian DLT nodes hold the state of all Wallets with a nonzero balance, or user provided data. The WalletState is summarized through a checksum field in every Ixian Block, which confirms that the resulting Wallet State (after applying all the Transactions in that Block) is correct. (See the field `walletStateChecksum` in the document *Programming Objects*.)
+Ixian DLT nodes hold the state of all Wallets with a nonzero balance, Multi-Signature definition, or user provided data. The WalletState is summarized through a checksum field in every Ixian Block, which confirms that the resulting Wallet State (after applying all the Transactions in that Block) is correct. (See the field `walletStateChecksum` in the document *Programming Objects*.)
 
 In order to perform Block and Transaction validations, the Wallet State must be able to temporarily apply Transactions and later discard these changes. The current implementation uses a mechanism of "snapshotting", which works approximately like this:
 1. The Block Processor calls the `snapshot()` function on the Wallet State to begin the process.
 2. Any changes to Wallets are made to a separate memory region, leaving the original Wallets intact.
-3. Reading from the Wallet State first examines the separate memory region, and (if the data was not found there), goes to check in the main Wallet State.
+3. Reading from the Wallet State includes:
+    a. Checking, if the wallet was changed since `snapshot()` - in this case it is present in the separate memory region.
+	b. If the wallet was not found in the separate memory region, it is retrieved as normal. (It was not changed since `snapshot()`.)
 4. After any validation and tests are completed, the Block Processor calls the function `revert()` on the Wallet State.
 5. Separate memory region is discarded, effectively returning the Wallet State to the condition it was in before the `snapshot()` function was called.
 
@@ -353,6 +378,7 @@ The WSJ approach is somewhat more complicated than the snapshotting method, but 
 * When synchronizing the WalletState to fresh nodes, no locking or caching needs to be performed.
 * 'Dirty' or corrupt WalletState, which is saved or transmitted as mentioned above, can be put in a consistent state by replaying the journal.
 * When sending updates to the Wallet State, nodes can simply exchange the (highly compressed) WSJ data.
+* Block reorganization can be performed more easily.
 
 
 
@@ -361,18 +387,20 @@ The WSJ approach is somewhat more complicated than the snapshotting method, but 
 The cornerstone of any DLT are the transactions it enables on the constituent Wallets. In Ixian, there are a few different Transaction types at the moment:
 * Normal transaction: Allows transfer of funds from one or more source Wallets to one or more target Wallets. The source Wallets must all belong to the same public/private keypair, but the destination wallets can be completely different. Public key must be made known for the source Wallets, but not for destination Wallets. In fact, the destination Wallets need not even exist before this transaction gives them funds.
 * Multi-signature transactions: There are several distint types of multi-signature transations in Ixian:
-..* Multisignature "Change" transactions: Which allow modifying Wallets to make them into Multi-signature Wallets, or modifying Multi-signature Wallets to turn them back into normal wallets and also transations to set the required minimum number of signatures in order to spend funds from a Multi-signature Wallet.
-..* Multisignature "Spend" transactions: Which allow funds to be widthdrawn from a Multi-signature Wallet. No special transaction is required to _deposit_ funds into a Multi-signature wallet.
+    * Multisignature "Change" transactions: Which allow modifying Wallets to make them into Multi-signature Wallets, or modifying Multi-signature Wallets to turn them back into normal wallets and also transations to set the required minimum number of signatures in order to spend funds from a Multi-signature Wallet.
+    * Multisignature "Spend" transactions: Which allow funds to be widthdrawn from a Multi-signature Wallet. No special transaction is required to _deposit_ funds into a Multi-signature wallet.
 * Staking transactions: The naming is a little misleading, because recent versions of Ixian no longer use PoS (Proof-of-Stake) mechanisms for distributing new coins. These transactions identify the nodes which participate in the Ixian Consensus and Signing algoritm and award them a certain amount of coins, thus increasing the total supply and rewarding participating DLT Nodes.
-..* PoW transactions: These transactions provide a solution to the PoW problem and award the signer a certain number of Ixicoins. It is expected that the PoW mechanism will be deactivated after 10 years from the network start, once sufficient initial capital has been generated.
-..* Genesis transactions: These transactions do not normally appear on the block chain. They were used to create the initial Ixian foundation wallets and a number of pre-mined Ixicoins to be used for Ixian project development and team rewards.
+    * PoW transactions: These transactions provide a solution to the PoW problem and award the signer a certain number of Ixicoins. It is expected that the PoW mechanism will be deactivated after 10 years from the network start, once sufficient initial capital has been generated.
+    * Genesis transactions: These transactions do not normally appear on the block chain. They were used to create the initial Ixian foundation wallets and a number of pre-mined Ixicoins to be used for Ixian project development and team rewards.
 
 
 ### Addresses in Transactions
 
-In order to verify that a Transaction's signature is valid, all DLT Master nodes require the public key associated with the withdrawal Wallet (or Wallets). This public key is rather large (8192 bits), so it is not always included in the Transation. It must only be included if the withdrawal Wallet has never been in a transaction before and thus its public key is unknown. After the first time a Wallet is used as the source Wallet, the appropriate public key becomes part of the Wallet State on all Master nodes. From that moment forward only the source Wallet Address has to be sent in Transactions.
+In order to verify that a Transaction's signature is valid, all DLT Master nodes require the public key associated with the withdrawal Wallet (or Wallets). This public key is rather large (4096 bits), so it is not always included in the Transation. It must only be included if the withdrawal Wallet has never been in a transaction before and thus its public key is unknown. After the first time a Wallet is used as the source Wallet, the appropriate public key becomes part of the Wallet State on all Master nodes. From that moment forward only the source Wallet Address has to be sent in Transactions.
 
-TODO: Destination Address and nonce values
+Because all withdrawal Wallets must belong to the same public/private keypair, it is sufficient to list only the (shorter) address `nonce` values and the respective amounts, since full Wallet addresses can be easily calculated from the public key and nonce value.
+
+Each transaction can deposit funds into multiple destination Wallets. These do not need to belong to the same public key. The list of destinations must include full addresses and amounts per address. The total deposited amount must match the total withdrawal amount minus the transaction fee.
 
 
 
@@ -449,7 +477,7 @@ Once blocks are older than 20000 from the current `Block Height` (the number of 
 
 ### Redaction and Superblocks
 
-The redaction process is closely tied with the concept of Superblocks and those allow us to trim the chain and prevent certain types of exploits or attacks. (TODO: Can we give an example?) Whenever a Superblock is encountered and becomes elligible for redaction, the normal blocks immediately preceding it can be removed entirely (together with transactions which were applied in those blocks). This means that redaction can only happen at 'round' block numbers (multiples of 1000).
+The redaction process is closely tied with the concept of Superblocks and those allow us to trim the chain and prevent certain types of optimizations. Whenever a Superblock is encountered and becomes elligible for redaction, the normal blocks immediately preceding it can be removed entirely (together with transactions which were applied in those blocks). This means that redaction can only happen at 'round' block numbers (multiples of 1000).
 Superblocks form an idependant chain by liking the current Superblock's checksum field with the previous Superblock's checksum field. An additional advantage of this approach is that older blocks and transactions can be retrieved piecemal, as required, without downloading the entire chain.
 
 ### Full History
@@ -470,37 +498,25 @@ At the time of writing, this custom protocol is not encrypted, except where any 
 The exact packet format and possible messages are described in the document: [IXIAN Network Protocol](https://projectixian.github.io/tech_docs/protocol.html)
 
 
-# 6. Hybrid PoW
-
-## Difficulty Problem
-
-One of the bigger challenges when designing new DLT concepts is security. Based on the method of operation, it is critical that potentialattackers do not have an easy way to subvert network operation. We must make it difficult for malicious users to alter the blockchain for their own benefit, or disrupt the service, while maintaining a low barrier to entry for legitimate users. We have named this concept the 'Difficulty problem'
-
-Here is a non-comprehensive list of possible modes of operation:
-
-* **Proof-of-Work (Bitcoin, most other cryptocurrencies)**: Barrier to exploitation is the required computing power to produce new, valid blocks. An attacker must be able to generate blocks, which will be accepted by the network, and do so faster than the rest of the network (51% attack). The mathematical problem, which is being solved to ensure the difficulty of this computation has not, as of yet, been found to have cryptographic weaknesses, therefore this approach is now considered safe.
-
-* **Proof-of-Stake (Ethereum - UPCOMING)**: Here, the difficulty in subverting the network lies in the requirement to own pre-existing funds, before valid blocks may be generated and appended to the network. An attacker must own significant amounts of the digital currency in order to subvert the network operation. Proof of Stake is employed much more rarely than Proof-of-Work, but significant weaknesses of the approach have not, so far, been put forward. The approach is considered safe, because an attacker would need significant investment into the cryptocurrency in order to gain enough 'voting power' in the network to do harm.
-
-* **Proof-of-Space, Proof-of-Capacity**: This approach requires commitment of significant amounts of memory or disk space in order to calculate valid blocks. This is similar to Proof-of-Work, whereas an attacker must make a large monetary investment into hardware before he or she would be able to subvert operations.
-
-A constant is quickly revealed: A would-be attacker must invest into either hardware, processing time (cloud) or the targeted cryptocurrency, in order to manipulate the blockchain. Depending on the size of the network and the valuation of the currency, the investment quickly becomes prohibitively large.
-
-## Ixian's solution
+# 6. Ixiac (Hybrid PoW)
 
 One of the critical considerations when starting a DLT project such as Ixian is user adoption. We wanted to make the platform as open and easy to join as possible. Absolutely anyone interested in the project should be able (with the bare minimal hardware and time investment) to set up their own DLT and S2 nodes and begin participating. Ixian's consensus algorithm relies on sufficient numbers to thwart potential attacks or abuse, so we wanted as many people as possible to join.
 
-The barrier to entry must therefore be simple to surmount for regular users, yet problematic should a bad actor attempt to bring up hundreds, or thousands of nodes online in a short period of time. Ixian's barrier to entry for DLT nodes is monetary - a Node must posess a certain number of Ixi coins before it can participate as a Master node. These coins may be obtained through different means:
+The barrier to entry must therefore be simple to surmount for regular users, yet problematic should a bad actor attempt to bring up hundreds, or thousands of nodes online in a short period of time. Ixian's barrier to entry for DLT nodes at the moment is monetary - a Node must posess a certain number of Ixi coins before it can participate as a Master node. These coins may be obtained through different means:
 * Purchase or gift from an existing Ixian user
 * Trade through a cryptocurrency exchange which supports Ixian
 * Mine the coins on low-cost hardware
 
-The Hybrid PoW concept enables Ixian users to generate currency by solving mathematical problems. The amount required is relatively simple to achieve even for old or low-cost hardware, yet sufficiently limiting if someone wishes to create many Master nodes at once. The Ixian blockchain doesn't require this work - it will keep moving on regardless based on the Ixian Consensus algorithm - but the option of PoW allows us to generate sufficient initial currency for the network to become viable to a wide range of users, and at the same time precludes us from needing to generate all those coins in the Genesis block. A beneficial side effect of this scheme is that Ixian's early adopters will get the most benefit from this system.
+Eventually this model will change and Master Nodes will no longer require a minimum balance to process the blockchain and add signatures, but there will be a small PoW-type problem in order to generate a valid PL entry, which will preclude a single entitiy from adding a large number of malicious nodes.
+
+The Ixiac concept enables Ixian users to generate currency by solving mathematical problems. The amount required is relatively simple to achieve even for old or low-cost hardware, yet sufficiently limiting if someone wishes to create many Master nodes at once. The Ixian blockchain doesn't require this work - it will keep moving on regardless based on the Ixian Consensus algorithm - but the option of PoW allows us to generate sufficient initial currency for the network to become viable to a wide range of users, and at the same time precludes us from needing to generate all those coins in the Genesis block. A beneficial side effect of this scheme is that Ixian's early adopters will get the most benefit from this system.
 
 A lot more details about how the Hybrid PoW and the block mining difficulty is calculated can be found in the [IXIAN Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html) document.
 
 
-# 7. TIV
+# 7. TIV Clients
+
+TIV (Transaction Inclusion Verification) is a method through which light clients can check in a trustless system if their transaction was successfully included in the blockchain without having to download and verify the DLT chain themselves.
 
 ## Problem to be solved
 

@@ -209,6 +209,7 @@ A single presence object contains information about a live node or client on the
 | metadata | byte[] | Additional information about the node or client. Mainly indended for use with S2 clients. |
 | addresses | List<[PresenceAddress](#presenceaddress)> | List of contact points where this node or client may be reached. |
 
+
 # Presence Address
 ## C# Object
 `IXICore.PresenceAddress`
@@ -226,7 +227,7 @@ Presence address contains enough information to allow contacting the owner of th
 | type | char | Type of the node represented by this presence. See the table 'Presence Types' below. |
 | nodeVersion | string | Version of the software running on this device. |
 | lastSeenTime | long | Timestamp of the moment when this device was last seen, represented by the unix epoch. |
-| signature | byte[] | Signature by the owner node to prevent tampering with the presence list. |
+| signature | byte[] | Signature by the owner of the address to prevent tampering with the presence list. |
 
 ## Type Code
 
