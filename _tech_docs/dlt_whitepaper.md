@@ -7,12 +7,12 @@ title: Ixian DLT Whitepaper
 2. Features
 3. High Level Overview
 4. Implementation Details
-   4.1. Addresses
-   4.2. WalletState
-   4.3. Transactions
-   4.4. Blocks
-   4.5. Superblocks
-   4.6. Redaction
+    1. Addresses
+    2. WalletState
+    3. Transactions
+    4. Blocks
+    5. Superblocks
+    6. Redaction
 5. Communication
 6. Hybrid PoW
 7. TIV
