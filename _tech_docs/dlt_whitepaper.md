@@ -14,10 +14,11 @@ title: Ixian DLT Whitepaper
     5. Superblocks
     6. Redaction
 5. Communication
-6. Hybrid PoW
-7. TIV
-8. Conclusion
-
+6. Ixiac - Hybrid Consensus Algorithm
+7. TIV/Light Clients
+8. Quantum Resistance
+9. Scaling plans
+10. Conclusion
 
 
 # 1. Introduction
@@ -74,7 +75,8 @@ Ixian is a completely new implementation of the blockchain concept. We have term
 
 ## Encryption and Signatures
 
-Ixian chose 4096-bit RSA with SHA512 as the primary signature algorithm. The choice was influenced both by security and performance concerns. While Elliptic-Curve Cryptography brings some advantages in terms of key- and signature size, the performance (in particular when verifying signatures) is too slow for the use cases required by Ixian.
+Ixian's primary signature algorithm is 4096-bit RSA with truncated SHA512 as the hashing algorithm. The choice was influenced both by security, performance concerns and future proofing. While Elliptic-Curve Cryptography brings some advantages in terms of key- and signature size, the performance (in particular when verifying signatures) is too slow for the use cases required by Ixian.
+Quantum resistant algorithms that are actively being developed and will eventually replace the current RSA algorithm within Ixian will likely have the size of keys and signatures closer to RSA than ECDSA, so choosing RSA gives more accurate real-world results.
 
 
 ## Node
@@ -102,7 +104,7 @@ These addresses are "baked" into the reference Ixian source code and therefore i
 
 Please note that each node must be reachable over the public Internet so that it may accept new communication requests from other nodes. This is a prerequisite for the smooth operation of the network. In the cases where proxy technologies, such as NAT are used, appropriate port-forwarding rules must be configured. For installation and configuration details, see [Ixian Guides](https://projectixian.github.io/guides.html)
 
-During a node's lifecycle, it is expected that it will often terminate some of the connections to its neighbors and reconnect to new nodes. In this way, it is harder for the network to form isolated "islands" of nodes and thus come into a network-split situation. This feature also helps prevent certain types of network-based exploits.
+During a node's life cycle, it is expected that it will often terminate some of the connections to its neighbors and reconnect to new nodes. In this way, it is harder for the network to form isolated "islands" of nodes and thus come into a network-split situation. This feature also helps prevent certain types of network-based exploits.
 
 
 ### Information Stored Within a Node
@@ -287,13 +289,9 @@ The reason these two methods were chosen is so that their shortcomings can be mi
 * PoW is energy intensive and requires additional hardware in order to generate income. The power used to perform PoW is "wasted" more often than not. We did not wish to encourage huge energy consumption in order to operate the Ixian DLT.
 
 For these reasons, the initial currency is expected to be mostly generated via PoW (the pre-mine is planned to be a small part of the IXI coin supply within the first ten years). In the future, the reward method will generate the majority of the required new currency and the PoW system will be discontinued.
- 
-Another reason for PoW at the start of the blockchain is the so-called "node-investment". If it is too easy to create nodes, a malicious actor could create thousands of DLT nodes with their own (invalid) validation logic and therefore take over the network operation. The entire network's operation would be suspect from that point forward. As an additional security measure, legitimate nodes will refuse to accept these invalid blocks/transactions and will simply wait for the next correct block. In the worst case scenario, this will cause the legitimate part of the network to halt until the situation is resolved.
-
-By requiring new DLT nodes to acquire initial funds, we have made starting a Master node more difficult (but not overly so), while starting many Master nodes is prohibitively expensive in terms of either CPU power or IXI coins.
 
 
-### Hybrid Proof-of-Work
+### Consensus Algorithm
 
 One of the bigger challenges when designing new DLT concepts is security. Based on the method of operation, it is critical that potential attackers do not have an easy way to subvert network operation. We must make it difficult for malicious users to alter the blockchain for their own benefit, or disrupt the service, while maintaining a low barrier to entry for legitimate users. We have named this concept the 'Difficulty problem'
 
@@ -301,13 +299,13 @@ Here is a non-comprehensive list of possible modes of operation:
 
 * **Proof-of-Work (Bitcoin, most other cryptocurrencies)**: Barrier to exploitation is the required computing power to produce new, valid blocks. An attacker must be able to generate blocks, which will be accepted by the network, and do so faster than the rest of the network (51% attack). The mathematical problem, which is being solved to ensure the difficulty of this computation has not, as of yet, been found to have cryptographic weaknesses, therefore this approach is now considered safe for sufficiently large networks where it is infeasible for a single attacker to possess enough hashing power. __Smaller networks may still be taken over or exploited using the 51% attack.__
 
-* **Proof-of-Stake (Ethereum 2.0 - UPCOMING)**: Here, the difficulty in subverting the network lies in the requirement to own pre-existing funds, before valid blocks may be generated and appended to the network. An attacker must own significant amounts of the digital currency in order to subvert the network operation. Proof of Stake is employed less frequently than Proof-of-Work, but significant weaknesses of the approach have not, so far, been put forward. The approach is considered safe, because an attacker would need significant investment into the cryptocurrency in order to gain enough 'voting power' in the network to do harm. The downside of this method is that the most wealthy wallet owners are in a strong position to decide the future of the network, even overruling the majority of "weaker" participants.
+* **Proof-of-Stake (Ethereum 2.0 - UPCOMING)**: Here, the difficulty in subverting the network lies in the requirement to own pre-existing funds, before valid blocks may be generated and appended to the network. An attacker must own significant amounts of the digital currency in order to subvert the network operation. Proof of Stake is employed less frequently than Proof-of-Work. The approach is considered safe, because an attacker would need significant investment into the cryptocurrency in order to gain enough 'voting power' in the network to do harm. The downside of this method is that the most wealthy wallet owners are in a strong position to decide the future of the network, even overruling the majority of "weaker" participants.
 
 * **Proof-of-Space, Proof-of-Capacity**: This approach requires commitment of significant amounts of memory or disk space in order to calculate valid blocks. This is similar to Proof-of-Work, whereas an attacker must make a large monetary investment into hardware before he or she would be able to subvert operations.
 
 A constant is quickly revealed: A would-be attacker must invest into either hardware, processing time (cloud) or the targeted cryptocurrency, in order to manipulate the blockchain. Depending on the size of the network and the valuation of the currency, the investment quickly becomes prohibitively large.
 
-More technical details on how Ixian uses a combination of above methods can be found here: [Ixiac algorithm](https://projectixian.github.io/tech_docs/hybrid_pow.html)
+More technical details on how Ixiac Consensus Algorithm works can be found here: [Ixiac algorithm](https://projectixian.github.io/tech_docs/ixiac.html)
 
 
 ## Presence List
@@ -368,7 +366,7 @@ In an upcoming version, this model will change to what we call "Wallet State Jou
 1. The Block Processor calls the `beginTransaction()` method on the Wallet State.
 2. Metadata about the starting point is saved in memory.
 3. Any changes to Wallets are made on the Wallet State.
-   3.1. In addition to changes being made to the wallets, a log (or 'journal') of all changes is stored in a binary format separately.
+   > 3.1. In addition to changes being made to the wallets, a log (or 'journal') of all changes is stored in a binary format separately.
 4. Reading from the Wallet State happens as normal.
 5. After validation and tests are done, the Block Processor calls the function `revertTransaction()` on the Wallet State.
 6. The binary log (the journal) is played backward until it reaches the point where `beginTransaction()` was called.
@@ -396,7 +394,7 @@ The cornerstone of any DLT are the transactions it enables on the constituent Wa
 
 ### Addresses in Transactions
 
-In order to verify that a Transaction's signature is valid, all DLT Master nodes require the public key associated with the withdrawal Wallet (or Wallets). This public key is rather large (4096 bits), so it is not always included in the Transaction. It must only be included if the withdrawal Wallet has never been in a transaction before and thus its public key is unknown. After the first time a Wallet is used as the source Wallet, the appropriate public key becomes part of the Wallet State on all Master nodes. From that moment forward only the source Wallet Address has to be sent in Transactions.
+In order to verify that a Transaction's signature is valid, all DLT Master nodes require the public key associated with the withdrawal Wallet (or Wallets). This public key is rather large (4096 bits), so it is not always included in the Transaction. It must only be included if the withdrawal Wallet has never been spent/used in a transaction before and thus its public key is unknown. After the first time a Wallet is used as the source Wallet, the appropriate public key becomes part of the Wallet State on all Master nodes. From that moment forward only the source Wallet Address has to be sent in Transactions.
 
 Because all withdrawal Wallets must belong to the same public/private keypair, it is sufficient to list only the (shorter) address `nonce` values and the respective amounts, since full Wallet addresses can be easily calculated from the public key and nonce value.
 
@@ -498,7 +496,7 @@ At the time of writing, this custom protocol is not encrypted, except where any 
 The exact packet format and possible messages are described in the document: [Ixian Network Protocol](https://projectixian.github.io/tech_docs/protocol.html)
 
 
-# 6. Ixiac (Hybrid PoW)
+# 6. Ixiac - Hybrid Consensus Algorithm
 
 One of the critical considerations when starting a DLT project such as Ixian is user adoption. We wanted to make the platform as open and easy to join as possible. Absolutely anyone interested in the project should be able (with the bare minimal hardware and time investment) to set up their own DLT and S2 nodes and begin participating. Ixian's consensus algorithm relies on sufficient numbers to thwart potential attacks or abuse, so we wanted as many people as possible to join.
 
@@ -509,12 +507,12 @@ The barrier to entry must therefore be simple to surmount for regular users, yet
 
 Eventually this model will change and Master Nodes will no longer require a minimum balance to process the blockchain and add signatures, but there will be a small PoW-type problem in order to generate a valid PL entry, which will preclude a single entity from adding a large number of malicious nodes.
 
-The Ixiac concept enables Ixian users to generate currency by solving mathematical problems. The amount required is relatively simple to achieve even for old or low-cost hardware, yet sufficiently limiting if someone wishes to create many Master nodes at once. The Ixian blockchain doesn't require this work - it will keep moving on regardless based on the Ixian Consensus algorithm - but the option of PoW allows us to generate sufficient initial currency for the network to become viable to a wide range of users, and at the same time precludes us from needing to generate all those coins in the Genesis block. A beneficial side effect of this scheme is that Ixian's early adopters will get the most benefit from this system.
+Ixian enables users to generate currency by solving mathematical problems. The amount required is relatively simple to achieve even for old or low-cost hardware, yet sufficiently limiting if someone wishes to create many Master nodes at once. The Ixian Blockchain doesn't require this work - it will keep moving on regardless based on the Ixian Consensus algorithm - but the option of PoW allows generating sufficient initial currency for the network to become viable to a wide range of users, and at the same time precludes us from needing to generate all those coins in the Genesis block. A beneficial side effect of this scheme is that IxiCash should be more evenly distributed between early adopters.
 
-A lot more details about how the Hybrid PoW and the block mining difficulty is calculated can be found in the [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html) document.
+A lot more details about how the Ixiac Consensus Algorithm can be found in the [Ixiac](https://projectixian.github.io/tech_docs/ixiac.html) document.
 
 
-# 7. TIV Clients
+# 7. TIV/Light Clients
 
 TIV (Transaction Inclusion Verification) is a method through which light clients can check in a trustless system if their transaction was successfully included in the blockchain without having to download and verify the full DLT chain themselves.
 
@@ -562,8 +560,13 @@ The client follows the block headers backwards (and preferably caches this infor
 ## Subsequent lookups
 If the client requires multiple lookups within redacted window time, caching is heavily recommended. The client then only has to follow the chain backwards from the latest cached block header.  If the sought transaction is in a block, for which the client already has confirmed block header data in its local cache, it only needs to ask the node for the transaction list for that particular block in order to confirm inclusion.
 
+# 8. Quantum Resistance
+TODO
 
-# 8. Conclusion
+# 9. Scaling plans
+TODO
+
+# 10. Conclusion
 
 This whitepaper demonstrates a concept whereby a coherent DLT technology can be implemented and secured in zero-trust systems without requiring difficult computations (PoW) or financial investment (PoS) schemes for basic operation. It also shows that a ledger can be implemented where the state of all known wallets is available at all times without the full history of preceding blocks and transactions. The Ixian DLT project provides a reference implementation for this concept, as well as an SDK which may be employed by third-party developers to:
 a. Hook into the Ixian DLT or S2 and build an application on top of Ixian, or
