@@ -56,7 +56,7 @@ The `nonce` is generated as follows:
 base_nonce = sha512SqTrunc(private_key)
 new_nonce = sha512SqTrunc(base_nonce | last_nonce)
 ```
-Where `last_nonce` is the most recently used nonce value. This method generates repeable, deterministic addresses, which can only be computed by whoever has the corresponding private key. A full wallet backup is not required whenever a new address is generated, because all possible addresses can be deduced from only the private and public keys.
+Where `last_nonce` is the most recently used nonce value. This method generates repeatable, deterministic addresses, which can only be computed by whoever has the corresponding private key. A full wallet backup is not required whenever a new address is generated, because all possible addresses can be deduced from only the private and public keys.
 
 ### Specification
 ```
