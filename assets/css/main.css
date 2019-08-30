@@ -27,15 +27,6 @@ a
     text-decoration: none;
 }
 
-.welcomeText h1
-{
-    font-size: 30px;
-    font-weight: 700;
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-
-
 .btn.radial-fill {
   display: inline-block;
   vertical-align: middle;
@@ -80,6 +71,14 @@ a
 header
 {
     background: #dedede;
+}
+
+header .title
+{
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 header .subTitle

@@ -3,44 +3,38 @@ layout: default
 ---
 <div class="contentWrapper">
     <div class="content">{{ content }}
-## Technical Documents
-{% for tech_doc in site.tech_docs %}
-    [tech_doc.title](tech_doc.url)
-{% endfor %}
+        <h2>Technical Documents</h2>
+        {% for tech_doc in site.tech_docs %}
+            <a href="{{ tech_doc.url }}">{{ tech_doc.title }}</a><br/>
+        {% endfor %}
 
 
-## API Documentation
-### Ixian Core Generic API Commands
-{% assign core_api_docs = site.api_docs | where: 'type', 'core' %}
-{% for api_doc in core_api_docs %}
-    [api_doc.title](api_doc.url)
-{% endfor %}
+        <h2>API Documentation</h2>
+        <h3>Ixian Core Generic API Commands</h3>
+        {% assign core_api_docs = site.api_docs | where: 'type', 'core' %}
+        {% for api_doc in core_api_docs %}
+            <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
+        {% endfor %}
 
-### Ixian DLT Specific API Commands
-{% assign dlt_api_docs = site.api_docs | where: 'type', 'dlt' %}
-{% for api_doc in dlt_api_docs %}
-    [api_doc.title](api_doc.url)
-{% endfor %}
+        <h3>Ixian DLT Specific API Commands</h3>
+        {% assign dlt_api_docs = site.api_docs | where: 'type', 'dlt' %}
+        {% for api_doc in dlt_api_docs %}
+            <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
+        {% endfor %}
 
-### Ixian S2 Specific API Commands
-{% assign s2_api_docs = site.api_docs | where: 'type', 's2' %}
-{% for api_doc in s2_api_docs %}
-    [api_doc.title](api_doc.url)
-{% endfor %}
+        
+        <h2>[SDK Documentation](/sdk_docs.html)</h2>
 
 
-## [SDK Documentation](/sdk_docs.html)
+        <h2>SDK Demos</h2>
+        {% for sdk_demo in site.sdk_demos %}
+            <a href="{{ sdk_demo.url }}">{{ sdk_demo.title }}</a><br/>
+        {% endfor %}
 
 
-## SDK Demos
-{% for sdk_demo in site.sdk_demos %}
-    [sdk_demo.title](sdk_demo.url)
-{% endfor %}
-
-
-## Guides
-{% for guide in site.guides %}
-    [guide.title](guide.url)
-{% endfor %}
+        <h2>Guides</h2>
+        {% for guide in site.guides %}
+            <a href="{{ guide.url }}">{{ guide.title }}</a><br/>
+        {% endfor %}
     </div>
 </div>

@@ -14,11 +14,6 @@ layout: default
         {% for api_doc in dlt_api_docs %}
             <a href="{{ api_doc.url }}" {% if page.url == api_doc.url %}class="selected"{% endif %}>{{ api_doc.title }}</a>
         {% endfor %}
-        <div class="sectionTitle">Ixian S2 Specific API Commands </div>
-        {% assign s2_api_docs = site.api_docs | where: 'type', 's2' %}
-        {% for api_doc in s2_api_docs %}
-            <a href="{{ api_doc.url }}" {% if page.url == api_doc.url %}class="selected"{% endif %}>{{ api_doc.title }}</a>
-        {% endfor %}
     </nav><div class="content">{{ content }}
         <h2>Ixian Core Generic API Commands</h2>
         {% assign core_api_docs = site.api_docs | where: 'type', 'core' %}
@@ -31,11 +26,5 @@ layout: default
         {% for api_doc in dlt_api_docs %}
             <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
         {% endfor %}
-        
-        <h2>Ixian S2 Specific API Commands</h2>
-        {% assign s2_api_docs = site.api_docs | where: 'type', 's2' %}
-        {% for api_doc in s2_api_docs %}
-            <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
-        {% endfor %}        
     </div>
 </div>
