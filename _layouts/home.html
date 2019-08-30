@@ -7,7 +7,8 @@ layout: default
         {% for tech_doc in site.tech_docs %}
             <a href="{{ tech_doc.url }}">{{ tech_doc.title }}</a><br/>
         {% endfor %}
-
+        <br/>
+        <br/>
 
         <h2>API Documentation</h2>
         <h3>Ixian Core Generic API Commands</h3>
@@ -15,26 +16,32 @@ layout: default
         {% for api_doc in core_api_docs %}
             <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
         {% endfor %}
+        <br/>
 
         <h3>Ixian DLT Specific API Commands</h3>
         {% assign dlt_api_docs = site.api_docs | where: 'type', 'dlt' %}
         {% for api_doc in dlt_api_docs %}
             <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
         {% endfor %}
-
+        <br/>
         
-        <h2>[SDK Documentation](/sdk_docs.html)</h2>
+        <h2><a href="/sdk_docs.html">SDK Documentation</a></h2>
+        <br/>
+        <br/>
 
 
         <h2>SDK Demos</h2>
         {% for sdk_demo in site.sdk_demos %}
             <a href="{{ sdk_demo.url }}">{{ sdk_demo.title }}</a><br/>
         {% endfor %}
+        <br/>
+        <br/>
 
 
         <h2>Guides</h2>
         {% for guide in site.guides %}
             <a href="{{ guide.url }}">{{ guide.title }}</a><br/>
         {% endfor %}
+        <br/>
     </div>
 </div>

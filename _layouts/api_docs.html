@@ -9,6 +9,7 @@ layout: default
         {% for api_doc in core_api_docs %}
             <a href="{{ api_doc.url }}" {% if page.url == api_doc.url %}class="selected"{% endif %}>{{ api_doc.title }}</a>
         {% endfor %}
+        <br/>
         <div class="sectionTitle">Ixian DLT Specific API Commands </div>
         {% assign dlt_api_docs = site.api_docs | where: 'type', 'dlt' %}
         {% for api_doc in dlt_api_docs %}
@@ -20,7 +21,7 @@ layout: default
         {% for api_doc in core_api_docs %}
             <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
         {% endfor %}
-        
+        <br/>
         <h2>Ixian DLT Specific API Commands</h2>
         {% assign dlt_api_docs = site.api_docs | where: 'type', 'dlt' %}
         {% for api_doc in dlt_api_docs %}
