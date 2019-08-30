@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: sdk_demo
+title: SDK Demos
 ---
 <div class="contentWrapper">
     <nav class="leftNavigation">
@@ -8,8 +9,5 @@ layout: default
             <a href="{{ sdk_demo.url }}" {% if page.url == sdk_demo.url %}class="selected"{% endif %}>{{ sdk_demo.title }}</a>
         {% endfor %}
     </nav><div class="content">{{ content }}
-        {% for sdk_demo in site.sdk_demos %}
-            <a href="{{ sdk_demo.url }}">{{ sdk_demo.title }}</a><br/>
-        {% endfor %}
     </div>
 </div>

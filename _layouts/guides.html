@@ -1,15 +1,8 @@
 ---
-layout: default
+layout: guide
+title: Guides
 ---
-<div class="contentWrapper">
-    <nav class="leftNavigation">
-        <div class="navTitle">Guides</div>
-        {% for guide in site.guides %}
-            <a href="{{ guide.url }}" {% if page.url == guide.url %}class="selected"{% endif %}>{{ guide.title }}</a>
-        {% endfor %}
-    </nav><div class="content">{{ content }}
-        {% for guide in site.guides %}
-            <a href="{{ guide.url }}">{{ guide.title }}</a><br/>
-        {% endfor %}
-    </div>
-</div>
+{{ content }}
+{% for guide in site.guides %}
+    <a href="{{ guide.url }}">{{ guide.title }}</a><br/>
+{% endfor %}

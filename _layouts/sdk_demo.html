@@ -1,5 +1,7 @@
 ---
-layout: sdk_demos
-title: SDK Demos
+layout: default
 ---
 {{ content }}
+{% for sdk_demo in site.sdk_demos %}
+    <a href="{{ sdk_demo.url }}">{{ sdk_demo.title }}</a><br/>
+{% endfor %}
