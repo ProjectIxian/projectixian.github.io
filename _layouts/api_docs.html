@@ -20,22 +20,22 @@ layout: default
             <a href="{{ api_doc.url }}" {% if page.url == api_doc.url %}class="selected"{% endif %}>{{ api_doc.title }}</a>
         {% endfor %}
     </nav><div class="content">{{ content }}
-        ## Ixian Core Generic API Commands
+        <h2>Ixian Core Generic API Commands</h2>
         {% assign core_api_docs = site.api_docs | where: 'type', 'core' %}
         {% for api_doc in core_api_docs %}
-            [api_doc.title](api_doc.url)
+            <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
         {% endfor %}
         
-        ## Ixian DLT Specific API Commands
+        <h2>Ixian DLT Specific API Commands</h2>
         {% assign dlt_api_docs = site.api_docs | where: 'type', 'dlt' %}
         {% for api_doc in dlt_api_docs %}
-            [api_doc.title](api_doc.url)
+            <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
         {% endfor %}
         
-        ## Ixian S2 Specific API Commands
+        <h2>Ixian S2 Specific API Commands</h2>
         {% assign s2_api_docs = site.api_docs | where: 'type', 's2' %}
         {% for api_doc in s2_api_docs %}
-            [api_doc.title](api_doc.url)
+            <a href="{{ api_doc.url }}">{{ api_doc.title }}</a><br/>
         {% endfor %}        
     </div>
 </div>

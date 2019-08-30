@@ -8,8 +8,8 @@ layout: default
             <a href="{{ guide.url }}" {% if page.url == guide.url %}class="selected"{% endif %}>{{ guide.title }}</a>
         {% endfor %}
     </nav><div class="content">{{ content }}
-{% for guide in site.guides %}
-    [guide.title](guide.url)
-{% endfor %}
+        {% for guide in site.guides %}
+            <a href="{{ guide.url }}">{{ guide.title }}</a><br/>
+        {% endfor %}
     </div>
 </div>

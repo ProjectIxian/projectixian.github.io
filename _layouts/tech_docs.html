@@ -8,8 +8,8 @@ layout: default
             <a href="{{ tech_doc.url }}" {% if page.url == tech_doc.url %}class="selected"{% endif %}>{{ tech_doc.title }}</a>
         {% endfor %}
     </nav><div class="content">{{ content }}
-{% for tech_doc in site.tech_docs %}
-    [tech_doc.title](tech_doc.url)
-{% endfor %}
+        {% for tech_doc in site.tech_docs %}
+            <a href="{{ tech_doc.url }}">{{ tech_doc.title }}</a><br/>
+        {% endfor %}
     </div>
 </div>
