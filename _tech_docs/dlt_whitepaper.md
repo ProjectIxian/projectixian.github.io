@@ -168,13 +168,13 @@ In the cases where a node incorrectly determines itself to be the elected node s
 When the elected node generates a new block, it will fill its data fields with the values it considers appropriate. These include:
 * Block Number: Blocks are numbered sequentially, so this is simply the most recent accepted block's number plus one.
 * timestamp: This is the "unix epoch" value (number of seconds since 1970-01-01 00:00:00) of the moment when the block was generated, with 1-second precision.
-* difficulty: This is the estimated mining difficulty. The formula for calculating this is explained in [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html).
+* difficulty: This is the estimated mining difficulty. The formula for calculating this is explained in [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html).
 * version: this is the current version of the block, which is hard-coded in the node's configuration. The version number of the subsequent block must be at least equal (or greater to) to this version number.
 * lastBlockChecksum: This field is a copy of the previous block's checksum field.
 * transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is exactly prescribed, see the following list for reference implementation priorities. Note: Only the transaction IDs are included to reduce the block size.
 * walletStateChecksum: The transactions chosen in the `transactions` field are temporarily applied to the currently valid Wallet State in order to calculate the next valid state. The checksum from the resulting state is put into the field `walletStateChecksum` in order to ensure that all nodes arrive at the same result when applying the listed transactions.
 * signatures: this field initially contains only the elected node's signature. As other nodes process and validate this block, they will add their own signatures if they agree with the results.
-* powField: this field is left blank when the block is generated and is populated later when/if a valid PoW solution is found. See [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html). Note: this field is not transmitted over the network and is maintained locally by each Node.
+* powField: this field is left blank when the block is generated and is populated later when/if a valid PoW solution is found. See [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html). Note: this field is not transmitted over the network and is maintained locally by each Node.
 * signatureFreezeChecksum: This field "freezes" signatures for a past block (currently 5th last block, counting the block currently being generated), in order to prevent manipulating the signature history. 5 blocks (in ideal network conditions this should be about 2:30 minutes) is the accepted time when slower nodes may yet sign a block which has otherwise already been accepted by the majority. For details, see [Signature Freeze](#signature-freeze).
 
 ### Block transaction ordering
@@ -290,7 +290,7 @@ Currency in the Ixian DLT is generated through three distinct processes:
   * Funding the development of the technology
   * Team (Founder) rewards
 * Block Signing Reward: Each participating Master node will receive a certain number of new coins with each block. The amount received is based on the targeted yearly inflation rate and the number of signing nodes.
-* Proof-of-Work: In order to quickly generate starting funds for the general community to start participating in the Ixian network, a Proof-of-Work style system is in place which allows nodes to solve mathematical riddles in exchange for new IXI coins. This process is expected to run until a certain number of IXI coins are in circulation, then it will be deactivated. More details about this process can be found in the following document: [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html)
+* Proof-of-Work: In order to quickly generate starting funds for the general community to start participating in the Ixian network, a Proof-of-Work style system is in place which allows nodes to solve mathematical riddles in exchange for new IXI coins. This process is expected to run until a certain number of IXI coins are in circulation, then it will be deactivated. More details about this process can be found in the following document: [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html)
 
 The exact values of these rewards, as well as the valuation of IXI coin in fiat currencies is beyond the scope of this document.
 
@@ -454,7 +454,7 @@ The checksum values are explained below:
 You will note that the Block Checksum does not include all the fields in the block. Some fields are excluded from this checksum because of reasons given below:
 * signatures: Because the Block Checksum is generated when the block is first created, the final signatures cannot yet be known. This field
 is therefore expected to change and is "fixed" in a future block.
-* powField: This field is created with a null (zero) value when a block is first generated and may be filled out later during the Ixian PoW process See [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html)
+* powField: This field is created with a null (zero) value when a block is first generated and may be filled out later during the Ixian PoW process See [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html)
 * timestamp: This accuracy field cannot be verified exactly by neighboring DLT nodes, so it is not included in the block checksum.
 
 
