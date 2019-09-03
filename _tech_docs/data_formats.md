@@ -50,6 +50,8 @@ When a subsequent address is required for the same public key, the `nonce` value
 
 This enables Ixian to rapidly generate as many new addresses as required with a low computational impact. Verification of the new addresses requires the original public key, but since that may be cached, transactions need only include the `primary address` and the `nonce` value, reducing network requirements.
 
+Note: A `nonce` value is exactly 16 bytes long, with the only exception when the address being generated represents the `Primary Address` for that specific public key. This Primary Address is calculated with a null `nonce` value.
+
 The `nonce` is generated as follows:
 
 ```

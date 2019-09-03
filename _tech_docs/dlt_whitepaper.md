@@ -76,7 +76,7 @@ Ixian is a completely new implementation of the blockchain concept. We have term
 ## Encryption and Signatures
 
 Ixian's primary signature algorithm is 4096-bit RSA with truncated SHA512 as the hashing algorithm. The choice was influenced both by security, performance concerns and future proofing. While Elliptic-Curve Cryptography brings some advantages in terms of key- and signature size, the performance (in particular when verifying signatures) is too slow for the use cases required by Ixian.
-Quantum resistant algorithms that are actively being developed and will eventually replace the current RSA algorithm within Ixian will likely have the size of keys and signatures closer to RSA than ECDSA, so choosing RSA gives more accurate real-world results.
+In addition, some consideration has been put into future, quantum-resistant encryption and signature algorithms. No definitive decision has been made at the time of writing, but Lattice-based encryption and signature schemes appear to be a good candidate. Their key and signature lenghts are comparable to modern RSA. Please see the chapter [Quantum Resistance](#quantum-resistance) for more details.
 
 
 ## Node
@@ -171,11 +171,21 @@ When the elected node generates a new block, it will fill its data fields with t
 * difficulty: This is the estimated mining difficulty. The formula for calculating this is explained in [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html).
 * version: this is the current version of the block, which is hard-coded in the node's configuration. The version number of the subsequent block must be at least equal (or greater to) to this version number.
 * lastBlockChecksum: This field is a copy of the previous block's checksum field.
-* transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is dependent on the implementation, but in the reference code oldest transactions are picked first. Note: Only the transaction IDs are included to reduce the block size.
+* transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is exactly prescribed, see the following list for reference implementation priorities. Note: Only the transaction IDs are included to reduce the block size.
 * walletStateChecksum: The transactions chosen in the `transactions` field are temporarily applied to the currently valid Wallet State in order to calculate the next valid state. The checksum from the resulting state is put into the field `walletStateChecksum` in order to ensure that all nodes arrive at the same result when applying the listed transactions.
 * signatures: this field initially contains only the elected node's signature. As other nodes process and validate this block, they will add their own signatures if they agree with the results.
 * powField: this field is left blank when the block is generated and is populated later when/if a valid PoW solution is found. See [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/hybrid_pow.html). Note: this field is not transmitted over the network and is maintained locally by each Node.
 * signatureFreezeChecksum: This field "freezes" signatures for a past block (currently 5th last block, counting the block currently being generated), in order to prevent manipulating the signature history. 5 blocks (in ideal network conditions this should be about 2:30 minutes) is the accepted time when slower nodes may yet sign a block which has otherwise already been accepted by the majority. For details, see [Signature Freeze](#signature-freeze).
+
+### Block transaction ordering
+
+Waiting transactions are sorted by age (oldest first), then they are selected from the list and inserted into the block in groups as follows:
+1. PoW Solution transactions
+2. Multisig Wallet Change transactions
+3. Multisig transactions
+4. All other remaining transactions
+
+The process stops when a maximum number of transactions are added to a block. At the time of writing, this is defined as 2000 transactions.
 
 
 ### Block Distribution and Signing
@@ -291,7 +301,7 @@ The reason these two methods were chosen is so that their shortcomings can be mi
 For these reasons, the initial currency is expected to be mostly generated via PoW (the pre-mine is planned to be a small part of the IXI coin supply within the first ten years). In the future, the reward method will generate the majority of the required new currency and the PoW system will be discontinued.
 
 
-### Consensus Algorithm
+### Block Acceptance Criteria
 
 One of the bigger challenges when designing new DLT concepts is security. Based on the method of operation, it is critical that potential attackers do not have an easy way to subvert network operation. We must make it difficult for malicious users to alter the blockchain for their own benefit, or disrupt the service, while maintaining a low barrier to entry for legitimate users. We have named this concept the 'Difficulty problem'
 
@@ -305,7 +315,19 @@ Here is a non-comprehensive list of possible modes of operation:
 
 A constant is quickly revealed: A would-be attacker must invest into either hardware, processing time (cloud) or the targeted cryptocurrency, in order to manipulate the blockchain. Depending on the size of the network and the valuation of the currency, the investment quickly becomes prohibitively large.
 
-More technical details on how Ixiac Consensus Algorithm works can be found here: [Ixiac algorithm](https://projectixian.github.io/tech_docs/ixiac.html)
+
+### Ixiac Algorithm - Hybrid PoW
+
+Ixian's implementation of block acceptance works by letting Master Nodes vote on blocks they consider acceptable. They do this by signing the block's checksum with their Wallet and broadcast their signatures to the network. As soon as a sufficient number of signatures are accumulated, that block is accepted by all participating Master Nodes and added to the blockchain. Invalid or fraudulent blocks (those, which contain illegal transactions), will not garner enough legitimate signatures to be accepted.
+
+The 'PoW' part of Ixiac is a planned method for inclusion to the PL (Presence List). Because the PL is a critical data structure, only valid entries should be submitted. A variant of a PoW problem is planned to be required before any Node is accepted to the PL and thus, the network.
+The difficulty of the small PoW problem will be scaled based on the type of the node:
+ * More difficult problem for Master Nodes
+ * Medium difficulty for S2 Nodes
+ * Simpler difficulty for Client Nodes
+
+The solution will have to be re-calculated periodically for the specified node to remain in the Presence List. This makes joining a large number of Master Nodes infeasible, while not requiring a lot of CPU time and energy per block and not overly favoring Master Nodes with more processing power.
+
 
 
 ## Presence List
@@ -577,8 +599,9 @@ At the time of writing, no practical quantum attack on AES has been proposed, so
 ## Mitigation for RSA
 
 Despite the (seemingly) distant danger, research is already being done in the field of *Post-Quantum Cryptography*. Several schemes have already been proposed to mitigate or nullify the advantage of quantum algorithms. Notable examples include (in the order of most interesting for Ixian to least interesting):
- - Daniel J. Bernstein, et al: [Post-quantum RSA](https://eprint.iacr.org/2017/351.pdf), which would be a drop-in replacement for the current system and would require very little hardware or software changes.
- - Lattice-based Cryptography: Most notably [FrodoKEM](https://frodokem.org/).
+ * Daniel J. Bernstein, et al: [Post-quantum RSA](https://eprint.iacr.org/2017/351.pdf), which would be a drop-in replacement for the current system and would require very little hardware or software changes.
+ * Lattice-based Cryptography: [CRYSTALS](https://pq-crystals.org/dilithium/index.shtml)
+ * Another Lattice-based scheme: [FrodoKEM](https://frodokem.org/)
 
 ## Mitigations for SHA
 
@@ -586,7 +609,40 @@ A quantum algorithm for breaking SHA and similar hashing functions is known as t
 
 
 # 9. Scaling plans
-TODO
+
+## Main Factors of Scale - DLT
+
+As the blockchain projects grows, there are several key values which will continue to expand - some in a linear fashion with time and others through participation and use. Some fields, such as Block Height numbers, possible Wallet Addresses, block checksums, WalletState checksums, are large enough to never be a problem. For example, the current addressing scheme uses 360 significant bits for each address. It is essentially impossible to exhaust this space even with many decades of operation.
+
+The problematic values for scaling the technology, and their reasons are listed below:
+
+| Factor | Direct Impact | Secondary Impact | Can be distributed? | Description |
+| --- | --- | --- | --- | --- |
+| Number of Master Nodes | Number of signatures per block | Blockchain Size, Node Bandwidth | No | More Master Nodes means more signatures before each block is considered accepted, which increases the amount of data in each block and places strain on the network and storage systems of all nodes. |
+| Number of Clients | Network Bandwidth | Size of the Presence List | Yes, in a future version | More clients means that each Master Node will have to handle more network connections and use more bandwidth. In addition, the Presence List memory/storage footprint grows, as does the required CPU time to maintain and prune the Presence List. |
+| Number of Wallets | Wallet State size | Wallet State Memory Footprint, CPU | Difficult, no plans yet | More Wallets does not directly increase the bandwidth requirement for Master Nodes, except during initial synchornization, but it will require more CPU upkeep and a larger memory structure to keep this data. |
+| Transactions | Network Bandwidth | CPU, Blockchain Size | Difficult, no plans yet | Processing more Transactions per second makes the blockchain more usable, but it significantly increases the bandwidth requirement per Master Node, as well as the CPU time and Blockchain storage requirements. |
+
+The Ixian team have put significant thought into potential avenues for scaling and while certain advances are anticipated in hardware and technology, they will likely not be fast enough to match the potential growth of the project. Other solutions have been proposed and are constantly being evaluated for future implementations. In particular, these solutions are planned, but not implemented yet, or are implemented partially:
+ * Number of Master Nodes: Block signature count is capped at a certain number (1000, at the time of writing). Faster Nodes are preferred when adding signatures, but all signers are slowly rotated to give every participating node a part of the reward.
+ * Number of Clients: Together with the number of active clients, the number of posted transactions is also predicted to rise. This will mean more transaction rewards, which will incentivise creation of more Master Nodes to handle the increased load. There are plans in place (but not yet formalized) to implement a sharding mechanism for the Presence List, which is the most updated structure when there are a large number of clients.
+ * Number of Wallets: The entire Wallet State is not verified with which block - only the changed parts are. Additionaly, the WSJ technology will allow better control and consistency of updating Wallet State across many Master Nodes.
+
+### Long-Term Scaling Solutions - Super Nodes
+
+The above implementation changes are a partial solution to ensure that Ixian DLT runs at an acceptable pace through the near-to-mid future. A long term solution is proposed as a change of the Ixian architecture. If (when) the Ixian DLT technology becomes interesting and large enough, we expect that larger contributors and participants will create more powerful DLT processing nodes, which will have a significantly better performance, storage and bandwidth capabilities.
+
+By providing extra incentive in the form of blockchain rewards, these more powerful Master Nodes (termed: Super Nodes) should become the primary processors for the Ixian DLT, which smaller, individual Master Nodes serving as verification and safeguards against possible frauds or censorship attempts. Ixian DLT would therefore mainly be processed in data centers, which the 'Community Nodes' checking parts of the calculations to verify that there are no mistakes, omissions or manipulation.
+
+
+## Scaling for S2
+
+This whitepaper describes mainly the DLT part of the technology, but this chapter will mention the issues of scaling S2. Unlike the Ixian DLT, the S2 streaming network does not currently implement or require network-wide persistent storage, so scaling the S2 is significantly easier. In particular, there are several protocols being implemented or planned to ensure this:
+ * S2 relies on market forces (price per transmitted Kb) to provide more S2 Nodes when the demand rises and the number of Clients increases.
+ * Broadcasting data from a single source to many consumers is a relatively easily scalable problem. Internal S2 communication will allocate more S2 nodes if the number of consumers rises and decrease if it falls.
+ * The Presence List of all connected clients will either be handled completely by the DLT, or a sharding mechanism will be employed.
+
+A future S2 implementation may provide persitent storage services, but those are different from the DLT's requirements in that: they don't need to be absolutely correct at every point in time (eventually correct is good enough); and the persisted data is relevant to a small number of Clients (most often just one client), therefore the number of replicas can be kept low. The persitant storage problem does not required one big datastore across the entire network - rather it requires many smaller datastores across parts of the network.
 
 # 10. Conclusion
 
