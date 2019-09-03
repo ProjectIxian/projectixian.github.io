@@ -557,11 +557,33 @@ The fields, required by the client to generate and verify the block checksums, a
 ## Proof of Inclusion
 The client follows the block headers backwards (and preferably caches this information) until it reaches the block where the interesting transaction is contained. Upon reaching the target block header, the client then requests the list of transaction IDs for that block from any Master node. The list of transaction IDs provides part of the block header's checksum. It would be infeasible for malicious nodes to generate a fake list of transactions so that it would match the required node signature. Similarly, it would be infeasible to calculate false block headers so that they would correctly form a valid chain of checksums.
 
-## Subsequent lookups
+## Subsequent Lookups
 If the client requires multiple lookups within redacted window time, caching is heavily recommended. The client then only has to follow the chain backwards from the latest cached block header.  If the sought transaction is in a block, for which the client already has confirmed block header data in its local cache, it only needs to ask the node for the transaction list for that particular block in order to confirm inclusion.
 
 # 8. Quantum Resistance
-TODO
+
+## Emergence of Quantum Computing
+
+During Ixian's inception there was some thought given to the looming emergence of quantum computers (true, universal quantum computers, not simple *quantum annealers*), which would be able to break traditional RSA cryptosystems. In particular, RSA is projected to be vulnerable to a quantum algorithm called *Shor's algorithm*, but the estimated qubit requirement is, for the moment, prohibitatively large. At the time of writing, research quantum computers have demonstrated capacities around 50 qubits.
+The trend so far seems consistent with *Moore's Law* and useful quantum computers are predicted within the next decade. Current research indicates that large numbers may be efficiently factored using Shor's algorithm by using roughly twice the number of qubits as there are bits in the number.
+Ixian uses 4096-bit RSA cryptography, which makes it somewhat resistant to the next few generations of quantum computers.
+
+## Alogirthms and Quantum-Resistance
+
+The most problematic algorithms in use by Ixian are the signature schemes (RSA) and the hashing functionality (SHA). These may be broken in time using a variant of the *Shor's algorithm* and *Grover's algorithm* respectively and a plan of action has been established against that eventuality.
+
+At the time of writing, no practical quantum attack on AES has been proposed, so AES with sufficient key sizes (above 128 bits) is considered quantum-resistant. Ixian uses AES256 for all encryption operations and most modern hardware implements this standard, reducing the CPU load.
+
+## Mitigation for RSA
+
+Despite the (seemingly) distant danger, research is already being done in the field of *Post-Quantum Cryptography*. Several schemes have already been proposed to mitigate or nullify the advantage of quantum algorithms. Notable examples include (in the order of most interesting for Ixian to least interesting):
+ - Daniel J. Bernstein, et al: [Post-quantum RSA](https://eprint.iacr.org/2017/351.pdf), which would be a drop-in replacement for the current system and would require very little hardware or software changes.
+ - Lattice-based Cryptography: Most notably [FrodoKEM](https://frodokem.org/).
+
+## Mitigations for SHA
+
+A quantum algorithm for breaking SHA and similar hashing functions is known as the *Grover's algorithm* and, as of current research, reduces the collision search diffculty to approximately sqrt(d), where d is the number of output bits. SHA256 (SHA2-256) is considered quantum-resistant, but we have chosen SHA2-512 to further increase the margin for Ixian. If quantum CPUs appear faster than anticipated, SHA3 with sufficient key sizes (above 256) and based on Keccak is also considered quantum-resistant. The addition of a key into the hash function involves some changes for the Ixian codebase, so additional avenues are also being explored, such as the appearance of a new, quantum-resistant hashing scheme.
+
 
 # 9. Scaling plans
 TODO
