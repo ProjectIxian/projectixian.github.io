@@ -647,9 +647,9 @@ A future S2 implementation may provide persistent storage services, but those ar
 # 10. Conclusion
 
 This whitepaper demonstrates a concept whereby a coherent DLT technology can be implemented and secured in zero-trust systems without requiring difficult computations (PoW) or financial investment (PoS) schemes for basic operation. It also shows that a ledger can be implemented where the state of all known wallets is available at all times without the full history of preceding blocks and transactions. The Ixian DLT project provides a reference implementation for this concept, as well as an SDK which may be employed by third-party developers to:
-a. Hook into the Ixian DLT or S2 and build an application on top of Ixian, or
-b. Construct their own, complete separate distributed system using the building blocks provided by Ixian.
+>a. Hook into the Ixian DLT or S2 and build an application on top of Ixian, or
+>b. Construct their own, complete separate distributed system using the building blocks provided by Ixian.
 
 ## Future
 
-Ixian project is not complete and it is likely that the work will proceed for quite some time. There will always be additional improvements or optimizations to be made, as well as bugs to be fixed. The research into cryptocurrencies and DLT continues and new findings may affect Ixian's future. What we hope to provide is a solid foundation that doesn't change on a protocol level, from which an ecosystem of users and applications can arise and prompt more developers to take an interest in these concepts and Ixian in particular.
+Ixian project is not complete and it is likely that the work will proceed for quite some time. There will always be additional improvements or optimizations to be made, as well as bugs to be fixed. The research into cryptocurrencies and DLT continues and new findings may affect Ixian's future. What we hope to provide is a solid foundation that doesn't change on a protocol level ("set in stone"), from which an ecosystem of users and applications can arise and prompt more developers to build their solutions on Ixian platform.
