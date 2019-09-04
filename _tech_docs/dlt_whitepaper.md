@@ -76,7 +76,7 @@ Ixian is a completely new implementation of the blockchain concept. We have term
 ## Encryption and Signatures
 
 Ixian's primary signature algorithm is 4096-bit RSA with truncated SHA512 employed as the main hashing algorithm. The choice was influenced both by security, performance concerns and future proofing. While Elliptic-Curve Cryptography brings some advantages in terms of key- and signature size, the performance (in particular when verifying signatures) is too slow for the use cases required by Ixian.
-In addition, some consideration has been put into future, quantum-resistant encryption and signature algorithms. No definitive decision has been made at the time of writing, but Lattice-based encryption and signature schemes appear to be a good candidate. Their key and signature lengths are comparable to modern RSA. Please see the chapter [Quantum Resistance](#quantum-resistance) for more details.
+In addition, some consideration has been put into future, quantum-resistant encryption and signature algorithms. No definitive decision has been made at the time of writing, but Lattice-based encryption and signature schemes appear to be a good candidate. Their key and signature lengths are comparable to modern RSA. Please see the chapter [Quantum Resistance](dlt_whitepaper.html#quantum-resistance) for more details.
 
 
 ## Node
@@ -173,11 +173,11 @@ When the elected node generates a new block, it will fill its data fields with t
 * difficulty: This is the estimated mining difficulty. The formula for calculating this is explained in [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html).
 * version: this is the current version of the block, which is hard-coded in the node's configuration. The version number of the subsequent block must be at least equal (or greater to) to this version number.
 * lastBlockChecksum: This field is a copy of the previous block's checksum field.
-* transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is exactly prescribed, see [Block transaction ordering](#block-transaction-ordering) for reference implementation priorities. Note: Only the transaction IDs are included to reduce the block size.
+* transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is exactly prescribed, see [Block transaction ordering](dlt_whitepaper.html#block-transaction-ordering) for reference implementation priorities. Note: Only the transaction IDs are included to reduce the block size.
 * walletStateChecksum: The transactions chosen in the `transactions` field are temporarily applied to the currently valid Wallet State in order to calculate the next valid state. The checksum from the resulting state is put into the field `walletStateChecksum` in order to ensure that all nodes arrive at the same result when applying the listed transactions.
 * signatures: this field initially contains only the elected node's signature. As other nodes process and validate this block, they will add their own signatures if they agree with the results.
 * powField: this field is left blank when the block is generated and is populated later when/if a valid PoW solution is found. See [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html). Note: this field is not transmitted over the network and is maintained locally by each Node.
-* signatureFreezeChecksum: This field "freezes" signatures for a past block (currently 5th last block, counting the block currently being generated), in order to prevent manipulating the signature history. 5 blocks (in ideal network conditions this should be about 2:30 minutes) is the accepted time when slower nodes may yet sign a block which has otherwise already been accepted by the majority. For details, see [Signature Freeze](#signature-freeze).
+* signatureFreezeChecksum: This field "freezes" signatures for a past block (currently 5th last block, counting the block currently being generated), in order to prevent manipulating the signature history. 5 blocks (in ideal network conditions this should be about 2:30 minutes) is the accepted time when slower nodes may yet sign a block which has otherwise already been accepted by the majority. For details, see [Signature Freeze](dlt_whitepaper.html#signature-freeze).
 
 ### Block transaction ordering
 
@@ -646,9 +646,9 @@ A future S2 implementation may provide persistent storage services, but those ar
 
 # 10. Conclusion
 
-This whitepaper demonstrates a concept whereby a coherent DLT technology can be implemented and secured in zero-trust systems without requiring difficult computations (PoW) or financial investment (PoS) schemes for basic operation. It also shows that a ledger can be implemented where the state of all known wallets is available at all times without the full history of preceding blocks and transactions. The Ixian DLT project provides a reference implementation for this concept, as well as an SDK which may be employed by third-party developers to:
->a. Hook into the Ixian DLT or S2 and build an application on top of Ixian, or
->b. Construct their own, complete separate distributed system using the building blocks provided by Ixian.
+This whitepaper demonstrates a concept whereby a coherent DLT technology can be implemented and secured in zero-trust systems without requiring difficult computations (PoW) or financial investment (PoS) schemes for basic operation. It also shows that a ledger can be implemented where the state of all known wallets is available at all times without the full history of preceding blocks and transactions. The Ixian DLT project provides a reference implementation for this concept, as well as an SDK which may be employed by third-party developers to:<br/>
+a. Hook into the Ixian DLT or S2 and build an application on top of Ixian, or<br/>
+b. Construct their own, complete separate distributed system using the building blocks provided by Ixian.
 
 ## Future
 
