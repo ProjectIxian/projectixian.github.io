@@ -23,7 +23,7 @@ title: Ixian DLT Whitepaper
 
 # 1. Introduction
 
-Ixian is a decentralized, open-source, crypto-platform, rather than just a simple DLT. This whitepaper explains the DLT aspect which, while critical to the operation of the network, comprises only a small part of the final Ixian vision. At the time of writing this document, the following components are envisioned as the basic implementation of Ixian:
+Ixian is a decentralized, open-source crypto-platform, rather than just a simple DLT. This whitepaper explains the DLT aspect which, while critical to the operation of the network, comprises only a small part of the final Ixian vision. At the time of writing this document, the following components are envisioned as the basic implementation of Ixian:
 * Ixian DLT (Distributed Ledger)
 * Ixian S2 (P2P data transmission network)
 * Spixi (Instant Messaging app which leverages Ixian DLT and Ixian S2 for decentralized functionality)
@@ -68,15 +68,15 @@ Ixian is a completely new implementation of the blockchain concept. We have term
 * Complete blockchain history is not required for normal operation
 * Presence list with all DLT Master nodes is stored and updated by each Master node
 * Signature Freeze, a method which allows nodes to keep signing already accepted blocks until a certain threshold (currently this is set to the most recent 5 blocks), but prevents tampering after that.
-* Completely custom codebase - Ixian is not a fork of an existing project
+* Completely custom code base - Ixian is not a fork of an existing project
 * Custom, new consensus algorithm for operation (`Ixiac`)
 * Ixian was designed from the ground up to support a large number of users
 
 
 ## Encryption and Signatures
 
-Ixian's primary signature algorithm is 4096-bit RSA with truncated SHA512 as the hashing algorithm. The choice was influenced both by security, performance concerns and future proofing. While Elliptic-Curve Cryptography brings some advantages in terms of key- and signature size, the performance (in particular when verifying signatures) is too slow for the use cases required by Ixian.
-In addition, some consideration has been put into future, quantum-resistant encryption and signature algorithms. No definitive decision has been made at the time of writing, but Lattice-based encryption and signature schemes appear to be a good candidate. Their key and signature lenghts are comparable to modern RSA. Please see the chapter [Quantum Resistance](#quantum-resistance) for more details.
+Ixian's primary signature algorithm is 4096-bit RSA with truncated SHA512 employed as the main hashing algorithm. The choice was influenced both by security, performance concerns and future proofing. While Elliptic-Curve Cryptography brings some advantages in terms of key- and signature size, the performance (in particular when verifying signatures) is too slow for the use cases required by Ixian.
+In addition, some consideration has been put into future, quantum-resistant encryption and signature algorithms. No definitive decision has been made at the time of writing, but Lattice-based encryption and signature schemes appear to be a good candidate. Their key and signature lengths are comparable to modern RSA. Please see the chapter [Quantum Resistance](#quantum-resistance) for more details.
 
 
 ## Node
@@ -90,7 +90,7 @@ For the following description of the Ixian protocol, a "DLT Node" is assumed to 
   * **development**: is the unstable branch with new features that are currently being worked upon. This branch may include code that is not  yet ready for production or has remaining bugs.
 * The primary toolset for building the Ixian reference implementation is Microsoft's Visual Studio. Mono is supported as a secondary toolset.
 
-The node at present is executed as a console application - that is to say, when a node is started, it will display a console with some status information. It is possible to switch the status overview display into a detailed log output and back. Future versions of Ixian are intended to run as Windows Services or daemons under Linux (or equivalent technology, depending on the operating system).
+The node at present is executed as a console application - that is to say, when a node is started, it will display a console window with some status information. It is possible to switch the status overview display into a detailed log output and back. Future versions of Ixian are intended to run as Windows Services or daemons under Linux (or equivalent technology, depending on the operating system).
 
 
 ### Node Communication
@@ -100,7 +100,7 @@ Ixian nodes communicate over the TCP/IP protocol, which is well-supported on the
 * seed3.ixian.io - 104.244.72.236
 * seed4.ixian.io - 199.195.249.51
 
-These addresses are "baked" into the reference Ixian source code and therefore into the Ixian DLT binary. Users, wishing to start their own, separate networks based on Ixian technology, should change these values when compiling the source code. Once a TCP socket is established, the node will begin communicating with its own protocol, which is documented on the [GitHub Documentation Page](https://projectixian.github.io/tech_docs/protocol.html) Each Ixian node will reach out to multiple other nodes, chosen at random from a list of all known Ixian nodes, but it will also listen for incoming connections. All directly connected nodes are referred to as "neighbors". The default TCP communication port is 10234, but may be changed either in the source code, the configuration file or on the command line when starting a particular node, if the default port is for some reason inappropriate.
+These addresses are "baked" into the reference Ixian source code and therefore into the Ixian DLT binary. Users, wishing to start their own, separate networks based on Ixian technology, should change these values when compiling the source code. Once a TCP socket is established, the node will begin communicating with the network using Ixian's custom binary protocol, which is documented on the [GitHub Documentation Page](https://projectixian.github.io/tech_docs/protocol.html) Each Ixian node will reach out to multiple other nodes, chosen at random from a list of all known Ixian nodes, but it will also listen for incoming connections. All directly connected nodes are referred to as "neighbors". The default TCP communication port is 10234, but may be changed either in the source code, the configuration file or on the command line when starting a particular node, if the default port is for some reason inappropriate.
 
 Please note that each node must be reachable over the public Internet so that it may accept new communication requests from other nodes. This is a prerequisite for the smooth operation of the network. In the cases where proxy technologies, such as NAT are used, appropriate port-forwarding rules must be configured. For installation and configuration details, see [Ixian Guides](https://projectixian.github.io/guides.html)
 
@@ -127,7 +127,7 @@ The following must hold true:
 * The 'Previous Block checksum' field must match the checksum of the previous block in chain (N-1; where N is the block number of the current block).
 * Changes to the WalletState must all be valid and a `delta` WalletState checksum must be generated, which matches the `walletStateChecksum` field in the block.
   * The `delta` checksum contains only the Wallets which were changed in this block.
-* If the block is a `Superblock`, the complete WalletState checksum (all Walltes), must be calculated and match the `walletStateChecksum` field in the Superblock.
+* If the block is a `Superblock`, the complete WalletState checksum (all Wallets), must be calculated and match the `walletStateChecksum` field in the Superblock.
 * The current block's 'checksum' field must include all other checksum fields and some additional metadata in the block.
 
 A block is considered valid if a certain number of nodes sign it with their private key, which corresponds to their Wallet address. The number of required signatures is determined by an algorithm, which is described in the further sections, but can be summarized here:
@@ -167,7 +167,7 @@ In the cases where a node incorrectly determines itself to be the elected node s
 
 When the elected node generates a new block, it will fill its data fields with the values it considers appropriate. These include:
 * Block Number: Blocks are numbered sequentially, so this is simply the most recent accepted block's number plus one.
-* timestamp: This is the "unix epoch" value (number of seconds since 1970-01-01 00:00:00) of the moment when the block was generated, with 1-second precision.
+* timestamp: This is the "Unix epoch" value (number of seconds since 1970-01-01 00:00:00) of the moment when the block was generated, with 1-second precision.
 * difficulty: This is the estimated mining difficulty. The formula for calculating this is explained in [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html).
 * version: this is the current version of the block, which is hard-coded in the node's configuration. The version number of the subsequent block must be at least equal (or greater to) to this version number.
 * lastBlockChecksum: This field is a copy of the previous block's checksum field.
@@ -185,7 +185,7 @@ Waiting transactions are sorted by age (oldest first), then they are selected fr
 3. Multisig transactions
 4. All other remaining transactions
 
-The process stops when a maximum number of transactions are added to a block. At the time of writing, this is defined as 2000 transactions.
+The process stops when a maximum number of transactions are added to a block. At the time of writing this is defined as 2000 transactions.
 
 
 ### Block Distribution and Signing
@@ -272,12 +272,12 @@ The redaction process ensures that the relevant data structures (Block Chain and
 
 ### The Problem to Solve
 
-The Ixian block chain deviates from the more common approach by other DLT projects by not limiting the total IXI coin supply. Because currency is lost (wallet keys are deleted or forgotten), and because the demand for currency increases over time in any healthy economy, one of the two things must happen:
+The Ixian block chain deviates from the more common approach by other DLT projects by not limiting the total IXI coin supply. Because currency is lost (wallet keys are deleted or forgotten) and because in any healthy economy the demand for currency increases over time, one of the two things must happen:
 * More currency is generated and put into circulation.
-* Value of the existing currency increases dramatically over time.
+* Value of the existing currency increases dramatically.
 
 
-Because the Ixian project is aiming at a stable ecosystem where work and services are rewarded, rather than an investment-based economy, where hoarding the currency yields greater benefits, we wanted to keep the price of IXI coins relatively stable and low enough for normal usage. Therefore, the reference node implementation includes several methods for generating new currency. The actual rate at which new IXI coins are created is hard-coded into the reference implementation and changes based on the current block height to reach the specified targets. The rates are:
+Because the Ixian project is aiming at a stable ecosystem which rewards work and services, rather than simply holding on to 'digital stock'. Hoarding the currency should not yield greater benefits and wanted to keep the price of IXI coins to remain relatively stable and low enough for normal usage. Therefore, the reference node implementation includes several methods for generating new currency. The actual rate at which new IXI coins are created is hard-coded into the reference implementation and changes based on the current block height to reach the specified targets. The rates are:
 * 0.1% yearly inflation for the first month of operation
 * 5% inflation from the second month until 50 billion IxiCash is generated
 * 1% inflation from 50 billion until 100 billion IxiCash is generated
@@ -348,7 +348,7 @@ As a short reference, the following pieces of information are tracked by all DLT
 * Unique device ID (Please note that this is not tied into the device hardware in any way - it is simply a randomly generated identifier.)
 * Cryptographic signature by the address owner, to prevent tampering or falsifying presence information
 
-As clients cease communicating, their PL records will age and be removed from the list. This will keep the Presence List accurate with only the currently online clients. This function enables, for example, the Spixi client to know where the messages should be delivered, even if the recipient has multiple connected devices on different networks.
+As clients cease communicating, their PL records will age and be removed from the list. This will keep the Presence List accurate and populated by the currently online clients only. This function enables, for example, the Spixi client to know where the messages should be delivered, even if the recipient has multiple connected devices on different networks.
 
 
 # 4. Implementation Details
@@ -363,7 +363,7 @@ The basis for generating a wallet address is an RSA public key together with an 
 A `nonce` value is exactly 16 bytes long, with the only exception when the address being generated represents the `Primary Address` for that specific public key. This Primary Address is calculated with a null `nonce` value.
 
 Nonce values could be completely random, but that would require implementations to store (and backup) these values, since it would not be possible to recreate them in any way. The reference implementation uses the private part of the key to generate a `base` SHA512SQ truncated hash value, which represents the first nonce and therefore the first additional address generated from the public key. More addresses (further nonce values) are generated by always appending the last-used (most recent) nonce to the base nonce and hashing the resulting binary array again.
-In this way, it is not possible for any user except the owner of the private key to predict new addresses, while allowing the owner to re-generate them from nothing more than the public/private keypair. Only the first wallet backup is strictly required to regain access to all the addresses.
+In this way, it is not possible for any user except the owner of the private key to predict new addresses, while allowing the owner to re-generate them from nothing more than the public/private key pair. Only the first wallet backup is strictly required to regain access to all the addresses.
 
 Despite the public key being known, it is impossible to connect which wallet addresses belong to that key, as long as the wallet balance is not spent.
 
@@ -404,8 +404,8 @@ The WSJ approach is somewhat more complicated than the snapshotting method, but 
 
 ## 4.3. Transactions
 
-The cornerstone of any DLT are the transactions it enables on the constituent Wallets. In Ixian, there are a few different Transaction types at the moment:
-* Normal transaction: Allows transfer of funds from one or more source Wallets to one or more target Wallets. The source Wallets must all belong to the same public/private keypair, but the destination wallets can be completely different. Public key must be made known for the source Wallets, but not for destination Wallets. In fact, the destination Wallets need not even exist before this transaction gives them funds.
+The cornerstone of any DLT are the transactions it enables on the constituent Wallets. In Ixian, there are several different Transaction types at the moment:
+* Normal transaction: Allows transfer of funds from one or more source Wallets to one or more target Wallets. The source Wallets must all belong to the same public/private key pair, but the destination wallets can be completely different. Public key must be made known for the source Wallets, but not for destination Wallets. In fact, the destination Wallets need not even exist before this transaction gives them funds.
 * Multi-signature transactions: There are several distinct types of multi-signature transactions in Ixian:
   * Multisignature "Change" transactions: Which allow modifying Wallets to make them into Multi-signature Wallets, or modifying Multi-signature Wallets to turn them back into normal wallets and also transactions to set the required minimum number of signatures in order to spend funds from a Multi-signature Wallet.
   * Multisignature "Spend" transactions: Which allow funds to be withdrawn from a Multi-signature Wallet. No special transaction is required to _deposit_ funds into a Multi-signature wallet.
@@ -418,7 +418,7 @@ The cornerstone of any DLT are the transactions it enables on the constituent Wa
 
 In order to verify that a Transaction's signature is valid, all DLT Master nodes require the public key associated with the withdrawal Wallet (or Wallets). This public key is rather large (4096 bits), so it is not always included in the Transaction. It must only be included if the withdrawal Wallet has never been spent/used in a transaction before and thus its public key is unknown. After the first time a Wallet is used as the source Wallet, the appropriate public key becomes part of the Wallet State on all Master nodes. From that moment forward only the source Wallet Address has to be sent in Transactions.
 
-Because all withdrawal Wallets must belong to the same public/private keypair, it is sufficient to list only the (shorter) address `nonce` values and the respective amounts, since full Wallet addresses can be easily calculated from the public key and nonce value.
+Because all withdrawal Wallets must belong to the same public/private key pair, it is sufficient to list only the (shorter) address `nonce` values and the respective amounts, since full Wallet addresses can be easily calculated from the public key and nonce value.
 
 Each transaction can deposit funds into multiple destination Wallets. These do not need to belong to the same public key. The list of destinations must include full addresses and amounts per address. The total deposited amount must match the total withdrawal amount minus the transaction fee.
 
@@ -463,7 +463,7 @@ is therefore expected to change and is "fixed" in a future block.
 
 Superblocks are the method which allows us to safely and deterministically remove old entries from the blockchain. The length of the chain kept by all Master nodes is referred to as the "Redaction Window" and is set to 20000 blocks (assuming approximately 30s block intervals, this would amount to about 7 days). After that time blocks become eligible for removal.
 
-Every thousandth (1000th) block is a _Superblock_ and instead of unapplied transaction data, a Superblock contains a list of blocks, their checksums and their transactions which have been accepted since the previous Superblock.
+Every thousandth (1000th) block is a _Superblock_ and instead of unapplied transaction data, a Superblock contains a list of blocks and their checksums which have been accepted since the previous Superblock.
 
 For example:
 
@@ -472,17 +472,17 @@ For example:
 | ... | ... | ... |
 | 998 | No | Transactions for block 998. |
 | 999 | No | Transactions for block 999. |
-| 1000 | Yes | Transactions from blocks 1-999, checksums for blocks 1-999. |
+| 1000 | Yes | checksums for blocks 1-999. |
 | 1001 | No | Transactions for block 1001. |
 | ... | ... | ... |
 | 1999 | No | Transactions for block 1999. |
-| 2000 | Yes | Transactions from blocks 1001-1999, checksums for blocks 1001-1999. |
+| 2000 | Yes | checksums for blocks 1001-1999. |
 | 2001 | No | Transactions for block 2001. |
 | ... | ... | ...|
 
 After a specific block (and thus its transactions) is more than 20000 blocks in the past, it is eligible for redaction, but it is not immediately removed. The redaction process takes place when the next Superblock is generated (this implicitly means that the oldest Superblock in the Redacted Window becomes the 20000th block from the top of the chain). At that point, blocks lower than the oldest Superblock on the chain and their transactions are removed.
 
-Note: Superblocks are removed from the active chain, but stored elsewhere. They incur a slight overhead on all Master nodes which grows over time. A pruning method for Superblock data is planned for a future release, but at least 11-years worth of Superblocks must be kept in history. The reason for this decision is that - together with _Full History Nodes_, Superblocks can be used to identify and search for relevant transactions as part of some audit or different enquiry. Most financial legislation mandates keeping financial records for a period of 11 years, so that value was also chosen for Ixian DLT's historical data.
+Note: Superblocks are removed from the active chain, but stored elsewhere. They incur a slight overhead on all Master nodes which grows over time. A pruning method for Superblock data is planned for a future release, but at least 11-years worth of Superblocks must be kept in history. The reason for this decision is that - together with _Full History Nodes_, Superblocks can be used to identify and help search for relevant transactions as part of some audit or different inquiry. Most financial legislation mandates keeping financial records for a period of 11 years, so that value was also chosen for Ixian DLT's historical data.
 
 ### Safer initial synchronization
 
@@ -503,7 +503,7 @@ Superblocks form an independent chain by liking the current Superblock's checksu
 ### Full History
 
 Some nodes may elect to maintain a complete history of the blockchain, even though it is not required. Those are called the `Full History Nodes`. The reasons for keeping a complete history may include:
-* Long-term verification against 'Slow Lorris' type attacks
+* Long-term verification against certain types of attacks
 * Regulatory/legal obligations to maintain financial history
 * Extra reward, whenever a user wishes to look up historical data beyond the current 20000 blocks
 
@@ -522,7 +522,7 @@ The exact packet format and possible messages are described in the document: [Ix
 
 One of the critical considerations when starting a DLT project such as Ixian is user adoption. We wanted to make the platform as open and easy to join as possible. Absolutely anyone interested in the project should be able (with the bare minimal hardware and time investment) to set up their own DLT and S2 nodes and begin participating. Ixian's consensus algorithm relies on sufficient numbers to thwart potential attacks or abuse, so we wanted as many people as possible to join.
 
-The barrier to entry must therefore be simple to surmount for regular users, yet problematic should a bad actor attempt to bring up hundreds, or thousands of nodes online in a short period of time. Ixian's barrier to entry for DLT nodes at the moment is monetary - a Node must posess a certain number of Ixi coins before it can participate as a Master node. These coins may be obtained through different means:
+The barrier to entry must therefore be simple to surmount for regular users, yet problematic should a bad actor attempt to bring up hundreds, or thousands of nodes online in a short period of time. Ixian's barrier to entry for DLT nodes at the moment is monetary - a Node must possess a certain number of Ixi coins before it can participate as a Master node. These coins may be obtained through different means:
 * Purchase or gift from an existing Ixian user
 * Trade through a cryptocurrency exchange which supports Ixian
 * Mine the coins on low-cost hardware
@@ -551,7 +551,7 @@ In order to calculate and verify the chain of block checksums, an Ixian node (bo
 ### Fraud prevention
 
 In order to prevent a malicious node from feeding the client incorrect history, the client must connect to multiple master nodes and compare the returned block checksums for the most recently accepted block. If all master nodes agree on the correct value, then the block header is considered valid. If the checksums differ, the client should reconnect to different master nodes (possibly bootstrapping through a seed node) and try again.
-The block number where the interesting transaction is included can be obtained in the same way - by multiple verification. In order to speed up repeated lookups, the client implementation may store block header data locally, after it has been verified from multiple sources. The maximum amount of data depends on the redacted window size and the block header size. At the time of writing, the block header size is calculated to be between 500 and 90000 bytes, depending on the number of transactions per block. With the redacted window of 20000 blocks, the cache size is estimated between 9.5 MB and 1.7 GB The latter may be prohibitive for embedded or mobile clients, so the number of cached block headers may be reduced to fit acceptable platform limits.
+The block number where the interesting transaction is included can be obtained in the same way - by multiple verification. In order to speed up repeated look-ups, the client implementation may store block header data locally, after it has been verified from multiple sources. The maximum amount of data depends on the redacted window size and the block header size. At the time of writing, the block header size is calculated to be between 500 and 90000 bytes, depending on the number of transactions per block. With the redacted window of 20000 blocks, the cache size is estimated between 9.5 MB and 1.7 GB The latter may be prohibitive for embedded or mobile clients, so the number of cached block headers may be reduced to fit acceptable platform limits.
 
 ### Following the chain backward
 
@@ -559,7 +559,7 @@ Starting from the most recent block, the client then works backwards along the c
 
 ### Superblocks:
 
-Once the process of tracking backwards reaches the nearest superblock, it is no longer necessary to fetch each regular block header. If the target block exists between the most recent superblock and the previous superblock, the client can request the target block's header and TXID field directly and verify the checksum using the list in the superblock. If the target block is further back, the client only has to request each previous superblock, until the target block is included in a superblock.
+Once the process of tracking backwards reaches the nearest Superblock, it is no longer necessary to fetch each regular block header. If the target block exists between the most recent Superblock and the previous Superblock, the client can request the target block's header and TXID field directly and verify the checksum using the list in the Superblock. If the target block is further back, the client only has to request each previous Superblock, until the target block is included in a Superblock.
 
 ### Following the chain forward
 In some cases the client might have part of the block chain cached (headers only). New blocks keep being added, but the client does not need to be aware of that process. Should, later on, the client wish to verify inclusion of a more recent transaction, the chain can also be followed forward from the client's cache. This may be done through only one Master node, but at the end of the process the client must verify the final block checksum against multiple nodes, to prevent a malicious Master node from tinkering with the chain and feeding the client false information in this scenario.
@@ -580,17 +580,17 @@ The fields, required by the client to generate and verify the block checksums, a
 The client follows the block headers backwards (and preferably caches this information) until it reaches the block where the interesting transaction is contained. Upon reaching the target block header, the client then requests the list of transaction IDs for that block from any Master node. The list of transaction IDs provides part of the block header's checksum. It would be infeasible for malicious nodes to generate a fake list of transactions so that it would match the required node signature. Similarly, it would be infeasible to calculate false block headers so that they would correctly form a valid chain of checksums.
 
 ## Subsequent Lookups
-If the client requires multiple lookups within redacted window time, caching is heavily recommended. The client then only has to follow the chain backwards from the latest cached block header.  If the sought transaction is in a block, for which the client already has confirmed block header data in its local cache, it only needs to ask the node for the transaction list for that particular block in order to confirm inclusion.
+If the client requires multiple look-ups within redacted window time, caching is heavily recommended. The client then only has to follow the chain backwards from the latest cached block header.  If the sought transaction is in a block, for which the client already has confirmed block header data in its local cache, it only needs to ask the node for the transaction list for that particular block in order to confirm inclusion.
 
 # 8. Quantum Resistance
 
 ## Emergence of Quantum Computing
 
-During Ixian's inception there was some thought given to the looming emergence of quantum computers (true, universal quantum computers, not simple *quantum annealers*), which would be able to break traditional RSA cryptosystems. In particular, RSA is projected to be vulnerable to a quantum algorithm called *Shor's algorithm*, but the estimated qubit requirement is, for the moment, prohibitatively large. At the time of writing, research quantum computers have demonstrated capacities around 50 qubits.
+During Ixian's inception there was some thought given to the looming emergence of quantum computers (true, universal quantum computers, not simple *quantum annealers*), which would be able to break traditional RSA cryptosystems. In particular, RSA is projected to be vulnerable to a quantum algorithm called *Shor's algorithm*, but the estimated qubit requirement is, for the moment, prohibitively large. At the time of writing, research quantum computers have demonstrated capacities around 50 qubits.
 The trend so far seems consistent with *Moore's Law* and useful quantum computers are predicted within the next decade. Current research indicates that large numbers may be efficiently factored using Shor's algorithm by using roughly twice the number of qubits as there are bits in the number.
 Ixian uses 4096-bit RSA cryptography, which makes it somewhat resistant to the next few generations of quantum computers.
 
-## Alogirthms and Quantum-Resistance
+## Algorithms and Quantum-Resistance
 
 The most problematic algorithms in use by Ixian are the signature schemes (RSA) and the hashing functionality (SHA). These may be broken in time using a variant of the *Shor's algorithm* and *Grover's algorithm* respectively and a plan of action has been established against that eventuality.
 
@@ -605,7 +605,7 @@ Despite the (seemingly) distant danger, research is already being done in the fi
 
 ## Mitigations for SHA
 
-A quantum algorithm for breaking SHA and similar hashing functions is known as the *Grover's algorithm* and, as of current research, reduces the collision search diffculty to approximately sqrt(d), where d is the number of output bits. SHA256 (SHA2-256) is considered quantum-resistant, but we have chosen SHA2-512 to further increase the margin for Ixian. If quantum CPUs appear faster than anticipated, SHA3 with sufficient key sizes (above 256) and based on Keccak is also considered quantum-resistant. The addition of a key into the hash function involves some changes for the Ixian codebase, so additional avenues are also being explored, such as the appearance of a new, quantum-resistant hashing scheme.
+A quantum algorithm for breaking SHA and similar hashing functions is known as the *Grover's algorithm* and, as of current research, reduces the collision search difficulty to approximately sqrt(d), where d is the number of output bits. SHA256 (SHA2-256) is considered quantum-resistant, but we have chosen SHA2-512 to further increase the margin for Ixian. If quantum CPUs appear faster than anticipated, SHA3 with sufficient key sizes (above 256) and based on Keccak is also considered quantum-resistant. The addition of a key into the hash function involves some changes for the Ixian code base, so additional avenues are also being explored, such as the appearance of a new, quantum-resistant hashing scheme.
 
 
 # 9. Scaling plans
@@ -620,13 +620,13 @@ The problematic values for scaling the technology, and their reasons are listed 
 | --- | --- | --- | --- | --- |
 | Number of Master Nodes | Number of signatures per block | Blockchain Size, Node Bandwidth | No | More Master Nodes means more signatures before each block is considered accepted, which increases the amount of data in each block and places strain on the network and storage systems of all nodes. |
 | Number of Clients | Network Bandwidth | Size of the Presence List | Yes, in a future version | More clients means that each Master Node will have to handle more network connections and use more bandwidth. In addition, the Presence List memory/storage footprint grows, as does the required CPU time to maintain and prune the Presence List. |
-| Number of Wallets | Wallet State size | Wallet State Memory Footprint, CPU | Difficult, no plans yet | More Wallets does not directly increase the bandwidth requirement for Master Nodes, except during initial synchornization, but it will require more CPU upkeep and a larger memory structure to keep this data. |
+| Number of Wallets | Wallet State size | Wallet State Memory Footprint, CPU | Difficult, no plans yet | More Wallets does not directly increase the bandwidth requirement for Master Nodes, except during initial synchronization, but it will require more CPU upkeep and a larger memory structure to keep this data. |
 | Transactions | Network Bandwidth | CPU, Blockchain Size | Difficult, no plans yet | Processing more Transactions per second makes the blockchain more usable, but it significantly increases the bandwidth requirement per Master Node, as well as the CPU time and Blockchain storage requirements. |
 
 The Ixian team have put significant thought into potential avenues for scaling and while certain advances are anticipated in hardware and technology, they will likely not be fast enough to match the potential growth of the project. Other solutions have been proposed and are constantly being evaluated for future implementations. In particular, these solutions are planned, but not implemented yet, or are implemented partially:
  * Number of Master Nodes: Block signature count is capped at a certain number (1000, at the time of writing). Faster Nodes are preferred when adding signatures, but all signers are slowly rotated to give every participating node a part of the reward.
- * Number of Clients: Together with the number of active clients, the number of posted transactions is also predicted to rise. This will mean more transaction rewards, which will incentivise creation of more Master Nodes to handle the increased load. There are plans in place (but not yet formalized) to implement a sharding mechanism for the Presence List, which is the most updated structure when there are a large number of clients.
- * Number of Wallets: The entire Wallet State is not verified with which block - only the changed parts are. Additionaly, the WSJ technology will allow better control and consistency of updating Wallet State across many Master Nodes.
+ * Number of Clients: Together with the number of active clients, the number of posted transactions is also predicted to rise. This will mean more transaction rewards, which will incentivize creation of more Master Nodes to handle the increased load. There are plans in place (but not yet formalized) to implement a sharding mechanism for the Presence List, which is the most updated structure when there are a large number of clients.
+ * Number of Wallets: The entire Wallet State is not verified with which block - only the changed parts are. Additionally, the WSJ technology will allow better control and consistency of updating Wallet State across many Master Nodes.
 
 ### Long-Term Scaling Solutions - Super Nodes
 
@@ -642,7 +642,7 @@ This whitepaper describes mainly the DLT part of the technology, but this chapte
  * Broadcasting data from a single source to many consumers is a relatively easily scalable problem. Internal S2 communication will allocate more S2 nodes if the number of consumers rises and decrease if it falls.
  * The Presence List of all connected clients will either be handled completely by the DLT, or a sharding mechanism will be employed.
 
-A future S2 implementation may provide persitent storage services, but those are different from the DLT's requirements in that: they don't need to be absolutely correct at every point in time (eventually correct is good enough); and the persisted data is relevant to a small number of Clients (most often just one client), therefore the number of replicas can be kept low. The persitant storage problem does not required one big datastore across the entire network - rather it requires many smaller datastores across parts of the network.
+A future S2 implementation may provide persistent storage services, but those are different from the DLT's requirements in that: they don't need to be absolutely correct at every point in time (eventually correct is good enough); and the persisted data is relevant to a small number of Clients (most often just one client), therefore the number of replicas can be kept low. The persistent storage problem does not required one big data store across the entire network - rather it requires many smaller data stores across parts of the network.
 
 # 10. Conclusion
 
