@@ -6,15 +6,15 @@ title: Optional PoW - Mining
 
 During the start up of the Ixian project, a large amount of currency must be generated quickly and awarded to the most active participants. A pre-mined amount would partially solve this problem, but the distribution relies too much on the Ixian team's discretion and does not inspire confidence. The pre-mine amount has therefore been kept relatively small and an additional, temporary way was created to allow the community to generate their own currency.
 
-Mining in Ixian is optional for the first five years of operation, after which it will be siwtched off and new PoW solutions will no longer be accepted by Master Nodes. This document provides a technical description of how the Ixian's optional PoW algorithm works.
+Mining in Ixian is optional for the first five years of operation, after which it will be switched off and new PoW solutions will no longer be accepted by Master Nodes. This document provides a technical description of how the Ixian's optional PoW algorithm works.
 
 
 # Technical Implementation
 
 ## Active History
-Because IXIAN is a redacted blockchain, the entire block history is not saved with every node, but only on a few 'Full History Nodes'. The part
+Because Ixian DLT is a redacted blockchain, the entire block history is not saved with every node, but only on a few 'Full History Nodes'. The part
 of the blockchain, which must be held in memory by each participating node is called the 'Active History', and can be dynamically determined by
-the network after a suitable algorithm is decided. The default window for the ‘Active History’ (called the “Redacted Window Size”), is 7 days
+the network after a suitable algorithm is decided. The default window for the "Active History" (called the "Redacted Window Size"), is 7 days
 (20000 blocks).
 
 
@@ -49,7 +49,7 @@ The PoW solution is formed in the following manner:
 
 ![PoW Solution](https://projectixian.github.io/assets/images/hpow_d1.png)
 
-Where PoW is the solution to the PoW problem using the “Argon2ID” hashing functions, whose input message, called “pwd” in the reference Argon
+Where PoW is the solution to the PoW problem using the "Argon2ID" hashing functions, whose input message, called "pwd" in the reference Argon
 implementation is the combination of the target block checksum - BlockChecksum - and the address of the walled which will receive the reward for
 solving the puzzle - SolverAddress.
 The solution is found by inserting a random, 128-bit value as Nonce, until a hash is found which meets certain criteria based on the _difficulty_
@@ -63,7 +63,7 @@ is too high, too few Blocks will be solved.
 The difficulty should be selected such, that roughly 50% of all Blocks in the active history are solved before they are redacted.
 
 The Block difficulty is an 8-byte unsigned integer, which represents the characteristic of the PoW solution value to which a valid solution must
-conform. In IXIAN, the entire solution range (a solution is a 256-bit number) is split into 2^64 sub-ranges. The difficulty number, being a 64-bit
+conform. In Ixian, the entire solution range (a solution is a 256-bit number) is split into 2^64 sub-ranges. The difficulty number, being a 64-bit
 unsigned integer, selects one of the sub-ranges, which is interpreted as the absolute ceiling.
 A valid PoW solution must be numerically below the chosen ceiling.
 
@@ -78,9 +78,9 @@ In order to convert the difficulty number into a 'hash-ceiling', the following m
 The resulting hash-ceiling value represents the upper limit of the 256-bit PoW solution. Solutions, which are numerically less than the
 hash-ceiling are considered valid for the given difficulty.
 
-The exact distribution of the sub-ranges allow IXIAN to set a wide range of difficulties. In order to prevent some possible exploits, a lower
+The exact distribution of the sub-ranges allow Ixian to set a wide range of difficulties. In order to prevent some possible exploits, a lower
 limit has been set on the difficulty value.
-The lowest possible difficulty is therefore defined to be 0xA2CB1211629F6141, wich equates to (on average) 180000 hashes required in order to
+The lowest possible difficulty is therefore defined to be 0xA2CB1211629F6141, which equates to (on average) 180000 hashes required in order to
 find a valid solution. The number can be achieved by 10 miners, with 300 H/s each - this was defined as an approximation of the minimum network
 size. With the total hashing power of 3000 H/s, a block solution should be found approximately every 60 seconds.
 Since the blocks are generated at 30-second intervals, the resulting solution ratio should be near 50%.
