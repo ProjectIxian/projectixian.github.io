@@ -76,7 +76,7 @@ Ixian is a completely new implementation of the blockchain concept. We have term
 ## Encryption and Signatures
 
 Ixian's primary signature algorithm is 4096-bit RSA with truncated SHA512 employed as the main hashing algorithm. The choice was influenced both by security, performance concerns and future proofing. While Elliptic-Curve Cryptography brings some advantages in terms of key- and signature size, the performance (in particular when verifying signatures) is too slow for the use cases required by Ixian.
-In addition, some consideration has been put into future, quantum-resistant encryption and signature algorithms. No definitive decision has been made at the time of writing, but Lattice-based encryption and signature schemes appear to be a good candidate. Their key and signature lengths are comparable to modern RSA. Please see the chapter [Quantum Resistance](dlt_whitepaper.html#quantum-resistance) for more details.
+In addition, some consideration has been put into future, quantum-resistant encryption and signature algorithms. No definitive decision has been made at the time of writing, but Lattice-based encryption and signature schemes appear to be a good candidate. Their key and signature lengths are comparable to modern RSA. Please see the chapter [Quantum Resistance](./dlt_whitepaper.html#quantum-resistance) for more details.
 
 
 ## Node
@@ -100,7 +100,7 @@ Ixian nodes communicate over the TCP/IP protocol, which is well-supported on the
 * seed3.ixian.io - 104.244.72.236
 * seed4.ixian.io - 199.195.249.51
 
-These addresses are "baked" into the reference Ixian source code and therefore into the Ixian DLT binary. Users, wishing to start their own, separate networks based on Ixian technology, should change these values when compiling the source code. Once a TCP socket is established, the node will begin communicating with the network using Ixian's custom binary protocol, which is documented on the [GitHub Documentation Page](https://projectixian.github.io/tech_docs/protocol.html) Each Ixian node will reach out to multiple other nodes, chosen at random from a list of all known Ixian nodes, but it will also listen for incoming connections. All directly connected nodes are referred to as "neighbors". The default TCP communication port is 10234, but may be changed either in the source code, the configuration file or on the command line when starting a particular node, if the default port is for some reason inappropriate.
+These addresses are "baked" into the reference Ixian source code and therefore into the Ixian DLT binary. Users, wishing to start their own, separate networks based on Ixian technology, should change these values when compiling the source code. Once a TCP socket is established, the node will begin communicating with the network using Ixian's custom binary protocol, which is documented on the [Ixian network protocol](https://projectixian.github.io/tech_docs/protocol.html). Each Ixian node will reach out to multiple other nodes, chosen at random from a list of all known Ixian nodes, but it will also listen for incoming connections. All directly connected nodes are referred to as "neighbors". The default TCP communication port is 10234, but may be changed either in the source code, the configuration file or on the command line when starting a particular node, if the default port is for some reason inappropriate.
 
 Please note that each node must be reachable over the public Internet so that it may accept new communication requests from other nodes. This is a prerequisite for the smooth operation of the network. In the cases where proxy technologies, such as NAT are used, appropriate port-forwarding rules must be configured. For installation and configuration details, see [Ixian Guides](https://projectixian.github.io/guides.html)
 
@@ -109,13 +109,13 @@ During a node's life cycle, it is expected that it will often terminate some of 
 
 ### Information Stored Within a Node
 Each node must hold some critical information in order to function. The reference implementation has the following structures always present in memory:
-* The redacted window of the blockchain. See the chapter [Redacted History](redacted-history) for details on the redacted blockchain technology.
+* The redacted window of the blockchain. See the chapter [Redacted History](./dlt_whitepaper.html#redacted-history) for details on the redacted blockchain technology.
 * Transactions, which are referenced by blocks in the redacted window.
 * Unapplied transactions, which are waiting for inclusion into a block.
 * Wallet State, which has details about all existing Ixian wallets and their balances, as well as other data.
 * Presence List, which contains all currently reachable Ixian nodes, as well as S2, Spixi and other clients.
 
-In addition to keeping this data in memory, the reference node implementation will store the data in files on disk, which enables the node to restart rapidly after shutting down or failing. If the node is configured as a "Full history" node (see [Redacted History](redacted-history)), this on-disk structure will also contain all the blocks and transactions from the beginning of the Ixian blockchain.
+In addition to keeping this data in memory, the reference node implementation will store the data in files on disk, which enables the node to restart rapidly after shutting down or failing. If the node is configured as a "Full history" node (see [Redacted History](./dlt_whitepaper.html#redacted-history)), this on-disk structure will also contain all the blocks and transactions from the beginning of the Ixian blockchain.
 
 For a detailed description of each data structure in the Ixian node, please see the documentation page at:
 [Ixian Programming Objects](https://projectixian.github.io/tech_docs/objects.html)
@@ -170,14 +170,14 @@ In the cases where a node incorrectly determines itself to be the elected node s
 When the elected node generates a new block, it will fill its data fields with the values it considers appropriate. These include:
 * Block Number: Blocks are numbered sequentially, so this is simply the most recent accepted block's number plus one.
 * timestamp: This is the "Unix epoch" value (number of seconds since 1970-01-01 00:00:00) of the moment when the block was generated, with 1-second precision.
-* difficulty: This is the estimated mining difficulty. The formula for calculating this is explained in [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html).
+* difficulty: This is the estimated mining difficulty. The formula for calculating this is explained in [Ixian Optional PoW - Mining](https://projectixian.github.io/tech_docs/mining_pow.html).
 * version: this is the current version of the block, which is hard-coded in the node's configuration. The version number of the subsequent block must be at least equal (or greater to) to this version number.
 * lastBlockChecksum: This field is a copy of the previous block's checksum field.
-* transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is exactly prescribed, see [Block transaction ordering](dlt_whitepaper.html#block-transaction-ordering) for reference implementation priorities. Note: Only the transaction IDs are included to reduce the block size.
+* transactions: The node will pick waiting transactions from its memory and include them in the generated block. The order of transactions picked is exactly prescribed, see [Block transaction ordering](./dlt_whitepaper.html#block-transaction-ordering) for reference implementation priorities. Note: Only the transaction IDs are included to reduce the block size.
 * walletStateChecksum: The transactions chosen in the `transactions` field are temporarily applied to the currently valid Wallet State in order to calculate the next valid state. The checksum from the resulting state is put into the field `walletStateChecksum` in order to ensure that all nodes arrive at the same result when applying the listed transactions.
 * signatures: this field initially contains only the elected node's signature. As other nodes process and validate this block, they will add their own signatures if they agree with the results.
-* powField: this field is left blank when the block is generated and is populated later when/if a valid PoW solution is found. See [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html). Note: this field is not transmitted over the network and is maintained locally by each Node.
-* signatureFreezeChecksum: This field "freezes" signatures for a past block (currently 5th last block, counting the block currently being generated), in order to prevent manipulating the signature history. 5 blocks (in ideal network conditions this should be about 2:30 minutes) is the accepted time when slower nodes may yet sign a block which has otherwise already been accepted by the majority. For details, see [Signature Freeze](dlt_whitepaper.html#signature-freeze).
+* powField: this field is left blank when the block is generated and is populated later when/if a valid PoW solution is found. See [Ixian Optional PoW - Mining](https://projectixian.github.io/tech_docs/mining_pow.html). Note: this field is not transmitted over the network and is maintained locally by each Node.
+* signatureFreezeChecksum: This field "freezes" signatures for a past block (currently 5th last block, counting the block currently being generated), in order to prevent manipulating the signature history. 5 blocks (in ideal network conditions this should be about 2:30 minutes) is the accepted time when slower nodes may yet sign a block which has otherwise already been accepted by the majority. For details, see [Signature Freeze](./dlt_whitepaper.html#signature-freeze).
 
 ### Block transaction ordering
 
@@ -292,7 +292,7 @@ Currency in the Ixian DLT is generated through three distinct processes:
   * Funding the development of the technology
   * Team (Founder) rewards
 * Block Signing Reward: Each participating Master node will receive a certain number of new coins with each block. The amount received is based on the targeted yearly inflation rate and the number of signing nodes.
-* Proof-of-Work: In order to quickly generate starting funds for the general community to start participating in the Ixian network, a Proof-of-Work style system is in place which allows nodes to solve mathematical riddles in exchange for new IXI coins. This process is expected to run until a certain number of IXI coins are in circulation, then it will be deactivated. More details about this process can be found in the following document: [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html)
+* Proof-of-Work: In order to quickly generate starting funds for the general community to start participating in the Ixian network, a Proof-of-Work style system is in place which allows nodes to solve mathematical riddles in exchange for new IXI coins. This process is expected to run until a certain number of IXI coins are in circulation, then it will be deactivated. More details about this process can be found in the following document: [Ixian Optional PoW - Mining](https://projectixian.github.io/tech_docs/mining_pow.html)
 
 The exact values of these rewards, as well as the valuation of IXI coin in fiat currencies is beyond the scope of this document.
 
@@ -456,7 +456,7 @@ The checksum values are explained below:
 You will note that the Block Checksum does not include all the fields in the block. Some fields are excluded from this checksum because of reasons given below:
 * signatures: Because the Block Checksum is generated when the block is first created, the final signatures cannot yet be known. This field
 is therefore expected to change and is "fixed" in a future block.
-* powField: This field is created with a null (zero) value when a block is first generated and may be filled out later during the Ixian PoW process. See [Ixian Hybrid PoW](https://projectixian.github.io/tech_docs/mining_pow.html)
+* powField: This field is created with a null (zero) value when a block is first generated and may be filled out later during the Ixian PoW process. See [Ixian Optional PoW - Mining](https://projectixian.github.io/tech_docs/mining_pow.html)
 * timestamp: This accuracy field cannot be verified exactly by neighboring DLT nodes, so it is not included in the block checksum.
 
 
