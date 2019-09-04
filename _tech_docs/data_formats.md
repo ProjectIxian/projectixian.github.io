@@ -166,7 +166,7 @@ Format = version
          | num_addresses | address_record
          | owner
 ```
-Note: For a description of the `address_record` format, see [Presence Address](#presenceaddress) in the next section.
+Note: For a description of the `address_record` format, see [Presence Address](/tech_docs/data_formats.html#presence-address) in the next section.
 
 # Presence Address
 ## Relevant C# objects:
@@ -224,8 +224,8 @@ to_list_entry = address_len | address | amount
 from_list_entry = address_len | address | amount
 ```
 Note: The amounts are sent as strings with decimal representation of IxiNumber values.
-Note: address in to_list_entry or from_list_entry is either a full address or a special address nounce value. Use the functions in the class `DLT.Address` to convert them into a proper format.  
-See also: [Address Format](#address-format)
+Note: address in to_list_entry or from_list_entry is either a full address or a special address nonce value. Use the functions in the class `DLT.Address` to convert them into a proper format.  
+See also: [Address Format](/tech_docs/data_formats.html#address-format)
 
 ***
 

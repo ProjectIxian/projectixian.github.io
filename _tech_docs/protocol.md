@@ -35,7 +35,7 @@ All Ixian messages follow the same overall structure with the following fields:
 | Message Code | int | Type of the network message. See a list of message codes below for possible values. |
 | Data Length | int | Length of the attached data field. Depends on `Message Code` and message contents. |
 | Data Checksum | byte[32] | A `sha512sqTrunc` checksum of the data field. |
-| Header Checksum | byte | A custom XOR-based checksum for sanity checking the header structure. See [Header Checksum](#header-checksum) for details. |
+| Header Checksum | byte | A custom XOR-based checksum for sanity checking the header structure. See [Header Checksum](/tech_docs/protocol.html#header-checksum) for details. |
 | Header End Byte | byte | A constant byte value which signifies header end. For Ixian, this is always 'I' (0x49). |
 | Data | byte[] | A variable-sized data block which contains a message specific to the provided `Message Code`. See the list of message codes for possible formats. |
 
@@ -55,42 +55,42 @@ Currently valid Ixian Message Codes are as follows:
 
 | Name | Value | Structure | Description |
 | --- | --- | --- | --- |
-| hello | 0 | [Hello](#hello) | This message type is used to initiate communication with another Ixian Node and contains basic identification data |
-| helloData | 1 | [Extended Hello](#extended-hello) | This message type is used as a reply to the `hello` message with additional DLT-related data. |
-| bye | 2 | [Bye](#bye) | This message should be sent before terminating a connection to another Ixian Node or a client. It contains the reason code for why the connection is being dropped as well as a short, human-readable explanation. |
-| getBlock | 3 | [Get Block](#get-block) | This message is used to request data for a particular block. |
-| blockData | 4 | [Block Data](#block-data) | This message is sent as a reply to `getBlock` with the requested block details. |
-| getTransaction | 9 | [Get Transaction](#get-transaction) | This message is used to request data for a particular transaction. |
-| transactionData | 10 | [Transaction Data](#transaction-data) | Used as a reply to `getTransaction` with the requested transaction details. |
-| syncWalletState | 13 | [Sync Wallet State](#sync-wallet-state) | Used to request WalletState synchronization from a neighbor node. |
-| walletState | 14 | [Wallet State](#wallet-state) | Used to confirm WalletState synchronization as a reply to `syncWalletState` and to include the most important metadata for the WalletState. |
-| newTransaction | 16 | [Transaction Data](#transaction-date) | Used to notify a neighboring DLT Node or Client that a new (interesting) transaction has arrived. |
-| newBlock | 17 | [Block Data](#block-data) | Used to notify a neighboring DLT Node that a new block has been generated or accepted. |
-| getWalletStateChunk | 20 | [Get WalletState Chunk](#get-walletstate-chunk) | Used to request a piece of the WalletState. This is only valid if WalletState synchronization has been established before by the message pair `syncWalletState`, `walletState`. |
-| walletStateChunk | 21 | [WalletState Chunk](#walletstate-chunk) | Contains a piece of the WalletSate as requested by `getWalletStateChunk`. |
-| getPresenceList | 22 | [Get Presence List](#get-presence-list) | Used to request synchronization of the Presence List. |
-| presenceList | 23 | [Presence List](#presence-list) | Used to transmit the presence list as requested by `getPresenceList`. |
-| updatePresence | 24 | [Update Presence](#update-presence) | Sends an updated Presence to a neighbor DLT Node or a Client. |
-| s2data | 26 | [S2 Data](#s2-data) | Used to transmit a piece of data between S2 Relay Nodes. Currently unused. |
-| s2failed | 27 | [S2 Failed](#s2-failed) | Signifies that an S2 data transmission was invalid or encountered a problem. Currently unused. |
-| s2signature | 28 | [S2 Signature](#s2-signature) | Currently unused. |
-| getBalance | 32 | [Get Balance](#get-balance) | Used to request balance for a specified Wallet. Primarily intended for Client -> DLT Node communication. |
-| balance | 33 | [Balance](#balance) | Response to `getBalance`. |
-| keepAlivePresence | 34 | [Keep Alive Presence](#keep-alive-presence) | Used to broadcast a Node or a Client's status to the network in order to update Presence Lists. |
-| getPresence | 35 | [Get Presence](#get-presence) | Requests presence information for a specified Address. |
-| getBlockTransactions | 36 | [Get Block Transactions](#get-block-transactions) | Requests transaction for the specified Block. |
-| transactionsChunk | 37 | [Transactions Chunk](#transactions-chunk) | Response to `getBlockTransactions` - can be sent multiple times if all Transactions do not fit into a single message. |
-| getUnappliedTransactions | 38 | [Get Unapplied Transactions](#get-unapplied-transactions) | Requests all Transactions from the recipient DLT Node which have not yet been applied on the blockchain. |
-| extend | 39 | [Extend](#extend) | Currently unused. |
-| attachEvent | 40 | [Attach Event](#attach-event) | Sent by Clients to a DLT or S2 Node in order to subscribe to an event (start receiving messages when the specified event occurs). |
-| detachEvent | 41 | [Detach Event](#detach-event) | Sent by Clients to a DLT or S2 Node in order to unsubscribe from an event (stop receiving messages related to the specified event). |
-| newBlockSignature | 42 | [New Block Signature](#new-block-signature) | Informs a neighbor DLT Node that the specified Block has an additional signature. |
-| getBlockSignatures | 43 | [Get Block Signatures](#get-block-signatures) | Requests all signatures for the specified Block. |
-| blockSignatures | 44 | [Block Signatures](#block-signatures) | Response to `getBlockSignatures`, containing all signatures for the specified Block. |
-| getNextSuperBlock | 45 | [Get Next Superblock](#get-next-superblock) | Requests the next Superblock in the chain based on a Block checksum. |
-| getBlockHeaders | 46 | [Get Block Headers](#get-block-headers) | Requests partial Block information (Block Headers only) from a DLT Node. Used primarily by client nodes in the TIV (Transaction Inclusion Verification) process. |
-| blockHeaders | 47 | [Block Headers](#block-headers) | Response to `getBlockHeaders`. |
-| getRandomPresences | 48 | [Get Random Presences](#get-random-presences) | Requests a number of random Presences of the specified type. Used primarily by Clients when choosing new Nodes to connect to. |
+| hello | 0 | [Hello](/tech_docs/protocol.html#hello) | This message type is used to initiate communication with another Ixian Node and contains basic identification data |
+| helloData | 1 | [Extended Hello](/tech_docs/protocol.html#extended-hello) | This message type is used as a reply to the `hello` message with additional DLT-related data. |
+| bye | 2 | [Bye](/tech_docs/protocol.html#bye) | This message should be sent before terminating a connection to another Ixian Node or a client. It contains the reason code for why the connection is being dropped as well as a short, human-readable explanation. |
+| getBlock | 3 | [Get Block](/tech_docs/protocol.html#get-block) | This message is used to request data for a particular block. |
+| blockData | 4 | [Block Data](/tech_docs/protocol.html#block-data) | This message is sent as a reply to `getBlock` with the requested block details. |
+| getTransaction | 9 | [Get Transaction](/tech_docs/protocol.html#get-transaction) | This message is used to request data for a particular transaction. |
+| transactionData | 10 | [Transaction Data](/tech_docs/protocol.html#transaction-data) | Used as a reply to `getTransaction` with the requested transaction details. |
+| syncWalletState | 13 | [Sync Wallet State](/tech_docs/protocol.html#sync-wallet-state) | Used to request WalletState synchronization from a neighbor node. |
+| walletState | 14 | [Wallet State](/tech_docs/protocol.html#wallet-state) | Used to confirm WalletState synchronization as a reply to `syncWalletState` and to include the most important metadata for the WalletState. |
+| newTransaction | 16 | [Transaction Data](/tech_docs/protocol.html#transaction-date) | Used to notify a neighboring DLT Node or Client that a new (interesting) transaction has arrived. |
+| newBlock | 17 | [Block Data](/tech_docs/protocol.html#block-data) | Used to notify a neighboring DLT Node that a new block has been generated or accepted. |
+| getWalletStateChunk | 20 | [Get WalletState Chunk](/tech_docs/protocol.html#get-walletstate-chunk) | Used to request a piece of the WalletState. This is only valid if WalletState synchronization has been established before by the message pair `syncWalletState`, `walletState`. |
+| walletStateChunk | 21 | [WalletState Chunk](/tech_docs/protocol.html#walletstate-chunk) | Contains a piece of the WalletState as requested by `getWalletStateChunk`. |
+| getPresenceList | 22 | [Get Presence List](/tech_docs/protocol.html#get-presence-list) | Used to request synchronization of the Presence List. |
+| presenceList | 23 | [Presence List](/tech_docs/protocol.html#presence-list) | Used to transmit the presence list as requested by `getPresenceList`. |
+| updatePresence | 24 | [Update Presence](/tech_docs/protocol.html#update-presence) | Sends an updated Presence to a neighbor DLT Node or a Client. |
+| s2data | 26 | [S2 Data](/tech_docs/protocol.html#s2-data) | Used to transmit a piece of data between S2 Relay Nodes. Currently unused. |
+| s2failed | 27 | [S2 Failed](/tech_docs/protocol.html#s2-failed) | Signifies that an S2 data transmission was invalid or encountered a problem. Currently unused. |
+| s2signature | 28 | [S2 Signature](/tech_docs/protocol.html#s2-signature) | Currently unused. |
+| getBalance | 32 | [Get Balance](/tech_docs/protocol.html#get-balance) | Used to request balance for a specified Wallet. Primarily intended for Client -> DLT Node communication. |
+| balance | 33 | [Balance](/tech_docs/protocol.html#balance) | Response to `getBalance`. |
+| keepAlivePresence | 34 | [Keep Alive Presence](/tech_docs/protocol.html#keep-alive-presence) | Used to broadcast a Node or a Client's status to the network in order to update Presence Lists. |
+| getPresence | 35 | [Get Presence](/tech_docs/protocol.html#get-presence) | Requests presence information for a specified Address. |
+| getBlockTransactions | 36 | [Get Block Transactions](/tech_docs/protocol.html#get-block-transactions) | Requests transaction for the specified Block. |
+| transactionsChunk | 37 | [Transactions Chunk](/tech_docs/protocol.html#transactions-chunk) | Response to `getBlockTransactions` - can be sent multiple times if all Transactions do not fit into a single message. |
+| getUnappliedTransactions | 38 | [Get Unapplied Transactions](/tech_docs/protocol.html#get-unapplied-transactions) | Requests all Transactions from the recipient DLT Node which have not yet been applied on the blockchain. |
+| extend | 39 | [Extend](/tech_docs/protocol.html#extend) | Currently unused. |
+| attachEvent | 40 | [Attach Event](/tech_docs/protocol.html#attach-event) | Sent by Clients to a DLT or S2 Node in order to subscribe to an event (start receiving messages when the specified event occurs). |
+| detachEvent | 41 | [Detach Event](/tech_docs/protocol.html#detach-event) | Sent by Clients to a DLT or S2 Node in order to unsubscribe from an event (stop receiving messages related to the specified event). |
+| newBlockSignature | 42 | [New Block Signature](/tech_docs/protocol.html#new-block-signature) | Informs a neighbor DLT Node that the specified Block has an additional signature. |
+| getBlockSignatures | 43 | [Get Block Signatures](/tech_docs/protocol.html#get-block-signatures) | Requests all signatures for the specified Block. |
+| blockSignatures | 44 | [Block Signatures](/tech_docs/protocol.html#block-signatures) | Response to `getBlockSignatures`, containing all signatures for the specified Block. |
+| getNextSuperBlock | 45 | [Get Next Superblock](/tech_docs/protocol.html#get-next-superblock) | Requests the next Superblock in the chain based on a Block checksum. |
+| getBlockHeaders | 46 | [Get Block Headers](/tech_docs/protocol.html#get-block-headers) | Requests partial Block information (Block Headers only) from a DLT Node. Used primarily by client nodes in the TIV (Transaction Inclusion Verification) process. |
+| blockHeaders | 47 | [Block Headers](/tech_docs/protocol.html#block-headers) | Response to `getBlockHeaders`. |
+| getRandomPresences | 48 | [Get Random Presences](/tech_docs/protocol.html#get-random-presences) | Requests a number of random Presences of the specified type. Used primarily by Clients when choosing new Nodes to connect to. |
 
 # Message Data
 
@@ -104,7 +104,7 @@ Currently valid Ixian Message Codes are as follows:
 | Name | Type | Description |
 | --- | --- | --- |
 | Protocol Version | int | Version of the network protocol. |
-| Address Length | int | Lenght of the subsequent Address field. |
+| Address Length | int | Length of the subsequent Address field. |
 | Address | byte[] | Public address of the sender. |
 | Is Test Net? | bool | Indicator whether this communication is intended for the Ixian Testnet. Mainnet messages must not be processed in the Testnet or vice-versa! |
 | Node Type | byte | Type of the sending node. Possible values: 'C' (Client), 'R' (Relay), 'M' (Master), 'H' (Master-Full history). |
@@ -112,7 +112,7 @@ Currently valid Ixian Message Codes are as follows:
 | Device ID | string | Unique identifier of the sending device. |
 | Pubkey Length | int | Length of the subsequent Public Key field. |
 | Pubkey | byte[] | Public Key of the sender. |
-| Public Port | int | TCP Port number on which the sender is reachable. (Ignored for Clients which are connecting through a Relaye Node.) |
+| Public Port | int | TCP Port number on which the sender is reachable. (Ignored for Clients which are connecting through a Relay Node.) |
 | Timestamp | long | Current timestamp as a number of 100-nanosecond intervals since 1971-01-01. |
 | Signature Length | int | Length of the subsequent Signature field. |
 | Signature | byte[] | Signature (see below). |
@@ -121,7 +121,7 @@ Currently valid Ixian Message Codes are as follows:
 
 ### Signature
 
-The Hello signature is created by contatenating some known pieces of data, then signing the resulting data field with the sender's private key, thus proving that the provided public key really does belong to the sender.
+The Hello signature is created by concatenating some known pieces of data, then signing the resulting data field with the sender's private key, thus proving that the provided public key really does belong to the sender.
 The signature data is a string, constructed as follows:
 
 "Ixian-<device_id>-<timestamp>-<publicIPPort>"
@@ -140,7 +140,7 @@ Where:
 | Name | Type | Description |
 | --- | --- | --- |
 | Protocol Version | int | Version of the network protocol. |
-| Address Length | int | Lenght of the subsequent Address field. |
+| Address Length | int | Length of the subsequent Address field. |
 | Address | byte[] | Public address of the sender. |
 | Is Test Net? | bool | Indicator whether this communication is intended for the Ixian Testnet. Mainnet messages must not be processed in the Testnet or vice-versa! |
 | Node Type | byte | Type of the sending node. Possible values: 'C' (Client), 'R' (Relay), 'M' (Master), 'H' (Master-Full history). |
@@ -148,7 +148,7 @@ Where:
 | Device ID | string | Unique identifier of the sending device. |
 | Pubkey Length | int | Length of the subsequent Public Key field. |
 | Pubkey | byte[] | Public Key of the sender. |
-| Public Port | int | TCP Port number on which the sender is reachable. (Ignored for Clients which are connecting through a Relaye Node.) |
+| Public Port | int | TCP Port number on which the sender is reachable. (Ignored for Clients which are connecting through a Relay Node.) |
 | Timestamp | long | Current timestamp as a number of 100-nanosecond intervals since 1971-01-01. |
 | Signature Length | int | Length of the subsequent Signature field. |
 | Signature | byte[] | Signature (see below). |

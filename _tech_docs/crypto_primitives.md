@@ -3,7 +3,7 @@ title: Cryptographic primitives
 ---
 
 # Cryptographic primitives
-Below is a list of all cryptographic opearations used by the Ixian DLT and S2 networks. The list contains a brief reasoning for the choice and a list places where the primitive is being used.
+Below is a list of all cryptographic operations used by the Ixian DLT and S2 networks. The list contains a brief reasoning for the choice and a list places where the primitive is being used.
 
 ## Signature - RSA with SHA512
 See: [RSACryptoServiceProvider.SignData](https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rsacryptoserviceprovider.signdata?view=netframework-4.7.2)
@@ -15,7 +15,7 @@ Key size: Minimum 4096 bits
 | Code file | Function | Input data | Reason |
 | --- | --- | --- | --- |
 | Block.cs | applySignature() | blockChecksum | Working of the Ixian's Consensus algorithm - nodes sign the block they consider valid with their private key using RSA/SHA512 to achieve an acceptable speed of verification. |
-| Block.cs | verifySignature() | blockChecksum | Each signature on the `Block` is verified agains the signing node's public key in the WalletState. Valid signatures are counted to determine the block acceptance consensus. |
+| Block.cs | verifySignature() | blockChecksum | Each signature on the `Block` is verified against the signing node's public key in the WalletState. Valid signatures are counted to determine the block acceptance consensus. |
 | CoreNetworkProtocol.cs | sendHelloMessage() | unique device identification data | Nodes sign their unique identification when they send the initial protocol handshake message to prevent impersonation on the network. |
 | CoreNetworkProtocol.cs | processHelloMessage() | unique device identification data | Upon receiving the Hello message, each node should verify that the signature is valid, in order to prevent impersonation on the network. |
 | PresenceList.cs | keepAlive() | unique device id + timestamp | Nodes sign their Keep Alive messages in order to prevent impersonation and Presence List falsification. |
@@ -48,7 +48,7 @@ return h2.First(hash_len);
 | NetworkRemoteEndpoint.cs | sendData() | 32 bytes | The hash is used to ensure network message integrity during transmission by nodes on block version 2. |
 | Transaction.cs | generateID() | 44 bytes | The hash is used as a part of the unique transaction identifier in version 2. |
 | Transaction.cs | calculateChecksum() | 44 bytes | The hash is used as the transaction checksum, in order to protect the integrity of the data in version 2. This checksum is then used as the input data for the transaction sender signature. |
-| Wallet.cs | calculateChecksum() | 44 bytes | The hash is used as the wallet checksum for version 2 wallets in order to prevent tampering and ensure ingegrity. |
+| Wallet.cs | calculateChecksum() | 44 bytes | The hash is used as the wallet checksum for version 2 wallets in order to prevent tampering and ensure integrity. |
 | WalletState.cs | calculateWalletStateChecksum() | 64 bytes | The hash is used as the checksum for all wallet data in the WalletState. This is included in each block to validate a certain point-in-time state of all wallets. |
 | WalletStorage.cs | generateNewAddress() | 16 bytes | The hashing algorithm is used to derive additional wallet version 1 addresses from the same public key, thus allowing the user to create new wallets and associate them with a single public/private key pair. |
 
@@ -78,6 +78,6 @@ return h4.First(hash_len);
 | NetworkRemoteEndpoint.cs | sendData() | 32 bytes | The hash was used to ensure network message integrity during transmission by nodes on block version 0 and 1. |
 | Transaction.cs | generateID() | 44 bytes | The hash was used as a part of the unique transaction identifier in version 0 and 1. |
 | Transaction.cs | calculateChecksum() | 44 bytes | The hash was used as the transaction checksum, in order to protect the integrity of the data in version 0 and 1. This checksum is then used as the input data for the transaction sender signature. |
-| Wallet.cs | calculateChecksum() | 44 bytes | The hash was used as the wallet checksum for version 0 and 1 wallets in order to prevent tampering and ensure ingegrity. |
+| Wallet.cs | calculateChecksum() | 44 bytes | The hash was used as the wallet checksum for version 0 and 1 wallets in order to prevent tampering and ensure integrity. |
 | WalletState.cs | calculateWalletStateChecksum() | 64 bytes | The hash was used as the checksum for all wallet data in the WalletState before block version 2. This is included in each block to validate a certain point-in-time state of all wallets. |
 | WalletStorage.cs | generateNewAddress() | 16 bytes | The hashing algorithm is used to derive additional wallet version 0 addresses from the same public key, thus allowing the user to create new wallets and associate them with a single public/private key pair. |

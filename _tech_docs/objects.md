@@ -21,14 +21,14 @@ Represents the fundamental structure of a DLT block, a basic object of the block
 | version | int | Block version. Current active version = 5. |
 | blockChecksum | byte[] | SHA512 checksum of the block contents. Please note that the checksum does not include the signatures. (See: signatureFreezeChecksum) |
 | lastBlockChecksum | byte[] | Checksum for the previous block in the chain. (blockNum - 1) |
-| walletStateChecksum | byte[] | Checksum of the contents of the [Wallet State](#Wallet-State) |
+| walletStateChecksum | byte[] | Checksum of the contents of the [Wallet State](/tech_docs/objects.html#Wallet-State) |
 | signatureFreezeChecksum | byte[] | Checksum for the fifth-previous block's signature fields. This 'locks' the signature field for the block `blockNum-5`. |
 | timestamp | long | Unix epoch value, representing the moment this block was generated. (One second precision.) |
 | difficulty | ulong | PoW Difficulty value, representing the hashing difficulty to calculate a `PoW Solution` for this block. (link wiki page on pow) |
 | superBlockSegments | Dictionary<ulong, SuperBlockSegment> | Only populated for Superblocks. Contains a list of previous blocks and their checksums since the previous Superblock. |
 | lastSuperBlockChecksum | byte[] | Checksum of the previous Superblock. The Superblocks form a slower block chain on top of the Ixian block chain and store the most critical information for old regular blocks - this prevents certain exploit types due to the Redacted Blockchain concept. |
 | lastSuperBlockNum | ulong | Number of the previous Superblock. As of Block Version 5 every 1000th block should be a Superblock (there should be 999 regular blocks between two superblocks), but this value has changed (and might change again), so this field tracks the previous Superblock in the chain. |
-| powField | byte[] | PoW solution for this block. Note: this field is not transmitted over the network, because it can easily be obtained from the [Transaction Pool](#Transaction-Pool) |
+| powField | byte[] | PoW solution for this block. Note: this field is not transmitted over the network, because it can easily be obtained from the [Transaction Pool](/tech_docs/objects.html#Transaction-Pool) |
 | compacted | bool | Indicates whether this block has been compacted by using Superblocks, as per Block Version 5 concepts. |
 
 
@@ -44,15 +44,15 @@ Represents the DLT blocks in the node's memory. If the node is a `full history n
 
 | Field | Type | Description |
 | --- | --- | --- |
-| blocks | List<[Block](#Block)> | A sequential list of the Blocks in the current `redactedWindow`. |
-| blocksDictionary | Dictionary<ulong, [Block](#Block)> | Secondary lookup method for blocks in memory for faster access. |
+| blocks | List<[Block](/tech_docs/objects.html#Block)> | A sequential list of the Blocks in the current `redactedWindow`. |
+| blocksDictionary | Dictionary<ulong, [Block](/tech_docs/objects.html#Block)> | Secondary lookup method for blocks in memory for faster access. |
 | lastBlockReceivedTime | long | Unix epoch value for when the most recent block was received from the network. Used either to determine when the next block should be generated (for the currently elected nodes), or to detect if the DLT network has stalled. |
 | lastBlock | Block | The most recent accepted block - because it is used quite often this local variable acts as a cache for faster lookups. |
 | lastBlockNum | ulong | Number of the most recently accepted block. |
 | lastBlockVersion | int | Block Version of the most recently accepted block. |
 | lastSuperBlockNum | ulong | Number of the most recently accepted Superblock. |
 | lastSuperBlockChecksum | byte[] | Checksum value of the most recently accepted Superblock. |
-| genesisBlock | Block | Holds a copy of the Genesis block in its entirety. Used to verify legitimacy of the chain by following Superblocks and then normal Blocks from the Genesis to the current bloclheight. |
+| genesisBlock | Block | Holds a copy of the Genesis block in its entirety. Used to verify legitimacy of the chain by following Superblocks and then normal Blocks from the Genesis to the current block height. |
 | Count | long | Number of blocks in memory. |
 
 
@@ -62,7 +62,7 @@ Represents the DLT blocks in the node's memory. If the node is a `full history n
 `IXICore.Transaction`
 
 ## Description
-Represents all possible transaction types that the network currently supports. In order to transfer funds or make a change to a wallet, you use the `Transaction` class to create a transaction object and send add it to the Node's [Transaction Pool](#Transaction-Pool). The node will then send it to the rest of the network, provided it passes validation.
+Represents all possible transaction types that the network currently supports. In order to transfer funds or make a change to a wallet, you use the `Transaction` class to create a transaction object and send add it to the Node's [Transaction Pool](/tech_docs/objects.html#Transaction-Pool). The node will then send it to the rest of the network, provided it passes validation.
 
 ## Enumerations
 ### Transaction Type
@@ -93,9 +93,9 @@ Type of change which is performed on a multisig wallet. Only valid for the Trans
 | --- | --- | --- |
 | version | int | Version of the transaction. Higher versions enable new features and support new address and key formats. It is recommended to always generate the highest possible version of transactions. |
 | id | string | Unique transaction identifier. |
-| type | int | Transaction type. See [Transaction Types](#transaction-types) |
-| amount | IxiNumber | Total amount of funds being trasferred or deposited. |
-| fee | IxiNumber | Total fee that must be paid in order that this transaction is processed. Fee has a specified minimum, depending on the transaction object length in bytes, but it may be increased by clients to priorizite transactions. |
+| type | int | Transaction type. See [Transaction Types](/tech_docs/objects.html#transaction-types) |
+| amount | IxiNumber | Total amount of funds being transferred or deposited. |
+| fee | IxiNumber | Total fee that must be paid in order that this transaction is processed. Fee has a specified minimum, depending on the transaction object length in bytes, but it may be increased by clients to prioritize transactions. |
 | fromList | SortedDictionary<byte[], IxiNumber> | A list of originating wallets, where the amount and fee will be deducted. Please note that the sum of all `Value` fields in the dictionary must be equal to `amount + fee`. |
 | toList | SortedDictionary<byte[], IxiNumber | A list of destination wallets, where the funds will be deposited. Please note that the sum of all `Value` fields in the dictionary must be equal to `amount`. |
 | data | byte[] | Additional data associated with the transaction. Used for `MultisigTX` and variants. May be set by the user for normal transactions. |
@@ -113,13 +113,13 @@ Type of change which is performed on a multisig wallet. Only valid for the Trans
 `DLT.TransactionPool`
 
 ## Description
-Contains all [Transactions](#transaction) which are referenced in the current window of the redacted blockchain.
+Contains all [Transactions](/tech_docs/objects.html#transaction) which are referenced in the current window of the redacted blockchain.
 
 ## Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| transactions | Dictionary<string, [Transaction](#transaction)> | A dictionary of all transactions, accessed through their transaction id (txid). |
+| transactions | Dictionary<string, [Transaction](/tech_docs/objects.html#transaction)> | A dictionary of all transactions, accessed through their transaction id (txid). |
 
 # Wallet
 ## C# Object
@@ -143,7 +143,7 @@ Wallet types currently include:
 | --- | --- | --- |
 | id | byte[] | Unique wallet address. The address is generated from the user's public key and the 'wallet nonce'. |
 | balance | IxiNumber | Amount of funds in the wallet. |
-| type | [WalletType](#wallet-types)  | Type of the wallet. |
+| type | [WalletType](/tech_docs/objects.html#wallet-types)  | Type of the wallet. |
 | requiredSigs | byte | Only for `type == Multisig` - the number of required signatures before a transaction to spend funds from this wallet is valid. |
 | allowedSigners | byte[][] | Addresses of other wallets who are allowed as signers on this wallet. Only for `type == Multisig`. |
 | data | byte[] | Additional wallet data. Mainly planned to be used with S2. |
@@ -158,7 +158,7 @@ Wallet types currently include:
 The WalletState object is under redesign as part of the `WalletStateJournal` implementation of transactional logging.
 
 ## Description
-This object is responsible for maintaining the Ixian 'Wallet State' - the list of all known wallets in the Ixian DLT. The WalletState includes methods to calculate its own checksum, which then becomes bart of each [Block](#block).  
+This object is responsible for maintaining the Ixian 'Wallet State' - the list of all known wallets in the Ixian DLT. The WalletState includes methods to calculate its own checksum, which then becomes part of each [Block](/tech_docs/objects.html#block).  
 In this method, each accepted `Block` confirms a particular state of all wallets. This includes their balances, configuration (see `MultiSig Wallets`) and any additional user-data which is attached.  
   
 In addition to holding the current state of all wallets, the `WalletState` object can also 'snapshot' the state and later return to the saved snapshot. This allows the node to run efficient "What if" scenarios when testing validity of blocks or individual transactions.
@@ -167,13 +167,13 @@ In addition to holding the current state of all wallets, the `WalletState` objec
 
 | Field | Type | Description |
 | --- | --- | --- |
-| stateLock | Object | Used for internal multithreaded synchronization. |
+| stateLock | Object | Used for internal multi-threaded synchronization. |
 | version | int | Version of the `WalletState`, used primarily to determine the maximum version of `Address` it can contain. |
-| walletState | Dictionary<byte[], [Wallet](#wallet)> | A dictionary of all currently-known wallets. They are accessed through their addresses, which are internally represented as byte arrays. |
-| cachedChecksum | byte[] | After each complete checksum is calculated, it is stored in this field. If any wallet is changed in any way, this field is reset to null. This enables faster checksum lookups when the contents of the `WalletState` havent' changed between calls. |
-| wsDelta | Dictionary<byte[], [Wallet](#wallet) | Internal structure which enables the 'snapshot' functionality. |
+| walletState | Dictionary<byte[], [Wallet](/tech_docs/objects.html#wallet)> | A dictionary of all currently-known wallets. They are accessed through their addresses, which are internally represented as byte arrays. |
+| cachedChecksum | byte[] | After each complete checksum is calculated, it is stored in this field. If any wallet is changed in any way, this field is reset to null. This enables faster checksum lookups when the contents of the `WalletState` haven't changed between calls. |
+| wsDelta | Dictionary<byte[], [Wallet](/tech_docs/objects.html#wallet) | Internal structure which enables the 'snapshot' functionality. |
 | cachedDeltaChecksum | byte[] | Similar as `cachedChecksum`, but is instead used whenever a WalletState snapshot exists. |
-| cachedTotalSupply | IxiNumber | Used to acche the total amount of IXI in circulation, to speed up lookup for subsequent calls if the WS content have not changed. |
+| cachedTotalSupply | IxiNumber | Used to cache the total amount of IXI in circulation, to speed up lookup for subsequent calls if the WS content have not changed. |
 | numWallets | int | Shortcut variable which returns the number of wallets in WalletState. |
 | hasSnapshot | bool | Returns true if a WalletState snapshot currently exists. |
 
@@ -190,7 +190,7 @@ The `Address` object is primarily used to convert different input address types 
 | --- | --- | --- |
 | version | int | The version of the address, which was recognized from the input data. |
 | address | byte[] | The internal representation of an address, which can be used to look up a specific Wallet. |
-| nonce | byte[] | Used for Address v1 and above - specifies the `nonce` value which was used to generate this wallet from a primary public key. The primary address for each public key has this value set to `null`. Derived (additional) addresses may have any `nonce` value, but it is the implementation's responsibiltiy to track which ones are in use. In order to make this simpler, the reference implementation uses sequential `nonce` values. |
+| nonce | byte[] | Used for Address v1 and above - specifies the `nonce` value which was used to generate this wallet from a primary public key. The primary address for each public key has this value set to `null`. Derived (additional) addresses may have any `nonce` value, but it is the implementation's responsibility to track which ones are in use. In order to make this simpler, the reference implementation uses sequential `nonce` values. |
 
 # Presence
 ## C# Object
@@ -203,11 +203,11 @@ A single presence object contains information about a live node or client on the
 
 | Field | Type | Description |
 | --- | --- | --- |
-| version | int | Presence entry vesion. Currenty fixed at 0x0. |
+| version | int | Presence entry version. Currently fixed at 0x0. |
 | wallet | byte[] | Node or Client's wallet address. |
 | pubkey | byte[] | The public key associated with the presence. This field may be null if the public key has not been encountered yet in a transaction. |
-| metadata | byte[] | Additional information about the node or client. Mainly indended for use with S2 clients. |
-| addresses | List<[PresenceAddress](#presenceaddress)> | List of contact points where this node or client may be reached. |
+| metadata | byte[] | Additional information about the node or client. Mainly intended for use with S2 clients. |
+| addresses | List<[PresenceAddress](/tech_docs/objects.html#presenceaddress)> | List of contact points where this node or client may be reached. |
 
 
 # Presence Address
@@ -221,7 +221,7 @@ Presence address contains enough information to allow contacting the owner of th
 
 | Field | Type | Description |
 | --- | --- | --- |
-| version | int | Presence address vesion. Currenty fixed at 0x0. |
+| version | int | Presence address version. Currently fixed at 0x0. |
 | device | string | ID of the device - for use when a single wallet is used by multiple devices belonging to the same user. |
 | address | string | The address where this device is reachable - usually "IP:port". |
 | type | char | Type of the node represented by this presence. See the table 'Presence Types' below. |
@@ -233,9 +233,9 @@ Presence address contains enough information to allow contacting the owner of th
 
 | Type code | Description |
 | --- | --- |
-| M | Master node - processess DLT transactions and participates in the Ixian Consensus algorithm. |
+| M | Master node - processes DLT transactions and participates in the Ixian Consensus algorithm. |
 | R | Relay node - Transmits and receives messages for the S2 network. |
-| D | Client (direct connection) - Client device which is able to be directly contactet - (public IP and no NAT/Firewall). |
+| D | Client (direct connection) - Client device which is able to be directly contacted - (public IP and no NAT/Firewall). |
 | C | Client (via relay) - Client, which must be contacted via its relay node. |
 
 Note: For the address type 'C', the `address` field will contain the relay node's address.
@@ -251,10 +251,10 @@ The Presence List object holds all [Presences](#presence) currently known to the
 
 | Field | Type | Description |
 | --- | --- | --- |
-| presences | List<[Presence](#presence)> | A list of all known presences. |
-| curNodePresenceAddress | [PresenceAddress](#presence-address) | The `PresenceAddress` which represents the node. |
-| curNodePresence | [Presence](#presence) | The `Presence` which represents the node. |
-| presenceCount | Dictionary<char, long> | Number of nodes for each node type. See [Presence Address](#presence-address) for type codes. |
+| presences | List<[Presence](/tech_docs/objects.html#presence)> | A list of all known presences. |
+| curNodePresenceAddress | [PresenceAddress](/tech_docs/objects.html#presence-address) | The `PresenceAddress` which represents the node. |
+| curNodePresence | [Presence](/tech_docs/objects.html#presence) | The `Presence` which represents the node. |
+| presenceCount | Dictionary<char, long> | Number of nodes for each node type. See [Presence Address](/tech_docs/objects.html#presence-address) for type codes. |
 | keepAliveThread | Thread | The thread process which occasionally send keep alive messages to their neighbors to ensure they are still reachable. |
 | autoKeepAlive | bool | Flag indicating whether the `PresenceList` object should automatically send keep alive messages to refresh its own Presence List entry in the neighbor nodes. If this field is set to `false`, the `keepAliveThread` will stop running. |
 | forceSendKeepAlive | bool | If this field is set to `true`, the PresenceList will send out a KeepAlive message as soon as possible, rather than waiting for the next KeepAlive interval to expire. |
