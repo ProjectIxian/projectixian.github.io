@@ -1,7 +1,12 @@
 ---
 layout: default
 ---
-{{ content }}
-{% for sdk_demo in site.sdk_demos %}
-    <a href="{{ sdk_demo.url }}">{{ sdk_demo.title }}</a><br/>
-{% endfor %}
+<div class="contentWrapper">
+    <nav class="leftNavigation">
+        <div class="navTitle">SDK Demos</div>
+        {% for sdk_demo in site.sdk_demos %}
+            <a href="{{ sdk_demo.url }}" {% if page.url == sdk_demo.url %}class="selected"{% endif %}>{{ sdk_demo.title }}</a>
+        {% endfor %}
+    </nav><div class="content">{{ content }}
+    </div>
+</div>
