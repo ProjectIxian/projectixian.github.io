@@ -17,6 +17,16 @@ body
     background: #111111;
 }
 
+h2
+{
+    padding-top: 10px;
+}
+
+h3, h4
+{
+    padding-top: 6px;
+}
+
 .widthLimiter
 {
     width: 1000px;
