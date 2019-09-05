@@ -1,6 +1,6 @@
 ---
 title: Ixian DLT Whitepaper
-version: 0.91
+version: 0.92
 modDate: 5th September 2019
 ---
 
@@ -23,28 +23,19 @@ modDate: 5th September 2019
 9. Scaling plans
 10. Conclusion
 11. Glossary
+12. Document changelog
 
 
 ## 0. About This Document
 
 Document versions:
 
-| Version | Status | Date | By |
-| --- | --- | --- | --- |
-| 0.91 | Final Draft | 2019-09-05 | Damir Rekic |
-| 0.9 | Final Draft | 2019-09-05 | Marko Zagar |
+| Version | Status | Date |
+| --- | --- | --- |
+| 0.92 | Final Draft | 2019-09-05 |
+| 0.91 | Final Draft | 2019-09-05 |
+| 0.9 | Final Draft | 2019-09-05 |
 
-### Changelog
-
-0.91:
- - Style corrections
- - Spelling
- - Wording in some places
-
-0.9: 
- - Added versioning and Changelog
- - Updated Glossary
- 
 
 
 ## 1. Introduction
@@ -738,3 +729,16 @@ A lightweight protocol used by Ixian Clients to quicly verify that some transact
 Data structure maintained by all DLT nodes, which keeps track of all existing non-empty wallets and their contents.
 
 
+## 12. Document changelog
+
+0.92:
+ - Removed 'By' from the version table
+
+0.91:
+ - Style corrections
+ - Spelling
+ - Wording in some places
+
+0.9:
+ - Added versioning and Changelog
+ - Updated Glossary
