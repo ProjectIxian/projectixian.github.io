@@ -5,6 +5,7 @@ modDate: 5th September 2019
 ---
 
 ## Contents
+0. About This Document
 1. Introduction
 2. Features
 3. High Level Overview
@@ -22,6 +23,22 @@ modDate: 5th September 2019
 9. Scaling plans
 10. Conclusion
 11. Glossary
+
+
+## 0. About This Document
+
+Document versions:
+
+| Version | Status | Date | By |
+| --- | --- | --- | --- |
+| 0.9 | Final Draft | 2019-09-05 | Marko Zagar |
+
+### Changelog
+
+0.9: 
+ - Added versioning and Changelog
+ - Updated Glossary
+ 
 
 
 ## 1. Introduction
@@ -209,7 +226,7 @@ The elected node generates a block with the data in the previous section, signs 
 
 If the node finds all the checks in order, it will add its own signature to the list and inform its neighbors of the change. Only the new signature is transmitted to save network bandwidth. The neighbors will then propagate this signature until it has spread to all the Master nodes. If a specific neighbor has not yet received the currently worked-upon block, it will request it from the network. There is no need to transmit and re-transmit the data again.
 
-Note: Until version 0.6.4 the entire block was transmitted in order to speed up block propagation.
+Note: Until version 0.6.4 the entire block was transmitted in an attempt to speed up block propagation, but testing has shown that this is not necessary.
 
 
 #### If the Generated Block is Invalid
@@ -282,7 +299,9 @@ The Ixian blockchain deviates from the more common approach by other DLT project
 * Value of the existing currency increases dramatically.
 
 
-Because the Ixian project is aiming at a stable ecosystem which rewards work and services, rather than simply holding on to 'digital stock'. Hoarding the currency should not yield greater benefits and wanted to keep the price of IXI coins to remain relatively stable and low enough for normal usage. Therefore, the reference node implementation includes several methods for generating new currency. The actual rate at which new IXI coins are created is hard-coded into the reference implementation and changes based on the current block height to reach the specified targets. The rates are:
+Because the Ixian project is aiming at a stable ecosystem which rewards work and services, rather than simply holding on to 'digital stock'. It is the intention of the Ixian founders that hoarding Ixicash  should not yield greater benefits than simply operating in the Ixian ecosystem, so that the price of IXI coins remains relatively stable and low enough for normal usage. We think it would be preferable for Ixian users (and developers) to contribute to the project in a different way than just buying and selling IxiCoins.
+
+Therefore, the reference node implementation includes several methods for generating new currency as an effort to keep the price relatively stable over time. The actual rate at which new IXI coins are created is hard-coded into the Ixian DLT binary and changes based on the current block height to reach the specified targets. The rates are:
 * 0.1% yearly inflation for the first month of operation
 * 5% inflation from the second month until 50 billion IxiCash is generated
 * 1% inflation from 50 billion until 100 billion IxiCash is generated
@@ -599,6 +618,8 @@ The most problematic algorithms in use by Ixian are the signature schemes (RSA) 
 
 At the time of writing, no practical quantum attack on AES has been proposed, so AES with sufficient key sizes (above 128 bits) is considered quantum-resistant. Ixian uses AES256 for all encryption operations and most modern hardware implements this standard, reducing the CPU load.
 
+Please note that wallets, which have never been used to withdraw funds (`unspent wallets`) do not even have a theoretically possible attack, since their respective public keys are not known. It is unfeasible, even for an advanced quantum computer to deduce the public key from an Ixian Wallet address.
+
 ### Mitigation for RSA
 
 Despite the (seemingly) distant danger, research is already being done in the field of *Post-Quantum Cryptography*. Several schemes have already been proposed to mitigate or nullify the advantage of quantum algorithms. Notable examples include (in the order of most interesting for Ixian to least interesting):
@@ -659,11 +680,6 @@ Ixian project is not complete and it is likely that the work will proceed for qu
 
 
 ## 11. Glossary
-### Node
-Device connected to a network of other devices operating on the same protocol.
-
-### Distributed Ledger Technology (DLT)
-DLT is a technology that allows data replication, sharing and synchronization across multiple nodes. There is no central administrator, no centralized data storage and no single point of failure.
 
 ### Blockchain
 Blockchain is a DLT that is used to maintain a continuously growing list of records, called blocks. Each block contains a timestamp and a link to a previous block
@@ -671,5 +687,49 @@ Blockchain is a DLT that is used to maintain a continuously growing list of reco
 ### Cryptocurrency
 A digital asset designed to work as a medium of exchange using cryptography to secure the transactions and to control the creation of additional units of the currency. Since it operates in a trustless system it has no central authority and no single point of failure.
 
+### Distributed Ledger Technology (DLT)
+DLT is a technology that allows data replication, sharing and synchronization across multiple nodes. There is no central administrator, no centralized data storage and no single point of failure.
+
+### Ixiac
+Ixian's proprietary consensus-based algorithm. It forms the basis for block acceptance and validation in the Ixian DLT.
+
 ### IxiCash, Ixi Coin, IXI Coin, IXI (used interchangeably)
 Native cryptocurrency of Ixian DLT.
+
+### Multisig (Multi-signature) Wallets
+A special type of Cryptocurrency wallet, with multiple owners, which only allows spending funds if a certain number of wallet owners agree. The wallet owners are saved along the wallet itself and the list can only be modified if a sufficient number of owners agrees to the change. A Multisig wallet can be also configured to allow *any* owner to spend funds, turning it into a shared wallet.
+
+### NAT (Network Address Translation)
+A technology, which enables connecting private devices (devices in private networks) to the Internet, so that they can access resources on the Internet. It can also be configured to allow remote devices to connect to private devices in a controlled fashion.
+
+### Node
+Device connected to a network of other devices operating on the same protocol.
+
+### Nonce
+A binary or numeric value, which is used to calculate or generate some factors (most notably, Ixian Wallet Addresses). The name is a combination of 'Number' and 'Once', meaning that a nonce value should not be repeated in the future.
+
+### Presence List
+Data structure maintained by all Ixian DLT Nodes that shows which users or devices are online in the Ixian network and how they may be reached.
+
+### Redaction / Redacted Blockchain
+Process used by Ixian to periodically remove old Blocks from the blockchain, thus keeping it short and manageable.
+
+### RSA
+Commonly used cryptography scheme which enables secure data transmission and data signing. The acronym is based on the on the surnames of cryptographers who first described the algorithm: Rivest, Shamir and Adleman.
+
+### SHA (Secure Hash Algorithm)
+A Commonly used hashing algorithm, which condenses arbitrarily large pieces of data into a smaller string of bytes, called a 'checksum'. The SHA family of hashing algorithms were published by NIST and are included in the Federal Information Processing Standard (FIPS).
+
+### Sigfreeze / Signature Freeze
+Ixian's method of 'freezing' signatures on recently accepted blocks so that they cannot be modified. A short window is permitted where the signatures may be added to further increase the validity of the Block, but after the Block signatures are frozen, they can no longer be changed.
+
+### Superblock
+A special type of block which summarizes the previous 999 regular blocks and enables safer and faster blockchain navigation. Used primarily when a new node is synchronizing, or when a client is looking for a specific transaciton.
+
+### TIV (Transaction Inclusion Verification)
+A lightweight protocol used by Ixian Clients to quicly verify that some transaction has been accepted and applied to the blockchain.
+
+### Wallet State
+Data structure maintained by all DLT nodes, which keeps track of all existing non-empty wallets and their contents.
+
+
