@@ -1,7 +1,7 @@
 ---
 title: Ixian DLT Whitepaper
 version: 0.5
-date: 5th September 2019
+modDate: 5th September 2019
 ---
 
 ## Contents
