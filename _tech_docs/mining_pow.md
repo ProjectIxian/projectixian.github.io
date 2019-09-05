@@ -2,23 +2,23 @@
 title: Optional PoW - Mining
 ---
 
-# Introduction
+## Introduction
 
 During the start up of the Ixian project, a large amount of currency must be generated quickly and awarded to the most active participants. A pre-mined amount would partially solve this problem, but the distribution relies too much on the Ixian team's discretion and does not inspire confidence. The pre-mine amount has therefore been kept relatively small and an additional, temporary way was created to allow the community to generate their own currency.
 
 Mining in Ixian is optional for the first five years of operation, after which it will be switched off and new PoW solutions will no longer be accepted by Master Nodes. This document provides a technical description of how the Ixian's optional PoW algorithm works.
 
 
-# Technical Implementation
+## Technical Implementation
 
-## Active History
+### Active History
 Because Ixian DLT is a redacted blockchain, the entire block history is not saved with every node, but only on a few 'Full History Nodes'. The part
 of the blockchain, which must be held in memory by each participating node is called the 'Active History', and can be dynamically determined by
 the network after a suitable algorithm is decided. The default window for the "Active History" (called the "Redacted Window Size"), is 7 days
 (20000 blocks).
 
 
-## Blank Proof-of-Work field
+### Blank Proof-of-Work field
 Each block in the chain includes a field for a possible Proof-of-Work solution. This space consists of a solution to the block puzzle and a
 signature from the node which has calculated the challenge.
 Block signatures are still sufficient for validating the transactions in the block. The blank PoW solution field is not included in the
@@ -28,7 +28,7 @@ A simplified chain with the blank PoW field is represented below:
 ![Sample Ixian Chain](https://projectixian.github.io/assets/images/hpow_image1.png)
 
 
-## Transaction Type: Puzzle-Solved
+### Transaction Type: Puzzle-Solved
 A new transaction type is introduced for the Proof-of-Work operations. This transaction consists of a PoW solution for any block, which is
 present in the Active History at the moment when the transaction is processed, as shown in the image below.
 
@@ -44,7 +44,7 @@ Graphical representation of the PoW award process:
 ![PoW Award](https://projectixian.github.io/assets/images/hpow_image3.png)
 
 
-## Solution Details - Technical
+### Solution Details - Technical
 The PoW solution is formed in the following manner:
 
 ![PoW Solution](https://projectixian.github.io/assets/images/hpow_d1.png)
@@ -56,7 +56,7 @@ The solution is found by inserting a random, 128-bit value as Nonce, until a has
 Block parameter.
 
 
-## Difficulty Adjustments
+### Difficulty Adjustments
 Because new nodes join the network and start searching for the PoW solution, while other nodes stop, the difficulty must be adjusted to reflect the
 current network's total hashing power. If the difficulty is too easy, too many Blocks will have their PoW solution. Conversely, if the difficulty
 is too high, too few Blocks will be solved.

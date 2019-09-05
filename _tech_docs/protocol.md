@@ -2,7 +2,7 @@
 title: Ixian network protocol
 ---
 
-# Network message encoding
+## Network message encoding
 
 Ixian encodes multibyte data in the network message with the little-endian ordering. This was chosen because the primary Ixian platforms are x86-based and this choice slightly improves network performance.
 
@@ -25,7 +25,7 @@ n+2 : 0x03
 n+3 : 0x04
 ```
 
-# Ixian Network Messages
+## Ixian Network Messages
 
 All Ixian messages follow the same overall structure with the following fields:
 
@@ -39,7 +39,7 @@ All Ixian messages follow the same overall structure with the following fields:
 | Header End Byte | byte | A constant byte value which signifies header end. For Ixian, this is always 'I' (0x49). |
 | Data | byte[] | A variable-sized data block which contains a message specific to the provided `Message Code`. See the list of message codes for possible formats. |
 
-## Header Checksum
+### Header Checksum
 
 Header checksum is calculated as follows:
 1. Start with the byte value 0x7F: `sum = 0x07F`
@@ -49,7 +49,7 @@ Header checksum is calculated as follows:
 The symbol `^` denotes an XOR operation on a single byte.
 
 
-## Ixian Messge Codes
+### Ixian Messge Codes
 
 Currently valid Ixian Message Codes are as follows:
 
@@ -92,14 +92,14 @@ Currently valid Ixian Message Codes are as follows:
 | blockHeaders | 47 | [Block Headers](/tech_docs/protocol.html#block-headers) | Response to `getBlockHeaders`. |
 | getRandomPresences | 48 | [Get Random Presences](/tech_docs/protocol.html#get-random-presences) | Requests a number of random Presences of the specified type. Used primarily by Clients when choosing new Nodes to connect to. |
 
-# Message Data
+## Message Data
 
-## Hello
+### Hello
 
-### Response to: `nothing`
-### Responses: `[Extended Hello](#extended-hello)`
+#### Response to: `nothing`
+#### Responses: `[Extended Hello](/tech_docs/protocol.html#extended-hello)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -119,7 +119,7 @@ Currently valid Ixian Message Codes are as follows:
 | Challenge Length | int | Length of the subsequent Challenge field. |
 | Challenge | byte[] | Random data field which the receiver must successfully sign in order to verify that they own the public key they send in the reply. |
 
-### Signature
+#### Signature
 
 The Hello signature is created by concatenating some known pieces of data, then signing the resulting data field with the sender's private key, thus proving that the provided public key really does belong to the sender.
 The signature data is a string, constructed as follows:
@@ -130,12 +130,12 @@ Where:
 * timestamp is the timestamp provided in the Hello message
 * publicIPPort is the combination of the node's public IP (can be determined by the recipient) and the Public Port value from the Hello message
 
-## Extended Hello
+### Extended Hello
 
-### Response to: `hello`
-### Responses: `nothing`
+#### Response to: `hello`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -163,17 +163,17 @@ Where:
 | Challenge Response Length | int | Length of the subsequent Challenge Response field. |
 | Challenge Response | byte[] | Response to the challenge from the `hello` message. See below. |
 
-### Challenge Response
+#### Challenge Response
 
 The challenge response is simply a signature for the `Challenge` field provided in the corresponding `hello` message. The Signature must be calculated with the sending node's private key, which matches the reported `Public Key` in the `helloData` message.
 
 
-## Bye
+### Bye
 
-### Response to: `nothing`
-### Responses: `nothing`
+#### Response to: `nothing`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -181,7 +181,7 @@ The challenge response is simply a signature for the `Challenge` field provided 
 | Message | string | User-friendly message which further explains the reason for disconnect. |
 | Additional Data | string | Other, data, dependant on the `Bye Code`. |
 
-### Bye Codes
+#### Bye Codes
 
 | Name | Value | Description | Bye Data |
 | --- | --- | --- | --- |
@@ -201,12 +201,12 @@ The challenge response is simply a signature for the `Challenge` field provided 
 | addressMismatch | 604 | The remote node's address does not match the known address for that node. | Additional user-friendly details. |
 
 
-## Get Block
+### Get Block
 
-### Response to: `nothing`
-### Responses: `[Block Data](#block-data)`
+#### Response to: `nothing`
+#### Responses: `[Block Data](/tech_docs/protocol.html#block-data)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -214,27 +214,27 @@ The challenge response is simply a signature for the `Challenge` field provided 
 | Include Transactions | byte | Whether the response should contain transaction data as well. See Include Transaction values below. |
 | Full Header | bool(optional) | Whether to send full or abbreviated Block Header. |
 
-### Include Transaction Values
+#### Include Transaction Values
 | Value | Description |
 | --- | --- |
 | 1 | Omit Staking transactions, but send all user transactions. |
 | 2 | Send all user and Staking transactions. |
 
 
-## Block Data
+### Block Data
 
-### Response to: `[Get Block](get-block]`
-### Responses: `nothing`
+#### Response to: `[Get Block](get-block]`
+#### Responses: `nothing`
 
 This message contains raw Block bytes, as accepted by the `Block(byte[] from_bytes)` constructor.
 
 
-## Get Transaction
+### Get Transaction
 
-### Response to: `nothing`
-### Responses: `[Transaction Data](#transaction-data)`
+#### Response to: `nothing`
+#### Responses: `[Transaction Data](/tech_docs/protocol.html#transaction-data)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -242,29 +242,29 @@ This message contains raw Block bytes, as accepted by the `Block(byte[] from_byt
 | Block Number | ulong | number of the block where the transaction was accepted. May be 0, in which case all blocks in the Node's current Redacted Window will be searched for the transaction id. |
 
 
-## Transaction Data
+### Transaction Data
 
-### Response to: `[Get Transaction](get-transaction]`
-### Responses: `nothing`
+#### Response to: `[Get Transaction](get-transaction]`
+#### Responses: `nothing`
 
 This message contains raw Transaction bytes, as accepted by the `Transaction(byte[] from_bytes)` constructor.
 
 
-## Sync Wallet State
+### Sync Wallet State
 
-### Response to: `nothing`
-### Responses: `[Wallet State](#wallet-state)`
+#### Response to: `nothing`
+#### Responses: `[Wallet State](/tech_docs/protocol.html#wallet-state)`
 
 This message has no fields.
 
 Note: This Protocol Message is deprecated and will no longer be used.
 
-## Wallet State
+### Wallet State
 
-### Response to: `[Sync Wallet State](sync-wallet-state]`
-### Responses: `nothing`
+#### Response to: `[Sync Wallet State](sync-wallet-state]`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -275,12 +275,12 @@ Note: This Protocol Message is deprecated and will no longer be used.
 Note: This Protocol Message is deprecated and will no longer be used.
 
 
-## Get WalletState Chunk
+### Get WalletState Chunk
 
-### Response to: `nothing`
-### Responses: `[WalletState Chunk](#walletstate-chunk)`
+#### Response to: `nothing`
+#### Responses: `[WalletState Chunk](/tech_docs/protocol.html#walletstate-chunk)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -289,12 +289,12 @@ Note: This Protocol Message is deprecated and will no longer be used.
 Note: This Protocol Message is deprecated and will no longer be used.
 
 
-## WalletState Chunk
+### WalletState Chunk
 
-### Response to: `[Get WalletState Chunk](#get-walletstate-chunk)`
-### Responses: `nothing`
+#### Response to: `[Get WalletState Chunk](/tech_docs/protocol.html#get-walletstate-chunk)`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -306,38 +306,38 @@ Note: This Protocol Message is deprecated and will no longer be used.
 Note: This Protocol Message is deprecated and will no longer be used.
 
 
-## Get Presence List
+### Get Presence List
 
-### Response to: `nothing`
-### Responses: `[Presence List](#presence-list)`
+#### Response to: `nothing`
+#### Responses: `[Presence List](/tech_docs/protocol.html#presence-list)`
 
 This message has no fields.
 
 
-## Presence List
+### Presence List
 
-### Response to: `[Get Presence List](#get-presence-list)`
-### Responses: `nothing`
+#### Response to: `[Get Presence List](/tech_docs/protocol.html#get-presence-list)`
+#### Responses: `nothing`
 
 This message contains raw PresenceList bytes, as accepted by the `PresenceList.syncFromBytes(byte[] bytes)` function.
 
 
-## Update Presence
+### Update Presence
 
-### Response to: `[Get Random Presences](#get-random-presences), [Get Presence](#get-presence))`
-### Responses: `nothing`
+#### Response to: `[Get Random Presences](/tech_docs/protocol.html#get-random-presences), [Get Presence](/tech_docs/protocol.html#get-presence))`
+#### Responses: `nothing`
 
 This message contains raw Presence bytes, as accepted by the `PresenceList.updateFromBytes(byte[] bytes)` function.
 
 Note: Multiple chunks of data may arrive - the `PresenceListupdateFromBytes` will handle it automatically.
 
 
-## Get Balance
+### Get Balance
 
-### Response to: `nothing`
-### Responses: `[Balance](#balance)`
+#### Response to: `nothing`
+#### Responses: `[Balance](/tech_docs/protocol.html#balance)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -345,12 +345,12 @@ Note: Multiple chunks of data may arrive - the `PresenceListupdateFromBytes` wil
 | Address | byte[] | Wallet address for which the balance should be retrieved. |
 
 
-## Balance
+### Balance
 
-### Response to: `[Get Balance](#get-balance)`
-### Responses: `nothing`
+#### Response to: `[Get Balance](/tech_docs/protocol.html#get-balance)`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -360,20 +360,20 @@ Note: Multiple chunks of data may arrive - the `PresenceListupdateFromBytes` wil
 | Last Block Number | ulong | Current Block Height at the time of sending this balance information. |
 
 
-## Keep Alive Presence
+### Keep Alive Presence
 
-### Response to: `nothing`
-### Responses: `nothing`
+#### Response to: `nothing`
+#### Responses: `nothing`
 
 This message contains raw KeepAlive data as accepted by the `PresenceList.receiveKeepAlive(byte[] bytes)` function.
 
 
-## Get Presence
+### Get Presence
 
-### Response to: `nothing`
-### Responses: `[Update Presence](#update-balance)`
+#### Response to: `nothing`
+#### Responses: `[Update Presence](/tech_docs/protocol.html#update-balance)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -381,12 +381,12 @@ This message contains raw KeepAlive data as accepted by the `PresenceList.receiv
 | Address | byte[] | Wallet address for which the balance should be retrieved. |
 
 
-## Get Block Transactions
+### Get Block Transactions
 
-### Response to: `nothing`
-### Responses: `[Transactions Chunk](#transactions-chunk)`
+#### Response to: `nothing`
+#### Responses: `[Transactions Chunk](/tech_docs/protocol.html#transactions-chunk)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -394,18 +394,18 @@ This message contains raw KeepAlive data as accepted by the `PresenceList.receiv
 | Request All Transactions | bool | If true, both user and staking transactions are requested, otherwise only user transactions should be returned. |
 
 
-## Transactions Chunk
+### Transactions Chunk
 
-### Response to: `[Get Block Transactions](#get-block-transactions)`
-### Responses: `nothing`
+#### Response to: `[Get Block Transactions](/tech_docs/protocol.html#get-block-transactions)`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | Transactions | TransactionRecord[] | A set of transactions, packed so it can be sent over the network. |
 
-### Transaction Record
+#### Transaction Record
 
 A transaction record consists of the following fields:
 
@@ -415,20 +415,20 @@ A transaction record consists of the following fields:
 | Transaction Bytes | Transaction | Raw byte data, as accepted by the `Transaction(byte[] from_bytes)` constructor. |
 
 
-## Get Unapplied Transactions
+### Get Unapplied Transactions
 
-### Response to: `nothing`
-### Responses: `[Transactions Chunk](#transactions-chunk)`
+#### Response to: `nothing`
+#### Responses: `[Transactions Chunk](/tech_docs/protocol.html#transactions-chunk)`
 
 This message has no data.
 
 
-## Attach Event
+### Attach Event
 
-### Response to: `nothing`
-### Responses: `nothing`
+#### Response to: `nothing`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -438,12 +438,12 @@ This message has no data.
 
 
 
-## Detach Event
+### Detach Event
 
-### Response to: `nothing`
-### Responses: `nothing`
+#### Response to: `nothing`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -452,12 +452,12 @@ This message has no data.
 | Address | byte[] | Wallet address for which the events of type `Type` should no longer be sent. |
 
 
-## New Block Signature
+### New Block Signature
 
-### Response to: `nothing`
-### Responses: `nothing`
+#### Response to: `nothing`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -469,12 +469,12 @@ This message has no data.
 
 
 
-## Get Block Signatures
+### Get Block Signatures
 
-### Response to: `nothing`
-### Responses: `[Block Signatures](#block-signatures)`
+#### Response to: `nothing`
+#### Responses: `[Block Signatures](/tech_docs/protocol.html#block-signatures)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -483,12 +483,12 @@ This message has no data.
 | Checksum | byte[] | Block Checksum for the Block at height `Block Number`. |
 
 
-## Block Signatures
+### Block Signatures
 
-### Response to: `nothing`
-### Responses: `[Get Block Signatures](#get-block-signatures)`
+#### Response to: `nothing`
+#### Responses: `[Get Block Signatures](/tech_docs/protocol.html#get-block-signatures)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -498,7 +498,7 @@ This message has no data.
 | Signature Count | int | Number of signatures in this message. |
 | Signatures | Signature[] | A list of signatures. |
 
-### Signature structure
+#### Signature structure
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -509,12 +509,12 @@ This message has no data.
 
 
 
-## Get Next Superblock
+### Get Next Superblock
 
-### Response to: `nothing`
-### Responses: `[Block Data](#block-data)`
+#### Response to: `nothing`
+#### Responses: `[Block Data](/tech_docs/protocol.html#block-data)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -524,12 +524,12 @@ This message has no data.
 | Checksum | byte[] | A Checksum for one of the blocks in the segment leading up to the requested Superblock. |
 
 
-## Get Block Headers
+### Get Block Headers
 
-### Response to: `nothing`
-### Responses: `[Block Headers](#block-headers)`
+#### Response to: `nothing`
+#### Responses: `[Block Headers](/tech_docs/protocol.html#block-headers)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -538,19 +538,19 @@ This message has no data.
 
 
 
-## Block Headers
+### Block Headers
 
-### Response to: `[Get Block Headers](#get-block-headers)`
-### Responses: `nothing`
+#### Response to: `[Get Block Headers](/tech_docs/protocol.html#get-block-headers)`
+#### Responses: `nothing`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | Count | ulong | Number of Block Headers in the message. |
 | BlockHeaders | BlockHeader[] | Block header data. |
 
-### Block Header
+#### Block Header
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -558,12 +558,12 @@ This message has no data.
 | Header | byte[] | Raw bytes as accepted by the `BlockHeader(byte[] from_bytes)` constructor. |
 
 
-## Get Random Presences
+### Get Random Presences
 
-### Response to: `nothing`
-### Responses: `[Update Presence](#update-presence)`
+#### Response to: `nothing`
+#### Responses: `[Update Presence](/tech_docs/protocol.html#update-presence)`
 
-### Fields:
+#### Fields:
 
 | Name | Type | Description |
 | --- | --- | --- |

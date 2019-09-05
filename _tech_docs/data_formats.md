@@ -2,14 +2,14 @@
 title: Data formats
 ---
 
-# Notes
-## Used conventions
+## Notes
+### Used conventions
 The vertical line symbol `|` indicates concatenation, either string or byte array.  
 E.g.: "abcd"|"efgh" = "abcdefgh", and  
 { 0x01, 0x02, 0x03 } | { 0x04, 0x05, 0x06} = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 }
 
 
-## Relevant functions
+### Relevant functions
 - **sha512(data)** represents calculating a SHA-512 hash on the input `data`.
 - **sha512sq(data)** represents calculating a SHA-512 hash twice on the input `data` - equivalent to sha512(sha512(data)).
 - **sha512qu(data)** represents calculating a SHA-512 hash four times on the input `data` - equivalent to sha512(sha512(sha512(sha512(data)))).
@@ -17,16 +17,16 @@ E.g.: "abcd"|"efgh" = "abcdefgh", and
 
 ***
 
-# Address Format
-## Relevant C# objects:
+## Address Format
+### Relevant C# objects:
 `IXICore.Address`
 
-## v0 Addresses:
+### v0 Addresses:
 
-### Description
+#### Description
 A v0 address always start with the byte 0. The address itself is represented by a truncated sha512qu hash of the wallet's public key (pubkey length may vary). The hash is truncated to 32 bytes. Finally, another sha512sq hash is calculated from the 33-byte array (version|address) and truncated to 3 bytes, which are appended to the address, thus yielding 36 total bytes for a complete address.
 
-### Specification
+#### Specification
 ```
 Length = 36 bytes  
 Format = version | raw_address | checksum  
@@ -42,9 +42,9 @@ For subsequent addresses:
 raw_address = 32 bytes, `truncate(sha512qu(primay_address|nonce), 32)`
 ```
 
-## v1 Addresses:
+### v1 Addresses:
 
-### Description
+#### Description
 The wallet's public key is used to generate a 44-byte truncated sha512sq hash, which is designated the `primary address`. This address is implied to have a `nonce` value of 0.  
 When a subsequent address is required for the same public key, the `nonce` value is incremented and a new address is generated from the `primary address` and the new `nonce` value. Implementations might decide to use random `nonce` values, rather than sequential, but make sure that `nonce` values do not repeat - same `nonce` value will produce the same address.
 
@@ -60,7 +60,7 @@ new_nonce = sha512SqTrunc(base_nonce | last_nonce)
 ```
 Where `last_nonce` is the most recently used nonce value. This method generates repeatable, deterministic addresses, which can only be computed by whoever has the corresponding private key. A full wallet backup is not required whenever a new address is generated, because all possible addresses can be deduced from only the private and public keys.
 
-### Specification
+#### Specification
 ```
 Length = 48 bytes  
 Format = version | raw_address | checksum  
@@ -78,29 +78,29 @@ raw_address = 44 bytes, `truncate(sha512sq(primay_address|nonce), 44)`
 
 ***
 
-# Key format
-## Relevant C# objects:
+## Key format
+### Relevant C# objects:
 `IXICore.IxianKeyPair`
 `IXICore.CyrptoLib`
 
-## v0 Public key
+### v0 Public key
 
-### Description
+#### Description
 The v0 public key does not have any headers and is always 523 bytes long (4096-bit keys)
 
-### Specification
+#### Specification
 ```
 Length = 523 bytes  
 Format = raw_pubkey (see v1 raw_pubkey)  
 ```
 
-## v1 Public key (and v0 Public key with header)
+### v1 Public key (and v0 Public key with header)
 
-### Description
+#### Description
 v1 Pubkey includes the minimum version of address it is able to generate, as well as the version of the pubkey record.  
 Note: v0 and v1 pubkeys have exactly the same raw layout, the only difference is the prepended header for v1.
 
-### Specification
+#### Specification
 ```
 Length = variable  
 Format = address_version | pubkey_version | raw_pubkey  
@@ -111,25 +111,25 @@ raw_pubkey =   mod_len | modulus
              | pub_exp_len | pub_exponent  
 ```
 
-## v0 Private key
+### v0 Private key
 
-### Description
+#### Description
 The v0 private key does not have any headers. The length varies and is represented by an `int` field before each data element.
 
-### Specification
+#### Specification
 ```
 Length = 523 bytes  
 Format = raw_privkey (see v1 raw_privkey)  
 ```
 
-## v1 Private key (and v0 Private key with header)
+### v1 Private key (and v0 Private key with header)
 
-### Description
+#### Description
 v1 Privkey includes the minimum version of address it is able to generate, as well as the version of the privkey record.  
 Note: v0 and v1 privkeys have exactly the same raw layout, the only difference is the prepended header for v1.  
 Note: The beginning of the private and public key structures is exactly the same. Therefore, a public key can be quickly extracted from the private key.
 
-### Specification
+#### Specification
 ```
 Length = variable  
 Format = address_version | privkey_version | raw_privkey
@@ -148,15 +148,15 @@ raw_privkey =  mod_len | modulus
 
 ***
 
-# Presence
-## Relevant C# objects:
+## Presence
+### Relevant C# objects:
 `IXICore.PresenceList`
 `IXICore.Presence`
 
-## Description
+### Description
 Presences are how Ixian DLT network keeps track of which nodes and clients are online or offline.
 
-## Specification
+### Specification
 ```
 Length = varies, depending on contents
 Format = version
@@ -168,14 +168,14 @@ Format = version
 ```
 Note: For a description of the `address_record` format, see [Presence Address](/tech_docs/data_formats.html#presence-address) in the next section.
 
-# Presence Address
-## Relevant C# objects:
+## Presence Address
+### Relevant C# objects:
 `IXICore.PresenceAddress`
 
-## Description
+### Description
 A presence address represents a network endpoint on which the specific node or client device may be reached.
 
-## Specification
+### Specification
 ```
 Length = varies, depending on contents
 Format = version
@@ -189,8 +189,8 @@ Format = version
 
 ***
 
-# Transaction
-## Relevant C# objects:
+## Transaction
+### Relevant C# objects:
 `IXICore.Transaction`
 `IXICore.Transction.Type`
 `IXICore.Transaction.MultisigWalletChangeType`
@@ -199,11 +199,11 @@ Format = version
 `IXICore.Transaction.MultisigChSig`
 `IXICore.Transaction.MultisigTxData`
 
-## Description
+### Description
 The `Transction` object is the cornerstone of any DLT network. It represents a single, atomic operation in much the same way as a transactional database.  
 In most cases, a `Transaction` represents the transfer of funds between two wallets, but it may also signify some other change in the network.
 
-## Specification
+### Specification
 ```
 Length = varies, depending on contents
 Format = version
@@ -229,15 +229,15 @@ See also: [Address Format](/tech_docs/data_formats.html#address-format)
 
 ***
 
-# Wallet
-## Relevant C# objects:
+## Wallet
+### Relevant C# objects:
 `IXICore.WalletType`
 `IXICore.Wallet`
 
-## Description
+### Description
 The `Wallet` object contains primarily the amount of funds for a specific Ixian DLT wallet. This structure is held and synchronized by the DLT Master nodes and checked using the field `walletStateChecksum` in the `Block` object.
 
-## Specification
+### Specification
 ```
 Length = varies, depending on contents
 Format = id_len | id
@@ -254,11 +254,11 @@ Note: balance is encoded as a string with the decimal representation of IxiNumbe
 
 ***
 
-# Block
-## Relevant C# objects:
+## Block
+### Relevant C# objects:
 `IXICore.Block`
 
-## Description
+### Description
 The `Block` object describes a single, coherent unit of work for the DLT network. The specific invariant is that applying a block to a known WalletState (the WalletState as described by the previous block), a new WalletState is produced which:
 a. Has all the transactions in the block applied to Wallets.
 b. Matches the checksum in the block.
@@ -267,7 +267,7 @@ A block uniquely identifies the previous block (and thus, previous WalletState) 
 
 Note: Some blocks (every 1000th block) do not contain the usual transactions and signatures, but is a `Superblock` and contains a summary of the previous 999 blocks.
 
-## Specification
+### Specification
 ```
 Length = varies, depending on contents
 Format = version | block_number

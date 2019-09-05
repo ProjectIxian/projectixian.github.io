@@ -2,7 +2,6 @@
 title: Cryptographic primitives
 ---
 
-# Cryptographic primitives
 Below is a list of all cryptographic operations used by the Ixian DLT and S2 networks. The list contains a brief reasoning for the choice and a list places where the primitive is being used.
 
 ## Signature - RSA with SHA512
@@ -53,7 +52,7 @@ return h2.First(hash_len);
 | WalletStorage.cs | generateNewAddress() | 16 bytes | The hashing algorithm is used to derive additional wallet version 1 addresses from the same public key, thus allowing the user to create new wallets and associate them with a single public/private key pair. |
 
 
-## Hashing - SHA512sq
+## Hashing - SHA512qu
 See [SHA512Managed](https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.sha512managed?view=netframework-4.7.2)
 
 Note: Ixian uses a quad/truncated version of the SHA512 algorithm. It is calculated as follows:

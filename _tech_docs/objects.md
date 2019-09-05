@@ -2,14 +2,14 @@
 title: Programming Objects
 ---
 
-# Block
-## C# Object
+## Block
+### C# Object
 `IXICore.Block`
 
-## Description
+### Description
 Represents the fundamental structure of a DLT block, a basic object of the block chain.
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -33,14 +33,14 @@ Represents the fundamental structure of a DLT block, a basic object of the block
 
 
 
-# Block Chain
-## C# Object
+## Block Chain
+### C# Object
 `DLT.BlockChain`
 
-## Description
+### Description
 Represents the DLT blocks in the node's memory. If the node is a `full history node`, this is also the object which reads archived blocks from cold storage.
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -57,15 +57,15 @@ Represents the DLT blocks in the node's memory. If the node is a `full history n
 
 
 
-# Transaction
-## C# Object
+## Transaction
+### C# Object
 `IXICore.Transaction`
 
-## Description
+### Description
 Represents all possible transaction types that the network currently supports. In order to transfer funds or make a change to a wallet, you use the `Transaction` class to create a transaction object and send add it to the Node's [Transaction Pool](/tech_docs/objects.html#Transaction-Pool). The node will then send it to the rest of the network, provided it passes validation.
 
-## Enumerations
-### Transaction Type
+### Enumerations
+#### Transaction Type
 Represents the transaction type:
 
 | Enum | Code | Description |
@@ -78,7 +78,7 @@ Represents the transaction type:
 | ChangeMultisigWallet | 5 | Special transaction for changing the properties of a multisig wallet. |
 | MultisigAddTxSignature | 6 | Special transaction, used only in combination with `MultisigTX`, which adds signatures for the originating `MultisigTX` transaction. |
 
-### MultisigWalletChangeType
+#### MultisigWalletChangeType
 Type of change which is performed on a multisig wallet. Only valid for the Transaction type `ChangeMultisigWallet`.
 
 | Enum | Code | Description |
@@ -87,7 +87,7 @@ Type of change which is performed on a multisig wallet. Only valid for the Trans
 | DelSigner | 2 | Allows removing allowed signers from a multisig wallet. |
 | ChangeReqSigs | 3 | Sets the number of required signatures before a `MultisigTX` is considered valid for a multisig wallet. |
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -108,28 +108,28 @@ Type of change which is performed on a multisig wallet. Only valid for the Trans
 | applied | ulong | Block number in which this transaction has been applied. This field is not transmitted over the network. |
 | fromLocalStorage | bool | Flag indicating if the transaction was loaded from a local file (i.e.: When the node was restarted). This field is not transmitted over the network. |
 
-# Transaction Pool
-## C# Object
+## Transaction Pool
+### C# Object
 `DLT.TransactionPool`
 
-## Description
+### Description
 Contains all [Transactions](/tech_docs/objects.html#transaction) which are referenced in the current window of the redacted blockchain.
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
 | transactions | Dictionary<string, [Transaction](/tech_docs/objects.html#transaction)> | A dictionary of all transactions, accessed through their transaction id (txid). |
 
-# Wallet
-## C# Object
+## Wallet
+### C# Object
 `IXICore.Wallet`
 
-## Description
+### Description
 The `Wallet` object contains primarily the amount of funds for a specific Ixian DLT wallet. This structure is held and synchronized by the DLT Master nodes and checked using the field `walletStateChecksum` in the `Block` object.  
 
-## Enumerations
-### Wallet Types
+### Enumerations
+#### Wallet Types
 Wallet types currently include:
 
 | Value | Type name | Description |
@@ -137,7 +137,7 @@ Wallet types currently include:
 | 0 | Normal | Normal wallet |
 | 1 | Multisig | Wallet, which requires multiple signatures in order to withdraw funds. |
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -150,20 +150,20 @@ Wallet types currently include:
 | publicKey | byte[] | Public key which is used to sign transactions for this wallet. This field may be empty, if the public key for a particular address is not yet known. |
 | countAllowedSigners | byte | Returns the list of additional signing addresses which are allowed for this wallet. If the wallet is not a MultiSig wallet, this value will be 0. Note: The wallet's primary address is not counted in this number. `countAllowedsigners = 1` means there are two possible signing addresses for the wallet, therefore `requiredSigs` may have the value 2. (Primary owner and one other allowed signer.) |
 
-# Wallet State
-## C# Object
+## Wallet State
+### C# Object
 `DLT.WalletState`
 
-## Note
+### Note
 The WalletState object is under redesign as part of the `WalletStateJournal` implementation of transactional logging.
 
-## Description
+### Description
 This object is responsible for maintaining the Ixian 'Wallet State' - the list of all known wallets in the Ixian DLT. The WalletState includes methods to calculate its own checksum, which then becomes part of each [Block](/tech_docs/objects.html#block).  
 In this method, each accepted `Block` confirms a particular state of all wallets. This includes their balances, configuration (see `MultiSig Wallets`) and any additional user-data which is attached.  
   
 In addition to holding the current state of all wallets, the `WalletState` object can also 'snapshot' the state and later return to the saved snapshot. This allows the node to run efficient "What if" scenarios when testing validity of blocks or individual transactions.
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -177,14 +177,14 @@ In addition to holding the current state of all wallets, the `WalletState` objec
 | numWallets | int | Shortcut variable which returns the number of wallets in WalletState. |
 | hasSnapshot | bool | Returns true if a WalletState snapshot currently exists. |
 
-# Address
-## C# Object
+## Address
+### C# Object
 `IXICore.Address`
 
-## Description
+### Description
 The `Address` object is primarily used to convert different input address types into an address byte array, which is used elsewhere in the Node. It can properly handle all versions of address data passed to it.
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -192,14 +192,14 @@ The `Address` object is primarily used to convert different input address types 
 | address | byte[] | The internal representation of an address, which can be used to look up a specific Wallet. |
 | nonce | byte[] | Used for Address v1 and above - specifies the `nonce` value which was used to generate this wallet from a primary public key. The primary address for each public key has this value set to `null`. Derived (additional) addresses may have any `nonce` value, but it is the implementation's responsibility to track which ones are in use. In order to make this simpler, the reference implementation uses sequential `nonce` values. |
 
-# Presence
-## C# Object
+## Presence
+### C# Object
 `IXICore.Presence`
 
-## Description
+### Description
 A single presence object contains information about a live node or client on the DLT/S2 network. The structure contains all the required data to locate the node or client.
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -210,14 +210,14 @@ A single presence object contains information about a live node or client on the
 | addresses | List<[PresenceAddress](/tech_docs/objects.html#presenceaddress)> | List of contact points where this node or client may be reached. |
 
 
-# Presence Address
-## C# Object
+## Presence Address
+### C# Object
 `IXICore.PresenceAddress`
 
-## Description
+### Description
 Presence address contains enough information to allow contacting the owner of the presence (DLT node, S2 node or a client). It includes information on which relay node this specific address is registered.
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -229,7 +229,7 @@ Presence address contains enough information to allow contacting the owner of th
 | lastSeenTime | long | Timestamp of the moment when this device was last seen, represented by the unix epoch. |
 | signature | byte[] | Signature by the owner of the address to prevent tampering with the presence list. |
 
-## Type Code
+### Type Code
 
 | Type code | Description |
 | --- | --- |
@@ -240,14 +240,14 @@ Presence address contains enough information to allow contacting the owner of th
 
 Note: For the address type 'C', the `address` field will contain the relay node's address.
 
-# Presence List
-## C# Object
+## Presence List
+### C# Object
 `IXICore.PresenceList`
 
-## Description
-The Presence List object holds all [Presences](#presence) currently known to the DLT node.
+### Description
+The Presence List object holds all [Presences](/tech_docs/objects.html#presence) currently known to the DLT node.
 
-## Fields
+### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
