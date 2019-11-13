@@ -11,7 +11,7 @@ Ixian was tested on macOS 10.13 High Sierra and 10.14 Mojave
 * Operating system: macOS 10.9 or higher
 * RAM: 4 GB, Recommended 8 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least GHz
-* Free Disk Space: 30 GB, 100 GB Recommended
+* Free Disk Space: 60 GB, 100 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
@@ -147,13 +147,15 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 
 When a new version is released, you can upgrade the software using the following checklist:
 
+0. Save the ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian DLT Node.
-2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`
+2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.
-4. Switch to the Ixian-DLT directory: `cd ~/Ixian/Ixian-DLT`
+4. Switch to the Ixian-DLT directory: `cd ~/Ixian/Ixian-DLT`.
 5. Update the sources to the latest version: `git pull`.
-6. Compile the new sources: `msbuild DLTNode.sln /p:Configuration=Release`
-7. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
+6. Update nuget packages: `nuget restore DLTNode.sln`.
+7. Compile the new sources: `msbuild DLTNode.sln /p:Configuration=Release`.
+8. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
 
 Note: It is recommended to backup the wallet file **ixian.wal** before performing any upgrade or changing any settings on the command line.
 

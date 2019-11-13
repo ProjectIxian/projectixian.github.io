@@ -170,12 +170,13 @@ Note: We assume that you have followed the above instructions and the Ixian dire
 
 If you have placed the Ixian source code folders elsewhere, change them in the below description. Furthermore, if you copied the executable files from the bin/Release folder someplace else, you will need to repeat the copy step to overwrite old executable files with new ones.
 
-0. Save the ixian wallet file: `cp ~/Ixian/Ixian-S2/IxianS2/bin/Release/ixian.wal ~/ixian.wal.backup`
+0. Save the ixian wallet file: `cp ~/Ixian/Ixian-S2/IxianS2/bin/Release/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian S2 Node.
-2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`
+2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.
-4. Switch to the Ixian-S2 directory: `cd ~/Ixian/Ixian-S2`
+4. Switch to the Ixian-S2 directory: `cd ~/Ixian/Ixian-S2`.
 5. Update the sources to the latest version: `git pull`.
-6. Compile the new sources: `msbuild S2Node.sln /p:Configuration=Release`
-7. (Optional) If you have copied the binaries elsewhere, repeat that step.
-8. Start the Ixian S2 Node again. The node will use the existing wallet file, so it will not need to generate a new wallet.
+6. Update nuget packages: `nuget restore S2Node.sln`.
+7. Compile the new sources: `msbuild S2Node.sln /p:Configuration=Release`.
+8. (Optional) If you have copied the binaries elsewhere, repeat that step.
+9. Start the Ixian S2 Node again. The node will use the existing wallet file, so it will not need to generate a new wallet.
