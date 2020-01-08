@@ -5,7 +5,7 @@ title: DLT Node Configuration options
 ## Configuration file
 
 An alternative to creating a batch or shell script is the Ixian DLT configuration file, which can be used to configure the most important settings.
-Default filename of the config file is **ixian.cfg** but can be changed by using the **--config** CLI parameter
+Default filename of the config file is **ixian.cfg** but can be changed by using the `--config` CLI parameter
 
 The format of the file is simple INI (without sections):
 * Each option is specified on its own line
