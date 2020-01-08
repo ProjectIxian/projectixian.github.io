@@ -33,7 +33,7 @@ The output should look like this:
 ![Ixian Console Output](https://projectixian.github.io/assets/images/guide_win_2.png)
 
 Note: When starting Ixian DLT software on Windows 10 operating systems for the first time, a Windows Defender SmartScreen might pop up that looks like the image below. You have to click on "More info" and then "Run anyway" to proceed.
-This is expected and occurs becuse Ixian does not yet have a code signing certificate in this early stage of development.
+This is expected and occurs because Ixian does not yet have a code signing certificate in this early stage of development.
 
 ![Smart Screen Popup 1](https://projectixian.github.io/assets/images/guide_win_3.png)
 ![Smart Screen Popup 2](https://projectixian.github.io/assets/images/guide_win_4.png)
@@ -77,7 +77,7 @@ Ixian DLT Node settings are provided on the command line when starting the Ixian
 * **-i** External IP address: The IxianDLT software will use UPnP to try and determine the external IP address of your node. If this fails for some reason, you can specify the external address using the `-i` option.
 * **-a** API Port: This changes the port on which the node accepts API commands, as well as the port on which the built-in wallet operates. If you provide a different API port, then the built-in wallet for the node will be at **http://localhost:API_PORT**.
 * **--threads**: Tells the DLT Node how many threads to create for the internal Ixian Miner. Default is 2. Use `--disableMiner` to prevent the DLT Node from mining IXI Coins.
-* **--disableMiner**: Tells the DLT Node not to start the built-in Ixian Miner.
+* **--config** Config filename: Tells the DLT node which config file to read from. Default is ixian.cfg.
 * **--help**: Displays a short help with some other, less frequently used command options.
 
 If you need to run the DLT Node with different settings, it can be tedious to type them out every time you wish to start the software. It is recommended to create a batch file (**.bat**) with the options already set. To do this, follow the guide below:
@@ -103,39 +103,3 @@ Note: It is recommended to backup the wallet file **ixian.wal** before performin
 2. Obtain the new release package from the Ixian [Releases](https://github.com/ProjectIxian/Ixian-DLT/releases) Github page.
 3. Extract the contents of the release package and overwrite files.
 4. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
-
-## Configuration file
-
-An alternative to creating a batch or shell script is the Ixian DLT configuration file, which can be used to configure the most important settings.
-
-The format of the file is simple INI (without sections):
-* Each option is specified on its own line
-* Option syntax is `option_name = option_value`
-* Whitespace is not important
-* Lines starting with `;` are ignored
-* Option names are case-sensitive
-
-A list of options supported by the config file is:
-
-| Option name | Type | Repeatable | Default | Description |
-| --- | --- | --- | --- |
-| dltPort | int | No | 10234 | TCP port number for the Master Node, when running on the main network. |
-| testnetDltPort | int | No | 11234 | TCP port number for the Master Node, when running on the test network. |
-| apiPort | int | No | 8081 | Port for the internal REST API server to listen for commands. Note: This port is only avilable on the localhost interface (127.0.0.1). |
-| apiAllowIp | IPv4 Address | Yes | EMPTY | IP Addresses which are allowed to access the REST API interface. |
-| apiBind | Bind Point | Yes | http://localhost:8081 | Additional IP interface on which the internal REST API should listen. The API allows full control over the DLT node, so do not change this unless you are absolutely sure. |
-| testnetApiPort | int | No | 8181 | Port for the internal REST API server when the node is operating on the test network. |
-| addApiUser | Username:Password | Yes | EMPTY | An additional layer of protection - will require all REST API calls to include the given username and password. |
-| externalIp | IP Address | No | EMPTY | Configure this if the external IP address cannot be automatically determined via UPnP. |
-| addPeer | Hostname or IP Address | Yes | Seed Nodes | Set this to use different Ixian DLT Mater nodes as seed - this option only has an effect in mainnet mode. |
-| addTestnetPeer | Hostname or IP Address | Yes | Seed Nodes | Set this to use different Ixian DLT Mater nodes as seed - this option only has an effect in testnet mode. |
-| maxLogSize | int | No | 50 | Size of the Ixian DLT log file (in megabytes), before it is automatically rotated. |
-| maxLogCount | int | No | 10 | Number of old (full) log files to keep before deleting the oldest. |
-| disableMiner | int | No | 0 | If set to anything other than 0, the built-in Ixian DLT miner will not run. |
-| disableWebStart | int | No | 0 | If set to a nonzero value, the DLT node will not open its internal wallet page on startup. |
-| forceTimeOffset | int | No | 0 | Forces the local node's time to a different value (when the OS clock does not return the correct time). |
-| blockStorage | string | No | sqlite | Selects the storage provider for the block and transaction storage. |
-| walletNotify | string | No | EMPTY | OS command to run whenever the local wallet is updated. |
-| blockNotify | string | No | EMPTY | OS command to run whenever a new block is received by the DLT node. |
-
-Any repeatable options may be specified more than once. If nonrepeatable options are specified multiple times, the last one is used.
