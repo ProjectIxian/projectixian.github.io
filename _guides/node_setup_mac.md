@@ -1,5 +1,5 @@
 ---
-title: Node setup on macOS
+title: DLT Node setup on macOS
 ---
 
 Ixian was tested on macOS 10.13 High Sierra and 10.14 Mojave
@@ -10,8 +10,8 @@ Ixian was tested on macOS 10.13 High Sierra and 10.14 Mojave
 
 * Operating system: macOS 10.9 or higher
 * RAM: 4 GB, Recommended 8 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least GHz
-* Free Disk Space: 60 GB, 100 GB Recommended
+* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
+* Free Disk Space: 100 GB, 500 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
@@ -75,12 +75,30 @@ cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.so
 cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
 ```
 
-9. (Optional) Download and unpack the bootstrap data file to enable faster synchronization. The link to the current bootstrap file can be found on the Ixian website. At the time of writing the link to the bootstrap file is [https://ixian.io/data.zip](https://ixian.io/data.zip).
+9. (Optional) Download and unpack the bootstrap data files to enable faster synchronization:
 ```
 cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
-curl -o bootstrap.zip [LINK TO THE BOOTSTRAP FILE]
-unzip bootstrap.zip
-rm bootstrap.zip
+curl -o data1to300k.zip
+unzip data1to300k.zip
+rm data1to300k.zip
+curl -o data300kto600k.zip
+unzip data300kto600k.zip
+rm data300kto600k.zip
+curl -o data600kto700k.zip
+unzip data600kto700k.zip
+rm data600kto700k.zip
+curl -o data700kto800k.zip
+unzip data700kto800k.zip
+rm data700kto800k.zip
+curl -o data800kto850k.zip
+unzip data800kto850k.zip
+rm data800kto850k.zip
+curl -o data850kto900k.zip
+unzip data850kto900k.zip
+rm data850kto900k.zip
+curl -o data900kto950k.zip
+unzip data900kto950k.zip
+rm data900kto950k.zip
 ```
 
 The Ixian DLT node is now ready to start.

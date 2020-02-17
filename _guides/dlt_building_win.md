@@ -1,5 +1,5 @@
 ---
-title: Building Ixian DLT from source (Windows)
+title: DLT Node setup on Windows (Build from source)
 ---
 
 # Building an Ixian DLT Node from source on Windows
@@ -9,8 +9,9 @@ title: Building Ixian DLT from source (Windows)
 * Operating system: Windows 7 or higher, Recommended Windows 10
 ..* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
 * RAM: 4 GB, Recommended 8 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz
-* Free Disk Space: 30 GB, 100 GB Recommended
+* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
+* Free Disk Space: 100 GB, 500 GB Recommended
+* Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Visual Studio 2017 (Community Edition is fine), with the following modules:
