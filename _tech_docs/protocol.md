@@ -215,6 +215,7 @@ The challenge response is simply a signature for the `Challenge` field provided 
 | Full Header | bool(optional) | Whether to send full or abbreviated Block Header. |
 
 #### Include Transaction Values
+
 | Value | Description |
 | --- | --- |
 | 1 | Omit Staking transactions, but send all user transactions. |

@@ -187,6 +187,7 @@ When a new version is released, you can upgrade the software using the following
 Note: It is recommended to backup the wallet file **ixian.wal** before performing any upgrade or changing any settings on the command line.
 
 Note: We assume that you have followed the above instructions and the Ixian directory names are as follows:
+
 | Directory | Path |
 | --- | --- |
 | Ixian-Core | ~/Ixian/Ixian-Core |
