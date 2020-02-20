@@ -84,25 +84,25 @@ cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
 9. (Optional) Download and unpack the bootstrap data files to enable faster synchronization:
 ```
 cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
-curl -o https://www.ixian.io/data1to300k.zip
+curl https://www.ixian.io/data1to300k.zip -o data1to300k.zip
 unzip data1to300k.zip
 rm data1to300k.zip
-curl -o https://www.ixian.io/data300kto600k.zip
+curl https://www.ixian.io/data300kto600k.zip -o data300kto600k.zip
 unzip data300kto600k.zip
 rm data300kto600k.zip
-curl -o https://www.ixian.io/data600kto700k.zip
+curl https://www.ixian.io/data600kto700k.zip -o data600kto700k.zip
 unzip data600kto700k.zip
 rm data600kto700k.zip
-curl -o https://www.ixian.io/data700kto800k.zip
+curl https://www.ixian.io/data700kto800k.zip -o data700kto800k.zip
 unzip data700kto800k.zip
 rm data700kto800k.zip
-curl -o https://www.ixian.io/data800kto850k.zip
+curl https://www.ixian.io/data800kto850k.zip -o data800kto850k.zip
 unzip data800kto850k.zip
 rm data800kto850k.zip
-curl -o https://www.ixian.io/data850kto900k.zip
+curl https://www.ixian.io/data850kto900k.zip -o data850kto900k.zip
 unzip data850kto900k.zip
 rm data850kto900k.zip
-curl -o https://www.ixian.io/data900kto950k.zip
+curl https://www.ixian.io/data900kto950k.zip -o data900kto950k.zip
 unzip data900kto950k.zip
 rm data900kto950k.zip
 ```
