@@ -47,11 +47,11 @@ Comparing block rewards at roughly the end of first year since the genesis block
 mining power during that time will increase by a much larger factor.
 
 The target mining inflation rate is as follows:
-•	Target mining inflation rate is 1.2 billion additional Ixis until block 1051200 (roughly 1 year from genesis block)
-•	2.5 billion additional Ixis from block 1051200 to block 2102400 (roughly the second year of operation)
-•	3.7 billion additional Ixis from block 2102400 to block 3153600 (roughly the third year of operation)
-•	5.3 billion additional Ixis from block 3153600 to block 4204800 (roughly the fourth year of operation)
-•	6.7 billion additional Ixis from block 4204800 to block 5256001 (roughly the fifth year operation) which totals to about 20 billion Ixis in about five years
+- Target mining inflation rate is 1.2 billion additional Ixis until block 1051200 (roughly 1 year from genesis block)
+- 2.5 billion additional Ixis from block 1051200 to block 2102400 (roughly the second year of operation)
+- 3.7 billion additional Ixis from block 2102400 to block 3153600 (roughly the third year of operation)
+- 5.3 billion additional Ixis from block 3153600 to block 4204800 (roughly the fourth year of operation)
+- 6.7 billion additional Ixis from block 4204800 to block 5256001 (roughly the fifth year operation) which totals to about 20 billion Ixis in about five years
 After block 5256000, mining IxiCash will no longer be possible, after which time only staking will create more coins.
 
 ![IxiCash inflation chart (Mining only)](https://projectixian.github.io/assets/images/ixicash_mining_inflation.png)
@@ -59,10 +59,9 @@ After block 5256000, mining IxiCash will no longer be possible, after which time
 
 ## Masternode/Signing only inflation
 Staking inflation rate is as follows:
-•	0.1% per year until block #86400 (blockheight was reached in less than 2 months)
-•	5% per year until 50 billion IxiCash in circulation
-•	1% per year after 50 billion IxiCash in circulation
-•	1 billion per year after 100 billion IxiCash in circulation
-This effectively means that after a certain period of time, and sufficient amount of IxiCash is generated, the staking reward will be locked. This way we will replenish the supply to compensate for lost coins, but not over inflate the circulating supply. By setting the inflation rates at these levels, we are ensuring the long term sustainability of the Ixian platform.
-
-![IxiCash inflation chart (Masternode signing only)](https://projectixian.github.io/assets/images/ixicash_staking_inflation.png)
+- 0.1% per year until block #86400 (blockheight was reached in less than 2 months)
+- 5% per year until 50 billion IxiCash in circulation
+- 1% per year after 50 billion IxiCash in circulation
+- 1 billion per year after 100 billion IxiCash in circulation
+This effectively means that after a certain period of time, and sufficient amount of IxiCash is generated, the staking reward will be locked. This way we will replenish the supply to compensate for lost coins,
+but not over inflate the circulating supply. By setting the inflation rates at these levels, we are ensuring the long term sustainability of the Ixian platform.
