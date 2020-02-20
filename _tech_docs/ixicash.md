@@ -35,13 +35,13 @@ supply and gradually increase the rate of new IxiCash generated for the first 52
 among miners/users. On block 5256000, mining will stop and we expect the total supply at that point to be about 25 billion IxiCash. After block 5256000, the only way to generate
 new IxiCash is by running a Master Node, which will inflate the total supply at 5% per year until total supply reaches 50 billion IxiCash. While supply is between 50 billion and
 100 billion IxiCash, the inflation rate will be at 1% and after 100 billion IxiCash in circulation (which should happen in about 100 years), it will be fixed to 1 billion IxiCash
-per year. By not capping the supply after 100 billion IxiCash in circulation, we are trying to compensate for coins that get lost over time (i.e. by users losing their keys, sending to invalid addresses, …).
+per year. By not capping the supply after 100 billion IxiCash in circulation, we are trying to compensate for coins that get lost over time (i.e. by users losing their keys, sending to invalid addresses, ...).
 
 ![IxiCash Total inflation chart (Mining + Staking)](https://projectixian.github.io/assets/images/ixicash_total_inflation.png)
 
 
 ## Mining only inflation
-The block reward through PoW is increasing all the time, but not to an extent that it would seriously diminish the value of early miners´ gains.
+The block reward through PoW is increasing all the time, but not to an extent that it would seriously diminish the value of early miners' gains.
 What we are trying to achieve is discourage speculators and reduce their influence on the market, and at the same time encourage new miners to join the network and keep the distribution of IxiCash more even.
 Comparing block rewards at roughly the end of first year since the genesis block of 4000 IxiCash to 16000 IxiCash after 5 years is a 4-fold increase, while we can expect that the number of miners and
 mining power during that time will increase by a much larger factor.
