@@ -58,10 +58,21 @@ After block 5256000, mining IxiCash will no longer be possible, after which time
 
 
 ## Masternode/Signing only inflation
-Staking inflation rate is as follows:
+Each masternode that signs a newly generated block receives a portion of the signing reward and a portion of the transaction fees.
+Signing reward and transaction fees are split between all signers of the block (up to 1000) equally.
+
+Signing inflation rate is as follows:
 - 0.1% per year until block #86400 (blockheight was reached in less than 2 months)
 - 5% per year until 50 billion IxiCash in circulation
 - 1% per year after 50 billion IxiCash in circulation
 - 1 billion per year after 100 billion IxiCash in circulation
+
 This effectively means that after a certain period of time, and sufficient amount of IxiCash is generated, the staking reward will be locked. This way we will replenish the supply to compensate for lost coins,
 but not over inflate the circulating supply. By setting the inflation rates at these levels, we are ensuring the long term sustainability of the Ixian platform.
+
+
+## Transaction Fees
+Transaction fees are collected by masternodes when the transaction is added to the block and the block is accepted by the Ixian network.
+Portion of the transaction fees (at the time of writing 3%) is transferred to Ixian's foundation address, intended to further evolve Ixian technology.
+
+At the time of writing minimum transaction fees are set to 0.00005000 IXI per kilobyte of data.
