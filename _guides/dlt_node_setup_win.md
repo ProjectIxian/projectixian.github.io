@@ -23,12 +23,12 @@ Visit the Ixian Github [Releases](https://github.com/ProjectIxian/Ixian-DLT/rele
 ![Release Package](https://projectixian.github.io/assets/images/guide_win_1.png)
 
 ## (Optional) Download and unpack the bootstrap data files for faster synchronization. Links to current bootstrap files are provided below:
-[https://www.ixian.io/data1to300k.zip](https://www.ixian.io/data1to300k.zip)
-[https://www.ixian.io/data300kto600k.zip](https://www.ixian.io/data300kto600k.zip)
-[https://www.ixian.io/data600kto700k.zip](https://www.ixian.io/data600kto700k.zip)
-[https://www.ixian.io/data700kto800k.zip](https://www.ixian.io/data700kto800k.zip)
-[https://www.ixian.io/data800kto850k.zip](https://www.ixian.io/data800kto850k.zip)
-[https://www.ixian.io/data850kto900k.zip](https://www.ixian.io/data850kto900k.zip)
+[https://www.ixian.io/data1to300k.zip](https://www.ixian.io/data1to300k.zip)\
+[https://www.ixian.io/data300kto600k.zip](https://www.ixian.io/data300kto600k.zip)\
+[https://www.ixian.io/data600kto700k.zip](https://www.ixian.io/data600kto700k.zip)\
+[https://www.ixian.io/data700kto800k.zip](https://www.ixian.io/data700kto800k.zip)\
+[https://www.ixian.io/data800kto850k.zip](https://www.ixian.io/data800kto850k.zip)\
+[https://www.ixian.io/data850kto900k.zip](https://www.ixian.io/data850kto900k.zip)\
 [https://www.ixian.io/data900kto950k.zip](https://www.ixian.io/data900kto950k.zip)
 
 The data from the archive should be placed in the same folder as the Ixian executables.
