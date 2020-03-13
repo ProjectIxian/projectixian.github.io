@@ -3,6 +3,14 @@ layout: guide
 title: Guides
 ---
 {{ content }}
-{% for guide in site.guides %}
-    <a href="{{ guide.url }}">{{ guide.title }}</a><br/>
+<h2>Ixian DLT Guides</h2>
+{% assign dlt_guides = site.guides | where: 'type', 'dlt' %}
+{% for guide in dlt_guides %}
+    <a href="{{ guide.url }}">{{ guide.title }}</a><br />
+{% endfor %}
+<br />
+<h2>Ixian S2 Guides</h2>
+{% assign s2_guides = site.guides | where: 'type', 's2' %}
+{% for guide in s2_guides %}
+    <a href="{{ guide.url }}">{{ guide.title }}</a><br />
 {% endfor %}

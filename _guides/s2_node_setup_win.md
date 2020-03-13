@@ -1,5 +1,6 @@
 ---
 title: S2 Node setup on Windows
+type: s2
 ---
 
 # Installing an Ixian S2 Node on Windows

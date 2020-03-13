@@ -1,5 +1,6 @@
 ---
 title: DLT Node Configuration options
+type: dlt
 ---
 
 ## Configuration file

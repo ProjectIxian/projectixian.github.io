@@ -1,5 +1,6 @@
 ---
 title: S2 Node setup on Raspberry Pi
+type: s2
 ---
 
 Note: This guide should work for Raspberry Pi 3 or 4 running `Raspbian Linux` 

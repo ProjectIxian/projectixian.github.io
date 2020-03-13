@@ -1,5 +1,6 @@
 ---
 title: DLT Node setup on Windows (Build from source)
+type: dlt
 ---
 
 # Building an Ixian DLT Node from source on Windows

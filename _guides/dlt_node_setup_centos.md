@@ -1,5 +1,6 @@
 ---
 title: DLT Node setup on RedHat/Centos
+type: dlt
 ---
 
 Note: This guide should work for most rpm-based distributions, such as:

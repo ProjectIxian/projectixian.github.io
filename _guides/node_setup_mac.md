@@ -1,5 +1,6 @@
 ---
 title: DLT Node setup on macOS
+type: dlt
 ---
 
 Ixian was tested on macOS 10.13 High Sierra and 10.14 Mojave

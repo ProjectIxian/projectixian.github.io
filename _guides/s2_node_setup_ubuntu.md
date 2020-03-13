@@ -1,5 +1,6 @@
 ---
 title: S2 Node setup on Ubuntu/Debian
+type: s2
 ---
 
 Note: This guide should work for most apt-based distributions, such as:

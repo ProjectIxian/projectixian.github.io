@@ -1,5 +1,6 @@
 ---
 title: DLT Node setup on Windows
+type: dlt
 ---
 
 # Installing an Ixian DLT Node on Windows

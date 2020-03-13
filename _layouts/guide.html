@@ -4,8 +4,16 @@ layout: default
 <div class="contentWrapper">
     <nav class="leftNavigation">
         <div class="navTitle">Guides</div>
-        {% for guide in site.guides %}
-            <a href="{{ guide.url }}" {% if page.url == guide.url %}class="selected"{% endif %}>{{ guide.title }}</a>
+        <div class="sectionTitle">Ixian DLT Guides</div>
+        {% assign dlt_guides = site.guides | where: 'type', 'dlt' %}
+        {% for guide in dlt_guides %}
+            <a href="{{ guide.url }}" {% if page.url == guide.url %}class="selected" {% endif %}>{{ guide.title }}</a>
+        {% endfor %}
+        <br />
+        <div class="sectionTitle">Ixian S2 Guides</div>
+        {% assign s2_guides = site.guides | where: 'type', 's2' %}
+        {% for guide in s2_guides %}
+            <a href="{{ guide.url }}" {% if page.url == guide.url %}class="selected" {% endif %}>{{ guide.title }}</a>
         {% endfor %}
     </nav><div class="content">{{ content }}
     </div>

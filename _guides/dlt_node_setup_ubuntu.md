@@ -1,5 +1,6 @@
 ---
 title: DLT Node setup on Ubuntu/Debian
+type: dlt
 ---
 
 Note: This guide should work for most apt-based distributions, such as:

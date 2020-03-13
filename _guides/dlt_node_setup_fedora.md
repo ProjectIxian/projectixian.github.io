@@ -1,5 +1,6 @@
 ---
 title: DLT Node setup on Fedora
+type: dlt
 ---
 
 Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.

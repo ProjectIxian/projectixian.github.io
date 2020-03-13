@@ -1,5 +1,6 @@
 ---
 title: S2 Node setup on RedHat/Centos
+type: s2
 ---
 
 Note: This guide should work for most rpm-based distributions, such as:
