@@ -16,8 +16,8 @@ type: dlt
 
 ## Additional requirements
 * Visual Studio 2017 (Community Edition is fine), with the following modules:
-..* .NET Desktop Development Workload
-..* Desktop Development with C++ Workload
+* .NET Desktop Development Workload
+* Desktop Development with C++ Workload
 * (recommended) Git
 
 ## Obtaining the source
