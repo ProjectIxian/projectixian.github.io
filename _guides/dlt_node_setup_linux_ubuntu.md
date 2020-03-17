@@ -34,7 +34,7 @@ sudo apt update
 ```
 
 ## Install required software
-1. Install a recent Mono release for linux by following the guide for your Linux distribution here: [Mono Installation Guide](https://www.mono-project.com/download/stable/). When installing, use the "mono-devel" package:
+1. Install a recent Mono release for Linux by following the guide for your Linux distribution here: [Mono Installation Guide](https://www.mono-project.com/download/stable/). When installing, use the "mono-devel" package:
 ```
 sudo apt install mono-devel
 ```
@@ -63,39 +63,20 @@ Ixian-Core
 Ixian-DLT
 ```
 
-5. Switch into the `Ixian-DLT` directory and download the required NuGet packages:
+5. Switch into the `Ixian-DLT` directory and execute rebuild.sh script:
 ```
 cd Ixian-DLT
-nuget restore DLTNode.sln
+sh rebuild.sh
 ```
+The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release'
+If you encounter errors during the rebuild process, make sure that you have installed mono correctly as described in step 1 of this guide.
 
-6. Compile the DLT Node executable in the ‘Release Configuration’:
-```
-msbuild DLTNode.sln /p:Configuration=Release
-```
-
-7. Ixian DLT Node requires the Argon2 library to function. In order to build one for your system, follow these steps:
-..a. Obtain the Argon2 source code from github:
-```
-cd ~/Ixian
-git clone https://github.com/P-H-C/phc-winner-argon2.git
-```
-..b. Compile the Argon2 source:
-```
-cd phc-winner-argon2
-make
-```
-..c. Copy the resulting Argon2 library to the IxianDLT folder. Please note that the file should be renamed to ‘libargon2.so’:
-```
-cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.so
-```
-
-8. Switch to the Ixian binaries folder:
+6. Switch to the Ixian binaries folder:
 ```
 cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
 ```
 
-9. (Optional) Download and unpack the bootstrap data files to enable faster synchronization:
+7. (Optional) Download and unpack the bootstrap data files to enable faster synchronization:
 ```
 cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
 curl https://www.ixian.io/data1to300k.zip -o data1to300k.zip
@@ -125,7 +106,7 @@ The Ixian DLT node is now ready to start.
 
 ## Running the software
 
-Switch to the Ixian DLT binaries folder and issue the command to start the IxianDLT software:
+Switch to the Ixian DLT binaries folder and issue the command to start the Ixian DLT software:
 ```
 mono IxianDLT.exe
 ```
@@ -133,6 +114,13 @@ mono IxianDLT.exe
 The output should look like this:
 
 ![Ixian Console Output](https://projectixian.github.io/assets/images/guide_deb_1.png)
+
+** Side Notes:
+* On some systems we have noticed a problem with libargon2.so when built from source, causing an exception in DLT when trying to verify PoW transaction or when mining.
+Luckily Ubuntu (and possibly other distributions) provides its own libargon2.so, located in '/usr/lib/x86_64-linux-gnu/libargon2.so.0', you can simply replace the compiled version:
+```
+cp /usr/lib/x86_64-linux-gnu/libargon2.so.0 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.so
+```
 
 ### Creating a wallet
 
@@ -197,49 +185,16 @@ Note: We assume that you have followed the above instructions and the Ixian dire
 
 If you have placed the Ixian source code folders elsewhere, change them in the below description. Furthermore, if you copied the executable files from the bin/Release folder someplace else, you will need to repeat the copy step to overwrite old executable files with new ones.
 
-0. Save the ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/ixian.wal ~/ixian.wal.backup`.
+0. Save the Ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian DLT Node.
 2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.
 4. Switch to the Ixian-DLT directory: `cd ~/Ixian/Ixian-DLT`.
 5. Update the sources to the latest version: `git pull`.
-6. Update nuget packages: `nuget restore DLTNode.sln`.
-7. Compile the new sources: `msbuild DLTNode.sln /p:Configuration=Release`.
-8. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
+6. Compile the new sources: `sh rebuild.sh`.
+7. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
 
 
 ## Configuration file
 
-An alternative to creating a batch or shell script is the Ixian DLT configuration file, which can be used to configure the most important settings.
-
-The format of the file is simple INI (without sections):
-* Each option is specified on its own line
-* Option syntax is `option_name = option_value`
-* Whitespace is not important
-* Lines starting with `;` are ignored
-* Option names are case-sensitive
-
-A list of options supported by the config file is:
-
-| Option name | Type | Repeatable | Default | Description |
-| --- | --- | --- | --- |
-| dltPort | int | No | 10234 | TCP port number for the Master Node, when running on the main network. |
-| testnetDltPort | int | No | 11234 | TCP port number for the Master Node, when running on the test network. |
-| apiPort | int | No | 8081 | Port for the internal REST API server to listen for commands. Note: This port is only avilable on the localhost interface (127.0.0.1). |
-| apiAllowIp | IPv4 Address | Yes | EMPTY | IP Addresses which are allowed to access the REST API interface. |
-| apiBind | Bind Point | Yes | http://localhost:8081 | Additional IP interface on which the internal REST API should listen. The API allows full control over the DLT node, so do not change this unless you are absolutely sure. |
-| testnetApiPort | int | No | 8181 | Port for the internal REST API server when the node is operating on the test network. |
-| addApiUser | Username:Password | Yes | EMPTY | An additional layer of protection - will require all REST API calls to include the given username and password. |
-| externalIp | IP Address | No | EMPTY | Configure this if the external IP address cannot be automatically determined via UPnP. |
-| addPeer | Hostname or IP Address | Yes | Seed Nodes | Set this to use different Ixian DLT Mater nodes as seed - this option only has an effect in mainnet mode. |
-| addTestnetPeer | Hostname or IP Address | Yes | Seed Nodes | Set this to use different Ixian DLT Mater nodes as seed - this option only has an effect in testnet mode. |
-| maxLogSize | int | No | 50 | Size of the Ixian DLT log file (in megabytes), before it is automatically rotated. |
-| maxLogCount | int | No | 10 | Number of old (full) log files to keep before deleting the oldest. |
-| disableMiner | int | No | 0 | If set to anything other than 0, the built-in Ixian DLT miner will not run. |
-| disableWebStart | int | No | 0 | If set to a nonzero value, the DLT node will not open its internal wallet page on startup. |
-| forceTimeOffset | int | No | 0 | Forces the local node's time to a different value (when the OS clock does not return the correct time). |
-| blockStorage | string | No | sqlite | Selects the storage provider for the block and transaction storage. |
-| walletNotify | string | No | EMPTY | OS command to run whenever the local wallet is updated. |
-| blockNotify | string | No | EMPTY | OS command to run whenever a new block is received by the DLT node. |
-
-Any repeatable options may be specified more than once. If nonrepeatable options are specified multiple times, the last one is used.
+See [DLT Node Configuration options](/guides/dlt_config_params.html) for details.
