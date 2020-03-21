@@ -17,19 +17,26 @@ body
     background: #111111;
 }
 
+h1
+{
+    font-size: 2rem;
+}
+
 h2
 {
+    font-size: 1.5rem;
     padding-top: 10px;
 }
 
 h3, h4
 {
+    font-size: 1rem;
     padding-top: 6px;
 }
 
 .widthLimiter
 {
-    width: 1000px;
+    max-width: 1000px;
 }
 
 a
@@ -116,8 +123,9 @@ header .logoWrapper img
 header .welcomeText
 {
     display: inline-block;
+    padding: 0px 20px;
     margin-bottom: 20px;
-    width: 750px;
+    max-width: 750px;
 }
 
 header nav
@@ -167,7 +175,7 @@ header nav > a:first-child
 
 .leftNavigation .navTitle
 {
-    font-size: 22px;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -294,12 +302,6 @@ footer .widthLimiter
 {
     position: relative;
     margin: 0 auto;
-}
-
-footer .logoWrapper
-{
-    position: absolute;
-    left: 0px;
 }
 
 footer .links
