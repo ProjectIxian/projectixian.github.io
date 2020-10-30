@@ -12,7 +12,7 @@ Ixian was tested on macOS 10.13 High Sierra and 10.14 Mojave
 * Operating system: macOS 10.9 or higher
 * RAM: 4 GB, Recommended 8 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
-* Free Disk Space: 100 GB, 500 GB Recommended
+* Free Disk Space: 200 GB, 500 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
