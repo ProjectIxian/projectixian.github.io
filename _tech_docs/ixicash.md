@@ -34,7 +34,7 @@ among miners/users. On block #105120000 (roughly 100 years), mining will stop an
 the only way to generate new IxiCash is by running a Master Node, which will inflate the total supply at 36 IXIs per block (or 38 million IXIs per year). By not capping the 
 supply after 21 billion IxiCash in circulation, we are trying to compensate for coins that get lost over time (i.e. by users losing their keys, sending to invalid addresses, ...).
 
-For IxiCash emission charts and other details visit: https://explorer.ixian.io/?p=emissions
+For IxiCash emission charts and other details visit [https://explorer.ixian.io/?p=emissions](https://explorer.ixian.io/?p=emissions).
 
 ## Mining only inflation
 The target mining inflation rate is as follows (you must include a 50% target ratio between solved and unsolved blocks when doing inflation calculations. Only every 2nd block should be solved on average):
