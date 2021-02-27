@@ -3,7 +3,7 @@ title: IxiCash Details
 ---
 
 Offering a strong incentive to run Ixian Nodes is essential in maintaining the Ixian network. This incentive arrives in the form of IxiCash, a cryptocurrency designed for micro transactions.
-Using IxiCash you are able to send friends money and pay for premium content. Whether you are providing tech support, performing a live show and broadcasting it to paying viewers, you can charge a service fee in IxiCash.
+Using IxiCash you are able to send money to friends and pay for premium content. Whether you are providing tech support, performing a live show and broadcasting it to paying viewers, you can charge a service fee in IxiCash.
 
 
 ## Premine
@@ -22,10 +22,9 @@ of 5 years (20% to be released at the end of each year). The other 1 billion Ixi
 
 
 ## Total inflation
-A hybrid Ixicash distribution model is in place. For initial distribution, mining seems to be the best way for various reasons.
+A hybrid IxiCash distribution model is in place. For initial distribution, mining seems to be the best way for various reasons.
 As more users set up their nodes, the network itself will become more resilient against attackers and increase its capability for handling large numbers of users.
-This will mean that more users will participate in the distribution of IxiCash as well. After a sufficient amount of IxiCash has been mined, mining will be permanently
-switched off and new currency will only be generated through other means.
+This means that more users will participate in the distribution of IxiCash as well. After a sufficient amount of IxiCash has been mined, the mining mechanism will be permanently switched off and new currency will only be generated through other means.
 
 The Ixian economy differs substantially from what we are used to in the crypto space. Most cryptocurrencies out there rely on a capped supply and smaller and smaller
 emissions over time to increase value for investors and early adopters, whether it be PoW related with reducing block rewards or PoS. We have decided to start with a minimum
