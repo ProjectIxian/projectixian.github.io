@@ -166,7 +166,7 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 4. Type or paste the IxianDLT command into the file. You may use the command below, which includes the most common options, as the starting point.
 `IxianDLT.exe -p 10234 -a 8081 --threads 2`
 5. Save the file and quit the editor. For *nano*, the command is `Ctrl-X`, then `Y`.
-6. Make the script file executable: `chmod u+x StartXian.sh`.
+6. Make the script file executable: `chmod u+x StartIxian.sh`.
 7. Use the new "StartIxian.sh" file to start the DLT Node with the specified options `./StartIxian.sh`.
 
 ## Upgrading the DLT Node software
