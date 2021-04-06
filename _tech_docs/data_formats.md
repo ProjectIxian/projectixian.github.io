@@ -81,7 +81,7 @@ raw_address = 44 bytes, `truncate(sha512sq(primay_address|nonce), 44)`
 ## Key format
 ### Relevant C# objects:
 `IXICore.IxianKeyPair`
-`IXICore.CyrptoLib`
+`IXICore.CryptoLib`
 
 ### v0 Public key
 
