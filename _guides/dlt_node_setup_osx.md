@@ -66,9 +66,9 @@ git clone https://github.com/P-H-C/phc-winner-argon2.git
 cd phc-winner-argon2
 make
 ```
-..c. Copy the resulting Argon2 library to the IxianDLT folder. Please note that the file should be renamed to ‘libargon2.so’:
+..c. Copy the resulting Argon2 library to the IxianDLT folder. Please note that the file should be renamed to ‘libargon2.dylib’:
 ```
-cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.so
+cp libargon2.1.dylib ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.dylib
 ```
 
 8. Switch to the Ixian binaries folder:
