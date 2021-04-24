@@ -3,14 +3,14 @@ title: DLT Node setup on macOS
 type: dlt
 ---
 
-Ixian was tested on macOS 10.13 High Sierra and 10.14 Mojave
+Ixian was tested on macOS 10.13 High Sierra, 10.14 Mojave and 10.15 Catalina
 
 # Installing an Ixian DLT Node on macOS
 
 ## Prerequisites
 
 * Operating system: macOS 10.9 or higher
-* RAM: 4 GB, Recommended 8 GB
+* RAM: 8 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
 * Free Disk Space: 200 GB, 500 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
@@ -52,7 +52,7 @@ nuget restore DLTNode.sln
 
 6. Compile the DLT Node executable in the ‘Release Configuration’:
 ```
-msbuild DLTNode.sln /p:Configuration=Release
+msbuild /p:Configuration=Release /t:DLTNode
 ```
 
 7. Ixian DLT Node requires the Argon2 library to function. In order to build one for your system, follow these steps:
