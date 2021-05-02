@@ -18,7 +18,7 @@ Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
 ## Prerequisites
 
 * Operating system: apt-based Linux distribution, such as Debian or Ubuntu
-* RAM: 4 GB, Recommended 8 GB
+* RAM: 8 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
 * Free Disk Space: 200 GB, 500 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
@@ -76,31 +76,9 @@ If you encounter errors during the rebuild process, make sure that you have inst
 cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
 ```
 
-7. (Optional) Download and unpack the bootstrap data files to enable faster synchronization:
-```
-cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
-curl https://www.ixian.io/data1to300k.zip -o data1to300k.zip
-unzip data1to300k.zip
-rm data1to300k.zip
-curl https://www.ixian.io/data300kto600k.zip -o data300kto600k.zip
-unzip data300kto600k.zip
-rm data300kto600k.zip
-curl https://www.ixian.io/data600kto700k.zip -o data600kto700k.zip
-unzip data600kto700k.zip
-rm data600kto700k.zip
-curl https://www.ixian.io/data700kto800k.zip -o data700kto800k.zip
-unzip data700kto800k.zip
-rm data700kto800k.zip
-curl https://www.ixian.io/data800kto850k.zip -o data800kto850k.zip
-unzip data800kto850k.zip
-rm data800kto850k.zip
-curl https://www.ixian.io/data850kto900k.zip -o data850kto900k.zip
-unzip data850kto900k.zip
-rm data850kto900k.zip
-curl https://www.ixian.io/data900kto950k.zip -o data900kto950k.zip
-unzip data900kto950k.zip
-rm data900kto950k.zip
-```
+7. (Optional) Download and unpack the bootstrap data files to enable faster synchronization.
+
+Follow the [Data Bootstrap guide](https://docs.ixian.io/guides/dlt_bootstrap.html) to download and install the latest data files.
 
 The Ixian DLT node is now ready to start.
 
