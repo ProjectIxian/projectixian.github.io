@@ -9,7 +9,7 @@ type: dlt
 
 * Operating system: Windows 7 or higher, Recommended Windows 10
 ..* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
-* RAM: 4 GB, Recommended 8 GB
+* RAM: 8 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
 * Free Disk Space: 200 GB, 500 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
@@ -23,14 +23,9 @@ Visit the Ixian Github [Releases](https://github.com/ProjectIxian/Ixian-DLT/rele
 
 ![Release Package](https://projectixian.github.io/assets/images/guide_win_1.png)
 
-## (Optional) Download and unpack the bootstrap data files for faster synchronization. Links to current bootstrap files are provided below:
-[https://www.ixian.io/data1to300k.zip](https://www.ixian.io/data1to300k.zip)<br/>
-[https://www.ixian.io/data300kto600k.zip](https://www.ixian.io/data300kto600k.zip)<br/>
-[https://www.ixian.io/data600kto700k.zip](https://www.ixian.io/data600kto700k.zip)<br/>
-[https://www.ixian.io/data700kto800k.zip](https://www.ixian.io/data700kto800k.zip)<br/>
-[https://www.ixian.io/data800kto850k.zip](https://www.ixian.io/data800kto850k.zip)<br/>
-[https://www.ixian.io/data850kto900k.zip](https://www.ixian.io/data850kto900k.zip)<br/>
-[https://www.ixian.io/data900kto950k.zip](https://www.ixian.io/data900kto950k.zip)
+## (Optional) Download and unpack the bootstrap data files for faster synchronization.
+
+Follow the [Data Bootstrap guide](https://docs.ixian.io/guides/dlt_bootstrap.html) to download and install the latest data files.
 
 The data from the archive should be placed in the same folder as the Ixian executables.
 
