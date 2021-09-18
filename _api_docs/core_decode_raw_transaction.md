@@ -12,7 +12,7 @@ Note: This method accepts both a signed or an unsigned raw transaction and will 
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| transaction | string | Yes | The encoded transaction, as returned by [Create Raw Transaction](#create-raw-transaction) |
+| transaction | string | Yes | The encoded transaction, as returned by [Create Raw Transaction](https://projectixian.github.io/api_docs/core_create_raw_transaction.html) |
 
 
 ### Output:
