@@ -21,7 +21,7 @@ Rescans the entire blockchain and fills the activity file with information relev
 | --- | --- |
 | RPC_MISC_ERROR | Activity scanner is already running. |
 
-Note: Current status of the blockchain rescan can be viewed from the `/status?vv=true` API output, in the `Queues` section: `Blockchain Scanning Active` and `Activity Scanner Last Block` 
+Note: Current status of the blockchain rescan can be viewed from the `/status?vv=true` API output, specifically `Blockchain Scanning Active` and `Activity Scanner Last Block` 
 
 ### Example:
 GET http://localhost:8081/rescanblockchain?from=1000000
