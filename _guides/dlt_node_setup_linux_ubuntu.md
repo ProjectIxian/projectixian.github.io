@@ -70,7 +70,7 @@ sh rebuild.sh
 ```
 The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release'
 If you encounter errors during the rebuild process, make sure that you have installed mono correctly as described in step 1 of this guide.
-Additionally, if you encounter the `"AssemblyFiles" has invalid value "/usr/lib/mono/4.8-api/mscorlib.dll"` compile error, see the [Troubleshooting mono 6.12.0.179` compile issue](https://docs.ixian.io/dlt_node_setup_linux_ubuntu.md#troubleshooting-mono-6120179-compile-issue) section below.
+Additionally, if you encounter the `"AssemblyFiles" has invalid value "/usr/lib/mono/4.8-api/mscorlib.dll"` compile error, see the `Troubleshooting mono 6.12.0.179` compile issue section below.
 
 6. Switch to the Ixian binaries folder:
 ```
