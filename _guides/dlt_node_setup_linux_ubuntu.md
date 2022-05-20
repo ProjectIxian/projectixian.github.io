@@ -70,6 +70,7 @@ sh rebuild.sh
 ```
 The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release'
 If you encounter errors during the rebuild process, make sure that you have installed mono correctly as described in step 1 of this guide.
+Additionally, if you encounter the `"AssemblyFiles" has invalid value "/usr/lib/mono/4.8-api/mscorlib.dll"` compile error, see the [Troubleshooting mono 6.12.0.179` compile issue](dlt_node_setup_linux_ubuntu.md#troubleshooting-mono-6120179-compile-issue) section below.
 
 6. Switch to the Ixian binaries folder:
 ```
@@ -176,3 +177,21 @@ If you have placed the Ixian source code folders elsewhere, change them in the b
 ## Configuration file
 
 See [DLT Node Configuration options](/guides/dlt_config_params.html) for details.
+
+## Troubleshooting mono 6.12.0.179 compile issue 
+If you're getting a `"AssemblyFiles" has invalid value "/usr/lib/mono/4.8-api/mscorlib.dll"` compile error when running `sh rebuild.sh`, you likely have updated to mono version 6.12.0.179. Unfortunately this version of mono has some breaking changes which prevents Ixian-DLT from compiling. See [issue](https://github.com/mono/mono/issues/21479) for details about it.
+To compile Ixian-DLT, you'll have to downgrade to mono 6.12.0.122. To downgrade, perform the following steps in order:
+1. Open a terminal and type the following command: `sudo apt-get remove mono-devel` or `sudo apt-get remove mono-complete` (if you installed the -complete version)
+2. `sudo nano /etc/apt/sources.list.d/mono-official-stable.list`
+3. Modify the line in this file so that it looks like this: `deb https://download.mono-project.com/repo/ubuntu stable-focal/snapshots/6.12.0.122 main`
+4. Save the file by pressing CTRL-O then CTRL-X to exit
+5. `sudo apt-get update`
+6. `sudo apt-get autoremove` then press Y
+7. `sudo apt-get remove mono-runtime libmono-2.0-1 libmono-profiler libmonosgen-2.0-1 libmono-2.0-dev libmonoboehm-2.0-1` then press Y
+8. `sudo apt-get install mono-complete` then press Y
+9. `sudo apt-get install nuget msbuild git gcc unzip` then press Y
+10. If you are in the Ixian-DLT folder, you can finally run `sh rebuild.sh`
+
+
+
+
