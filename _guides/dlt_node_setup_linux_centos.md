@@ -8,17 +8,15 @@ Note: This guide should work for most rpm-based distributions, such as:
 * RedHat
 * Oracle Linux
 
-Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
-
 # Installing an Ixian DLT Node on Linux (RedHat/CentOS clones)
 
 ## Prerequisites
 
 * Operating system: recent, rpm-based Linux distribution, such as RedHat or CentOS
-* RAM: 8 GB
+* RAM: 16 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
-* Free Disk Space: 200 GB, 500 GB Recommended
-* Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
+* Free Disk Space: 600 GB, 1 TB Recommended
+* Internet Connection Speed: 20 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10234.)
@@ -26,14 +24,11 @@ Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
 
 
 ## Install required software
-1. Install a recent Mono release for linux by following the guide for your Linux distribution here: [Mono Installation Guide](https://www.mono-project.com/download/stable/). When installing, use the "mono-devel" package:
-```
-sudo yum install mono-devel
-```
+1. Install the dotnet 6.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
 
 2. Install additional required packages:
 ```
-sudo yum install nuget msbuild git gcc unzip
+sudo yum install gcc git make unzip
 ```
 
 3. Prepare a directory for the Ixian Project:
@@ -55,18 +50,15 @@ Ixian-Core
 Ixian-DLT
 ```
 
-5. Switch into the `Ixian-DLT` directory and download the required NuGet packages:
+5. Switch into the `Ixian-DLT` directory and execute rebuild.sh script:
 ```
 cd Ixian-DLT
-nuget restore DLTNode.sln
+sh rebuild.sh
 ```
+The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/'
 
-6. Compile the DLT Node executable in the ‘Release Configuration’:
-```
-msbuild DLTNode.sln /p:Configuration=Release
-```
 
-7. Ixian DLT Node requires the Argon2 library to function. In order to build one for your system, follow these steps:
+6. Ixian DLT Node requires the Argon2 library to function. In order to build one for your system, follow these steps:
 ..a. Obtain the Argon2 source code from github:
 ```
 cd ~/Ixian
@@ -79,15 +71,15 @@ make
 ```
 ..c. Copy the resulting Argon2 library to the IxianDLT folder. Please note that the file should be renamed to ‘libargon2.so’:
 ```
-cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.so
+cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/libargon2.so
 ```
 
-8. Switch to the Ixian binaries folder:
+7. Switch to the Ixian binaries folder:
 ```
-cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
+cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/
 ```
 
-9. (Optional) Download and unpack the bootstrap data files to enable faster synchronization.
+8. (Optional) Download and unpack the bootstrap data files to enable faster synchronization.
 
 Follow the [Data Bootstrap guide](https://docs.ixian.io/guides/dlt_bootstrap.html) to download and install the latest data files.
 
@@ -97,7 +89,7 @@ The Ixian DLT node is now ready to start.
 
 Switch to the Ixian DLT binaries folder and issue the command to start the IxianDLT software:
 ```
-mono IxianDLT.exe
+./IxianDLT.exe
 ```
 
 The output should look like this:
@@ -147,7 +139,7 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 3. Create a new script using your preferred text editor. This example uses *vi*: `vi StartIxian.sh`.
 4. Press *i* to switch the VI editor into *'input mode'*.
 5. Type or paste the IxianDLT command into the file. You may use the command below, which includes the most common options, as the starting point.
-`IxianDLT.exe -p 10234 -a 8081 --threads 2`
+`./IxianDLT -p 10234 -a 8081 --threads 2`
 6. Press `Escape` to exit the input mode, then type `:wq` to save the file and quit the VI editor.
 7. Make the script file executable: `chmod u+x StartIxian.sh`.
 8. Use the new "StartIxian.sh" file to start the DLT Node with the specified options `./StartIxian.sh`.
@@ -164,19 +156,18 @@ Note: We assume that you have followed the above instructions and the Ixian dire
 | --- | --- |
 | Ixian-Core | ~/Ixian/Ixian-Core |
 | Ixian-DLT | ~/Ixian/Ixian-DLT |
-| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release |
+| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0 |
 
 If you have placed the Ixian source code folders elsewhere, change them in the below description. Furthermore, if you copied the executable files from the bin/Release folder someplace else, you will need to repeat the copy step to overwrite old executable files with new ones.
 
-0. Save the ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/ixian.wal ~/ixian.wal.backup`.
+0. Save the Ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian DLT Node.
 2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.
 4. Switch to the Ixian-DLT directory: `cd ~/Ixian/Ixian-DLT`.
 5. Update the sources to the latest version: `git pull`.
-6. Update nuget packages: `nuget restore DLTNode.sln`.
-7. Compile the new sources: `msbuild DLTNode.sln /p:Configuration=Release`.
-8. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
+6. Compile the new sources: `sh rebuild.sh`.
+7. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
 
 
 ## Configuration file

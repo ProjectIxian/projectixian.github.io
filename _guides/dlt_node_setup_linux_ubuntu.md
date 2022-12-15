@@ -11,17 +11,17 @@ Note: This guide should work for most apt-based distributions, such as:
 * MX Linux
 * Mint
 
-Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
+IxianDLT was tested on Ubuntu (22.04+).
 
 # Installing an Ixian DLT Node on Linux (Debian/Ubuntu clones)
 
 ## Prerequisites
 
 * Operating system: apt-based Linux distribution, such as Debian or Ubuntu
-* RAM: 8 GB
+* RAM: 16 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
-* Free Disk Space: 200 GB, 500 GB Recommended
-* Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
+* Free Disk Space: 600 GB, 1 TB Recommended
+* Internet Connection Speed: 20 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10234.)
@@ -34,14 +34,11 @@ sudo apt update
 ```
 
 ## Install required software
-1. Install a recent Mono release for Linux by following the guide for your Linux distribution here: [Mono Installation Guide](https://www.mono-project.com/download/stable/). When installing, use the "mono-devel" package:
-```
-sudo apt install mono-devel
-```
+1. Install the dotnet 6.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
 
 2. Install additional required packages:
 ```
-sudo apt install nuget msbuild git gcc unzip
+sudo apt install gcc git make unzip
 ```
 
 3. Prepare a directory for the Ixian Project:
@@ -68,13 +65,11 @@ Ixian-DLT
 cd Ixian-DLT
 sh rebuild.sh
 ```
-The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release'
-If you encounter errors during the rebuild process, make sure that you have installed mono correctly as described in step 1 of this guide.
-Additionally, if you encounter the `"AssemblyFiles" has invalid value "/usr/lib/mono/4.8-api/mscorlib.dll"` compile error, see the `Troubleshooting mono 6.12.0.179` compile issue section below.
+The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/'
 
 6. Switch to the Ixian binaries folder:
 ```
-cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release
+cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/
 ```
 
 7. (Optional) Download and unpack the bootstrap data files to enable faster synchronization.
@@ -87,7 +82,7 @@ The Ixian DLT node is now ready to start.
 
 Switch to the Ixian DLT binaries folder and issue the command to start the Ixian DLT software:
 ```
-mono IxianDLT.exe
+./IxianDLT
 ```
 
 The output should look like this:
@@ -98,7 +93,7 @@ The output should look like this:
 * On some systems we have noticed a problem with libargon2.so when built from source, causing an exception in DLT when trying to verify PoW transaction or when mining.
 Luckily Ubuntu (and possibly other distributions) provides its own libargon2.so, located in '/usr/lib/x86_64-linux-gnu/libargon2.so.0', you can simply replace the compiled version:
 ```
-cp /usr/lib/x86_64-linux-gnu/libargon2.so.0 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.so
+cp /usr/lib/x86_64-linux-gnu/libargon2.so.0 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/libargon2.so
 ```
 
 ### Creating a wallet
@@ -143,7 +138,7 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 1. Switch to the unpacked Ixian DLT folder. If you have followed the above instructions for building, the command should be `cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release`.
 3. Create a new script using your preferred text editor. This example uses *nano*: `nano StartIxian.sh`.
 4. Type or paste the IxianDLT command into the file. You may use the command below, which includes the most common options, as the starting point.
-`IxianDLT.exe -p 10234 -a 8081 --threads 2`
+`./IxianDLT -p 10234 -a 8081 --threads 2`
 5. Save the file and quit the editor. For *nano*, the command is `Ctrl-X`, then `Y`.
 6. Make the script file executable: `chmod u+x StartIxian.sh`.
 7. Use the new "StartIxian.sh" file to start the DLT Node with the specified options `./StartIxian.sh`.
@@ -160,11 +155,11 @@ Note: We assume that you have followed the above instructions and the Ixian dire
 | --- | --- |
 | Ixian-Core | ~/Ixian/Ixian-Core |
 | Ixian-DLT | ~/Ixian/Ixian-DLT |
-| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release |
+| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0 |
 
 If you have placed the Ixian source code folders elsewhere, change them in the below description. Furthermore, if you copied the executable files from the bin/Release folder someplace else, you will need to repeat the copy step to overwrite old executable files with new ones.
 
-0. Save the Ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/ixian.wal ~/ixian.wal.backup`.
+0. Save the Ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian DLT Node.
 2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.
@@ -177,20 +172,6 @@ If you have placed the Ixian source code folders elsewhere, change them in the b
 ## Configuration file
 
 See [DLT Node Configuration options](/guides/dlt_config_params.html) for details.
-
-## Troubleshooting mono 6.12.0.179 compile issue 
-If you're getting a `"AssemblyFiles" has invalid value "/usr/lib/mono/4.8-api/mscorlib.dll"` compile error when running `sh rebuild.sh`, you likely have updated to mono version 6.12.0.179. Unfortunately this version of mono has some breaking changes which prevents Ixian-DLT from compiling. See [issue](https://github.com/mono/mono/issues/21479) for details about it.
-To compile Ixian-DLT, you'll have to downgrade to mono 6.12.0.122. To downgrade, perform the following steps in order:
-1. Open a terminal and type the following command: `sudo apt-get remove mono-devel` or `sudo apt-get remove mono-complete` (if you installed the -complete version)
-2. `sudo nano /etc/apt/sources.list.d/mono-official-stable.list`
-3. Modify the line in this file so that it looks like this: `deb https://download.mono-project.com/repo/ubuntu stable-focal/snapshots/6.12.0.122 main`
-4. Save the file by pressing CTRL-O then CTRL-X to exit
-5. `sudo apt-get update`
-6. `sudo apt-get autoremove` then press Y
-7. `sudo apt-get remove mono-runtime libmono-2.0-1 libmono-profiler libmonosgen-2.0-1 libmono-2.0-dev libmonoboehm-2.0-1` then press Y
-8. `sudo apt-get install mono-complete` then press Y
-9. `sudo apt-get install nuget msbuild git gcc unzip` then press Y
-10. If you are in the Ixian-DLT folder, you can finally run `sh rebuild.sh`
 
 
 

@@ -3,17 +3,17 @@ title: DLT Node setup on macOS
 type: dlt
 ---
 
-Ixian was tested on macOS 10.13 High Sierra, 10.14 Mojave and 10.15 Catalina
+IxianDLT was tested on macOS 10.15 Catalina and newer
 
 # Installing an Ixian DLT Node on macOS
 
 ## Prerequisites
 
-* Operating system: macOS 10.9 or higher
-* RAM: 8 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
-* Free Disk Space: 200 GB, 500 GB Recommended
-* Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
+* Operating system: macOS 10.15 or higher
+* RAM: 16 GB
+* CPU: i3/i5/i7/Xeon or M series
+* Free Disk Space: 600 GB, 1 TB Recommended
+* Internet Connection Speed: 20 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10234.)
@@ -21,7 +21,7 @@ Ixian was tested on macOS 10.13 High Sierra, 10.14 Mojave and 10.15 Catalina
 
 
 ## Install required software
-1. Install a recent Mono release for macOS by following the guide here: [Mono Installation Guide](https://www.mono-project.com/docs/getting-started/install/mac/). If you do not intend to edit the Ixian source code, you can choose the *Stable* channel.
+1. Install dotnet SDK for macOS from here: [dotnet6.0 download](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
 
 2. Install git from the [Git Download page](https://git-scm.com/download/mac)
 
@@ -47,12 +47,12 @@ Ixian-DLT
 5. Switch into the `Ixian-DLT` directory and download the required NuGet packages:
 ```
 cd Ixian-DLT
-nuget restore DLTNode.sln
+dotnet restore
 ```
 
 6. Compile the DLT Node executable in the ‘Release Configuration’:
 ```
-msbuild /p:Configuration=Release /t:DLTNode
+dotnet build --configuration Release
 ```
 
 7. Ixian DLT Node requires the Argon2 library to function. In order to build one for your system, follow these steps:
@@ -68,7 +68,7 @@ make
 ```
 ..c. Copy the resulting Argon2 library to the IxianDLT folder. Please note that the file should be renamed to ‘libargon2.dylib’:
 ```
-cp libargon2.1.dylib ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/libargon2.dylib
+cp libargon2.1.dylib ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/libargon2.dylib
 ```
 
 8. Switch to the Ixian binaries folder:
@@ -86,7 +86,7 @@ The Ixian DLT node is now ready to start.
 
 Switch to the Ixian DLT binaries folder and issue the command to start the IxianDLT software:
 ```
-mono IxianDLT.exe
+./IxianDLT
 ```
 
 The output should look like this:
@@ -135,7 +135,7 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 1. Switch to the unpacked Ixian DLT folder. If you have followed the above instructions for building, the command should be `cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release`.
 3. Create a new script using your preferred text editor. This example uses *nano*: `nano StartIxian.sh`.
 4. Type or paste the IxianDLT command into the file. You may use the command below, which includes the most common options, as the starting point.
-`IxianDLT.exe -p 10234 -a 8081 --threads 2`
+`./IxianDLT -p 10234 -a 8081 --threads 2`
 5. Save the file and quit the editor. For *nano*, the command is `Ctrl-X`, then `Y`.
 6. Make the script file executable: `chmod u+x StartIxian.sh`.
 7. Use the new "StartIxian.sh" file to start the DLT Node with the specified options `./StartIxian.sh`.
@@ -144,14 +144,14 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 
 When a new version is released, you can upgrade the software using the following checklist:
 
-0. Save the ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/ixian.wal ~/ixian.wal.backup`.
+0. Save the ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian DLT Node.
 2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.
 4. Switch to the Ixian-DLT directory: `cd ~/Ixian/Ixian-DLT`.
 5. Update the sources to the latest version: `git pull`.
-6. Update nuget packages: `nuget restore DLTNode.sln`.
-7. Compile the new sources: `msbuild DLTNode.sln /p:Configuration=Release`.
+6. Update nuget packages: `dotnet restore`.
+7. Compile the new sources: `dotnet build --configuration Release`.
 8. Start the Ixian DLT Node again. The node will use the existing wallet file and downloaded data, so it will not need to generate a new wallet or synchronize again.
 
 Note: It is recommended to backup the wallet file **ixian.wal** before performing any upgrade or changing any settings on the command line.

@@ -9,10 +9,10 @@ type: dlt
 
 * Operating system: Windows 7 or higher, Recommended Windows 10
 ..* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
-* RAM: 8 GB
+* RAM: 16 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
-* Free Disk Space: 200 GB, 500 GB Recommended
-* Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
+* Free Disk Space: 600 GB, 1 TB Recommended
+* Internet Connection Speed: 20 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10234.)
