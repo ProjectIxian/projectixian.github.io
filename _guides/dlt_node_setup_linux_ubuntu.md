@@ -85,6 +85,16 @@ Switch to the Ixian DLT binaries folder and issue the command to start the Ixian
 ./IxianDLT
 ```
 
+If you're on a console-only environment with no GUI, issue this command instead:
+```
+./IxianDLT --disableWebStart
+```
+
+Alternatively you can also start the Ixian DLT with this command:
+```
+dotnet IxianDLT.dll --disableWebStart
+``` 
+
 The output should look like this:
 
 ![Ixian Console Output](https://projectixian.github.io/assets/images/guide_deb_1.png)
