@@ -9,7 +9,7 @@ type: s2
 
 * Operating system: Windows 7 or higher, Recommended Windows 10
 ..* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
-* RAM: 2 GB, Recommended 4 GB
+* RAM: 4 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least GHz
 * Free Disk Space: 5 GB, 10 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended

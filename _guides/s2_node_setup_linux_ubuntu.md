@@ -11,14 +11,14 @@ Note: This guide should work for most apt-based distributions, such as:
 * MX Linux
 * Mint
 
-Ixian was tested on Ubuntu (16.04+), Fedora (28+), Centos 7.
+IxianS2 was tested on Ubuntu (22.04+).
 
 # Installing an Ixian S2 Node on Linux (Debian/Ubuntu clones)
 
 ## Prerequisites
 
 * Operating system: apt-based Linux distribution, such as Debian or Ubuntu
-* RAM: 2 GB, Recommended 4 GB
+* RAM: 4 GB
 * CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz
 * Free Disk Space: 10 GB, 20 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
@@ -33,14 +33,11 @@ sudo apt update
 ```
 
 ## Install required software
-1. Install a recent Mono release for linux by following the guide for your Linux distribution here: [Mono Installation Guide](https://www.mono-project.com/download/stable/). When installing, use the "mono-devel" package:
-```
-sudo apt install mono-devel
-```
+1. Install the dotnet 6.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
 
 2. Install additional required packages:
 ```
-sudo apt install nuget msbuild git gcc unzip
+sudo apt install gcc git make unzip
 ```
 
 3. Prepare a directory for the Ixian Project:
@@ -65,17 +62,14 @@ Ixian-S2
 5. Switch into the `Ixian-S2` directory and download the required NuGet packages:
 ```
 cd Ixian-S2
-nuget restore S2Node.sln
+sh rebuild.sh
 ```
 
-6. Compile the S2 Node executable in the ‘Release Configuration’:
-```
-msbuild S2Node.sln /p:Configuration=Release
-```
+The script will build all necessary files, which will be located in '~/Ixian/Ixian-S2/IxianS2/bin/Release/net6.0/'
 
-7. Switch to the Ixian binaries folder:
+6. Switch to the Ixian binaries folder:
 ```
-cd ~/Ixian/Ixian-S2/IxianS2/bin/Release
+cd ~/Ixian/Ixian-S2/IxianS2/bin/Release/net6.0/
 ```
 
 The Ixian S2 node is now ready to start.
@@ -84,8 +78,18 @@ The Ixian S2 node is now ready to start.
 
 Switch to the Ixian S2 binaries folder and issue the command to start the IxianS2 software:
 ```
-mono IxianS2.exe
+./IxianS2
 ```
+
+If you're on a console-only environment with no GUI, issue this command instead:
+```
+./IxianS2 --disableWebStart
+```
+
+Alternatively you can also start the Ixian DLT with this command:
+```
+dotnet IxianS2.dll --disableWebStart
+``` 
 
 The output should look like this:
 
@@ -148,10 +152,10 @@ Any repeatable options may be specified more than once. If nonrepeatable options
 ### Startup script
 If you need to run the S2 Node with different settings, but are unable to use the configuration file, it can be tedious to type them out every time you wish to start the software. It is recommended to create a shell script (**.sh**) with the options already set. To do this, follow the guide below:
 
-1. Switch to the Ixian S2 Release folder. If you have followed the above instructions for building, the command should be `cd ~/Ixian/Ixian-S2/IxianS2/bin/Release`.
+1. Switch to the Ixian S2 Release folder. If you have followed the above instructions for building, the command should be `cd ~/Ixian/Ixian-S2/IxianS2/bin/Release/net6.0/`.
 3. Create a new script using your preferred text editor. This example uses *nano*: `nano StartIxianS2.sh`.
 4. Type or paste the IxianS2 command into the file. You may use the command below, which includes the most common options, as the starting point.
-`IxianS2.exe -p 10235 -a 8001 -i 172.16.34.17`
+`./IxianS2 -p 10235 -a 8001 -i 172.16.34.17`
 5. Save the file and quit the editor. For *nano*, the command is `Ctrl-X`, then `Y`.
 6. Make the script file executable: `chmod u+x StartIxianS2.sh`.
 7. Use the new "StartIxian.sh" file to start the S2 Node with the specified options `./StartIxianS2.sh`.
@@ -177,7 +181,6 @@ If you have placed the Ixian source code folders elsewhere, change them in the b
 3. Update the sources to the latest version: `git pull`.
 4. Switch to the Ixian-S2 directory: `cd ~/Ixian/Ixian-S2`.
 5. Update the sources to the latest version: `git pull`.
-6. Update nuget packages: `nuget restore S2Node.sln`.
-7. Compile the new sources: `msbuild S2Node.sln /p:Configuration=Release`.
-8. (Optional) If you have copied the binaries elsewhere, repeat that step.
-9. Start the Ixian S2 Node again. The node will use the existing wallet file, so it will not need to generate a new wallet.
+6. Run the rebuild script: `sh rebuild.sh`.
+7. (Optional) If you have copied the binaries elsewhere, repeat that step.
+8. Start the Ixian S2 Node again. The node will use the existing wallet file, so it will not need to generate a new wallet.
