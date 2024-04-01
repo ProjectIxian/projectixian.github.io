@@ -10,7 +10,7 @@ Extend name registration for a specified amount of time.
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | name | String | Yes | Name to be registered. |
-| extensionTime | Number | Yes | Time in block to extend the name for. |
+| extensionTime | Number | Yes | Time in blocks to extend the name for. |
 
 ### Errors:
 
