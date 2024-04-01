@@ -19,7 +19,7 @@ Returns balance of the specified address.
 
 | Error | Description |
 | --- | --- |
-| RPC_INTERNAL_ERROR | An unexpected error occured within the node. Please see the node log for details. |
+| RPC_INTERNAL_ERROR | An unexpected error occurred within the node. Please see the node log for details. |
 
 Note: No error is returned if attempting to read the balance for a nonexistant wallet. In this case, a balance of "0.00000000" is returned.
 

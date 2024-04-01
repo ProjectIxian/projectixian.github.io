@@ -12,7 +12,7 @@ None
 
 | Error | Description |
 | --- | --- |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 ### Output:
 - success: IXI supply as a decimal number in the result field with the error field set to null

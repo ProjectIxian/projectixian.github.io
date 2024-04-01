@@ -28,7 +28,7 @@ Modifies the running DLT Node or Miner software and changes the way blocks are s
 
 | Error | Description |
 | --- | --- |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 ### Output:
 - success: JSON result with all null values

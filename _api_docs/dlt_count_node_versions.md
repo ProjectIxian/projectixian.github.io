@@ -12,7 +12,7 @@ None
 
 | Error | Description |
 | --- | --- |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 
 ### Output:
@@ -22,11 +22,12 @@ None
 GET http://localhost:8081/countnodeversions
 ```
 {
-    "result": {
-        "xdc-0.6.6-dev": 35,
-        "xdc-0.6.5-dev": 21
-        },
-    "error": null,
-    "id": null
+  "result": {
+    "xdc-0.9.2a": 35,
+    "xdc-0.9.2": 21,
+    "xdc-0.9.2b": 5
+  },
+  "error": null,
+  "id": null
 }
 ```

@@ -1,14 +1,15 @@
 ---
-title: My Public Key
+title: Sign
 type: core
 ---
-## My Public Key
-Returns the primary public key of this node.
-### Method: `mypubkey`
+## Sign
+Signs a specified string.
+### Method: `sign`
 ### Input parameters:
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
+| message or hash | String | Yes | Message or hash to be signed. |
 | wallet | String | No | Base58 Primary Wallet address in case multiple wallets are being used. |
 
 
@@ -19,15 +20,14 @@ Returns the primary public key of this node.
 | RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 ### Output:
-- success: public key in the result field with the error field set to null
-- fail: JSON encoded details with a non-null error and a null result
+- a JSON object with the wallet bytes encoded as a hexadecimal string.
 
 ### Example:
-GET http://localhost:8081/mypubkey
+GET http://localhost:8081/sign?message=test
 ```
 {
-	"result": "00020000...5d1e69cb503000000010001",
-	"error": null,
-	"id": null
+  "result": "5237481874cdf80...e3a3b89fce20f735b749eda9fb2cc6",
+  "error": null,
+  "id": null
 }
 ```

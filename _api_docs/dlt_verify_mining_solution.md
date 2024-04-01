@@ -19,7 +19,7 @@ Checks the given solution against the block's difficulty field to determine if i
 | Error | Description |
 | --- | --- |
 | RPC_INVALID_PARAMETER | One or more of the required parameters are missing. |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 
 ### Output:

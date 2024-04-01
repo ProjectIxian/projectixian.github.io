@@ -13,13 +13,14 @@ Note: The required 'nonce' value used to generate a new address is determined au
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | address | String | No | Primary address (key pair) which will be used to generate a new address. |
+| wallet | String | No | Base58 Primary Wallet address in case multiple wallets are being used. |
 
 
 ### Errors:
 
 | Error | Description |
 | --- | --- |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 ### Output:
 - success: new address in the result field with the error field set to null

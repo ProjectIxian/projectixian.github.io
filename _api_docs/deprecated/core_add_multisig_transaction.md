@@ -20,8 +20,8 @@ Creates an initial transaction for a Multi-Signature wallet. The transaction is 
 | --- | --- |
 | RPC_WALLET_ERROR | The specified wallet is not a multisig wallet. |
 | RPC_WALLET_INSUFFICIENT_FUNDS | The balance on the `from` wallet is too low for this transaction. |
-| RPC_WALLET_INSUFFICIENT_FUNDS | An unknown error occured while creating the transaction - please check the node's log file. |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_WALLET_INSUFFICIENT_FUNDS | An unknown error occurred while creating the transaction - please check the node's log file. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
  
 ### Output:
 - success: the transaction is added to the Transaction Pool and broadcast to the network and the Transaction object is returned.

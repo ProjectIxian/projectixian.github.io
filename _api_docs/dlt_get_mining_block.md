@@ -31,7 +31,7 @@ Note: In a cooperative pool mining, the solution should incorporate the pool con
 | Error | Description |
 | --- | --- |
 | RPC_INVALID_PARAMETER | The required parameter is missing. |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 
 ### Output:

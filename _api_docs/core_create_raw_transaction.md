@@ -22,6 +22,7 @@ Note: If using the `primaryAddress` parameter, the chosen address (public key) m
 | primaryAddress | String | No | Specify if the node is using a wallet with multiple keypairs in order to select the keypair (public key) which will be used to sign the transaction. The chosen primary address must be a valid signer for all addresses listed in the `from` field. |
 | fee | Number | No | Transaction fee, specified in IxiCash per kB. If no fee parameter is specified, the default (which is also the minimum) 0.00005 IxiCash per kB will be used. |
 | autofee | Boolean | No | If specified, the system will automatically deduct the required fee from the first address given in `from`. This parameter is not required if you have included the appropriate fees somewhere in the `from` list, or are not specifying the `from` list at all. |
+| wallet | String | No | Base58 Primary Wallet address in case multiple wallets are being used. |
 | json | Boolean | No | If specified, the transaction will be returned as a JSON transaction object and not encoded as a hexstring. |
 
 ### Output:
@@ -36,8 +37,8 @@ Note: If using the `primaryAddress` parameter, the chosen address (public key) m
 | RPC_INVALID_PARAMS | Invalid `from` amounts, or invalid `to` amounts were specified. |
 | RPC_VERIFY_ERROR | The transaction does not pass verification - this usually means that no usable `from` addresses were present, or there was something wrong with the signing key. |
 | RPC_WALLET_INSUFFICIENT_FUNDS | Address or addresses specified have insufficient balance to be used for the transaction. |
-| RPC_TRANSACTION_ERROR | An error occured while adding the transaction, check the message and log file for details. |
-| RPC_INTERNAL_ERROR | An unexpected error occured within the node. Please see the node log for details. |
+| RPC_TRANSACTION_ERROR | An error occurred while adding the transaction, check the message and log file for details. |
+| RPC_INTERNAL_ERROR | An unexpected error occurred within the node. Please see the node log for details. |
 
 ### Example:
 GET http://localhost:8081/createrawtransaction?from=1JKZFqQs4yiH6Dq4bfom7xcpL6zG53DrjcY6HD9QJ6cRWmXdq_10000-1PC5kubyLvTmsf16CugqHpBG8B8PK4YjcfSjjLMqbUi8YvkQ_5000&to=153xXfVi1sznPcRqJur8tutgrZecNVYGSzetp47bQvRfNuDix_15000

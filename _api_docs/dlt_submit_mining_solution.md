@@ -18,7 +18,7 @@ Submits the given solution to the PoW mining problem for the specified block.
 | Error | Description |
 | --- | --- |
 | RPC_INVALID_PARAMETER | One or more of the required parameters are missing. |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 
 ### Output:

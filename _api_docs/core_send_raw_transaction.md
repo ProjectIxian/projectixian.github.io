@@ -22,8 +22,8 @@ Takes a hexadecimal representation of a valid, signed transaction and sends it t
 | Error | Description |
 | --- | --- |
 | RPC_INVALID_PARAMETER | The `transaction` parameter is missing or does not represent a valid transaction object. |
-| RPC_VERIFY_ERROR | The transaction was not valid, or an unexpected error has occured in the node. Please see the node's log for details. |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_VERIFY_ERROR | The transaction was not valid, or an unexpected error has occurred in the node. Please see the node's log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 ### Example:
 GET http://localhost:8081/sendrawtransaction?transaction=03000000000000000e313...cd149493f0d973b7d7bb9b6

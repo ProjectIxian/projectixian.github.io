@@ -15,6 +15,7 @@ Retrieves the activity for the currently loaded wallet with optional filtering o
 | type | Number | No | Type of the activity to fetch as a number. See below. |
 | orderBy | String | No | Ordering method of requested data. Can be "insertedTimestamp", "timestamp" or "blockheight". Default is "insertedTimestamp". |
 | descending | Boolean | No | Ordering direction of requested data, set to "true" for descending order. Default is ascending order.  |
+| wallet | String | No | Base58 Primary Wallet address in case multiple wallets are being used. |
 
 ### Activity Types
 
@@ -34,7 +35,7 @@ Retrieves the activity for the currently loaded wallet with optional filtering o
 
 | Error | Description |
 | --- | --- |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 
 ### Example:
@@ -42,23 +43,24 @@ GET http://localhost:8081/activity
 
 ```
 {
-    "result": [
-        {
-            "seedHash": "Ac2g5Zh...TMg3p6v",
-            "wallet": "4qX7Uo...y5V4mHg",
-            "from": "1ixianinfinimine234234234234234234234234234242HP",
-            "toList": "||4ixR19HcrGcB...ECc=",
-            "type": 201,
-            "data": "c3RrLTIwLTI1...N3Q=",
-            "value": "0.09990100",
-            "timestamp": 1562596905,
-            "status": 2,
-            "blockHeight": 26,
-            "txid": "stk-20-25-2EAa...bysa7t",
-            "id": "Voaz...ftiPk"
-        }
-    ]
-    "error": null,
-    "id": null
+  "result": [
+    {
+      "seedHash": "Ab7Bkj6gj6Bm5WukZVeptezz2oLEhLcBDXehZQ583aEuTdb+n78AQzGqRqZFYZkO",
+      "wallet": "4iMKArchGjmLsZFsj2tYrBgPjjypvEwquB2pnbEvYAyihSeEi1FN5XBsWru2iKDXK",
+      "from": "1ixianinfinimine234234234234234234234234234242HP",
+      "toList": "||4iMKArchGjmLsZFsj2tYrBgPjjypvEwquB2pnbEvYAyihSeEi1FN5XBsWru2iKDXK:/tkU||5DY8ZF2Y1xbB2n7V7c3z8pcAoLAsScAVAiZdcnqBPbLuGHiq9RWamn83hautJvEoy:ZEwj||4C62hPSVNHTXe4aMtgoFYZ3KVCNXmkCr7MmJRprWukvtUSWTsMsm6UaPLqmiVtnh1:7tI/||4L5vswa8yS9VKsZzDJ2ry9gWY7KQon5bkvhG1CUuepkwvcy1xQmLsHA9DPmCDbufr:mDW5AA==",
+      "type": 201,
+      "data": "APyudjHAmnhQfZitq5BY8vgA1PboOXgm10RmMaeGWaHiltRiQdXyrWoA4pE9OKTq",
+      "value": "0.01366526",
+      "timestamp": 1709254781,
+      "status": 2,
+      "blockHeight": 30383,
+      "txid": "stk-30377-30382-HBEF6nRAb4qudWecJQnopZCfseUGYXp2KKVvpcbCNYZSAmqCTw4cpcqN7aN5",
+      "id": "EvniSJUZje4PU46HAqybNoQpZ8mKrpUULcY6oniijR3XehRovo9TSw2fBBMG"
+    },
+    ...
+  ],
+  "error": null,
+  "id": null
 }
 ```

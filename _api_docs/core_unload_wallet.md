@@ -1,10 +1,10 @@
 ---
-title: My Public Key
+title: Unload Wallet
 type: core
 ---
-## My Public Key
-Returns the primary public key of this node.
-### Method: `mypubkey`
+## Unload Wallet
+Unloads specified wallet.
+### Method: `unloadWallet`
 ### Input parameters:
 
 | Parameter | Type | Required | Description |
@@ -19,15 +19,15 @@ Returns the primary public key of this node.
 | RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 ### Output:
-- success: public key in the result field with the error field set to null
-- fail: JSON encoded details with a non-null error and a null result
+- a JSON object with "OK" string, if wallet was unloaded in result field.
+- a JSON object with "FAIL" string in result field, if wallet can't be unloaded.
 
 ### Example:
-GET http://localhost:8081/mypubkey
+GET http://localhost:8081/unloadWallet
 ```
 {
-	"result": "00020000...5d1e69cb503000000010001",
-	"error": null,
-	"id": null
+  "result": "OK",
+  "error": null,
+  "id": null
 }
 ```

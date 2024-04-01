@@ -21,7 +21,7 @@ Note: Any combination of allowed signatures will enable the transaction, as long
 | --- | --- |
 | RPC_INVALID_PARAMS | One or more of the required parameters are missing or invalid. |
 | RPC_INVALID_PARAMETER | The `sigs` parameter was not a number or was out of range. |
-| RPC_INTERNAL_ERROR | An unknown error occured while creating the transaction - please check the node's log file. |
+| RPC_INTERNAL_ERROR | An unknown error occurred while creating the transaction - please check the node's log file. |
  
 ### Output:
 - success: the transaction is added to the Transaction Pool and broadcast to the network and the Transaction object is returned.

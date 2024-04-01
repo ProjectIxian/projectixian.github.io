@@ -30,10 +30,8 @@ GET http://localhost:8081/signrawtransaction?transaction=0300000...0ad2a25212b00
 
 ```
 {
-{
-	"result": "03000000000000000e313...cd149493f0d973b7d7bb9b6",
-	"error": null,
-	"id": null
-}
+  "result": "03000000000000000e313...cd149493f0d973b7d7bb9b6",
+  "error": null,
+  "id": null
 }
 ```

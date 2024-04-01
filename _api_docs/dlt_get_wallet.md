@@ -16,7 +16,7 @@ Returns the information about a specified address/wallet.
 
 | Error | Description |
 | --- | --- |
-| RPC_INTERNAL_ERROR | An unknown error occured in the node. Please check the node log for details. |
+| RPC_INTERNAL_ERROR | An unknown error occurred in the node. Please check the node log for details. |
 
 Note: Attempting to get the details of an invalid value will return empty data (no public key, balance = 0)
 
