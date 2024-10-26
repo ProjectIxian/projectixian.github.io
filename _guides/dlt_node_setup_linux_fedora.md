@@ -8,18 +8,17 @@ type: dlt
 ## Prerequisites
 
 * Operating system: recent version of Fedora Linux
-* RAM: 16 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
-* Free Disk Space: 600 GB, 1 TB Recommended
-* Internet Connection Speed: 20 Mbps symmetrical or higher, 100 Mbps recommended
+* RAM: at least 16 GB
+* CPU: i7/i9/Xeon or AMD equivalent processor with at least 2GHz and at least 8 CPU threads
+* Free Disk Space: 1.5 TB, 2 TB Recommended
+* Internet Connection Speed: 50 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10234.)
-* A minimum of 2000 IXI is required to operate an Ixian DLT master node.
 
 
 ## Install required software
-1. Install the dotnet 6.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
+1. Install the dotnet 8.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
 
 2. Install additional required packages:
 ```
@@ -50,7 +49,7 @@ Ixian-DLT
 cd Ixian-DLT
 sh rebuild.sh
 ```
-The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/'
+The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/'
 
 
 6. Ixian DLT Node requires the Argon2 library to function. In order to build one for your system, follow these steps:
@@ -66,12 +65,12 @@ make
 ```
 ..c. Copy the resulting Argon2 library to the IxianDLT folder. Please note that the file should be renamed to ‘libargon2.so’:
 ```
-cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/libargon2.so
+cp libargon2.so.1 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/libargon2.so
 ```
 
 7. Switch to the Ixian binaries folder:
 ```
-cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/
+cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/
 ```
 
 8. (Optional) Download and unpack the bootstrap data files to enable faster synchronization.
@@ -161,11 +160,11 @@ Note: We assume that you have followed the above instructions and the Ixian dire
 | --- | --- |
 | Ixian-Core | ~/Ixian/Ixian-Core |
 | Ixian-DLT | ~/Ixian/Ixian-DLT |
-| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0 |
+| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0 |
 
 If you have placed the Ixian source code folders elsewhere, change them in the below description. Furthermore, if you copied the executable files from the bin/Release folder someplace else, you will need to repeat the copy step to overwrite old executable files with new ones.
 
-0. Save the Ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/ixian.wal ~/ixian.wal.backup`.
+0. Save the Ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian DLT Node.
 2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.

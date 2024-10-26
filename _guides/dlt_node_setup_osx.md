@@ -10,18 +10,17 @@ IxianDLT was tested on macOS 10.15 Catalina and newer
 ## Prerequisites
 
 * Operating system: macOS 10.15 or higher
-* RAM: 16 GB
+* RAM: at least 16 GB
 * CPU: i3/i5/i7/Xeon or M series
-* Free Disk Space: 600 GB, 1 TB Recommended
-* Internet Connection Speed: 20 Mbps symmetrical or higher, 100 Mbps recommended
+* Free Disk Space: 1.5 TB, 2 TB Recommended
+* Internet Connection Speed: 50 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10234.)
-* A minimum of 2000 IXI is required to operate an Ixian DLT master node.
 
 
 ## Install required software
-1. Install dotnet SDK for macOS from here: [dotnet6.0 download](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
+1. Install dotnet SDK for macOS from here: [dotnet8.0 download](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
 2. Install git from the [Git Download page](https://git-scm.com/download/mac)
 
@@ -68,7 +67,7 @@ make
 ```
 ..c. Copy the resulting Argon2 library to the IxianDLT folder. Please note that the file should be renamed to ‘libargon2.dylib’:
 ```
-cp libargon2.1.dylib ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/libargon2.dylib
+cp libargon2.1.dylib ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/libargon2.dylib
 ```
 
 8. Switch to the Ixian binaries folder:
@@ -154,7 +153,7 @@ If you need to run the DLT Node with different settings, it can be tedious to ty
 
 When a new version is released, you can upgrade the software using the following checklist:
 
-0. Save the ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/ixian.wal ~/ixian.wal.backup`.
+0. Save the ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian DLT Node.
 2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.

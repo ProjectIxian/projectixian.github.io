@@ -18,14 +18,14 @@ IxianDLT was tested on Ubuntu (22.04+).
 ## Prerequisites
 
 * Operating system: apt-based Linux distribution, such as Debian or Ubuntu
-* RAM: 16 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
-* Free Disk Space: 600 GB, 1 TB Recommended
-* Internet Connection Speed: 20 Mbps symmetrical or higher, 100 Mbps recommended
+* RAM: at least 16 GB
+* CPU: i7/i9/Xeon or AMD equivalent processor with at least 2GHz and at least 8 CPU threads
+* Free Disk Space: 1.5 TB, 2 TB Recommended
+* Internet Connection Speed: 50 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10234.)
-* A minimum of 2000 IXI is required to operate an Ixian DLT master node.
+
 
 ## Make sure you have the latest package repositories
 Before beginning Ixian installation, it is recommended to update your package manager to the latest package database. On Ubuntu-based systems this is done with the following command:
@@ -34,7 +34,7 @@ sudo apt update
 ```
 
 ## Install required software
-1. Install the dotnet 6.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
+1. Install the dotnet 8.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
 
 2. Install additional required packages:
 ```
@@ -65,11 +65,11 @@ Ixian-DLT
 cd Ixian-DLT
 sh rebuild.sh
 ```
-The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/'
+The script will build all necessary files, which will be located in '~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/'
 
 6. Switch to the Ixian binaries folder:
 ```
-cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/
+cd ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/
 ```
 
 7. (Optional) Download and unpack the bootstrap data files to enable faster synchronization.
@@ -103,7 +103,7 @@ The output should look like this:
 * On some systems we have noticed a problem with libargon2.so when built from source, causing an exception in DLT when trying to verify PoW transaction or when mining.
 Luckily Ubuntu (and possibly other distributions) provides its own libargon2.so, located in '/usr/lib/x86_64-linux-gnu/libargon2.so.0', you can simply replace the compiled version:
 ```
-cp /usr/lib/x86_64-linux-gnu/libargon2.so.0 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/libargon2.so
+cp /usr/lib/x86_64-linux-gnu/libargon2.so.0 ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/libargon2.so
 ```
 
 ### Creating a wallet
@@ -165,11 +165,11 @@ Note: We assume that you have followed the above instructions and the Ixian dire
 | --- | --- |
 | Ixian-Core | ~/Ixian/Ixian-Core |
 | Ixian-DLT | ~/Ixian/Ixian-DLT |
-| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0 |
+| Executable | ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0 |
 
 If you have placed the Ixian source code folders elsewhere, change them in the below description. Furthermore, if you copied the executable files from the bin/Release folder someplace else, you will need to repeat the copy step to overwrite old executable files with new ones.
 
-0. Save the Ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net6.0/ixian.wal ~/ixian.wal.backup`.
+0. Save the Ixian wallet file: `cp ~/Ixian/Ixian-DLT/IxianDLT/bin/Release/net8.0/ixian.wal ~/ixian.wal.backup`.
 1. Shutdown the Ixian DLT Node.
 2. Switch to the Ixian-Core directory: `cd ~/Ixian/Ixian-Core`.
 3. Update the sources to the latest version: `git pull`.

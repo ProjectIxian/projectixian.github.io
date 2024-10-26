@@ -10,12 +10,13 @@ type: s2
 * Operating system: Windows 7 or higher, Recommended Windows 10
 ..* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
 * RAM: 4 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least GHz
+* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2GHz
 * Free Disk Space: 5 GB, 10 GB Recommended
 * Internet Connection Speed: 10 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10235.)
+* Install the dotnet 8.0 SDK following the guide here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/windows#net-installer).
 
 ## Obtaining the software
 Visit the Ixian S2 Github [Releases](https://github.com/ProjectIxian/Ixian-S2/releases) page and obtain the latest available version as a ZIP package. The release file is available in the "Assets" section of each release announcement.

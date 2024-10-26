@@ -8,16 +8,17 @@ type: dlt
 ## Prerequisites
 
 * Operating system: Windows 7 or higher, Recommended Windows 10
-..* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
-* RAM: 16 GB
-* CPU: i3/i5/i7/Xeon or AMD equivalent with at least 2 GHz and at least 4 CPU threads
-* Free Disk Space: 600 GB, 1 TB Recommended
-* Internet Connection Speed: 20 Mbps symmetrical or higher, 100 Mbps recommended
+* Alternatively: Windows Server 2008 R2 or higher, Recommended Windows Server 2016
+* RAM: at least 16 GB
+* CPU: i7/i9/Xeon or AMD equivalent processor with at least 2GHz and at least 8 CPU threads
+* Free Disk Space: 1.5 TB, 2 TB Recommended
+* Internet Connection Speed: 50 Mbps symmetrical or higher, 100 Mbps recommended
 
 ## Additional requirements
 * Ability to forward a port from the public internet to the machine running the DLT Node. (Default port is TCP 10234.)
-* A minimum of 2000 IXI is required to operate an Ixian DLT master node.
+* Install the dotnet 8.0 SDK following the guide here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/windows#net-installer).
 
+ 
 ## Obtaining the software
 Visit the Ixian Github [Releases](https://github.com/ProjectIxian/Ixian-DLT/releases) page and obtain the latest available version as a ZIP package. The release file is available in the "Assets" section of each release announcement.
 

@@ -23,7 +23,7 @@ Note: This guide should work for most rpm-based distributions, such as:
 
 
 ## Install required software
-1. Install the dotnet 6.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
+1. Install the dotnet 8.0 SDK following the guide for your Linux distribution here: [DotNet Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux).
 
 2. Install additional required packages:
 ```
@@ -54,11 +54,11 @@ Ixian-S2
 cd Ixian-S2
 sh rebuild.sh
 ```
-The script will build all necessary files, which will be located in '~/Ixian/Ixian-S2/IxianS2/bin/Release/net6.0/'
+The script will build all necessary files, which will be located in '~/Ixian/Ixian-S2/IxianS2/bin/Release/net8.0/'
 
 6. Switch to the Ixian binaries folder:
 ```
-cd ~/Ixian/Ixian-S2/IxianS2/bin/Release/net6.0/
+cd ~/Ixian/Ixian-S2/IxianS2/bin/Release/net8.0/
 ```
 
 The Ixian S2 node is now ready to start.
@@ -141,7 +141,7 @@ Any repeatable options may be specified more than once. If nonrepeatable options
 ### Startup script
 If you need to run the S2 Node with different settings, but are unable to use the configuration file, it can be tedious to type them out every time you wish to start the software. It is recommended to create a shell script (**.sh**) with the options already set. To do this, follow the guide below:
 
-1. Switch to the Ixian S2 Release folder. If you have followed the above instructions for building, the command should be `cd ~/Ixian/Ixian-S2/IxianS2/bin/Release/net6.0/`.
+1. Switch to the Ixian S2 Release folder. If you have followed the above instructions for building, the command should be `cd ~/Ixian/Ixian-S2/IxianS2/bin/Release/net8.0/`.
 3. Create a new script using your preferred text editor. This example uses *nano*: `nano StartIxianS2.sh`.
 4. Type or paste the IxianS2 command into the file. You may use the command below, which includes the most common options, as the starting point.
 `./IxianS2 -p 10235 -a 8001 -i 172.16.34.17`
